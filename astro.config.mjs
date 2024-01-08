@@ -5,11 +5,20 @@ import starlight from "@astrojs/starlight";
 export default defineConfig({
   integrations: [
     starlight({
-      title: "About digital gardens",
+      title: "Publishing digital garden",
       social: {
         github: "https://github.com/stereobooster/digital-garden",
       },
-      sidebar: [{ label: "Intro", link: "/" }],
+      sidebar: [
+        { label: "Intro", link: "/" },
+        {
+          label: "Recipes",
+          collapsed: true,
+          autogenerate: {
+            directory: "recipes",
+          },
+        },
+      ],
     }),
   ],
 });
