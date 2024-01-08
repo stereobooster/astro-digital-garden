@@ -5,7 +5,7 @@ import starlight from "@astrojs/starlight";
 export default defineConfig({
   integrations: [
     starlight({
-      title: "Publishing digital garden",
+      title: "Astro digital garden",
       social: {
         github: "https://github.com/stereobooster/digital-garden",
       },

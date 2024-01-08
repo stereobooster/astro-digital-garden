@@ -2,7 +2,11 @@
 title: About digital gardens
 ---
 
-**Task**: write guide/reciepes about publishing digital garden (aka second brain, zettelkasten) as static website.
+[Digital garden](https://github.com/MaggieAppleton/digital-gardeners) aka [Second brain](https://www.ssp.sh/brain/), [Zettelkasten](https://en.wikipedia.org/wiki/Zettelkasten), personal wiki, personal knowledge management.
+
+There are different aspects of a digital garden. It can be seen as a way to take notes just for yourself, but for me, it's more interesting as a way to organize knowledge and publish it as a (static) website.
+
+There are different editors (note-taking applications): [Obsidian](https://obsidian.md/), [Foam](https://foambubble.github.io/foam/), [Roam Research](https://roamresearch.com/) to name few. But again, I am more interested in the publishing part - assuming you already created content with an editor of your choice.
 
 My previous articles on the subject:
 
@@ -19,9 +23,7 @@ My previous articles on the subject:
 - collect all ideas from posts above and rewrite for this website
 - recipes section - small articles about how to implement one specific feature, for example:
   - markdown extensions
-    - [Math equations](/recipes/math/)
     - diagrams
-    - [Add icons to external links](https://docs.astro.build/en/recipes/external-links/)
     - [Add last modified time](https://docs.astro.build/en/recipes/modified-time/)
     - add link to headings
       - [Add links to Starlight headings](https://hideoo.dev/notes/starlight-heading-links)
