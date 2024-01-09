@@ -25,9 +25,11 @@ My previous articles on the subject:
   - markdown extensions
     - diagrams
     - [Add last modified time](https://docs.astro.build/en/recipes/modified-time/)
-    - add link to headings
+    - [Anchor Links for Headings](https://github.com/withastro/starlight/discussions/1239)
       - [Add links to Starlight headings](https://hideoo.dev/notes/starlight-heading-links)
-      - [Anchor Links for Headings](https://github.com/withastro/starlight/discussions/1239)
+      - https://github.com/withastro/docs/pull/5610/files
+      - https://github.com/valeriangalliat/markdown-it-anchor/issues/82#issuecomment-788268457
+      - https://amberwilson.co.uk/blog/are-your-anchor-links-accessible/
   - components
     - link previews
     - search for static website
@@ -46,4 +48,3 @@ My previous articles on the subject:
     - tags
     - alphabetical index
     - faceted search
-    - 
