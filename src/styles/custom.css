@@ -1,0 +1,6 @@
+@import url(katex/dist/katex.min.css);
+
+.no-select {
+  user-select: none;
+}
+

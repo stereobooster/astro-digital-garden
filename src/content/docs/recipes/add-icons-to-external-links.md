@@ -13,12 +13,18 @@ pnpm add rehype-external-links
 import rehypeExternalLinks from "rehype-external-links";
 
 export default defineConfig({
+  integrations: [
+    starlight({
+      customCss: ["./src/styles/custom.css"],
+    }),
+  ],
   markdown: {
     rehypePlugins: [
       [
         rehypeExternalLinks,
         {
-          content: { type: "text", value: " ↗" }, // ⤴ 
+          content: { type: "text", value: " ↗" }, // ⤴
+          contentProperties: { "aria-hidden": true, class: "no-select" },
         },
       ],
     ],
@@ -26,4 +32,23 @@ export default defineConfig({
 });
 ```
 
-Source: https://docs.astro.build/en/recipes/external-links/
+```css
+.no-select {
+  user-select: none;
+}
+```
+
+Based on: https://docs.astro.build/en/recipes/external-links/
+
+## Example
+
+```md
+// example.md
+https://example.com
+```
+
+https://example.com
+
+## Further improvements
+
+One more idea is to add `favicon` of the target instead of `↗`.
