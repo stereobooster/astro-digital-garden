@@ -51,4 +51,5 @@ https://example.com
 
 ## Further improvements
 
-One more idea is to add `favicon` of the target instead of `↗`.
+- Possible to impelement with pure CSS, something like `a[rel=nofollow]:after {content: " ↗"}`
+- One more idea is to add `favicon` of the target instead of `↗`.

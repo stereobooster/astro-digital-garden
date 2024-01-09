@@ -10,12 +10,10 @@ There are different editors (note-taking applications): [Obsidian](https://obsid
 
 My previous articles on the subject:
 
-- https://stereobooster.com/posts/astro-diagrams/
 - https://stereobooster.com/posts/digital-garden-as-static-website/
 - https://stereobooster.com/posts/useful-modern-tools-for-static-websites/
 - https://stereobooster.com/posts/portable-markdown-links/
 - https://stereobooster.com/posts/markdown-tools/
-- https://stereobooster.com/posts/text-to-diagram/
 - https://stereobooster.com/posts/what-i-miss-in-markdown/
 
 **TODO**:
@@ -39,6 +37,7 @@ My previous articles on the subject:
     - social images autogenration
     - SEO, SMO
     - sortable tables
+    - lazy embeded video
   - Links
     - backlinks
     - content graph

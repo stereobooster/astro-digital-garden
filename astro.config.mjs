@@ -16,7 +16,7 @@ export default defineConfig({
         { label: "Intro", link: "/" },
         {
           label: "Recipes",
-          collapsed: true,
+          // collapsed: true,
           autogenerate: {
             directory: "recipes",
           },
