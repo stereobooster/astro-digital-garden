@@ -49,27 +49,40 @@ export default defineConfig({
 
 [Author advices against using remark plugin and insists on using rehype plugin](https://github.com/remcohaszing/remark-mermaidjs/issues/23#issuecomment-1881313556).
 
+You may need to fix some CSS for your diagrams, for example:
+
+```css
+// src/styles/custom.css
+svg .node .label {
+  line-height: 1.2;
+}
+```
+
 ### Option 2 - rehype plugin
 
 `rehype-mermaidjs` doesn't work with Astro out of the box. Because of [remark-shiki](https://github.com/withastro/astro/blob/main/packages/markdown/remark/src/remark-shiki.ts). There are several workarounds:
 
-- use `rehype-raw`, like in the original post
-- disable `remark-shiki` at all ([`markdown.syntaxHighlight: false`](https://docs.astro.build/en/reference/configuration-reference/#markdownsyntaxhighlight)) and use [`rehype-shikiji`](https://shikiji.netlify.app/packages/rehype)
-
-```bash title="Instal dependencies…"
-pnpm add rehype-mermaidjs rehype-raw
-```
-
-```js
-// astro.config.mjs
-import rehypeMermaid from "rehype-mermaid";
-import rehypeRaw from "rehype-raw";
-
-export default defineConfig({
-  markdown: {
-    rehypePlugins: [rehypeRaw, rehypeMermaid],
-  },
-});
-```
+- ~~use `rehype-raw`~~ (it used to work)
+- ~~disable `remark-shiki` at all ([`markdown.syntaxHighlight: false`](https://docs.astro.build/en/reference/configuration-reference/#markdownsyntaxhighlight)) and use [`rehype-shikiji`](https://shikiji.netlify.app/packages/rehype)~~
 
 There is upcoming feature to support dark mode: [rehype-mermaid#6](https://github.com/remcohaszing/rehype-mermaid/issues/6).
+
+## Example
+
+````md
+// example.md
+
+```mermaid
+flowchart LR
+    Start --> Stop
+```
+````
+
+```mermaid
+flowchart LR
+    Start --> Stop
+```
+
+## Further improvements
+
+- Add JS script to do pan/zoom/drag, for example, https://github.com/bumbu/svg-pan-zoom

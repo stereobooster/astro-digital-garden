@@ -3,3 +3,8 @@
 .no-select {
   user-select: none;
 }
+
+/* text in mermaid diagram partially hidden otherwise */
+svg .node .label {
+  line-height: 1.2;
+}
