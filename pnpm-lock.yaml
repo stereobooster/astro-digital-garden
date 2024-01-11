@@ -8,6 +8,9 @@ dependencies:
   '@astrojs/check':
     specifier: ^0.3.4
     version: 0.3.4(typescript@5.3.3)
+  '@astrojs/markdown-remark':
+    specifier: ^4.0.1
+    version: 4.0.1
   '@astrojs/starlight':
     specifier: ^0.15.2
     version: 0.15.2(astro@4.0.1)
@@ -17,6 +20,9 @@ dependencies:
   katex:
     specifier: ^0.16.9
     version: 0.16.9
+  rehype-autolink-headings:
+    specifier: ^7.1.0
+    version: 7.1.0
   rehype-external-links:
     specifier: ^3.0.0
     version: 3.0.0
@@ -26,9 +32,6 @@ dependencies:
   rehype-mermaid:
     specifier: ^2.0.1
     version: 2.0.1
-  rehype-mermaidjs:
-    specifier: ^2.0.0
-    version: 2.0.0
   rehype-raw:
     specifier: ^7.0.0
     version: 7.0.0
@@ -2438,6 +2441,12 @@ packages:
       '@types/hast': 3.0.3
     dev: false
 
+  /hast-util-heading-rank@3.0.0:
+    resolution: {integrity: sha512-EJKb8oMUXVHcWZTDepnr+WNbfnXKFNf9duMesmr4S8SXTJBJ9M4Yok08pu9vxdJwdlGRhVumk9mEhkEvKGifwA==}
+    dependencies:
+      '@types/hast': 3.0.3
+    dev: false
+
   /hast-util-is-element@3.0.0:
     resolution: {integrity: sha512-Val9mnv2IWpLbNPqc/pUem+a7Ipj2aHacCwgNfTiK0vJKl0LF+4Ba4+v1oPHFpf3bLYmreq0/l3Gud9S5OH42g==}
     dependencies:
@@ -4282,6 +4291,17 @@ packages:
       picomatch: 2.3.1
     dev: false
 
+  /rehype-autolink-headings@7.1.0:
+    resolution: {integrity: sha512-rItO/pSdvnvsP4QRB1pmPiNHUskikqtPojZKJPPPAVx9Hj8i8TwMBhofrrAYRhYOOBZH9tgmG5lPqDLuIWPWmw==}
+    dependencies:
+      '@types/hast': 3.0.3
+      '@ungap/structured-clone': 1.2.0
+      hast-util-heading-rank: 3.0.0
+      hast-util-is-element: 3.0.0
+      unified: 11.0.4
+      unist-util-visit: 5.0.0
+    dev: false
+
   /rehype-external-links@3.0.0:
     resolution: {integrity: sha512-yp+e5N9V3C6bwBeAC4n796kc86M4gJCdlVhiMTxIrJG5UHDMh+PJANf9heqORJbt1nrCbDwIlAZKjANIaVBbvw==}
     dependencies:
@@ -4307,23 +4327,6 @@ packages:
 
   /rehype-mermaid@2.0.1:
     resolution: {integrity: sha512-VSicCihg994Al3QMuIrHzFt2+BxQq6VP4riGGP0XUxtYM8Fhv8ZMdlBIPsX26iudeodBUWLGh84aOp1+xwoiJw==}
-    dependencies:
-      '@types/hast': 3.0.3
-      hast-util-from-html-isomorphic: 2.0.0
-      hast-util-to-text: 4.0.0
-      mermaid-isomorphic: 2.1.1
-      mini-svg-data-uri: 1.4.4
-      space-separated-tokens: 2.0.2
-      unified: 11.0.4
-      unist-util-visit-parents: 6.0.1
-      vfile: 6.0.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /rehype-mermaidjs@2.0.0:
-    resolution: {integrity: sha512-QY8uiV31GZd/devc/3vzGOrTkNI5vktEXvRmArqw1oBSeFe1EWnfXXH/5J83Had8kG6Z/2xiLWvL/pJ/rgIr9g==}
-    deprecated: This package was renamed to rehype-mermaid
     dependencies:
       '@types/hast': 3.0.3
       hast-util-from-html-isomorphic: 2.0.0

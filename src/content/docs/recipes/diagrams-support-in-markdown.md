@@ -41,6 +41,11 @@ pnpm add remark-mermaidjs
 import remarkMermaidjs from "remark-mermaidjs";
 
 export default defineConfig({
+  integrations: [
+    starlight({
+      customCss: ["./src/styles/custom.css"],
+    }),
+  ],
   markdown: {
     remarkPlugins: [remarkMermaidjs],
   },

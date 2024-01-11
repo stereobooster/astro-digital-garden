@@ -4,9 +4,8 @@ import rehypeExternalLinks from "rehype-external-links";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import remarkMermaidjs from "remark-mermaidjs";
-// import rehypeRaw from "rehype-raw";
-// import rehypeMermaid from "rehype-mermaid";
-// import rehypeShikiji from "rehype-shikiji";
+import { rehypeHeadingIds } from "@astrojs/markdown-remark";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 // https://astro.build/config
 export default defineConfig({
@@ -31,14 +30,16 @@ export default defineConfig({
   ],
   markdown: {
     syntaxHighlight: false,
-    remarkPlugins: [
-      remarkMath,
-      remarkMermaidjs
-    ],
+    remarkPlugins: [remarkMath, remarkMermaidjs],
     rehypePlugins: [
-      // rehypeRaw,
-      // rehypeMermaid,
-      // rehypeShikiji,
+      rehypeHeadingIds,
+      [
+        rehypeAutolinkHeadings,
+        {
+          // Wrap the heading text in a link.
+          // behavior: "wrap",
+        },
+      ],
       [
         rehypeExternalLinks,
         {
