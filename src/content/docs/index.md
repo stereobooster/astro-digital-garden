@@ -21,7 +21,6 @@ My previous articles on the subject:
 - collect all ideas from posts above and rewrite for this website
 - recipes section - small articles about how to implement one specific feature, for example:
   - markdown extensions
-    - [Add last modified time](https://docs.astro.build/en/recipes/modified-time/)
     - [Anchor Links for Headings](https://github.com/withastro/starlight/discussions/1239)
       - [Add links to Starlight headings](https://hideoo.dev/notes/starlight-heading-links)
       - https://github.com/withastro/docs/pull/5610/files
