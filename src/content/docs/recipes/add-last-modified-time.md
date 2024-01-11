@@ -2,7 +2,11 @@
 title: Add last modified time
 ---
 
-## Instalation
+## Starlight
+
+Starlight already has this feature, so no additional work required.
+
+## Implementation
 
 ```js
 // remark-modified-time.mjs
@@ -29,8 +33,4 @@ export default defineConfig({
 });
 ```
 
-Based on: https://docs.astro.build/en/recipes/modified-time/
-
-## Starlight
-
-Starlight already has this feature, so no additional work required.
+Based on: [Astro recipes](https://docs.astro.build/en/recipes/modified-time/)

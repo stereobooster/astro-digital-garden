@@ -30,7 +30,7 @@ See: [astro-diagrams](https://stereobooster.com/posts/astro-diagrams/)
 - Related discussion in Starlight repo: [starlight#1259](https://github.com/withastro/starlight/discussions/1259)
 - Component for diagram rendering: [astro-diagram](https://www.npmjs.com/package/astro-diagram) (I haven't tried it though)
 
-### Option 1 - remark plugin
+### remark plugin
 
 ```bash title="Instal dependencies…"
 pnpm add remark-mermaidjs
@@ -61,9 +61,18 @@ You may need to fix some CSS for your diagrams, for example:
 svg .node .label {
   line-height: 1.2;
 }
+
+.flowchart-link {
+  stroke: var(--sl-color-white) !important;
+}
+
+.marker {
+  stroke: var(--sl-color-white) !important;
+  fill: var(--sl-color-white) !important;
+}
 ```
 
-### Option 2 - rehype plugin
+### rehype plugin
 
 `rehype-mermaidjs` doesn't work with Astro out of the box. Because of [remark-shiki](https://github.com/withastro/astro/blob/main/packages/markdown/remark/src/remark-shiki.ts). There are several workarounds:
 
@@ -90,4 +99,4 @@ flowchart LR
 
 ## Further improvements
 
-- Add JS script to do pan/zoom/drag, for example, https://github.com/bumbu/svg-pan-zoom
+- Add JS script to do pan/zoom/drag, for example, [svg-pan-zoom](https://github.com/bumbu/svg-pan-zoom)

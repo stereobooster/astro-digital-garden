@@ -38,7 +38,7 @@ export default defineConfig({
 }
 ```
 
-Based on: https://docs.astro.build/en/recipes/external-links/
+Based on: [Astro recipes](https://docs.astro.build/en/recipes/external-links/)
 
 ## Example
 

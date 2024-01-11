@@ -9,6 +9,16 @@ svg .node .label {
   line-height: 1.2;
 }
 
+.flowchart-link {
+  stroke: var(--sl-color-white) !important;
+}
+
+.marker {
+  stroke: var(--sl-color-white) !important;
+  fill: var(--sl-color-white) !important;
+}
+
+/* links in headers */
 .sl-markdown-content :is(h1, h2, h3, h4, h5, h6) {
   a {
     color: var(--sl-color-black);
@@ -19,7 +29,7 @@ svg .node .label {
   }
 
   &:hover a {
-    color: var(--sl-color-accent);
+    color: var(--sl-color-text-accent);
   }
 
   .icon.icon-link::after {

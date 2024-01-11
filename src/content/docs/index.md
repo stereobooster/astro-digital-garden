@@ -25,9 +25,6 @@ My previous articles on the subject:
   - components
     - link previews
     - search for static website
-    - Table of contents
-      - https://kld.dev/building-table-of-contents/
-      - https://kld.dev/toc-animation/
     - social images autogenration
     - SEO, SMO
     - sortable tables
