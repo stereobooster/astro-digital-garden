@@ -1,5 +1,6 @@
 ---
 title: Add icons to external links
+tags: [markdown]
 ---
 
 ## Instalation

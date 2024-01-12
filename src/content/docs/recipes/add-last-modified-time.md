@@ -1,5 +1,6 @@
 ---
 title: Add last modified time
+tags: [markdown]
 ---
 
 ## Starlight

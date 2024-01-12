@@ -1,5 +1,6 @@
 ---
 title: Math support in Markdown
+tags: [markdown]
 ---
 
 ## Instalation

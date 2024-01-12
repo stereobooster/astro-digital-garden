@@ -1,5 +1,6 @@
 ---
 title: Add links to headings
+tags: [markdown]
 ---
 
 ## Introduction

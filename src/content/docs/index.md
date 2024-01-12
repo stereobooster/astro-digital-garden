@@ -1,5 +1,7 @@
 ---
 title: About digital gardens
+prev: false
+next: false
 ---
 
 [Digital garden](https://github.com/MaggieAppleton/digital-gardeners) aka [Second brain](https://www.ssp.sh/brain/), [Zettelkasten](https://en.wikipedia.org/wiki/Zettelkasten), personal wiki, personal knowledge management.
