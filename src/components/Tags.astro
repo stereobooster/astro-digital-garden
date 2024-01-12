@@ -1,0 +1,34 @@
+---
+import { getCollection } from "astro:content";
+
+const docs = await getCollection("docs");
+type Docs = typeof docs;
+const docsByTags = new Map<string, Docs>();
+docs.forEach((doc) => {
+  if (doc.data.tags) {
+    doc.data.tags.forEach((tag: string) => {
+      docsByTags.set(tag, docsByTags.get(tag) || []);
+      docsByTags.get(tag)?.push(doc);
+    });
+  }
+});
+const comparator = new Intl.Collator("en");
+const tagsSorted = [...docsByTags.keys()].sort(comparator.compare);
+---
+
+<ul>
+  {
+    tagsSorted.map((tag) => (
+      <li>
+        {tag} ({docsByTags.get(tag)?.length})
+        <ul>
+          {docsByTags.get(tag)?.map((doc) => (
+            <li>
+              <a href={`/${doc.slug}`}>{doc.data.title}</a>
+            </li>
+          ))}
+        </ul>
+      </li>
+    ))
+  }
+</ul>

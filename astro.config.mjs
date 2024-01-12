@@ -17,6 +17,7 @@ export default defineConfig({
       },
       sidebar: [
         { label: "Intro", link: "/" },
+        { label: "Tag list", link: "/tags" },
         {
           label: "Recipes",
           // collapsed: true,
