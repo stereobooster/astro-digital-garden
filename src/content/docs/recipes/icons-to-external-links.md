@@ -1,5 +1,5 @@
 ---
-title: Add icons to external links
+title: Icons for external links
 tags: [markdown]
 ---
 

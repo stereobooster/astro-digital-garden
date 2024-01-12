@@ -1,5 +1,5 @@
 ---
-title: Add links to headings
+title: Anchors for headings
 tags: [markdown]
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Add tag list
+title: Tag list
 tags: [page]
 ---
 
