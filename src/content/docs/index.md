@@ -22,20 +22,41 @@ My previous articles on the subject:
 
 - collect all ideas from posts above and rewrite for this website
 - recipes section - small articles about how to implement one specific feature, for example:
-  - markdown extensions
-    - github edit link
   - components
     - link previews
-    - search for static website
-    - social images autogenration
+    - page link - which would show title (link), tags, last modified etc.
+    - github edit link
     - SEO, SMO
-    - sortable tables
+      - [astro-seo](https://github.com/jonasmerlin/astro-seo)
+      - [@astrolib/seo](https://github.com/onwidget/astrolib/tree/main/packages/seo)
+    - sortable tables, for example
+      - [kryogenix/sorttable](https://www.kryogenix.org/code/browser/sorttable/)
+      - [hubspot/sortable](https://github.hubspot.com/sortable/docs/welcome/)
+      - [LeeWannacott/table-sort-js](https://github.com/LeeWannacott/table-sort-js)
+      - [List.js](https://listjs.com/examples/table/)
+    - search for static website
+      - [orama](https://docs.oramasearch.com/open-source/plugins/plugin-astro)
+        - [uses generated HTML](https://github.com/oramasearch/orama/blob/main/packages/plugin-astro/src/index.ts)
+      - for pagefind see [starlight](https://github.com/withastro/starlight/)
+        - [uses generated HTML](https://github.com/withastro/starlight/blob/d2822a1127c622e086ad8877a07adad70d8c3aab/packages/starlight/index.ts#L61-L72)
+      - [minisearch](https://github.com/Barnabas/astro-minisearch/)
+        - [uses source files](https://github.com/Barnabas/astro-minisearch/blob/main/demo/src/pages/search.json.js#L11-L17)
+      - [fuse](https://github.com/johnny-mh/blog2/tree/main/packages/astro-fuse)
+        - can use [source files](https://github.com/johnny-mh/blog2/blob/main/packages/astro-fuse/src/basedOnSource.ts)
+        - and [generated HTML](https://github.com/johnny-mh/blog2/blob/main/packages/astro-fuse/src/basedOnOutput.ts)
+      - [lunr](https://github.com/jackcarey/astro-lunr)
+        - [uses generated HTML](https://github.com/jackcarey/astro-lunr/blob/master/src/index.ts)
     - lazy embeded video
+      - `astro-lazy-youtube-embed`
+      - `@astro-community/astro-embed-youtube`
+    - social images autogenration
+      - Example in [astro-theme-cactus](https://github.com/chrismwilliams/astro-theme-cactus/blob/main/src/pages/og-image/%5Bslug%5D.png.ts)
+      - Example in [astro-paper](https://github.com/satnaing/astro-paper/pull/15/files)
   - Links
     - backlinks
     - content graph
     - link resolution
       - wiki links, PML
   - pages
-    - alphabetical index
+    - last modified
     - faceted search
