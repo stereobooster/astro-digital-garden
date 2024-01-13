@@ -23,7 +23,6 @@ My previous articles on the subject:
 - collect all ideas from posts above and rewrite for this website
 - recipes section - small articles about how to implement one specific feature, for example:
   - components
-    - link previews
     - page link - which would show title (link), tags, last modified etc.
     - github edit link
     - SEO, SMO
