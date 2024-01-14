@@ -13,7 +13,11 @@ export default defineConfig({
     starlight({
       title: "Astro Digital Garden",
       social: {
-        github: "https://github.com/stereobooster/digital-garden",
+        github: "https://github.com/stereobooster/astro-digital-garden",
+      },
+      editLink: {
+        baseUrl:
+          "https://github.com/stereobooster/astro-digital-garden/edit/main/",
       },
       sidebar: [
         { label: "Introduction", link: "/" },
@@ -31,7 +35,7 @@ export default defineConfig({
       components: {
         PageFrame: "./src/components/PageFrame.astro",
       },
-      lastUpdated: true
+      lastUpdated: true,
     }),
   ],
   markdown: {
