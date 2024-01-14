@@ -36,6 +36,16 @@ export default defineConfig({
         PageFrame: "./src/components/PageFrame.astro",
       },
       lastUpdated: true,
+      head: [
+        {
+          tag: "script",
+          attrs: {
+            src: "https://eu.umami.is/script.js",
+            "data-website-id": "2d34b0d4-893c-4348-a3e4-1f489300117c",
+            defer: true
+          },
+        },
+      ],
     }),
   ],
   markdown: {
