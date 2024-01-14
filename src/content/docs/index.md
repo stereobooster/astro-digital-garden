@@ -44,5 +44,4 @@ My previous articles on the subject:
     - link resolution
       - wiki links, PML
   - pages
-    - last modified
     - faceted search

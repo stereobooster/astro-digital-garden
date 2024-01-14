@@ -58,6 +58,18 @@ const { remarkPluginFrontmatter } = await page.render();
 console.log(remarkPluginFrontmatter.lastUpdated);
 ```
 
+You may need something, like this:
+
+```ts
+import { defineCollection, z } from "astro:content";
+
+const blog = defineCollection({
+  schema: z.object({
+    lastUpdated: z.string().transform((str) => new Date(str)),
+  }),
+});
+```
+
 ## Further improvements
 
 - need a way to expose `lastUpdated` to `page.data`
