@@ -5,7 +5,7 @@ tags: [page, component]
 
 ## Prerequisites
 
-Need to implement [last modified time](/recipes/last-modified-time/).
+Need to implement [last modified time](/recipes/last-modified-time/) first.
 
 ## Implementation
 

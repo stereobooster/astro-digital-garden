@@ -11,12 +11,12 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 export default defineConfig({
   integrations: [
     starlight({
-      title: "Astro digital garden",
+      title: "Astro Digital Garden",
       social: {
         github: "https://github.com/stereobooster/digital-garden",
       },
       sidebar: [
-        { label: "Intro", link: "/" },
+        { label: "Introduction", link: "/" },
         { label: "Tags", link: "/tags" },
         { label: "Alphabetical index", link: "/alphabetical" },
         {

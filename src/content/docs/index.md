@@ -1,8 +1,10 @@
 ---
-title: About digital gardens
+title: Introduction
 prev: false
 next: false
 ---
+
+## About digital gardens
 
 [Digital garden](https://github.com/MaggieAppleton/digital-gardeners) aka [Second brain](https://www.ssp.sh/brain/), [Zettelkasten](https://en.wikipedia.org/wiki/Zettelkasten), personal wiki, personal knowledge management.
 
@@ -16,3 +18,7 @@ My previous articles on the subject:
 - [Useful modern tools for static websites](https://stereobooster.com/posts/useful-modern-tools-for-static-websites/)
 - [Markdown tools](https://stereobooster.com/posts/markdown-tools/)
 - [What I miss in Markdown (and Hugo)](https://stereobooster.com/posts/what-i-miss-in-markdown/)
+
+## Goal
+
+**Ultimate goal** is create theme and set of tools to publish digital garden with the help of Astro. But for now I collect relevant code snippets and links
