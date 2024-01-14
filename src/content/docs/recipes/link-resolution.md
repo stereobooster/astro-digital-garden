@@ -8,3 +8,5 @@ sidebar:
 :::danger
 Not implemented
 :::
+
+- [Portable markdown links](https://stereobooster.com/posts/portable-markdown-links/)

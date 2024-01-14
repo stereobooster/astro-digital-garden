@@ -6,7 +6,6 @@ import rehypeKatex from "rehype-katex";
 import remarkMermaidjs from "remark-mermaidjs";
 import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
-// import { remarkModifiedTime } from "./plugins/remark-modified-time.mjs";
 
 // https://astro.build/config
 export default defineConfig({
@@ -36,7 +35,6 @@ export default defineConfig({
     }),
   ],
   markdown: {
-    syntaxHighlight: false,
     remarkPlugins: [remarkMath, remarkMermaidjs],
     rehypePlugins: [
       rehypeHeadingIds,
