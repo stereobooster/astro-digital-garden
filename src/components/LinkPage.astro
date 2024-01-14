@@ -1,0 +1,25 @@
+---
+// see https://github.com/HiDeoo/starlight-blog/blob/main/packages/starlight-blog/components/Metadata.astro
+import type { CollectionEntry } from "astro:content";
+import { LinkCard } from "@astrojs/starlight/components";
+interface Props {
+  page: CollectionEntry<"docs">;
+}
+const { page } = Astro.props;
+
+// const { remarkPluginFrontmatter } = await page.render();
+// const data = remarkPluginFrontmatter;
+const data = page.data;
+
+let description = "";
+if (data.tags) {
+  description += `Tags: ${data.tags?.join(", ")}`;
+}
+if (data.lastUpdated) {
+  description += ` | Updated: ${data.lastUpdated}`;
+}
+
+const url = `/${page.slug === "index" ? "" : page.slug}`;
+---
+
+<LinkCard title={page.data.title} description={description} href={url} />

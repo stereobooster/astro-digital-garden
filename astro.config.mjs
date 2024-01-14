@@ -6,6 +6,7 @@ import rehypeKatex from "rehype-katex";
 import remarkMermaidjs from "remark-mermaidjs";
 import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
+// import { remarkModifiedTime } from "./plugins/remark-modified-time.mjs";
 
 // https://astro.build/config
 export default defineConfig({
@@ -31,6 +32,7 @@ export default defineConfig({
       components: {
         PageFrame: "./src/components/PageFrame.astro",
       },
+      lastUpdated: true
     }),
   ],
   markdown: {
@@ -38,13 +40,7 @@ export default defineConfig({
     remarkPlugins: [remarkMath, remarkMermaidjs],
     rehypePlugins: [
       rehypeHeadingIds,
-      [
-        rehypeAutolinkHeadings,
-        {
-          // Wrap the heading text in a link.
-          // behavior: "wrap",
-        },
-      ],
+      rehypeAutolinkHeadings,
       [
         rehypeExternalLinks,
         {
