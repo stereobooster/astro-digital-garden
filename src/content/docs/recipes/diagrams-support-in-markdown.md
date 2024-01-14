@@ -1,6 +1,8 @@
 ---
 title: Diagrams support in Markdown
 tags: [markdown]
+sidebar:
+  label: Diagrams support in Markdown 🚧
 ---
 
 There are a lot of diagraming languages (see [text-to-diagram](https://stereobooster.com/posts/text-to-diagram/)). [Mermaid](https://mermaid.js.org/) seems to be popular (it is supported by GitHub).

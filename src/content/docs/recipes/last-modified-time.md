@@ -1,6 +1,8 @@
 ---
 title: Last modified time
 tags: [markdown]
+sidebar:
+  label: Last modified time 🚧
 ---
 
 ## Starlight

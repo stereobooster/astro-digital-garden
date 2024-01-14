@@ -1,6 +1,8 @@
 ---
 title: Table of contents
 tags: [component, markdown]
+sidebar:
+  label: Table of contents 🚧
 ---
 
 ## Starlight

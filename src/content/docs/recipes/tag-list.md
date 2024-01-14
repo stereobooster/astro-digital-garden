@@ -1,6 +1,8 @@
 ---
 title: Tag list
 tags: [page]
+sidebar:
+  label: Tag list 🚧
 ---
 
 ## Implementation in Starlight

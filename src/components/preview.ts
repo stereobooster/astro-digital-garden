@@ -4,11 +4,27 @@ const tooltip = document.querySelector("#linkpreview") as HTMLElement;
 
 const elements = document.querySelectorAll("a");
 
+tooltip.addEventListener("mouseleave", hideLinkPreview);
+
+function hideLinkPreview() {
+  tooltip.style.display = "";
+}
+
 async function showLinkPreview(e: MouseEvent | FocusEvent) {
   const start = `${window.location.protocol}//${window.location.host}`;
   const target = e.target as HTMLElement;
-  const href = target?.closest("a")?.href;
-  if (!href?.startsWith(start)) return;
+  const href = target?.closest("a")?.href || "";
+
+  const hrefWithoutAnchor = href.replace(new URL(href).hash, "");
+  const locationWithoutAnchor = window.location.href.replace(
+    window.location.hash,
+    ""
+  );
+
+  if (hrefWithoutAnchor === locationWithoutAnchor || !href.startsWith(start)) {
+    hideLinkPreview();
+    return;
+  }
 
   const text = await fetch(href).then((x) => x.text());
   const doc = new DOMParser().parseFromString(text, "text/html");
@@ -26,10 +42,6 @@ async function showLinkPreview(e: MouseEvent | FocusEvent) {
       top: `${y}px`,
     });
   });
-}
-
-function hideLinkPreview() {
-  tooltip.style.display = "";
 }
 
 const events = [
