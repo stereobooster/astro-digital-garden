@@ -8,3 +8,7 @@ sidebar:
 :::danger
 Not implemented
 :::
+
+Related:
+
+- [starlight#1335](https://github.com/withastro/starlight/discussions/1335)

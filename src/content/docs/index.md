@@ -16,7 +16,6 @@ My previous articles on the subject:
 
 - [Digital garden as static website](https://stereobooster.com/posts/digital-garden-as-static-website/)
 - [Useful modern tools for static websites](https://stereobooster.com/posts/useful-modern-tools-for-static-websites/)
-- [Markdown tools](https://stereobooster.com/posts/markdown-tools/)
 - [What I miss in Markdown (and Hugo)](https://stereobooster.com/posts/what-i-miss-in-markdown/)
 
 ## Goal
