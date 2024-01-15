@@ -153,3 +153,8 @@ export default defineConfig({
 ## Further improvements
 
 - If link has anchor, show in preview specified section
+
+## Reference implementations
+
+- [mediawiki-extensions-Popups](https://github.com/wikimedia/mediawiki-extensions-Popups)
+- [wikipedia-preview](https://github.com/wikimedia/wikipedia-preview)
