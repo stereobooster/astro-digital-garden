@@ -1,0 +1,22 @@
+---
+import { bdb } from "../lib/braindb";
+import type { CollectionEntry } from "astro:content";
+interface Props {
+  entry: CollectionEntry<"docs">;
+}
+const { entry } = Astro.props;
+
+const doc = await bdb.findDocument(`/${entry.id}`);
+---
+
+<div>
+  <b>Backlinks:</b>
+  {
+    doc &&
+      doc.documentsFrom().map((x) => (
+        <li>
+          <a href={x.url()}>{x.title()}</a>
+        </li>
+      ))
+  }
+</div>

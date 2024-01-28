@@ -34,6 +34,7 @@ export default defineConfig({
       customCss: ["./src/styles/custom.css"],
       components: {
         PageFrame: "./src/components/PageFrame.astro",
+        MarkdownContent: "./src/components/MarkdownContent.astro",
       },
       lastUpdated: true,
       head: [
@@ -67,5 +68,6 @@ export default defineConfig({
     ssr: {
       noExternal: ["katex"],
     },
+    optimizeDeps: { exclude: ["fsevents"] },
   },
 });

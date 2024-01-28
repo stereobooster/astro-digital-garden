@@ -3,13 +3,13 @@
 import type { CollectionEntry } from "astro:content";
 import { LinkCard } from "@astrojs/starlight/components";
 interface Props {
-  page: CollectionEntry<"docs">;
+  entry: CollectionEntry<"docs">;
 }
-const { page } = Astro.props;
+const { entry } = Astro.props;
 
 // const { remarkPluginFrontmatter } = await page.render();
 // const data = remarkPluginFrontmatter;
-const data = page.data;
+const data = entry.data;
 
 let description = "";
 if (data.tags) {
@@ -19,7 +19,7 @@ if (data.lastUpdated) {
   description += ` | Updated: ${data.lastUpdated}`;
 }
 
-const url = `/${page.slug === "index" ? "" : page.slug}`;
+const url = `/${entry.slug === "index" ? "" : entry.slug}`;
 ---
 
-<LinkCard title={page.data.title} description={description} href={url} />
+<LinkCard title={entry.data.title} description={description} href={url} />

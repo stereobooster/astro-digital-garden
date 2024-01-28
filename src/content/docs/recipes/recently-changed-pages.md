@@ -29,5 +29,5 @@ const recent = docs
   .slice(0, 10);
 ---
 
-{recent.map((doc) => <LinkPage page={doc} />)}
+{recent.map((doc) => <LinkPage entry={doc} />)}
 ```
