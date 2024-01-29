@@ -119,7 +119,6 @@ Idea was to show graph without the need for JS on the client-side. But it is har
 
 ## Further improvements
 
-- add arrows to edges
 - show broken links on the graph
 - show tags on the graph
 - create an example with client side graph

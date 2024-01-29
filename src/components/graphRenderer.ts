@@ -1,7 +1,7 @@
 // @ts-nocheck
 /**
  * Graphology SVG Renderer
- * 
+ *
  * Copy-paste from original package to fix some things in place
  */
 import helpers from "graphology-svg/helpers";
@@ -37,12 +37,41 @@ function drawLabel(settings, data) {
   </a>`;
 }
 
+const marker = `<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#fff"/>
+  </marker>
+</defs>`;
+
+function drawEdge(settings, data, sourceData, targetData) {
+  // return `<line
+  //   x1="${sourceData.x}" y1="${sourceData.y}"
+  //   x2="${targetData.x}" y2="${targetData.y}"
+  //   stroke="${data.color}" stroke-width="${data.size}"
+  //   marker-segment="url(#arrow)"
+  // />`;
+
+  const radius = 22;
+  const length = Math.sqrt(
+    Math.pow(sourceData.y - targetData.y, 2) +
+      Math.pow(sourceData.x - targetData.x, 2)
+  );
+  const coefficientX = (sourceData.x - targetData.x) / length;
+  const coefficientY = (sourceData.y - targetData.y) / length;
+  const arrowX = targetData.x + coefficientX * radius;
+  const arrowY = targetData.y + coefficientY * radius;
+
+  return `<polyline points="${sourceData.x},${sourceData.y} ${arrowX},${arrowY} ${targetData.x},${targetData.y}" 
+    fill="none" stroke="${data.color}" stroke-width="${data.size}"
+    marker-mid="url(#arrow)"/>`;
+}
+
 const components = {
   nodes: {
     circle: drawCircle,
   },
   edges: {
-    line,
+    line: drawEdge,
   },
   nodeLabels: {
     default: drawLabel,
@@ -86,28 +115,14 @@ export function renderer(graph: any, settings: any) {
     );
   }
 
-  return (
-    '<svg width="' +
-    settings.width +
-    '" height=" ' +
-    settings.height +
-    '" ' +
-    'viewBox="0 0 ' +
-    settings.width +
-    " " +
-    settings.height +
-    '">' +
-    "<g>" +
-    edgesStrings.join("") +
-    "</g>" +
-    "<g>" +
-    nodesStrings.join("") +
-    "</g>" +
-    "<g>" +
-    nodeLabelsStrings.join("") +
-    "</g>" +
-    "</svg>"
-  );
+  return `<svg width="${settings.width}" height="${
+    settings.height
+  }" viewBox="0 0 ${settings.width} ${settings.height}">
+      ${marker}
+      <g>${edgesStrings.join("")}</g>
+      <g>${nodesStrings.join("")}</g>
+      <g>${nodeLabelsStrings.join("")}</g>
+    </svg>`;
 }
 
 function reduceNodes(graph, settings) {
