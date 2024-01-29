@@ -23,6 +23,7 @@ export default defineConfig({
         { label: "Introduction", link: "/" },
         { label: "Tags", link: "/tags" },
         { label: "Alphabetical index", link: "/alphabetical" },
+        { label: "Graph", link: "/graph" },
         {
           label: "Recipes",
           // collapsed: true,

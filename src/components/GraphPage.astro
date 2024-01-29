@@ -1,0 +1,7 @@
+---
+import Graph from "./Graph.astro";
+import { getGraph } from "../lib/graph";
+const graph = await getGraph();
+---
+
+<Graph graph={graph} />

@@ -2,6 +2,7 @@
 title: Introduction
 prev: false
 next: false
+backlinks: false
 ---
 
 ## About digital gardens

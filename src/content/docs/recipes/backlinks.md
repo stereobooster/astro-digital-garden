@@ -5,6 +5,8 @@ tags: [link]
 
 ## Installation
 
+### BrainDB
+
 ```bash title="Instal dependencies…"
 pnpm add @braindb/core github-slugger
 ```
@@ -52,6 +54,8 @@ export const bdb = new BrainDB({
 
 bdb.start();
 ```
+
+### The rest
 
 ```astro
 // src/components/Backlinks.astro

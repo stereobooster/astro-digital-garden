@@ -7,6 +7,7 @@ export const collections = {
       extend: z.object({
         tags: z.array(z.string()).optional(),
         status: z.enum(["red", "yellow", "green"]).optional(),
+        backlinks: z.boolean().optional().default(true)
       }),
     }),
   }),

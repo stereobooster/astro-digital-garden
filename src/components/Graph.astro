@@ -1,0 +1,20 @@
+---
+import { renderer, DEFAULTS } from "./graphRenderer";
+
+export interface Props {
+  graph: any;
+}
+
+const { graph } = Astro.props;
+
+// probably need to use cache here
+const result = renderer(graph, {
+  ...DEFAULTS,
+  width: 1000,
+  height: 800,
+});
+---
+
+<div class="graphology">
+  <Fragment set:html={result} />
+</div>

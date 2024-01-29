@@ -36,3 +36,13 @@ svg .node .label {
     content: "#";
   }
 }
+
+.graphology {
+  text {
+    fill: var(--sl-color-white) !important;
+  }
+
+  line {
+    stroke-width: 2px;
+  }
+}

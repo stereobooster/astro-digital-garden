@@ -8,4 +8,8 @@ import Backlinks from "./Backlinks.astro";
   <slot />
 </Default>
 
-<Backlinks entry={Astro.props.entry as any}/>
+{
+  Astro.props.entry.data.backlinks !== false && (
+    <Backlinks entry={Astro.props.entry as any} />
+  )
+}
