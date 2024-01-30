@@ -6,7 +6,7 @@
  */
 import helpers from "graphology-svg/helpers";
 import defaults from "graphology-svg/defaults";
-import line from "graphology-svg/components/edges/line";
+// import line from "graphology-svg/components/edges/line";
 // import circle from "graphology-svg/components/nodes/circle";
 // import nodeLabelDefault from "graphology-svg/components/nodeLabels/default";
 
@@ -19,7 +19,7 @@ function nodeReducer(settings: any, node: any, attr: any) {
   };
 }
 
-function drawCircle(settings, data) {
+function drawCircle(_settings, data) {
   return `<a href="${helpers.escape(data.url)}">
     <circle cx="${data.x}" cy="${data.y}" r="${data.size}" fill="${
     data.color
@@ -39,11 +39,11 @@ function drawLabel(settings, data) {
 
 const marker = `<defs>
   <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
-    <path d="M 0 0 L 10 5 L 0 10 z" fill="#fff"/>
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#ccc"/>
   </marker>
 </defs>`;
 
-function drawEdge(settings, data, sourceData, targetData) {
+function drawEdge(_settings, data, sourceData, targetData) {
   // return `<line
   //   x1="${sourceData.x}" y1="${sourceData.y}"
   //   x2="${targetData.x}" y2="${targetData.y}"

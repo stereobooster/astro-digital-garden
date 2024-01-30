@@ -9,6 +9,7 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://astro-digital-garden.stereobooster.com",
   integrations: [
     starlight({
       title: "Astro Digital Garden",
