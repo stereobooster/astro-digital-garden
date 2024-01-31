@@ -47,6 +47,12 @@ dependencies:
   katex:
     specifier: ^0.16.9
     version: 0.16.9
+  mdast-util-to-markdown:
+    specifier: ^2.1.0
+    version: 2.1.0
+  micromark-extension-wiki-link:
+    specifier: ^0.0.4
+    version: 0.0.4
   netlify-plugin-playwright-cache:
     specifier: ^0.0.1
     version: 0.0.1

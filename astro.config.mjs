@@ -6,6 +6,7 @@ import rehypeKatex from "rehype-katex";
 import remarkMermaidjs from "remark-mermaidjs";
 import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
+// import { wikiLinkPlugin } from "./plugins/remark-wiki-link.mjs";
 
 // https://astro.build/config
 export default defineConfig({
@@ -45,14 +46,18 @@ export default defineConfig({
           attrs: {
             src: "https://eu.umami.is/script.js",
             "data-website-id": "2d34b0d4-893c-4348-a3e4-1f489300117c",
-            defer: true
+            defer: true,
           },
         },
       ],
     }),
   ],
   markdown: {
-    remarkPlugins: [remarkMath, remarkMermaidjs],
+    remarkPlugins: [
+      remarkMath,
+      remarkMermaidjs,
+      // wikiLinkPlugin
+    ],
     rehypePlugins: [
       rehypeHeadingIds,
       rehypeAutolinkHeadings,
