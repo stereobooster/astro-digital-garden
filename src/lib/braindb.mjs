@@ -5,7 +5,7 @@ import { BrainDB } from "@braindb/core";
 
 // slug implementation according to Astro
 // see astro/packages/astro/src/content/utils.ts
-const generateSlug = (filePath: string) => {
+const generateSlug = (filePath) => {
   const withoutFileExt = filePath.replace(
     new RegExp(path.extname(filePath) + "$"),
     ""

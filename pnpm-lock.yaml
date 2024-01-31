@@ -15,8 +15,8 @@ dependencies:
     specifier: ^0.15.2
     version: 0.15.2(astro@4.0.1)
   '@braindb/core':
-    specifier: ^0.0.1
-    version: 0.0.1
+    specifier: ^0.0.2
+    version: 0.0.2
   '@floating-ui/dom':
     specifier: ^1.5.4
     version: 1.5.4
@@ -524,8 +524,8 @@ packages:
       to-fast-properties: 2.0.0
     dev: false
 
-  /@braindb/core@0.0.1:
-    resolution: {integrity: sha512-Mglyg3syqPeJaU9av9by0L1r9Nfxu8MmpXROlkWgmyTGQ3N24CxrXSPTaEuKSF7O+//z+TR/1I8XikRRwmIh9Q==}
+  /@braindb/core@0.0.2:
+    resolution: {integrity: sha512-dVKdCrg1bj2yDm/PEnWRnI+KaBm7upiZaJmFcG3I+LXunNCfNGhyM5TQPIX7dB/32Yu9kSdqA7jMS95Jlwwktg==}
     dependencies:
       better-sqlite3: 8.7.0
       chokidar: 3.5.3
@@ -536,6 +536,7 @@ packages:
       remark-parse: 10.0.2
       remark-stringify: 10.0.3
       remark-wiki-link: 1.0.4
+      strip-markdown: 6.0.0
       unified: 11.0.4
       unist-util-map: 4.0.0
       yaml: 2.3.4
@@ -5329,6 +5330,12 @@ packages:
   /strip-json-comments@2.0.1:
     resolution: {integrity: sha512-4gB8na07fecVVkOI6Rs4e7T6NOTki5EmL7TUduTs6bu3EdnSycntVJ4re8kgZA+wx9IueI2Y11bfbgwtzuE0KQ==}
     engines: {node: '>=0.10.0'}
+    dev: false
+
+  /strip-markdown@6.0.0:
+    resolution: {integrity: sha512-mSa8FtUoX3ExJYDkjPUTC14xaBAn4Ik5GPQD45G5E2egAmeV3kHgVSTfIoSDggbF6Pk9stahVgqsLCNExv6jHw==}
+    dependencies:
+      '@types/mdast': 4.0.3
     dev: false
 
   /style-to-object@0.4.4:

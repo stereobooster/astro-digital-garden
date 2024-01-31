@@ -6,7 +6,11 @@ import rehypeKatex from "rehype-katex";
 import remarkMermaidjs from "remark-mermaidjs";
 import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
-// import { wikiLinkPlugin } from "./plugins/remark-wiki-link.mjs";
+
+import { wikiLinkPlugin } from "./plugins/remark-wiki-link.mjs";
+import { bdb } from "./src/lib/braindb.mjs";
+
+await bdb.ready();
 
 // https://astro.build/config
 export default defineConfig({
@@ -56,7 +60,32 @@ export default defineConfig({
     remarkPlugins: [
       remarkMath,
       remarkMermaidjs,
-      // wikiLinkPlugin
+      [
+        wikiLinkPlugin,
+        {
+          aliasDivider: "|",
+          linkTemplate: ({ permalink, alias }) => {
+            // TODO: permalink may contain anchor
+            const doc = bdb.documentsSync({ slug: permalink })[0];
+            if (doc) {
+              return {
+                hName: "a",
+                hProperties: { href: doc.url() },
+                hChildren: [{ type: "text", value: doc.frontmatter().title }],
+              };
+            } else {
+              return {
+                hName: "span",
+                hProperties: {
+                  class: "broken-link",
+                  title: `Can't resolve link to ${permalink}`,
+                },
+                hChildren: [{ type: "text", value: alias }],
+              };
+            }
+          },
+        },
+      ],
     ],
     rehypePlugins: [
       rehypeHeadingIds,

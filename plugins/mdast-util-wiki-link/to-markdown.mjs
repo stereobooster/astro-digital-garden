@@ -7,7 +7,7 @@ import { safe } from "../../node_modules/.pnpm/mdast-util-to-markdown@2.1.0/node
 // }
 
 export function toMarkdown(opts = {}) {
-  const aliasDivider = opts.aliasDivider || "|";
+  const aliasDivider = opts.aliasDivider || ":";
 
   const unsafe = [
     {

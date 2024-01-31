@@ -10,16 +10,8 @@ export function fromMarkdown(opts = {}) {
   function defaultLinkTemplate({ permalink, alias }) {
     return {
       hName: "a",
-      hProperties: {
-        //   className: '',
-        href: permalink,
-      },
-      hChildren: [
-        {
-          type: "text",
-          value: alias,
-        },
-      ],
+      hProperties: { href: permalink },
+      hChildren: [{ type: "text", value: alias }],
     };
   }
 

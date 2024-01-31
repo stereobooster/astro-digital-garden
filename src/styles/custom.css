@@ -46,3 +46,8 @@ svg .node .label {
     stroke-width: 2px;
   }
 }
+
+.broken-link {
+  text-decoration: underline;
+  color: red;
+}

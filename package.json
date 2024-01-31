@@ -13,7 +13,7 @@
     "@astrojs/check": "^0.3.4",
     "@astrojs/markdown-remark": "^4.0.1",
     "@astrojs/starlight": "^0.15.2",
-    "@braindb/core": "^0.0.1",
+    "@braindb/core": "^0.0.2",
     "@floating-ui/dom": "^1.5.4",
     "@types/react": "^18.2.47",
     "astro": "^4.0.1",
