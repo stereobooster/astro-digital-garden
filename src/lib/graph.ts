@@ -1,5 +1,5 @@
 import { BrainDB } from "@braindb/core";
-import { bdb } from "./braindb";
+import { bdb } from "./braindb.mjs";
 import graphology from "graphology";
 import circular from "graphology-layout/circular";
 // import forceAtlas2 from 'graphology-layout-forceatlas2';
