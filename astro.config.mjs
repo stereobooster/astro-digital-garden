@@ -71,7 +71,13 @@ export default defineConfig({
               return {
                 hName: "a",
                 hProperties: { href: doc.url() },
-                hChildren: [{ type: "text", value: doc.frontmatter().title }],
+                hChildren: [
+                  {
+                    type: "text",
+                    value:
+                      permalink === alias ? doc.frontmatter().title : alias,
+                  },
+                ],
               };
             } else {
               return {
