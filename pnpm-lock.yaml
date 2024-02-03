@@ -20,6 +20,9 @@ dependencies:
   '@floating-ui/dom':
     specifier: ^1.5.4
     version: 1.5.4
+  '@stereobooster/remark-wiki-link':
+    specifier: ^2.0.1
+    version: 2.0.1
   '@types/react':
     specifier: ^18.2.47
     version: 18.2.47
@@ -47,12 +50,6 @@ dependencies:
   katex:
     specifier: ^0.16.9
     version: 0.16.9
-  mdast-util-to-markdown:
-    specifier: ^2.1.0
-    version: 2.1.0
-  micromark-extension-wiki-link:
-    specifier: ^0.0.4
-    version: 0.0.4
   netlify-plugin-playwright-cache:
     specifier: ^0.0.1
     version: 0.0.1
@@ -1077,6 +1074,21 @@ packages:
     requiresBuild: true
     dev: false
     optional: true
+
+  /@stereobooster/mdast-util-wiki-link@0.1.2:
+    resolution: {integrity: sha512-qFkm4mB7vz6M9zX+05+m+CzKGYZAiShS6vQY+hUW7N3fzlVrZMCF8KMGC0GYop3b0UUVeFvpCgSRl/nqqLxsMw==}
+    dependencies:
+      '@babel/runtime': 7.23.9
+      mdast-util-to-markdown: 0.6.5
+    dev: false
+
+  /@stereobooster/remark-wiki-link@2.0.1:
+    resolution: {integrity: sha512-8PJyCp85qX7jnaCvEYzXIjSwzRf5CHWpwn4tnYj+9sgaHjHqbQTr8NPMZ9BkXwRLXg/KgaA5hz/hy2r+QuTtnA==}
+    dependencies:
+      '@babel/runtime': 7.23.9
+      '@stereobooster/mdast-util-wiki-link': 0.1.2
+      micromark-extension-wiki-link: 0.0.4
+    dev: false
 
   /@types/acorn@4.0.6:
     resolution: {integrity: sha512-veQTnWP+1D/xbxVrPC3zHnCZRjSrKfhbMUlEA43iMZLu7EsnTtkJklIuwrCPbOi8YkvDQAiW05VQQFvvz9oieQ==}

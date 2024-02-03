@@ -7,7 +7,7 @@ import remarkMermaidjs from "remark-mermaidjs";
 import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
-import { wikiLinkPlugin } from "./plugins/remark-wiki-link.mjs";
+import { wikiLinkPlugin } from "@stereobooster/remark-wiki-link";
 import { bdb } from "./src/lib/braindb.mjs";
 
 await bdb.ready();
