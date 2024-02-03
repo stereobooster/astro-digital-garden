@@ -9,14 +9,36 @@ const { entry } = Astro.props;
 const doc = await bdb.findDocument(`/${entry.id}`);
 ---
 
-<div>
-  <b>Backlinks:</b>
-  {
-    doc &&
-      doc.documentsFrom().map((x) => (
-        <li>
-          <a href={x.url()}>{x.title()}</a>
-        </li>
-      ))
+{
+  doc && doc.documentsFrom().length > 0 && (
+    <div class="backlinks">
+      <h2>Backlinks</h2>
+      <ul>
+        {doc.documentsFrom().map((x) => (
+          <li>
+            <a href={x.url()}>{x.title()}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+<style>
+  .backlinks {
+    padding-top: 1rem;
+
+    ul {
+      padding: 0;
+      list-style: none;
+    }
+    a {
+      --pad-inline: 0.5rem;
+      display: block;
+      border-radius: 0.25rem;
+      padding-block: 0.25rem;
+      padding-inline: var(--pad-inline) var(--pad-inline);
+      line-height: 1.25;
+    }
   }
-</div>
+</style>

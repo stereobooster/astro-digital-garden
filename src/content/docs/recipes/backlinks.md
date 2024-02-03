@@ -23,26 +23,48 @@ const { entry } = Astro.props;
 
 const doc = await bdb.findDocument(`/${entry.id}`);
 ---
-<div>
-  <b>Backlinks:</b>
-  {
-    doc &&
-      doc.documentsFrom().map((x) => (
-        <li>
-          <a href={x.url()}>{x.title()}</a>
-        </li>
-      ))
+{
+  doc && doc.documentsFrom().length > 0 && (
+    <div class="backlinks">
+      <h2>Backlinks</h2>
+      <ul>
+        {doc.documentsFrom().map((x) => (
+          <li>
+            <a href={x.url()}>{x.title()}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+<style>
+  .backlinks {
+    padding-top: 1rem;
+
+    ul {
+      padding: 0;
+      list-style: none;
+    }
+    a {
+      --pad-inline: 0.5rem;
+      display: block;
+      border-radius: 0.25rem;
+      padding-block: 0.25rem;
+      padding-inline: var(--pad-inline) var(--pad-inline);
+      line-height: 1.25;
+    }
   }
-</div>
+</style>
 ```
 
 ### Satrlight specific config
 
 ```astro
-// src/components/MarkdownContent.astro
+// src/components/TableOfContents.astro
 ---
 import type { Props } from "@astrojs/starlight/props";
-import Default from "@astrojs/starlight/components/MarkdownContent.astro";
+import Default from "@astrojs/starlight/components/TableOfContents.astro";
 import Backlinks from "./Backlinks.astro";
 ---
 
@@ -50,7 +72,11 @@ import Backlinks from "./Backlinks.astro";
   <slot />
 </Default>
 
-<Backlinks entry={Astro.props.entry}/>
+{
+  Astro.props.entry.data.backlinks !== false && (
+    <Backlinks entry={Astro.props.entry as any} />
+  )
+}
 ```
 
 ```js
@@ -59,7 +85,7 @@ export default defineConfig({
   integrations: [
     starlight({
       components: {
-        MarkdownContent: "./src/components/MarkdownContent.astro",
+        TableOfContents: "./src/components/TableOfContents.astro",
       },
     })
   ]

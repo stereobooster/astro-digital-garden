@@ -41,7 +41,7 @@ export default defineConfig({
       customCss: ["./src/styles/custom.css"],
       components: {
         PageFrame: "./src/components/PageFrame.astro",
-        MarkdownContent: "./src/components/MarkdownContent.astro",
+        TableOfContents: "./src/components/TableOfContents.astro",
       },
       lastUpdated: true,
       head: [
