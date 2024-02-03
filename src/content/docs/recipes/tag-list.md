@@ -8,7 +8,7 @@ sidebar:
 ## Implementation in Starlight
 
 ```astro
-//src/components/Tags.astro
+//src/components/TagList.astro
 ---
 import { getCollection } from "astro:content";
 
@@ -48,15 +48,16 @@ const tagsSorted = [...docsByTags.keys()].sort(comparator.compare);
 ```mdx
 //src/content/docs/tags.mdx
 ---
-title: Tag list
+title: Tags
 tableOfContents: false
 prev: false
 next: false
+# template: splash
+backlinks: false
 ---
+import TagList from "../../components/TagList.astro";
 
-import Tags from "../../components/Tags.astro";
-
-<Tags />
+<TagList />
 ```
 
 ```ts
