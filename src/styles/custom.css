@@ -51,3 +51,19 @@ svg .node .label {
   text-decoration: underline;
   color: red;
 }
+
+.column-list {
+  column-width: calc(var(--sl-content-width) / 2 - 1.5rem);
+
+  ul {
+    padding: 0;
+    list-style: none;
+    margin-top: 0.5rem !important;
+  }
+}
+
+@media (min-width: 72rem) {
+  .sl-container {
+    margin-inline: var(--sl-content-margin-inline, 0) !important;
+  }
+}

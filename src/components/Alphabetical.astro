@@ -17,17 +17,28 @@ const comparator = new Intl.Collator("en");
 const charsSorted = [...docsByChar.keys()].sort(comparator.compare);
 ---
 
-{
-  charsSorted.map((char) => (
-    <>
-      <h3>{char}</h3>
-      <ul>
-        {docsByChar.get(char)?.map((doc) => (
-          <li>
-            <a href={`/${doc.slug}`}>{doc.data.title}</a>
-          </li>
-        ))}
-      </ul>
-    </>
-  ))
-}
+<script>
+  // @ts-nocheck
+  // because can't resolve this error
+  // Type '{ children: Element; class: string; }' is not assignable to type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'.
+  // Property 'class' does not exist on type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'. Did you mean 'className'?
+</script>
+
+<div class="column-list">
+  <span>
+    {
+      charsSorted.map((char) => (
+        <p>
+          <b>{char}</b>
+          <ul>
+            {docsByChar.get(char)?.map((doc) => (
+              <li>
+                <a href={`/${doc.slug}`}>{doc.data.title}</a>
+              </li>
+            ))}
+          </ul>
+        </p>
+      ))
+    }
+  </span>
+</div>

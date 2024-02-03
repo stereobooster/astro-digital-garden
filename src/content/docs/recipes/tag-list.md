@@ -52,7 +52,7 @@ title: Tags
 tableOfContents: false
 prev: false
 next: false
-# template: splash
+template: splash
 backlinks: false
 ---
 import TagList from "../../components/TagList.astro";
