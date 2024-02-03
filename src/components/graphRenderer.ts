@@ -16,29 +16,32 @@ function nodeReducer(settings: any, node: any, attr: any) {
   return {
     ...defaults.DEFAULT_NODE_REDUCER(settings, node, attr),
     url: attr.url,
+    id: node,
   };
 }
 
 function drawCircle(_settings, data) {
-  return `<a href="${helpers.escape(data.url)}">
-    <circle cx="${data.x}" cy="${data.y}" r="${data.size}" fill="${
-    data.color
-  }" />
-  </a>`;
+  const circle = `<circle cx="${data.x}" cy="${data.y}" r="${data.size}" fill="${data.color}" />`;
+  if (!data.url) return circle;
+  return `<a href="${helpers.escape(data.url)}" data-id="${
+    data.id
+  }" class="graphNode">${circle}</a>`;
 }
 
 function drawLabel(settings, data) {
-  return `<a href="${helpers.escape(data.url)}">
-    <text x="${data.x + data.size * 1.1}" y="${
+  const label = `<text x="${data.x + data.size * 1.1}" y="${
     data.y + data.size / 4
   }" font-family="${helpers.escape(
     settings.font || "sans-serif"
-  )}" font-size="${data.size}">${helpers.escape(data.label)}</text>
-  </a>`;
+  )}" font-size="${data.size}">${helpers.escape(data.label)}</text>`;
+  if (!data.url) return "";
+  return `<a href="${helpers.escape(data.url)}" class="graphLabel" id="label-${
+    data.id
+  }" style="display:none">${label}</a>`;
 }
 
 const marker = `<defs>
-  <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+  <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
     <path d="M 0 0 L 10 5 L 0 10 z" fill="#ccc"/>
   </marker>
 </defs>`;
@@ -51,7 +54,7 @@ function drawEdge(_settings, data, sourceData, targetData) {
   //   marker-segment="url(#arrow)"
   // />`;
 
-  const radius = 22;
+  const radius = 14;
   const length = Math.sqrt(
     Math.pow(sourceData.y - targetData.y, 2) +
       Math.pow(sourceData.x - targetData.x, 2)

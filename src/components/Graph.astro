@@ -10,7 +10,7 @@ const { graph } = Astro.props;
 // probably need to use cache here
 const result = renderer(graph, {
   ...DEFAULTS,
-  width: 1000,
+  width: 800,
   height: 800,
 });
 ---
@@ -25,3 +25,36 @@ const result = renderer(graph, {
 <div class="graphology">
   <Fragment set:html={result} />
 </div>
+
+<script>
+  const elements = document.querySelectorAll(".graphNode");
+  const labels = document.querySelectorAll(".graphLabel");
+
+  function showLabel(e: any) {
+    const label = document.querySelector(
+      `#label-${e.target.getAttribute("data-id")}`
+    );
+    // @ts-ignore
+    if (label) label.style.display = "block";
+  }
+
+  function hideLabel() {
+    Array.from(labels).forEach((label) => {
+      // @ts-ignore
+      label.style.display = "none";
+    })
+  }
+
+  const events = [
+    ["mouseenter", showLabel],
+    ["mouseleave", hideLabel],
+    ["focus", showLabel],
+    ["blur", hideLabel],
+  ] as const;
+
+  Array.from(elements).forEach((element) => {
+    events.forEach(([event, listener]) => {
+      element.addEventListener(event, listener);
+    });
+  });
+</script>

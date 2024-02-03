@@ -2,7 +2,9 @@ import { computePosition, autoPlacement, offset } from "@floating-ui/dom";
 
 const tooltip = document.querySelector("#linkpreview") as HTMLElement;
 
-const elements = document.querySelectorAll(".sl-markdown-content a") as NodeListOf<HTMLAnchorElement>;
+const elements = document.querySelectorAll(
+  ".sl-markdown-content a"
+) as NodeListOf<HTMLAnchorElement>;
 
 tooltip.addEventListener("mouseleave", hideLinkPreview);
 
@@ -11,17 +13,12 @@ function hideLinkPreview() {
 }
 
 async function showLinkPreview(e: MouseEvent | FocusEvent) {
-  const start = `${window.location.protocol}//${window.location.host}`;
   const target = e.target as HTMLElement;
-  const href = target?.closest("a")?.href || "";
+  const href = target?.closest("a")?.href.replace(window.location.origin, '') || "";
+  const hrefWithoutAnchor = href.split("#")[0].replace(/\/$/, "");
+  const locationWithoutAnchor = window.location.pathname.replace(/\/$/, "");
 
-  const hrefWithoutAnchor = href.replace(new URL(href).hash, "");
-  const locationWithoutAnchor = window.location.href.replace(
-    window.location.hash,
-    ""
-  );
-
-  if (hrefWithoutAnchor === locationWithoutAnchor || !href.startsWith(start)) {
+  if (hrefWithoutAnchor === locationWithoutAnchor || !href.startsWith("/")) {
     hideLinkPreview();
     return;
   }

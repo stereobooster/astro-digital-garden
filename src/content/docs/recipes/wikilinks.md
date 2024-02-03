@@ -76,3 +76,4 @@ export default defineConfig({
 - support anchors in wikilinks (`[[page#anchor]]`, `[[page#anchor|alias]]`)
 - check that anchors correspond to some header in target document
 - what about ambiguous links (`bdb.documentsSync({ slug: permalink }).length > 1`)?
+- image wikilinks (`![[some.jpg]]`)
