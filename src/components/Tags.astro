@@ -1,12 +1,9 @@
 ---
-import { bdb } from "../lib/braindb.mjs";
 import type { CollectionEntry } from "astro:content";
 interface Props {
   entry: CollectionEntry<"docs">;
 }
 const { entry } = Astro.props;
-
-const doc = await bdb.findDocument(`/${entry.id}`);
 ---
 
 <script>
@@ -16,15 +13,15 @@ const doc = await bdb.findDocument(`/${entry.id}`);
   // Property 'class' does not exist on type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'. Did you mean 'className'?
 </script>
 
-<div class="backlinks">
+<div class="tags">
   {
-    doc && doc.documentsFrom().length > 0 && (
+    entry.data.tags && entry.data.tags.length > 0 && (
       <>
-        <h2>Backlinks</h2>
+        <h2>Tags</h2>
         <ul>
-          {doc.documentsFrom().map((x) => (
+          {entry.data.tags.map((x) => (
             <li>
-              <a href={x.url()}>{x.title()}</a>
+              <span>#{x}</span>
             </li>
           ))}
         </ul>
@@ -34,7 +31,7 @@ const doc = await bdb.findDocument(`/${entry.id}`);
 </div>
 
 <style>
-  .backlinks {
+  .tags {
     h2 {
       padding-top: 1rem;
     }
@@ -44,7 +41,7 @@ const doc = await bdb.findDocument(`/${entry.id}`);
       list-style: none;
     }
 
-    a {
+    span {
       --pad-inline: 0.5rem;
       display: block;
       border-radius: 0.25rem;

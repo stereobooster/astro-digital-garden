@@ -3,6 +3,7 @@
 import type { Props } from "@astrojs/starlight/props";
 import Default from "@astrojs/starlight/components/TableOfContents.astro";
 import Backlinks from "./Backlinks.astro";
+import Tags from "./Tags.astro";
 ---
 
 <Default {...Astro.props}>
@@ -14,3 +15,5 @@ import Backlinks from "./Backlinks.astro";
     <Backlinks entry={Astro.props.entry as any} />
   )
 }
+
+<Tags entry={Astro.props.entry as any} />

@@ -28,7 +28,7 @@ const tagsSorted = [...docsByTags.keys()].sort(comparator.compare);
     {
       tagsSorted.map((tag) => (
         <p>
-          <b>{tag}</b>
+          <b>#{tag}</b>
           <ul>
             {docsByTags.get(tag)?.map((doc) => (
               <li>

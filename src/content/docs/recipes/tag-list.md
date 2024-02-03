@@ -79,6 +79,5 @@ export const collections = {
 
 ## Further improvements
 
-- add tags to pages. Maybe in sidebar?
 - add many column design. Similar to https://stereobooster.com/tags/
 - [page for each tag](https://github.com/HiDeoo/starlight-blog)
