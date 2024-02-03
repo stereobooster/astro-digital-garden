@@ -9,24 +9,35 @@ const { entry } = Astro.props;
 const doc = await bdb.findDocument(`/${entry.id}`);
 ---
 
-{
-  doc && doc.documentsFrom().length > 0 && (
-    <div class="backlinks">
-      <h2>Backlinks</h2>
-      <ul>
-        {doc.documentsFrom().map((x) => (
-          <li>
-            <a href={x.url()}>{x.title()}</a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  )
-}
+<script>
+  // @ts-nocheck
+  // because can't resolve this error
+  // Type '{ children: Element; class: string; }' is not assignable to type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'.
+  // Property 'class' does not exist on type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'. Did you mean 'className'?
+</script>
+
+<div class="backlinks">
+  {
+    doc && doc.documentsFrom().length > 0 && (
+      <>
+        <h2>Backlinks</h2>
+        <ul>
+          {doc.documentsFrom().map((x) => (
+            <li>
+              <a href={x.url()}>{x.title()}</a>
+            </li>
+          ))}
+        </ul>
+      </>
+    )
+  }
+</div>
 
 <style>
   .backlinks {
-    padding-top: 1rem;
+    h2 {
+      padding-top: 1rem;
+    }
 
     ul {
       padding: 0;

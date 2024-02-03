@@ -2,7 +2,7 @@ import { computePosition, autoPlacement, offset } from "@floating-ui/dom";
 
 const tooltip = document.querySelector("#linkpreview") as HTMLElement;
 
-const elements = document.querySelectorAll(".sl-markdown-content a");
+const elements = document.querySelectorAll(".sl-markdown-content a") as NodeListOf<HTMLAnchorElement>;
 
 tooltip.addEventListener("mouseleave", hideLinkPreview);
 
