@@ -27,6 +27,7 @@ export const bdb = new BrainDB({
 });
 
 bdb.start();
+
 bdb.on("*", (_action, opts) => {
   if (opts) {
     opts.document

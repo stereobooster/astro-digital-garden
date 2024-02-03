@@ -8,7 +8,7 @@ BrainDB is a library that allows to treat your content as database. It can be us
 - [[backlinks|show backlinks]]
 - [[wikilinks|resolve wikilinks]]
 - [[content-graph-visualization|vizualize content as graph]]
-- detect internal broken links
+- [[detect-broken-links|detect internal broken links]]
 
 Related:
 
