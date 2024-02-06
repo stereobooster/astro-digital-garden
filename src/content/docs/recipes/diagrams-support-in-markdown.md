@@ -100,6 +100,6 @@ flowchart LR
     Start --> Stop
 ```
 
-## Further improvements
+## See also
 
-- Add JS script to do pan/zoom/drag, for example, [svg-pan-zoom](https://github.com/bumbu/svg-pan-zoom)
+- [[svg-pan-zoom]]

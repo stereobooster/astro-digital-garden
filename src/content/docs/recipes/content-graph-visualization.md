@@ -71,6 +71,10 @@ This graph is generated on the server-side with the help of Graphology and some 
 
 Idea was to show graph without the need for JS on the client-side. But it is hard to do. Because one need to take care of not overlaping - nodes, edges and labels. It is good enough to demonstate idea, but it needs to be reimplemented to be rendered on the client-side.
 
+## See also
+
+- [[svg-pan-zoom]]
+
 ## Further improvements
 
 - show broken links on the graph

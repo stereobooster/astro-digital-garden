@@ -11,3 +11,9 @@ sidebar:
 - [hubspot/sortable](https://github.hubspot.com/sortable/docs/welcome/)
 - [kryogenix/sorttable](https://www.kryogenix.org/code/browser/sorttable/)
 - [List.js](https://listjs.com/examples/table/)
+
+## Reference implementations
+
+- [Tablesorter](https://www.mediawiki.org/wiki/Tablesorter)
+  - [Help:Sorting](https://meta.wikimedia.org/wiki/Help:Sorting)
+  - [jQuery tablesorter 2.0](https://mottie.github.io/tablesorter/docs/#Demo)

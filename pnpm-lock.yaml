@@ -86,6 +86,9 @@ dependencies:
   sharp:
     specifier: ^0.32.5
     version: 0.32.5
+  svg-pan-zoom:
+    specifier: ^3.6.1
+    version: 3.6.1
   typescript:
     specifier: ^5.3.3
     version: 5.3.3
@@ -5376,6 +5379,10 @@ packages:
   /supports-preserve-symlinks-flag@1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
+    dev: false
+
+  /svg-pan-zoom@3.6.1:
+    resolution: {integrity: sha512-JaKkGHHfGvRrcMPdJWkssLBeWqM+Isg/a09H7kgNNajT1cX5AztDTNs+C8UzpCxjCTRrG34WbquwaovZbmSk9g==}
     dev: false
 
   /tar-fs@2.1.1:
