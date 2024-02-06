@@ -1,0 +1,31 @@
+---
+import { type TOCItem } from "./TOCHelper";
+export type Props = { heading: TOCItem };
+
+const { heading } = Astro.props;
+---
+
+<li>
+  <a href={"#" + heading.slug}>
+    {heading.text}
+  </a>
+  {
+    heading.subheadings.length > 0 && (
+      <ul>
+        {heading.subheadings.map((subheading) => (
+          <Astro.self heading={subheading} />
+        ))}
+      </ul>
+    )
+  }
+</li>
+
+<style>
+  ul {
+    list-style-type: none;
+    padding-left: 1rem;
+  }
+  li a {
+    padding-left: .5rem;
+  }
+</style>
