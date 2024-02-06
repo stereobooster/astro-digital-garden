@@ -8,6 +8,7 @@ sidebar:
 ## JS libraries
 
 - [LeeWannacott/table-sort-js](https://github.com/LeeWannacott/table-sort-js)
+- [tofsjonas/sortable](https://github.com/tofsjonas/sortable)
 - [hubspot/sortable](https://github.hubspot.com/sortable/docs/welcome/)
 - [kryogenix/sorttable](https://www.kryogenix.org/code/browser/sorttable/)
 - [List.js](https://listjs.com/examples/table/)
