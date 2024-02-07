@@ -44,7 +44,7 @@ export default defineConfig({
         TableOfContents: "./src/components/TableOfContents.astro",
       },
       lastUpdated: true,
-      head: [
+      head: import.meta.env.PROD ? [
         {
           tag: "script",
           attrs: {
@@ -53,7 +53,7 @@ export default defineConfig({
             defer: true,
           },
         },
-      ],
+      ] : undefined,
     }),
   ],
   markdown: {
