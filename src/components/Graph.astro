@@ -22,11 +22,12 @@ const result = renderer(graph, {
   // Property 'class' does not exist on type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'. Did you mean 'className'?
 </script>
 
-<div class="graphology controls">
+<div class="graphology">
   <Fragment set:html={result} />
 </div>
 
 <script>
+  // TODO: prevent link click on drag/zoom
   const elements = document.querySelectorAll(".graphNode");
   const labels = document.querySelectorAll(".graphLabel");
 

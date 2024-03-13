@@ -86,9 +86,9 @@ dependencies:
   sharp:
     specifier: ^0.33.2
     version: 0.33.2
-  svg-pan-zoom:
-    specifier: ^3.6.1
-    version: 3.6.1
+  svg-pan-zoom-gesture:
+    specifier: ^0.0.2
+    version: 0.0.2
   typescript:
     specifier: ^5.3.3
     version: 5.3.3
@@ -5606,8 +5606,8 @@ packages:
     engines: {node: '>= 0.4'}
     dev: false
 
-  /svg-pan-zoom@3.6.1:
-    resolution: {integrity: sha512-JaKkGHHfGvRrcMPdJWkssLBeWqM+Isg/a09H7kgNNajT1cX5AztDTNs+C8UzpCxjCTRrG34WbquwaovZbmSk9g==}
+  /svg-pan-zoom-gesture@0.0.2:
+    resolution: {integrity: sha512-HQ6YvK7LlyDDJwYvnGbqwtJ9jlUqG+8KzCY8baYtg3TO274LBL58wD1+9eHW+29Bv8opAhAQHwJtWWNVKi7iiA==}
     dev: false
 
   /tar-fs@2.1.1:

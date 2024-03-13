@@ -6,19 +6,26 @@ tags: [component]
 ## Instalation
 
 ```bash title="Instal dependencies…"
-pnpm add svg-pan-zoom
+pnpm add svg-pan-zoom-gesture
 ```
 
 ```ts
 // src/components/svgpanzoom.ts
-import svgPanZoom from "svg-pan-zoom";
+import "svg-pan-zoom-gesture/css/SvgPanZoomUi.css";
+import { SvgPanZoomUi } from "svg-pan-zoom-gesture";
 
-try {
-  svgPanZoom(".sl-markdown-content svg", {
-    zoomEnabled: true,
-    controlIconsEnabled: false,
+document
+  .querySelectorAll(
+    ".sl-markdown-content svg, .sl-markdown-content img[src$='.svg' i]"
+  )
+  .forEach((element) => {
+    const container = document.createElement("div");
+    container.className = "svg-pan-zoom";
+    element.replaceWith(container);
+    container.append(element);
+    // @ts-expect-error
+    new SvgPanZoomUi({ element, container }).on();
   });
-} catch (e) {}
 ```
 
 ### Starlight specific code
@@ -59,5 +66,5 @@ export default defineConfig({
 
 ## Further improvements
 
-- Implement user experience similar to Google maps, e.g. use two fingers on mobile for pan, to prevent scroll trap.
-- Bug: On small SVGs controls may cover part of the image
+- style svg-pan-zoom buttons
+- provide container in HTML, instead of generating it on the fly
