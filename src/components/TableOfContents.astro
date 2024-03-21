@@ -1,14 +1,13 @@
 ---
 // https://github.com/withastro/starlight/blob/main/packages/starlight/components/TableOfContents.astro
 import type { Props } from "@astrojs/starlight/props";
-import Default from "@astrojs/starlight/components/TableOfContents.astro";
+// import Default from "@astrojs/starlight/components/TableOfContents.astro";
 import Backlinks from "./Backlinks.astro";
 import Tags from "./Tags.astro";
+import TOC from "./TOC.astro";
 ---
 
-<Default {...Astro.props}>
-  <slot />
-</Default>
+<TOC {...Astro.props} />
 
 <Backlinks entry={Astro.props.entry as any} />
 

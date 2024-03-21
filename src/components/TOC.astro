@@ -1,0 +1,49 @@
+---
+import type { Props } from "@astrojs/starlight/props";
+import { buildToc } from "./TOCHelper";
+import TOCHeading from "./TOCHeading.astro";
+
+const { headings } = Astro.props;
+const toc = buildToc(headings);
+---
+
+<h2>On this page</h2>
+<nav class="toc-new">
+  <TOCHeading headings={toc} />
+  <svg class="toc-progress" xmlns="http://www.w3.org/2000/svg">
+    <path
+      class="toc-marker"
+      fill="none"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-width="2"
+      stroke-dashoffset="1"
+      stroke-linejoin="round"></path>
+  </svg>
+</nav>
+
+<style>
+  .toc-new {
+    display: block;
+    position: sticky;
+    margin-left: -1rem;
+  }
+
+  .toc-progress {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .toc-marker {
+    transition: stroke-dasharray 0.3s ease;
+    color: var(--sl-color-text-accent);
+  }
+</style>
+
+<script>
+  import "./toc.js";
+</script>
