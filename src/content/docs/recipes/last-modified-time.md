@@ -1,8 +1,6 @@
 ---
 title: Last modified time
 tags: [markdown]
-sidebar:
-  label: Last modified time 🚧
 ---
 
 ## Starlight
@@ -22,9 +20,11 @@ export default defineConfig({
 });
 ```
 
-You would see `Last updated:` on the page, but the same time `page.data.lastUpdated` would be `undefined`
+You would see `Last updated:` on the page, but at the same time `page.data.lastUpdated` would be `undefined`
 
 ## Implementation
+
+### Option 1
 
 ```js
 // remark-modified-time.mjs
@@ -72,6 +72,11 @@ const blog = defineCollection({
 });
 ```
 
-## Further improvements
+### Option 2
 
-- need a way to expose `lastUpdated` to `page.data`
+Install [[braindb]], then you can do something like this:
+
+```ts
+const doc = (await bdb.documents({ slug }))[0];
+doc.updatedAt();
+```
