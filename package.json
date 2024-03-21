@@ -13,7 +13,7 @@
     "@astrojs/check": "^0.4.1",
     "@astrojs/markdown-remark": "^4.2.1",
     "@astrojs/starlight": "^0.17.3",
-    "@braindb/core": "^0.0.3",
+    "@braindb/core": "^0.0.7",
     "@floating-ui/dom": "^1.6.1",
     "@stereobooster/remark-wiki-link": "^2.0.1",
     "@types/react": "^18.2.55",

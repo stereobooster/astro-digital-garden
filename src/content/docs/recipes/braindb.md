@@ -27,7 +27,13 @@ import { defineConfig } from "astro/config";
 
 export default defineConfig({
   vite: {
-    optimizeDeps: { exclude: ["fsevents"] },
+    optimizeDeps: {
+      exclude: [
+        "fsevents",
+        "@node-rs/xxhash-wasm32-wasi",
+        "@napi-rs/simple-git-darwin-x64",
+      ],
+    },
   },
 });
 ```
@@ -60,6 +66,7 @@ const generateSlug = (filePath) => {
 export const bdb = new BrainDB({
   root: path.resolve(process.cwd(), "src/content/docs"),
   url: (filePath, _frontmatter) => `${generateSlug(filePath)}/`,
+  git: process.cwd()
 });
 
 bdb.start();

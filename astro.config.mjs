@@ -27,8 +27,9 @@ export default defineConfig({
       },
       sidebar: [
         { label: "Introduction", link: "/" },
-        { label: "Tags", link: "/tags" },
+        { label: "Recently changed", link: "/recent" },
         { label: "Alphabetical index", link: "/alphabetical" },
+        { label: "Tags", link: "/tags" },
         { label: "Graph", link: "/graph" },
         {
           label: "Recipes",
@@ -44,16 +45,18 @@ export default defineConfig({
         TableOfContents: "./src/components/TableOfContents.astro",
       },
       lastUpdated: true,
-      head: import.meta.env.PROD ? [
-        {
-          tag: "script",
-          attrs: {
-            src: "https://eu.umami.is/script.js",
-            "data-website-id": "2d34b0d4-893c-4348-a3e4-1f489300117c",
-            defer: true,
-          },
-        },
-      ] : undefined,
+      head: import.meta.env.PROD
+        ? [
+            {
+              tag: "script",
+              attrs: {
+                src: "https://eu.umami.is/script.js",
+                "data-website-id": "2d34b0d4-893c-4348-a3e4-1f489300117c",
+                defer: true,
+              },
+            },
+          ]
+        : undefined,
     }),
   ],
   markdown: {
@@ -110,6 +113,12 @@ export default defineConfig({
     ssr: {
       noExternal: ["katex"],
     },
-    optimizeDeps: { exclude: ["fsevents"] },
+    optimizeDeps: {
+      exclude: [
+        "fsevents",
+        "@node-rs/xxhash-wasm32-wasi",
+        "@napi-rs/simple-git-darwin-x64",
+      ],
+    },
   },
 });

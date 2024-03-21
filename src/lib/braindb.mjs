@@ -24,6 +24,7 @@ const generateSlug = (filePath) => {
 export const bdb = new BrainDB({
   root: path.resolve(process.cwd(), "src/content/docs"),
   url: (filePath, _frontmatter) => `${generateSlug(filePath)}/`,
+  git: process.cwd()
 });
 
 bdb.start();
