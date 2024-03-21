@@ -2,6 +2,7 @@
 import { getEntry } from "astro:content";
 import LinkPage from "./LinkPage.astro";
 import { bdb } from "../lib/braindb.mjs";
+import type { CollectionEntry } from "astro:content";
 
 const docs = (await bdb.documents({ sort: ["updated_at", "desc"] }))
   .slice(0, 10)
@@ -9,7 +10,9 @@ const docs = (await bdb.documents({ sort: ["updated_at", "desc"] }))
   .filter(Boolean)
   .map((slug) => getEntry("docs", slug));
 
-const recent = await Promise.all(docs);
+const recent = (await Promise.all(docs)).filter(Boolean) as Array<
+  CollectionEntry<"docs">
+>;
 ---
 
 {recent.map((doc) => <LinkPage entry={doc} />)}
