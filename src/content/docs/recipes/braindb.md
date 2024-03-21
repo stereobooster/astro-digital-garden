@@ -9,6 +9,7 @@ tags: [link]
 - [[wikilinks|resolve wikilinks]]
 - [[content-graph-visualization|vizualize content as graph]]
 - [[detect-broken-links|detect internal broken links]]
+- [[recently-changed-pages|show recently changed pages]]
 
 Related:
 

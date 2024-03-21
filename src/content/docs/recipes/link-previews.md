@@ -153,6 +153,7 @@ export default defineConfig({
 ## Further improvements
 
 - If link has anchor, show in preview specified section
+- improve UX - maybe show with small delay and hide after some delay?
 
 ## Reference implementations
 
