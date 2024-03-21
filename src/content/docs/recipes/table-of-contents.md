@@ -1,8 +1,6 @@
 ---
 title: Table of contents
 tags: [component, markdown]
-sidebar:
-  label: Table of contents 🚧
 ---
 
 ## Starlight
@@ -16,12 +14,36 @@ See:
 - https://kld.dev/building-table-of-contents/
 - https://kld.dev/toc-animation/
 
-Implemented in [the branch TOC](https://github.com/stereobooster/astro-digital-garden/tree/TOC). But build is failing with this error:
+### Implementation
 
+Checkout in the sourcecode how to implement:
+
+- [src/components/TOC.astro](https://github.com/stereobooster/astro-digital-garden/tree/main/src/components/TOC.astro)
+- [src/components/TOCHelper.ts](https://github.com/stereobooster/astro-digital-garden/tree/main/src/components/TOCHelper.ts)
+- [src/components/TOCHeading.astro](https://github.com/stereobooster/astro-digital-garden/tree/main/src/components/TOCHeading.astro)
+- [src/toc.js](https://github.com/stereobooster/astro-digital-garden/tree/main/src/components/toc.js)
+
+### Satrlight specific config
+
+```astro
+// src/components/TableOfContents.astro
+---
+import type { Props } from "@astrojs/starlight/props";
+import TOC from "./TOC.astro";
+---
+
+<TOC {...Astro.props} />
 ```
-src/components/TOC.astro:15:7 - error ts(2322): Type '{ "stroke-linecap": string; "stroke-width": string; "stroke-dashoffset": string; "stroke-linejoin": string; class: string; fill: string; stroke: string; }' is not assignable to type 'SVGProps<SVGPathElement>'.
-  Property 'class' does not exist on type 'SVGProps<SVGPathElement>'. Did you mean 'className'?
 
-15       class="toc-marker"
-         ~~~~~
+```js
+// astro.config.mjs
+export default defineConfig({
+  integrations: [
+    starlight({
+      components: {
+        TableOfContents: "./src/components/TableOfContents.astro",
+      },
+    }),
+  ],
+});
 ```

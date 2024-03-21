@@ -10,14 +10,14 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.4.1",
-    "@astrojs/markdown-remark": "^4.2.1",
-    "@astrojs/starlight": "^0.17.3",
+    "@astrojs/check": "^0.5.9",
+    "@astrojs/markdown-remark": "^4.3.1",
+    "@astrojs/starlight": "^0.21.2",
     "@braindb/core": "^0.0.7",
-    "@floating-ui/dom": "^1.6.1",
+    "@floating-ui/dom": "^1.6.3",
     "@stereobooster/remark-wiki-link": "^2.0.1",
-    "@types/react": "^18.2.55",
-    "astro": "^4.3.5",
+    "@types/react": "^18.2.67",
+    "astro": "^4.5.8",
     "github-slugger": "^2.0.0",
     "graphology": "^0.25.4",
     "graphology-layout": "^0.6.1",
@@ -26,8 +26,8 @@
     "graphology-utils": "^2.5.2",
     "katex": "^0.16.9",
     "netlify-plugin-playwright-cache": "^0.0.1",
-    "playwright": "^1.41.2",
-    "playwright-chromium": "^1.41.2",
+    "playwright": "^1.42.1",
+    "playwright-chromium": "^1.42.1",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-external-links": "^3.0.0",
     "rehype-katex": "^7.0.0",
@@ -38,6 +38,6 @@
     "remark-mermaidjs": "^6.0.0",
     "sharp": "^0.33.2",
     "svg-pan-zoom-gesture": "^0.0.2",
-    "typescript": "^5.3.3"
+    "typescript": "^5.4.3"
   }
 }
