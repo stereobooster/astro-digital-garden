@@ -6,6 +6,7 @@ import rehypeKatex from "rehype-katex";
 import remarkMermaidjs from "remark-mermaidjs";
 import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import Icons from "unplugin-icons/vite";
 
 import { wikiLinkPlugin } from "@stereobooster/remark-wiki-link";
 import { bdb } from "./src/lib/braindb.mjs";
@@ -120,5 +121,10 @@ export default defineConfig({
         "@napi-rs/simple-git-darwin-x64",
       ],
     },
+    plugins: [
+      Icons({
+        compiler: "astro",
+      }),
+    ],
   },
 });

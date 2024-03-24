@@ -15,6 +15,7 @@
     "@astrojs/starlight": "^0.21.2",
     "@braindb/core": "^0.0.7",
     "@floating-ui/dom": "^1.6.3",
+    "@iconify/json": "^2.2.195",
     "@stereobooster/remark-wiki-link": "^2.0.1",
     "@types/react": "^18.2.67",
     "astro": "^4.5.8",
@@ -38,6 +39,7 @@
     "remark-mermaidjs": "^6.0.0",
     "sharp": "^0.33.2",
     "svg-pan-zoom-gesture": "^0.0.2",
-    "typescript": "^5.4.3"
+    "typescript": "^5.4.3",
+    "unplugin-icons": "^0.18.5"
   }
 }

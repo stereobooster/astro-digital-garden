@@ -5,7 +5,7 @@ import { SvgPanZoomUi } from "svg-pan-zoom-gesture";
 // TODO: provide container in HTML, instead of generating it on the fly
 document
   .querySelectorAll(
-    ".sl-markdown-content svg, .sl-markdown-content img[src$='.svg' i]"
+    ".sl-markdown-content svg:not(.icon), .sl-markdown-content img[src$='.svg' i]"
   )
   .forEach((element) => {
     const container = document.createElement("div");
