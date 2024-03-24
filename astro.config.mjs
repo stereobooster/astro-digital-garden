@@ -99,7 +99,7 @@ export default defineConfig({
     ],
     rehypePlugins: [
       rehypeHeadingIds,
-      rehypeAutolinkHeadings,
+      [rehypeAutolinkHeadings, { behavior: "append" }],
       [
         rehypeExternalLinks,
         {

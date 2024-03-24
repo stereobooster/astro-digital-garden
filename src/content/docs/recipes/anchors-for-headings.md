@@ -16,6 +16,8 @@ There are different opinions on what is the best approach for those links. See:
 pnpm add rehype-autolink-headings @astrojs/markdown-remark
 ```
 
+### Anchor before
+
 ```js
 // astro.config.mjs
 import { defineConfig } from "astro/config";
@@ -55,7 +57,50 @@ export default defineConfig({
 }
 ```
 
-See also:
+### Anchor after
+
+```js
+// astro.config.mjs
+import { defineConfig } from "astro/config";
+import { rehypeHeadingIds } from "@astrojs/markdown-remark";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+
+export default defineConfig({
+  integrations: [
+    starlight({
+      customCss: ["./src/styles/custom.css"],
+    }),
+  ],
+  markdown: {
+    rehypePlugins: [
+      rehypeHeadingIds,
+      [rehypeAutolinkHeadings, { behavior: "append" }],
+    ],
+  },
+});
+```
+
+```css
+// src/styles/custom.css
+.sl-markdown-content :is(h1, h2, h3, h4, h5, h6) {
+  a {
+    color: var(--sl-color-black);
+    text-decoration: none;
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+  }
+
+  &:hover a {
+    color: var(--sl-color-accent);
+  }
+
+  .icon.icon-link::after {
+    content: "#";
+  }
+}
+```
+
+## See also
 
 - [Anchor Links for Headings](https://github.com/withastro/starlight/discussions/1239)
 - [Add links to Starlight headings](https://hideoo.dev/notes/starlight-heading-links)
