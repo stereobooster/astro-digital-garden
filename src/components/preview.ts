@@ -13,12 +13,18 @@ function hideLinkPreview() {
 }
 
 async function showLinkPreview(e: MouseEvent | FocusEvent) {
+  const start = `${window.location.protocol}//${window.location.host}`;
   const target = e.target as HTMLElement;
-  const href = target?.closest("a")?.href.replace(window.location.origin, '') || "";
-  const hrefWithoutAnchor = href.split("#")[0].replace(/\/$/, "");
-  const locationWithoutAnchor = window.location.pathname.replace(/\/$/, "");
+  const href = target?.closest("a")?.href || "";
+  const hash = new URL(href).hash;
 
-  if (hrefWithoutAnchor === locationWithoutAnchor || !href.startsWith("/")) {
+  const hrefWithoutAnchor = href.replace(hash, "");
+  const locationWithoutAnchor = window.location.href.replace(
+    window.location.hash,
+    ""
+  );
+
+  if (hrefWithoutAnchor === locationWithoutAnchor || !href.startsWith(start)) {
     hideLinkPreview();
     return;
   }
@@ -27,10 +33,17 @@ async function showLinkPreview(e: MouseEvent | FocusEvent) {
   const doc = new DOMParser().parseFromString(text, "text/html");
   const h1 = doc.querySelector("h1")?.innerText;
   const content = (doc.querySelector(".sl-markdown-content") as HTMLElement)
-    ?.innerHTML;
+    ?.outerHTML;
   tooltip.innerHTML = `<h1>${h1}</h1>${content}`;
-
   tooltip.style.display = "block";
+
+  let offsetTop = 0;
+  if (hash !== "") {
+    const heading = tooltip.querySelector(hash) as HTMLElement | null;
+    if (heading) offsetTop = heading.offsetTop;
+  }
+  tooltip.scroll({ top: offsetTop, behavior: "instant" });
+
   computePosition(target, tooltip, {
     middleware: [offset(10), autoPlacement()],
   }).then(({ x, y }) => {

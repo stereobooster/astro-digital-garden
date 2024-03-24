@@ -71,8 +71,9 @@ async function showLinkPreview(e: MouseEvent | FocusEvent) {
   const start = `${window.location.protocol}//${window.location.host}`;
   const target = e.target as HTMLElement;
   const href = target?.closest("a")?.href || "";
+  const hash = new URL(href).hash;
 
-  const hrefWithoutAnchor = href.replace(new URL(href).hash, "");
+  const hrefWithoutAnchor = href.replace(hash, "");
   const locationWithoutAnchor = window.location.href.replace(
     window.location.hash,
     ""
@@ -87,10 +88,17 @@ async function showLinkPreview(e: MouseEvent | FocusEvent) {
   const doc = new DOMParser().parseFromString(text, "text/html");
   const h1 = doc.querySelector("h1")?.innerText;
   const content = (doc.querySelector(".sl-markdown-content") as HTMLElement)
-    ?.innerHTML;
+    ?.outerHTML;
   tooltip.innerHTML = `<h1>${h1}</h1>${content}`;
-
   tooltip.style.display = "block";
+
+  let offsetTop = 0;
+  if (hash !== "") {
+    const heading = tooltip.querySelector(hash) as HTMLElement | null;
+    if (heading) offsetTop = heading.offsetTop;
+  }
+  tooltip.scroll({ top: offsetTop, behavior: "instant" });
+
   computePosition(target, tooltip, {
     middleware: [offset(10), autoPlacement()],
   }).then(({ x, y }) => {
@@ -152,10 +160,10 @@ export default defineConfig({
 
 ## Further improvements
 
-- If link has anchor, show in preview specified section
 - improve UX - maybe show with small delay and hide after some delay?
 
 ## Reference implementations
 
 - [mediawiki-extensions-Popups](https://github.com/wikimedia/mediawiki-extensions-Popups)
 - [wikipedia-preview](https://github.com/wikimedia/wikipedia-preview)
+- [quartz popover](https://github.com/jackyzha0/quartz/blob/v4/quartz/components/scripts/popover.inline.ts)
