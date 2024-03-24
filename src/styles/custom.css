@@ -67,3 +67,8 @@ svg .node .label {
     margin-inline: var(--sl-content-margin-inline, 0) !important;
   }
 }
+
+svg.icon.text {
+  display: inline-block !important;
+  margin: 0 0 -.25rem 0 !important;
+}

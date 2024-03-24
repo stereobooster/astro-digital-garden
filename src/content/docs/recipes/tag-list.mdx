@@ -1,0 +1,114 @@
+---
+title: Tag list
+tags: [page]
+sidebar:
+  label: Tag list 🚧
+---
+
+## Implementation in Starlight
+
+```astro
+//src/components/TagList.astro
+---
+import { getCollection } from "astro:content";
+
+const docs = await getCollection("docs");
+type Docs = typeof docs;
+const docsByTags = new Map<string, Docs>();
+docs.forEach((doc) => {
+  if (doc.data.tags) {
+    doc.data.tags.forEach((tag: string) => {
+      docsByTags.set(tag, docsByTags.get(tag) || []);
+      docsByTags.get(tag)?.push(doc);
+    });
+  }
+});
+const comparator = new Intl.Collator("en");
+const tagsSorted = [...docsByTags.keys()].sort(comparator.compare);
+---
+
+<ul>
+  {
+    tagsSorted.map((tag) => (
+      <li>
+        {tag} ({docsByTags.get(tag)?.length})
+        <ul>
+          {docsByTags.get(tag)?.map((doc) => (
+            <li>
+              <a href={`/${doc.slug}`}>{doc.data.title}</a>
+            </li>
+          ))}
+        </ul>
+      </li>
+    ))
+  }
+</ul>
+```
+
+```mdx
+## //src/content/docs/tags.mdx
+
+title: Tags
+tableOfContents: false
+prev: false
+next: false
+
+---
+
+import TagList from "../../components/TagList.astro";
+
+<TagList />
+```
+
+```ts
+//src/content/config.ts
+import { z, defineCollection } from "astro:content";
+import { docsSchema, i18nSchema } from "@astrojs/starlight/schema";
+
+export const collections = {
+  docs: defineCollection({
+    schema: docsSchema({
+      extend: z.object({
+        tags: z.array(z.string()).optional(),
+      }),
+    }),
+  }),
+  i18n: defineCollection({ type: "data", schema: i18nSchema() }),
+};
+```
+
+## Further improvements
+
+### Tag page
+
+From [starlight-blog](https://github.com/HiDeoo/starlight-blog):
+
+- [Tag page](https://github.com/HiDeoo/starlight-blog/blob/main/packages/starlight-blog/routes/Tags.astro)
+- [Tag related functions](https://github.com/HiDeoo/starlight-blog/blob/main/packages/starlight-blog/libs/tags.ts)
+- [`injectRoute` example](https://github.com/HiDeoo/starlight-blog/blob/main/packages/starlight-blog/index.ts#L29-L33)
+
+```ts
+addIntegration({
+  name: "starlight-blog-integration",
+  hooks: {
+    "astro:config:setup": ({ injectRoute, updateConfig }) => {
+      injectRoute({
+        entrypoint: "starlight-blog/routes/Tags.astro",
+        pattern: "/blog/tags/[tag]",
+        prerender: true,
+      });
+    },
+  },
+});
+```
+
+### Icons for tags
+
+import TeenyiconsMarkdownOutline from "~icons/teenyicons/markdown-outline";
+import BxBxsComponent from "~icons/bx/bxs-component";
+import MaterialSymbolsLink from "~icons/material-symbols/link";
+import IconoirEmptyPage from "~icons/iconoir/empty-page";
+import LogosAstroIcon from "~icons/logos/astro-icon";
+import LogosTypescriptIcon from '~icons/logos/typescript-icon'
+
+Each tag can have it's own color or [[icons|icon]], to help differentiate them visually, for example: #markdown <TeenyiconsMarkdownOutline class="icon text" />, #component <BxBxsComponent class="icon text" />, #link <MaterialSymbolsLink class="icon text" />, #page <IconoirEmptyPage class="icon text" />, #Astro <LogosAstroIcon class="icon text" />, #TypeScript <LogosTypescriptIcon class="icon text" />
