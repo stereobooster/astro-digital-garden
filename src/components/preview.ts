@@ -31,10 +31,9 @@ async function showLinkPreview(e: MouseEvent | FocusEvent) {
 
   const text = await fetch(href).then((x) => x.text());
   const doc = new DOMParser().parseFromString(text, "text/html");
-  const h1 = doc.querySelector("h1")?.innerText;
   const content = (doc.querySelector(".sl-markdown-content") as HTMLElement)
-    ?.outerHTML;
-  tooltip.innerHTML = `<h1>${h1}</h1>${content}`;
+  ?.outerHTML;
+  tooltip.innerHTML = content;
   tooltip.style.display = "block";
 
   let offsetTop = 0;
