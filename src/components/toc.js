@@ -72,7 +72,7 @@ function addResizeObserver() {
 function drawPath() {
   const path = document.querySelector("path.toc-marker");
   const links = Array.from(document.querySelectorAll("nav.toc-new a"));
-  if (!links.length) return;
+  if (!links.length || !path) return;
 
   // Start with an empty array of path data values (joined with
   // spaces later)
@@ -128,8 +128,9 @@ function drawPath() {
 
 function updatePath() {
   const path = document.querySelector("path.toc-marker");
-  const pathLength = path.getTotalLength();
+  const pathLength = path?.getTotalLength();
   const activeLinks = document.querySelectorAll("nav.toc-new a.active");
+  if (!activeLinks || !path) return;
 
   let linkStart = pathLength;
   let linkEnd = 0;
