@@ -1,8 +1,6 @@
 ---
 title: Link previews
 tags: [component]
-sidebar:
-  label: Link previews 🚧
 ---
 
 ## Options

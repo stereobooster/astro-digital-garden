@@ -1,6 +1,6 @@
 ---
 title: Diagrams support in Markdown
-tags: [markdown]
+tags: [markdown, code-fences]
 sidebar:
   label: Diagrams support in Markdown 🚧
 ---
