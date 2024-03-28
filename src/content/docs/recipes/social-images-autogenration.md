@@ -1,6 +1,8 @@
 ---
 title: Social images autogenration
 tags: [component]
+sidebar:
+  label: Social images autogenration 🚧
 ---
 
 ## Options
