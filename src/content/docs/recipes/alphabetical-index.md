@@ -54,7 +54,3 @@ import Alphabetical from "../../components/Alphabetical.astro";
 
 <Alphabetical />
 ```
-
-## Further improvements
-
-- add many column design
