@@ -28,10 +28,6 @@ export default defineConfig({
       },
       sidebar: [
         { label: "Introduction", link: "/" },
-        { label: "Recently changed", link: "/recent" },
-        { label: "Alphabetical index", link: "/alphabetical" },
-        { label: "Tags", link: "/tags" },
-        { label: "Graph", link: "/graph" },
         {
           label: "Recipes",
           // collapsed: true,

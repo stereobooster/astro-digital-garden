@@ -56,3 +56,7 @@ const dates = Array.from(docsByDate.keys()).map((d) => [
   </span>
 </div>
 ```
+
+## Example
+
+See [[recent]].

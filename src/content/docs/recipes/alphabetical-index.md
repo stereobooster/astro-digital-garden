@@ -54,3 +54,7 @@ import Alphabetical from "../../components/Alphabetical.astro";
 
 <Alphabetical />
 ```
+
+## Example
+
+See [[alphabetical]].
