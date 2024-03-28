@@ -1,8 +1,6 @@
 ---
 title: Diagrams support in Markdown
 tags: [markdown, code-fences]
-sidebar:
-  label: Diagrams support in Markdown 🚧
 ---
 
 There are a lot of diagraming languages (see [text-to-diagram](https://stereobooster.com/posts/text-to-diagram/)). [Mermaid](https://mermaid.js.org/) seems to be popular (it is supported by GitHub).
@@ -31,7 +29,6 @@ See: [astro-diagrams](https://stereobooster.com/posts/astro-diagrams/)
 - Mermaid doesn't support server-side rendering: [mermaid#3650](https://github.com/mermaid-js/mermaid/issues/3650)
 - Prerendering with healdess browser: [mermaid-isomorphic](https://github.com/remcohaszing/mermaid-isomorphic)
 - Related discussion in Starlight repo: [starlight#1259](https://github.com/withastro/starlight/discussions/1259)
-- Component for diagram rendering: [astro-diagram](https://www.npmjs.com/package/astro-diagram) (I haven't tried it though)
 
 ### remark plugin
 
@@ -103,3 +100,4 @@ flowchart LR
 ## See also
 
 - [[svg-pan-zoom]]
+- [Astro D2](https://astro-d2.vercel.app/)
