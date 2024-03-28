@@ -1,8 +1,6 @@
 ---
 title: Content graph visualization
 tags: [link]
-sidebar:
-  label: Content graph visualization 🚧
 ---
 
 ## Installation
@@ -65,7 +63,7 @@ export async function getGraph() {
 
 ## Example
 
-See [graph](/graph/).
+See [[graph]].
 
 This graph is generated on the server-side with the help of Graphology and some custom code. It is too long to post it here. Check out source code, if you want to know more.
 
@@ -78,5 +76,4 @@ Idea was to show graph without the need for JS on the client-side. But it is har
 ## Further improvements
 
 - show tags on the graph (already showing, but without text)
-- show broken links on the graph
 - create an example with client side graph
