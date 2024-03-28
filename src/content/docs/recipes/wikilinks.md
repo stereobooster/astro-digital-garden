@@ -30,18 +30,19 @@ export default defineConfig({
         wikiLinkPlugin,
         {
           aliasDivider: "|",
-          linkTemplate: ({ permalink, alias }) => {
-            // TODO: permalink may contain anchor
-            const doc = bdb.documentsSync({ slug: permalink })[0];
+          linkTemplate: ({ slug, alias }) => {
+            const [slugWithoutAnchor, anchor] = slug.split("#");
+            const doc = bdb.documentsSync({ slug: slugWithoutAnchor })[0];
             if (doc) {
               return {
                 hName: "a",
-                hProperties: { href: doc.url() },
+                hProperties: {
+                  href: anchor ? `${doc.url()}#${anchor}` : doc.url(),
+                },
                 hChildren: [
                   {
                     type: "text",
-                    value:
-                      permalink === alias ? doc.frontmatter().title : alias,
+                    value: alias == null ? doc.frontmatter().title : alias,
                   },
                 ],
               };
@@ -50,9 +51,9 @@ export default defineConfig({
                 hName: "span",
                 hProperties: {
                   class: "broken-link",
-                  title: `Can't resolve link to ${permalink}`,
+                  title: `Can't resolve link to ${slug}`,
                 },
-                hChildren: [{ type: "text", value: alias }],
+                hChildren: [{ type: "text", value: alias || slug }],
               };
             }
           },
@@ -74,6 +75,8 @@ export default defineConfig({
 ## Further improvements
 
 - support anchors in wikilinks (`[[page#anchor]]`, `[[page#anchor|alias]]`)
+  - do we need to url-encode anchors?
+  - do we need to slugify anchors?
 - check that anchors correspond to some header in target document
 - what about ambiguous links (`bdb.documentsSync({ slug: permalink }).length > 1`)?
 - image wikilinks (`![[some.jpg]]`)
