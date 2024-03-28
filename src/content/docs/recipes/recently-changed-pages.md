@@ -18,21 +18,41 @@ pnpm add @stereobooster/remark-wiki-link
 ```astro
 //src/components/RecentChanges.astro
 ---
-import { getEntry } from "astro:content";
-import LinkPage from "./LinkPage.astro";
 import { bdb } from "../lib/braindb.mjs";
-import type { CollectionEntry } from "astro:content";
+import type { Document } from "@braindb/core";
 
-const docs = (await bdb.documents({ sort: ["updated_at", "desc"] }))
-  .slice(0, 10)
-  .map((d) => d.url().replace(/^\/|\/$/gi, ""))
-  .filter(Boolean)
-  .map((slug) => getEntry("docs", slug));
+const docs = await bdb.documents({ sort: ["updated_at", "desc"] });
 
-const recent = (await Promise.all(docs)).filter(Boolean) as Array<
-  CollectionEntry<"docs">
->;
+const docsByDate = new Map<string, Document[]>();
+docs.forEach((doc) => {
+  if (doc.frontmatter().tags) {
+    const date = doc.updatedAt().toISOString().split("T")[0];
+    docsByDate.set(date, docsByDate.get(date) || []);
+    docsByDate.get(date)?.push(doc);
+  }
+});
+const dates = Array.from(docsByDate.keys()).map((d) => [
+  d,
+  d.split("-").reverse().join("."),
+]);
 ---
 
-{recent.map((doc) => <LinkPage entry={doc} />)}
+<div class="column-list">
+  <span>
+    {
+      dates.map(([key, title]) => (
+        <p>
+          <b>{title}</b>
+          <ul>
+            {docsByDate.get(key)?.map((doc) => (
+              <li>
+                <a href={doc.url()}>{doc.title()}</a>
+              </li>
+            ))}
+          </ul>
+        </p>
+      ))
+    }
+  </span>
+</div>
 ```
