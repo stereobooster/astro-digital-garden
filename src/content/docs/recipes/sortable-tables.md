@@ -18,3 +18,7 @@ sidebar:
 - [Tablesorter](https://www.mediawiki.org/wiki/Tablesorter)
   - [Help\:Sorting](https://meta.wikimedia.org/wiki/Help:Sorting)
   - [jQuery tablesorter 2.0](https://mottie.github.io/tablesorter/docs/#Demo)
+
+## Related
+
+- [Responsive Table - Vertical Scroll and Pinned Top Row](https://github.com/withastro/starlight/discussions/961)

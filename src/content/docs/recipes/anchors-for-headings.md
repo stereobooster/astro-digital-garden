@@ -105,3 +105,4 @@ export default defineConfig({
 - [Anchor Links for Headings](https://github.com/withastro/starlight/discussions/1239)
 - [Add links to Starlight headings](https://hideoo.dev/notes/starlight-heading-links)
 - [withastro#5610](https://github.com/withastro/docs/pull/5610/files)
+- [Support custom header IDs in Markdown](https://github.com/withastro/roadmap/discussions/329)

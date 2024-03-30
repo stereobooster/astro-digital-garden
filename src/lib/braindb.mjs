@@ -21,15 +21,22 @@ const generateSlug = (filePath) => {
   return slug;
 };
 
+const start = new Date().getTime();
+
 export const bdb = new BrainDB({
   root: path.resolve(process.cwd(), "src/content/docs"),
   url: (filePath, _frontmatter) => `${generateSlug(filePath)}/`,
-  git: process.cwd()
+  git: process.cwd(),
+  storeMarkdown: false,
+  // dbPath: process.cwd(),
 });
 
 bdb.start();
 
-bdb.on("*", (_action, opts) => {
+bdb.on("*", (action, opts) => {
+  if (action === "ready") {
+    console.log(`BrainDB ready: ${new Date().getTime() - start}`);
+  }
   if (opts) {
     opts.document
       .unresolvedLinks()
