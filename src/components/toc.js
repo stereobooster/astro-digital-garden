@@ -4,6 +4,7 @@ const linkStarts = new WeakMap();
 const linkEnds = new WeakMap();
 const sectionsMap = new Map();
 
+// TODO: astro:page-load
 addIntersectionObserver();
 addResizeObserver();
 

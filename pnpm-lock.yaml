@@ -23,6 +23,9 @@ dependencies:
   '@iconify/json':
     specifier: ^2.2.196
     version: 2.2.196
+  '@pagefind/default-ui':
+    specifier: ^1.0.4
+    version: 1.0.4
   '@stereobooster/remark-wiki-link':
     specifier: ^2.1.0
     version: 2.1.0

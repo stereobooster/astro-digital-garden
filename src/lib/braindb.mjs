@@ -28,15 +28,18 @@ export const bdb = new BrainDB({
   url: (filePath, _frontmatter) => `${generateSlug(filePath)}/`,
   git: process.cwd(),
   storeMarkdown: false,
+  // need to configure caching in Netlify in order to use this
+  // - https://github.com/siakaramalegos/netlify-plugin-cache-folder
+  // - https://github.com/netlify/build/tree/main/packages/cache-utils
   // dbPath: process.cwd(),
 });
 
 bdb.start();
 
 bdb.on("*", (action, opts) => {
-  if (action === "ready") {
-    console.log(`BrainDB ready: ${new Date().getTime() - start}`);
-  }
+  if (action === "ready")
+    console.log(`BrainDB ready: ${new Date().getTime() - start}ms`);
+
   if (opts) {
     opts.document
       .unresolvedLinks()

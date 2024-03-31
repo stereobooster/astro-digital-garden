@@ -1,0 +1,62 @@
+---
+import Default from "@astrojs/starlight/components/Head.astro";
+import type { Props } from "@astrojs/starlight/props";
+import { ViewTransitions } from "astro:transitions";
+// const { labels } = Astro.props;
+// const translations = {
+//   placeholder: labels["search.label"],
+//   ...Object.fromEntries(
+//     Object.entries(labels)
+//       .filter(([key]) => key.startsWith("pagefind."))
+//       .map(([key, value]) => [key.replace("pagefind.", ""), value])
+//   ),
+// };
+---
+
+<Default {...Astro.props}><slot /></Default>
+<ViewTransitions />
+
+<script>
+  // TODO: this is fragile approach
+  // https://github.com/withastro/starlight/blob/main/packages/starlight/components/Search.astro
+  // https://github.com/withastro/starlight/pull/694#issuecomment-1951032475
+  const shouldStrip = false; //project.trailingSlash === "never";
+  const stripTrailingSlash = (path: string) =>
+    path.replace(/(.)\/(#.*)?$/, "$1$2");
+  const formatURL = shouldStrip ? stripTrailingSlash : (path: string) => path;
+
+  // Flag to track initial page load
+  let initialLoad = true;
+  document.addEventListener("astro:page-load", () => {
+    // Skip PagefindUI on initial page load since it's already run by Search.astro.
+    if (initialLoad) {
+      initialLoad = false;
+      return;
+    }
+    // Code to initialize PagefindUI on subsequent loads (if needed)
+    if (import.meta.env.DEV) return;
+    const onIdle = window.requestIdleCallback || ((cb) => setTimeout(cb, 1));
+    onIdle(async () => {
+      // @ts-expect-error — Missing types for @pagefind/default-ui package.
+      const { PagefindUI } = await import("@pagefind/default-ui");
+      new PagefindUI({
+        element: "#starlight__search",
+        baseUrl: import.meta.env.BASE_URL,
+        bundlePath: import.meta.env.BASE_URL.replace(/\/$/, "") + "/pagefind/",
+        showImages: false,
+        // translations,
+        showSubResults: true,
+        processResult: (result: {
+          url: string;
+          sub_results: Array<{ url: string }>;
+        }) => {
+          result.url = formatURL(result.url);
+          result.sub_results = result.sub_results.map((sub_result) => {
+            sub_result.url = formatURL(sub_result.url);
+            return sub_result;
+          });
+        },
+      });
+    });
+  });
+</script>

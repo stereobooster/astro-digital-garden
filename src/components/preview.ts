@@ -31,9 +31,6 @@ function clearTimers() {
   hidePreviewTimer = undefined;
 }
 
-tooltip.addEventListener("mouseenter", clearTimers);
-tooltip.addEventListener("mouseleave", hideLinkPreview);
-
 async function showLinkPreview(e: MouseEvent | FocusEvent) {
   const start = `${window.location.protocol}//${window.location.host}`;
   const target = e.target as HTMLElement;
@@ -80,6 +77,10 @@ async function showLinkPreview(e: MouseEvent | FocusEvent) {
     });
   }, 400);
 }
+
+// TODO: astro:page-load
+tooltip.addEventListener("mouseenter", clearTimers);
+tooltip.addEventListener("mouseleave", hideLinkPreview);
 
 const events = [
   ["mouseenter", showLinkPreview],

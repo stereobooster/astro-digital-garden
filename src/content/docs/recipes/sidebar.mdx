@@ -1,0 +1,70 @@
+---
+title: Sidebar
+tags: [component]
+sidebar:
+  label: Sidebar 🚧
+---
+
+Starlight provides sidebar, but it has issues:
+
+- it doesn't preserve state (scroll, open/closed submenues) on page switch
+- not possible to have root page for submenues
+
+There are workarounds:
+
+- [starlight#971](https://github.com/withastro/starlight/discussions/971#discussioncomment-8396511)
+- [starlight#307](https://github.com/withastro/starlight/issues/307#issuecomment-1622619025)
+
+## Further improvements
+
+Starlight provides configurable sidebar, which is good enough for documentation. For digital garden we may want to use different approach, for example:
+
+- file system tree (possible with built-in sidebar)
+- [[tag-list|tag list or articles grouped by tags]]
+- [[recently-changed-pages|articles grouped by date]]
+- [[alphabetical-index|alphabetical list]]
+
+import { FileTree } from "@astrojs/starlight/components";
+
+### Articles grouped by tags
+
+<FileTree>
+
+- #code-fences
+  - Diagrams_support_in_Markdown
+  - Syntax_Highlighting
+- #component
+  - Icons
+  - Lazy_embeded_video
+
+</FileTree>
+
+### Articles grouped by date
+
+<FileTree>
+
+- 2024
+  - 03
+    - 31
+      - **Sidebar**
+    - 30
+      - Anchors_for_headings
+      - GFM_aside
+    - …
+- 2023
+  - …
+
+</FileTree>
+
+### Alphabetical list
+
+<FileTree>
+
+- A
+  - Alphabetical_index
+  - Anchors_for_headings
+- B
+  - Backlinks
+  - BrainDB
+
+</FileTree>

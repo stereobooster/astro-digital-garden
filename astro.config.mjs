@@ -40,6 +40,9 @@ export default defineConfig({
       components: {
         PageFrame: "./src/components/PageFrame.astro",
         TableOfContents: "./src/components/TableOfContents.astro",
+        // TODO: astro:page-load
+        // Head: './src/components/Head.astro',
+        // Sidebar: "./src/components/Sidebar.astro",
       },
       lastUpdated: true,
       head: import.meta.env.PROD
