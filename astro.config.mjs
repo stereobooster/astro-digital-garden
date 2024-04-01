@@ -117,8 +117,8 @@ export default defineConfig({
     optimizeDeps: {
       exclude: [
         "fsevents",
-        "@node-rs/xxhash-wasm32-wasi",
-        "@napi-rs/simple-git-darwin-x64",
+        "@node-rs",
+        "@napi-rs",
       ],
     },
     plugins: [

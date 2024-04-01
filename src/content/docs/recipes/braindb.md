@@ -31,12 +31,12 @@ export default defineConfig({
     optimizeDeps: {
       exclude: [
         "fsevents",
-        "@node-rs/xxhash-wasm32-wasi",
-        // and other extensions specific to your platform, for example
-        // MacOS intel
-        "@napi-rs/simple-git-darwin-x64",
-        // MacOS arm
-        "@napi-rs/simple-git-darwin-arm64",
+        "@node-rs",
+        "@napi-rs",
+        // or you can specify exact libraries instead of namespace, like
+        // "@node-rs/xxhash-wasm32-wasi",
+        // "@napi-rs/simple-git-darwin-x64",
+        // "@napi-rs/simple-git-darwin-arm64",
       ],
     },
   },
