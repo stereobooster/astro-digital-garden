@@ -1,5 +1,5 @@
 ---
-title: Syntax Highlighting
+title: Syntax highlighting
 tags: [markdown, code-fences]
 ---
 
