@@ -25,4 +25,4 @@ Related discussions:
 - [How to customize markdown with Astro components?](https://github.com/withastro/roadmap/discussions/423)
 - [Markdown Enhancements](https://github.com/withastro/roadmap/discussions/424)
 - [Add admonitions/callout support to markdown/mdx](https://github.com/withastro/roadmap/discussions/860)
-- [mprove the astro:content `<Content />` render props API](https://github.com/withastro/roadmap/discussions/769)
+- [Improve the astro:content `<Content />` render props API](https://github.com/withastro/roadmap/discussions/769)
