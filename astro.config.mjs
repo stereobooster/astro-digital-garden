@@ -115,11 +115,7 @@ export default defineConfig({
       noExternal: ["katex"],
     },
     optimizeDeps: {
-      exclude: [
-        "fsevents",
-        "@node-rs",
-        "@napi-rs",
-      ],
+      exclude: ["fsevents", "@node-rs", "@napi-rs"],
     },
     plugins: [
       Icons({
