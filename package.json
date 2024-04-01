@@ -15,6 +15,7 @@
     "@astrojs/starlight": "^0.21.2",
     "@braindb/core": "^0.0.9",
     "@floating-ui/dom": "^1.6.3",
+    "@hpcc-js/wasm": "^2.16.1",
     "@iconify/json": "^2.2.196",
     "@pagefind/default-ui": "^1.0.4",
     "@stereobooster/remark-wiki-link": "^2.1.0",

@@ -1,0 +1,71 @@
+---
+import Graphviz from "./Graphviz.astro";
+
+type TimelineItem = {
+  id: string;
+  year: number;
+  class?: string;
+  label?: string;
+  url?: string;
+  in?: string[];
+};
+
+interface Props {
+  items: TimelineItem[];
+}
+
+const { items } = Astro.props;
+
+const byYears: Record<string, string[]> = {};
+
+items.forEach((item) => {
+  byYears[item.year] = byYears[item.year] || [];
+  byYears[item.year].push(item.id);
+});
+
+const src = `
+digraph timeline {
+    bgcolor="transparent";
+    size="7,8";
+
+    edge [style=invis];
+    node [fontsize=24, shape = plaintext];
+
+    ${Object.keys(byYears).sort().join(` -> `)}
+    
+    node [fontsize=20, shape = box];
+
+    ${Object.keys(byYears)
+      .sort()
+      .map(
+        (year) =>
+          `{ rank=same; "${year}" ${byYears[year].map((x) => `"${x}"`).join(" ")}; }`
+      )
+      .join("\n")}
+
+    edge[style=solid];
+
+    ${items.map((item) => `"${item.id}"[${item.url ? `URL="${item.url}""` : ""} ${item.label ? `label="${item.label}"` : ""} ${item.class ? `class="${item.class}"` : ""}];`).join("\n")}
+
+    ${items.map((item) => (!item.in ? "" : item.in.map((id) => `"${id}" -> "${item.id}";`).join("\n"))).join("\n")}
+
+}`;
+---
+
+<div class="timeline">
+  <Graphviz src={src} />
+</div>
+
+<style>
+  .timeline {
+    text {
+      fill: var(--sl-color-white);
+    }
+    path {
+      stroke: var(--sl-color-white);
+    }
+    polygon {
+      stroke: var(--sl-color-white);
+    }
+  }
+</style>

@@ -20,6 +20,9 @@ dependencies:
   '@floating-ui/dom':
     specifier: ^1.6.3
     version: 1.6.3
+  '@hpcc-js/wasm':
+    specifier: ^2.16.1
+    version: 2.16.1
   '@iconify/json':
     specifier: ^2.2.196
     version: 2.2.196
@@ -1087,6 +1090,13 @@ packages:
     resolution: {integrity: sha512-CNy5vSwN3fsUStPRLX7fUYojyuzoEMSXPl7zSLJ8TgtRfjv24LOnOWKT2zYwaHZCJGkdyRnTmstR0P+Ah503Gw==}
     engines: {node: '>=6'}
     requiresBuild: true
+    dev: false
+
+  /@hpcc-js/wasm@2.16.1:
+    resolution: {integrity: sha512-QbPthyl45bBvxouXWXFJ9xLXGB+hSO8TkmAHXi1IbkgqSwIidYx2G4VThsb2I9EI/pAnh52pjIoa+IbQcKsADQ==}
+    hasBin: true
+    dependencies:
+      yargs: 17.7.2
     dev: false
 
   /@iconify/json@2.2.196:

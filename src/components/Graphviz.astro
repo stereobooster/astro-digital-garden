@@ -1,0 +1,12 @@
+---
+import { Graphviz as GraphvizWasm } from "@hpcc-js/wasm/graphviz";
+const graphviz = await GraphvizWasm.load();
+
+interface Props {
+  src: string;
+}
+
+const src = Astro.props.src; // await Astro.slots.render('default');
+---
+
+<Fragment set:html={graphviz.dot(src)} />

@@ -1,0 +1,48 @@
+---
+title: Timeline
+---
+
+This page doesn't have direct link so far.
+Just an experiment need to write better documentation and better example.
+
+import Timeline from "../../components/Timeline.astro";
+
+<Timeline
+  items={[
+    {
+      id: "Burge",
+      year: 1975,
+    },
+    {
+      id: "Wadler",
+      year: 1985,
+      in: ["Burge"],
+    },
+    {
+      id: "Frost, Launchbury",
+      year: 1989,
+      in: ["Wadler"],
+    },
+    {
+      id: "Hutton",
+      year: 1992,
+      in: ["Wadler"],
+    },
+    {
+      id: "Fokker",
+      year: 1995,
+      in: ["Hutton"],
+    },
+    {
+      id: "Hutton, Meijer",
+      year: 1996,
+      in: ["Hutton"]
+    },
+    {
+      id: "Frost, Szydlowski",
+      year: 1996,
+      in: ["Frost, Launchbury"],
+      class: "red"
+    },
+  ]}
+/>
