@@ -33,6 +33,7 @@ export default defineConfig({
         "fsevents",
         "@node-rs/xxhash-wasm32-wasi",
         "@napi-rs/simple-git-darwin-x64",
+				"@napi-rs/simple-git-darwin-arm64",
       ],
     },
   },
