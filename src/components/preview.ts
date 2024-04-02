@@ -34,8 +34,25 @@ function clearTimers() {
 async function showLinkPreview(e: MouseEvent | FocusEvent) {
   const start = `${window.location.protocol}//${window.location.host}`;
   const target = e.target as HTMLElement;
-  const href = target?.closest("a")?.href || "";
-  const hash = new URL(href).hash;
+  const hrefRaw = (target?.closest("a")?.href || "") as
+    | string
+    | SVGAnimatedString;
+
+  let href = "";
+  let local = false;
+  let hash = "";
+  let svg = false;
+  if (typeof hrefRaw === "string") {
+    href = hrefRaw;
+    hash = new URL(href).hash;
+    local = href.startsWith(start);
+  } else {
+    // disabled for now
+    // href = hrefRaw.baseVal;
+    // hash = new URL(href, window.location.origin).hash;
+    // local = href.startsWith("/");
+    // svg = true;
+  }
 
   const hrefWithoutAnchor = href.replace(hash, "");
   const locationWithoutAnchor = window.location.href.replace(
@@ -44,7 +61,7 @@ async function showLinkPreview(e: MouseEvent | FocusEvent) {
   );
 
   currentHref = href;
-  if (hrefWithoutAnchor === locationWithoutAnchor || !href.startsWith(start)) {
+  if (hrefWithoutAnchor === locationWithoutAnchor || !local) {
     hideLinkPreview();
     return;
   }
@@ -57,8 +74,10 @@ async function showLinkPreview(e: MouseEvent | FocusEvent) {
     if (currentHref !== href) return;
     const doc = new DOMParser().parseFromString(text, "text/html");
     const content = (doc.querySelector(".sl-markdown-content") as HTMLElement)
-      ?.outerHTML;  
-    tooltip.innerHTML = content;
+      ?.outerHTML;
+    tooltip.innerHTML = svg
+      ? `${doc.querySelector("h1")?.outerHTML}${content}`
+      : content;
     tooltip.style.display = "block";
     let offsetTop = 0;
     if (hash !== "") {
