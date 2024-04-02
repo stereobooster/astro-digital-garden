@@ -26,7 +26,7 @@ Examples:
 - [A Better Algorithm for Area Proportional Venn and Euler Diagrams](https://www.benfrederickson.com/better-venn-diagrams/)
   - [code](https://github.com/benfred/venn.js) (depends on d3)
     - [maintained fork](https://github.com/upsetjs/venn.js)
-    - the lazy solution to render on the server would be to use JSDOM, the same way as I do in [cyto-nodejs](https://github.com/stereobooster/cyto-nodejs/blob/main/bin/cyto-nodejs.js)
+    - the lazy solution to render on the server would be to use headless browser, the same way as in [mermaid-isomorphic](https://github.com/remcohaszing/mermaid-isomorphic/)
 - [eulerdiagrams.org](https://www.eulerdiagrams.org/)
 
 Papers:
@@ -41,6 +41,8 @@ Papers:
 - [nVenn: generalized, quasi-proportional Venn and Euler diagrams](https://academic.oup.com/bioinformatics/article/34/13/2322/4904268)
 - [UpSetR: An R Package For The Visualization Of Intersecting Sets And Their Properties](https://upset.app/)
   - [code](https://upset.js.org/)
+- [Exact and Approximate Area-proportional Circular Venn and Euler Diagrams](https://www.cs.uic.edu/~wilkinson/Publications/venneuler.pdf)
+- [DeepVenn – creation of area-proportional Venn diagrams using Tensorflow](https://arxiv.org/ftp/arxiv/papers/2210/2210.04597.pdf)
 
 ### Hasse diagram
 
