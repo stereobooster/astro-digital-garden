@@ -43,6 +43,9 @@ Papers:
   - [code](https://upset.js.org/)
 - [Exact and Approximate Area-proportional Circular Venn and Euler Diagrams](https://www.cs.uic.edu/~wilkinson/Publications/venneuler.pdf)
 - [DeepVenn – creation of area-proportional Venn diagrams using Tensorflow](https://arxiv.org/ftp/arxiv/papers/2210/2210.04597.pdf)
+- [A Survey of Euler Diagrams](https://kar.kent.ac.uk/35163/1/JVLC_Euler_Survey.pdf)
+- [Realizability of Rectangular Euler Diagrams](https://arxiv.org/pdf/2403.03801.pdf)
+- [Generating and Navigating Large Euler Diagrams](https://ceur-ws.org/Vol-1244/ED-paper3.pdf)
 
 ### Hasse diagram
 
