@@ -11,11 +11,7 @@ Mermaid (see [[diagrams-support-in-markdown]]) is good for traditional software-
 
 ### Timeline
 
-Examples:
-
-- [Timeline of web browsers](https://upload.wikimedia.org/wikipedia/commons/7/74/Timeline_of_web_browsers.svg)
-- [Timelines Chart](https://github.com/vasturiano/timelines-chart)
-- [Timelines and Visual Histories](http://euclid.psych.yorku.ca/SCS/Gallery/timelines.html)
+See [[timeline-diagram]].
 
 ### Euler diagram
 
