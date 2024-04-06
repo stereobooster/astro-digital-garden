@@ -16,7 +16,7 @@ dependencies:
     version: 0.21.3(astro@4.5.16)
   '@braindb/core':
     specifier: ^0.0.9
-    version: 0.0.9(@types/react@18.2.74)
+    version: 0.0.9
   '@floating-ui/dom':
     specifier: ^1.6.3
     version: 1.6.3
@@ -32,9 +32,6 @@ dependencies:
   '@stereobooster/remark-wiki-link':
     specifier: ^2.1.0
     version: 2.1.0
-  '@types/react':
-    specifier: ^18.2.74
-    version: 18.2.74
   astro:
     specifier: ^4.5.16
     version: 4.5.16(typescript@5.4.3)
@@ -77,15 +74,6 @@ dependencies:
   rehype-katex:
     specifier: ^7.0.0
     version: 7.0.0
-  rehype-mermaid:
-    specifier: ^2.1.0
-    version: 2.1.0
-  rehype-raw:
-    specifier: ^7.0.0
-    version: 7.0.0
-  rehype-shikiji:
-    specifier: ^0.10.2
-    version: 0.10.2
   remark-math:
     specifier: ^6.0.0
     version: 6.0.0
@@ -534,7 +522,7 @@ packages:
       to-fast-properties: 2.0.0
     dev: false
 
-  /@braindb/core@0.0.9(@types/react@18.2.74):
+  /@braindb/core@0.0.9:
     resolution: {integrity: sha512-XDVakjqHE8VzqTZ4ZFMlkuxxfvctJ/OLwmmBdawRzNuQ3MDyIBM/T1QqCe+y2naJ85gq/T6xilYkEtx0Ui7mWA==}
     dependencies:
       '@napi-rs/simple-git': 0.1.16
@@ -543,7 +531,7 @@ packages:
       '@types/serialize-javascript': 5.0.4
       better-sqlite3: 9.4.5
       chokidar: 3.6.0
-      drizzle-orm: 0.30.7(@types/react@18.2.74)(better-sqlite3@9.4.5)
+      drizzle-orm: 0.30.7(better-sqlite3@9.4.5)
       mitt: 3.0.1
       mkdirp: 3.0.1
       remark-frontmatter: 5.0.0
@@ -1972,17 +1960,6 @@ packages:
     resolution: {integrity: sha512-SuT16Q1K51EAVPz1K29DJ/sXjhSQ0zjvsypYJ6tlwVsRV9jwW5Adq2ch8Dq8kDBCkYnELS7N7VNCSB5nC56t/g==}
     dev: false
 
-  /@types/prop-types@15.7.12:
-    resolution: {integrity: sha512-5zvhXYtRNRluoE/jAp4GVsSduVUzNWKkOZrCDBWYtE7biZywwdC2AcEzg+cSMLFRfVgeAFqpfNabiPjxFddV1Q==}
-    dev: false
-
-  /@types/react@18.2.74:
-    resolution: {integrity: sha512-9AEqNZZyBx8OdZpxzQlaFEVCSFUM2YXJH46yPOiOpm078k6ZLOCcuAzGum/zK8YBwY+dbahVNbHrbgrAwIRlqw==}
-    dependencies:
-      '@types/prop-types': 15.7.12
-      csstype: 3.1.3
-    dev: false
-
   /@types/sax@1.2.7:
     resolution: {integrity: sha512-rO73L89PJxeYM3s3pPPjiPgVVcymqU490g0YO5n5By0k2Erzj6tay/4lr1CHAAU4JyOWd1rpQ8bCf6cZfHU96A==}
     dependencies:
@@ -2625,10 +2602,6 @@ packages:
     hasBin: true
     dev: false
 
-  /csstype@3.1.3:
-    resolution: {integrity: sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==}
-    dev: false
-
   /cytoscape-cose-bilkent@4.1.0(cytoscape@3.28.1):
     resolution: {integrity: sha512-wgQlVIUJF13Quxiv5e1gstZ08rnZj2XaLHGoFMYXz7SkNfCDOOteKBE6SYRfA9WxxI/iBc3ajfDoc6hb/MRAHQ==}
     peerDependencies:
@@ -3011,7 +2984,7 @@ packages:
     resolution: {integrity: sha512-Fan4uMuyB26gFV3ovPoEoQbxRRPfTu3CvImyZnhGq5fsIEO+gEFLp45ISFt+kQBWsK5ulDdT0oV28jS1UrwQLg==}
     dev: false
 
-  /drizzle-orm@0.30.7(@types/react@18.2.74)(better-sqlite3@9.4.5):
+  /drizzle-orm@0.30.7(better-sqlite3@9.4.5):
     resolution: {integrity: sha512-9qefSZQlu2fO2qv24piHyWFWcxcOY15//0v4j8qomMqaxzipNoG+fUBrQ7Ftk7PY7APRbRdn/nkEXWxiI4a8mw==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
@@ -3091,7 +3064,6 @@ packages:
       sqlite3:
         optional: true
     dependencies:
-      '@types/react': 18.2.74
       better-sqlite3: 9.4.5
     dev: false
 
@@ -5124,11 +5096,6 @@ packages:
     requiresBuild: true
     dev: false
 
-  /mini-svg-data-uri@1.4.4:
-    resolution: {integrity: sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==}
-    hasBin: true
-    dev: false
-
   /minimist@1.2.8:
     resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
     requiresBuild: true
@@ -5656,22 +5623,6 @@ packages:
       vfile: 6.0.1
     dev: false
 
-  /rehype-mermaid@2.1.0:
-    resolution: {integrity: sha512-YgzHXaUTzp+loffUvAoX+vtNNl36WL12GWYv4farPeW9GRFfYdgNg15O/3nADAW/Yh5/997Vv+0WaWOJ24/YSg==}
-    dependencies:
-      '@types/hast': 3.0.4
-      hast-util-from-html-isomorphic: 2.0.0
-      hast-util-to-text: 4.0.0
-      mermaid-isomorphic: 2.1.2
-      mini-svg-data-uri: 1.4.4
-      space-separated-tokens: 2.0.2
-      unified: 11.0.4
-      unist-util-visit-parents: 6.0.1
-      vfile: 6.0.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
   /rehype-parse@9.0.0:
     resolution: {integrity: sha512-WG7nfvmWWkCR++KEkZevZb/uw41E8TsH4DsY9UxsTbIXCVGbAs4S+r8FrQ+OtH5EEQAs+5UxKC42VinkmpA1Yw==}
     dependencies:
@@ -5686,17 +5637,6 @@ packages:
       '@types/hast': 3.0.4
       hast-util-raw: 9.0.2
       vfile: 6.0.1
-    dev: false
-
-  /rehype-shikiji@0.10.2:
-    resolution: {integrity: sha512-Ke/YZSU0mwsrmSyj9zE4BvxDnKjm43MfuimC2/SSpUuMRX+LUaSA0c7SfZoesLMYIIL51dLghUNka+W9wC9ZCg==}
-    dependencies:
-      '@types/hast': 3.0.4
-      hast-util-to-string: 3.0.0
-      shikiji: 0.10.2
-      shikiji-transformers: 0.10.2
-      unified: 11.0.4
-      unist-util-visit: 5.0.0
     dev: false
 
   /rehype-stringify@10.0.0:
@@ -6048,22 +5988,6 @@ packages:
     resolution: {integrity: sha512-Q9n9jKiOjJCRPztA9POn3/uZXNySHDNKAsPNpmtHDcFyi6ZQhx5vQKZW3Nhrwn8TWW3RudSRk66zqY603EZDeg==}
     dependencies:
       '@shikijs/core': 1.2.4
-    dev: false
-
-  /shikiji-core@0.10.2:
-    resolution: {integrity: sha512-9Of8HMlF96usXJHmCL3Gd0Fcf0EcyJUF9m8EoAKKd98mHXi0La2AZl1h6PegSFGtiYcBDK/fLuKbDa1l16r1fA==}
-    dev: false
-
-  /shikiji-transformers@0.10.2:
-    resolution: {integrity: sha512-7IVTwl1af205ywYEq5bOAYOTOFW4V1dVX1EablP0nWKErqZeD1o93VMytxmtJomqS+YwbB8doY8SE3MFMn0aPQ==}
-    dependencies:
-      shikiji: 0.10.2
-    dev: false
-
-  /shikiji@0.10.2:
-    resolution: {integrity: sha512-wtZg3T0vtYV2PnqusWQs3mDaJBdCPWxFDrBM/SE5LfrX92gjUvfEMlc+vJnoKY6Z/S44OWaCRzNIsdBRWcTAiw==}
-    dependencies:
-      shikiji-core: 0.10.2
     dev: false
 
   /signal-exit@3.0.7:
