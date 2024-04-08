@@ -36,6 +36,8 @@ export default defineConfig({
           },
         },
       ],
+      // pagination doesn't make sense in the context of digital garden
+      pagination: false,
       customCss: ["./src/styles/custom.css"],
       components: {
         PageFrame: "./src/components/PageFrame.astro",
