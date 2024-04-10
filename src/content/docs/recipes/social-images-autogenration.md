@@ -14,11 +14,16 @@ Basic idea is to create HTML or SVG "image" for page based on metadata, like `ti
 - [resvg-js](https://github.com/yisibl/resvg-js)
 - headless browsers
 
-## Satori
+### Satori
 
 - Example in [astro-theme-cactus](https://github.com/chrismwilliams/astro-theme-cactus/blob/main/src/pages/og-image/%5Bslug%5D.png.ts)
 - Example in [astro-paper](https://github.com/satnaing/astro-paper/pull/15/files)
 
-## CanvasKit
+### CanvasKit
 
 - [Astro OG Canvas](https://github.com/delucis/astro-og-canvas)
+  - [Doesn't work with Starlight](https://github.com/delucis/astro-og-canvas/issues/54)
+
+## Related
+
+- https://metatags.io/

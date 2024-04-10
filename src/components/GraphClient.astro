@@ -1,0 +1,44 @@
+---
+
+---
+
+<div id="sigma-container"></div>
+
+<style>
+  #sigma-container {
+    height: 500px;
+    width: 500px;
+  }
+</style>
+
+<script>
+  import Sigma from "sigma";
+  import { MultiGraph } from "graphology";
+  import random from "graphology-layout/random";
+  import forceAtlas2 from "graphology-layout-forceatlas2";
+  import FA2Layout from "graphology-layout-forceatlas2/worker";
+
+  const getGraph = async () => {
+    const response = await fetch("/graph.json");
+    const data = await response.json();
+    const graph = new MultiGraph();
+    graph.import(data);
+    return graph;
+  };
+
+  const container = document.getElementById("sigma-container") as HTMLElement;
+
+  const graph = await getGraph();
+
+  random.assign(graph);
+  const layout = new FA2Layout(graph, {
+    settings: forceAtlas2.inferSettings(graph),
+  });
+  layout.start();
+  setTimeout(() => {
+    layout.stop();
+    layout.kill();
+  }, 60000);
+
+  const renderer = new Sigma(graph, container);
+</script>

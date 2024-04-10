@@ -80,6 +80,9 @@ dependencies:
   sharp:
     specifier: ^0.33.3
     version: 0.33.3
+  sigma:
+    specifier: 3.0.0-beta.17
+    version: 3.0.0-beta.17(graphology-types@0.24.7)
   svg-pan-zoom-gesture:
     specifier: ^0.0.2
     version: 0.0.2
@@ -6911,6 +6914,15 @@ packages:
       es-errors: 1.3.0
       get-intrinsic: 1.2.4
       object-inspect: 1.13.1
+    dev: false
+
+  /sigma@3.0.0-beta.17(graphology-types@0.24.7):
+    resolution: {integrity: sha512-1kwQnU+OQNc1bbgr10cpGRr8qV9qkqmHKn+ApNwdogM6uUXwPS8HSQzLEVsQzMScugC3k8aSAw1DszAsAHskaA==}
+    dependencies:
+      events: 3.3.0
+      graphology-utils: 2.5.2(graphology-types@0.24.7)
+    transitivePeerDependencies:
+      - graphology-types
     dev: false
 
   /signal-exit@3.0.7:

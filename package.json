@@ -10,7 +10,6 @@
     "astro": "astro"
   },
   "dependencies": {
-    "venn-isomorphic": "^0.0.1",
     "@astrojs/check": "^0.5.10",
     "@astrojs/markdown-remark": "^5.0.0",
     "@astrojs/starlight": "^0.21.3",
@@ -36,8 +35,10 @@
     "remark-math": "^6.0.0",
     "remark-mermaidjs": "^6.0.0",
     "sharp": "^0.33.3",
+    "sigma": "3.0.0-beta.17",
     "svg-pan-zoom-gesture": "^0.0.2",
     "typescript": "^5.4.3",
-    "unplugin-icons": "^0.18.5"
+    "unplugin-icons": "^0.18.5",
+    "venn-isomorphic": "^0.0.1"
   }
 }
