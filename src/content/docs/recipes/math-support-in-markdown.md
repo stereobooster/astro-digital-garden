@@ -1,5 +1,5 @@
 ---
-title: Math support in Markdown
+title: Math support in markdown
 tags: [markdown]
 ---
 
