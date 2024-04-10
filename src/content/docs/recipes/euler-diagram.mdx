@@ -1,0 +1,60 @@
+---
+title: Euler diagram
+tags: [component, diagram]
+---
+
+**aka**: Venn diagram
+
+Bellow Euler diagram of tags on this website. It's not a static picture - it's generated based on the content everytime website is updated.
+
+import TagsDiagram from "../../../components/TagsDiagram.astro";
+
+<TagsDiagram />
+
+## Installation
+
+```bash title="Instal dependencies…"
+pnpm add venn-isomorphic
+```
+
+```astro
+// src/components/EulerDiagram.astro
+---
+import { createVennRenderer, type ISetOverlap } from "venn-isomorphic";
+
+interface Props {
+  items: ISetOverlap[];
+}
+
+const items = Astro.props.items;
+
+const renderer = createVennRenderer();
+const results = await renderer([items]);
+const [result] = results;
+let svg =
+  result.status == "fulfilled" ? result.value.svg : String(result.reason);
+---
+
+<Fragment set:html={svg} />
+```
+
+## Theory
+
+- [A Better Algorithm for Area Proportional Venn and Euler Diagrams](https://www.benfrederickson.com/better-venn-diagrams/)
+  - [code](https://github.com/benfred/venn.js), [maintained fork](https://github.com/upsetjs/venn.js)
+- [eulerdiagrams.org](https://www.eulerdiagrams.org/)
+- [Euler diagrams drawn with ellipses area-proportionally (Edeap)](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-021-04121-8)
+  - [code](https://github.com/mjwybrow/edeap)
+  - [playground](https://www.eulerdiagrams.org/edeap/)
+- [eulerr: Area-Proportional Euler Diagrams with Ellipses](https://lup.lub.lu.se/luur/download?func=downloadFile&recordOId=8934042&fileOId=8934043)
+  - [code](https://github.com/jolars/eulerr2017bsc) (R)
+- [SPEULER: Semantics-preserving Euler Diagrams](https://www.yunhaiwang.net/Vis2021/speuler/vis21b-sub1477-cam-i7.pdf)
+- [EVenn: Easy to create statistically measurable Venn diagrams online](http://www.ehbio.com/test/venn/VennDoc/EVennDoc/index.html)
+- [nVenn: generalized, quasi-proportional Venn and Euler diagrams](https://academic.oup.com/bioinformatics/article/34/13/2322/4904268)
+- [UpSetR: An R Package For The Visualization Of Intersecting Sets And Their Properties](https://upset.app/)
+  - [code](https://upset.js.org/)
+- [Exact and Approximate Area-proportional Circular Venn and Euler Diagrams](https://www.cs.uic.edu/~wilkinson/Publications/venneuler.pdf)
+- [DeepVenn – creation of area-proportional Venn diagrams using Tensorflow](https://arxiv.org/ftp/arxiv/papers/2210/2210.04597.pdf)
+- [A Survey of Euler Diagrams](https://kar.kent.ac.uk/35163/1/JVLC_Euler_Survey.pdf)
+- [Realizability of Rectangular Euler Diagrams](https://arxiv.org/pdf/2403.03801.pdf)
+- [Generating and Navigating Large Euler Diagrams](https://ceur-ws.org/Vol-1244/ED-paper3.pdf)

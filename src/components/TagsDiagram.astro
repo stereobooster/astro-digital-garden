@@ -1,0 +1,25 @@
+---
+import { getCollection } from "astro:content";
+import { getCombinations } from "./permutations";
+import EulerDiagram from "./EulerDiagram.astro";
+
+const separator = ",";
+const docs = await getCollection("docs");
+const docsByTags: Record<string, number> = {};
+
+docs.forEach((doc) => {
+  if (doc.data.tags && doc.data.tags.length > 0) {
+    for (const combiination of getCombinations(doc.data.tags)) {
+      const key = combiination.sort().join(separator);
+      docsByTags[key] = (docsByTags[key] || 0) + 1;
+    }
+  }
+});
+
+const sets = Object.entries(docsByTags).map(([key, size]) => ({
+  sets: key.split(separator).map((x) => "#" + x),
+  size,
+}));
+---
+
+<EulerDiagram items={sets} />

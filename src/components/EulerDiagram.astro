@@ -1,0 +1,17 @@
+---
+import { createVennRenderer, type ISetOverlap } from "venn-isomorphic";
+
+interface Props {
+  items: ISetOverlap[];
+}
+
+const items = Astro.props.items;
+
+const renderer = createVennRenderer();
+const results = await renderer([items]);
+const [result] = results;
+let svg =
+  result.status == "fulfilled" ? result.value.svg : String(result.reason);
+---
+
+<Fragment set:html={svg} />

@@ -1,18 +1,9 @@
 ---
-title: Diagrams support in Markdown
-tags: [markdown, code-fences]
+title: Mermaid diagrams in markdown
+tags: [markdown, code-fences, diagram]
 ---
 
 There are a lot of diagraming languages (see [text-to-diagram](https://stereobooster.com/posts/text-to-diagram/)). [Mermaid](https://mermaid.js.org/) seems to be popular (it is supported by GitHub).
-
-## Ideal solution
-
-- it would be rendered as SVG on the server side
-  - so no JS required on the client-side
-  - people can use <kbd>Cmd</kbd> + <kbd>F</kbd> to search text
-- style it with CSS-variables (or CSS-classes)
-  - so it would be possible to implement dark mode without JS
-- optionally add small JS to implement pan/zoom/drag
 
 ## Options
 
@@ -96,8 +87,3 @@ flowchart LR
 flowchart LR
     Start --> Stop
 ```
-
-## See also
-
-- [[svg-pan-zoom]]
-- [Astro D2](https://astro-d2.vercel.app/)

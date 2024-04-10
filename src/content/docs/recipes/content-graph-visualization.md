@@ -1,6 +1,6 @@
 ---
 title: Content graph visualization
-tags: [link]
+tags: [link, diagram, component]
 ---
 
 ## Installation

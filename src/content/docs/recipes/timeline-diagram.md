@@ -1,9 +1,9 @@
 ---
 title: Timelime diagram
-tags: [component]
+tags: [component, diagram]
 ---
 
-Timelime diagram, aka chronology, aka genealogical tree.
+**aka** chronology, genealogical tree, time tree, DAG (sorted by time)
 
 ## Instalation
 
