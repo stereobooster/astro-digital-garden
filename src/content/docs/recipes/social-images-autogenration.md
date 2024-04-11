@@ -22,7 +22,7 @@ Basic idea is to create HTML or SVG "image" for page based on metadata, like `ti
 ### CanvasKit
 
 - [Astro OG Canvas](https://github.com/delucis/astro-og-canvas)
-  - [Doesn't work with Starlight](https://github.com/delucis/astro-og-canvas/issues/54)
+  - [full instruction is here](https://hideoo.dev/notes/starlight-og-images)
 
 ## Related
 
