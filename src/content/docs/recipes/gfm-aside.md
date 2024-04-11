@@ -1,9 +1,9 @@
 ---
 title: GFM aside
 tags: [markdown]
-sidebar:
-  label: GFM aside 🚷
 ---
+
+**aka**: admonitions, callouts
 
 [GitHub flavored markup supports speical style of blockquotes](https://github.com/orgs/community/discussions/16925):
 
@@ -12,15 +12,21 @@ sidebar:
 > Highlights information that users should take into account, even when skimming.
 ```
 
-In Starlight one can use [Aside](https://starlight.astro.build/guides/components/#asides), but this is not a portable approach - it assumes MDX and Starlight.
+## Starlight
 
-```mdx
-import { Aside } from "@astrojs/starlight/components";
+In Starlight [syntax is different](https://starlight.astro.build/guides/authoring-content/#asides):
 
-<Aside>Highlights information that users should take into account, even when skimming.</Aside>
+```md
+:::note
+Highlights information that users should take into account, even when skimming.
+:::
 ```
 
-Related discussions:
+:::note
+Highlights information that users should take into account, even when skimming.
+:::
+
+## Related discussions
 
 - [How to customize markdown with Astro components?](https://github.com/withastro/roadmap/discussions/423)
 - [Markdown Enhancements](https://github.com/withastro/roadmap/discussions/424)
