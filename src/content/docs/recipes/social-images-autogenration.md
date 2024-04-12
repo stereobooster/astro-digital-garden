@@ -26,4 +26,5 @@ Basic idea is to create HTML or SVG "image" for page based on metadata, like `ti
 
 ## Related
 
+- [[seo-and-smo-meta-tags]]
 - https://metatags.io/

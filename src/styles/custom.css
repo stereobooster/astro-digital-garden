@@ -18,6 +18,10 @@ svg .node .label {
   fill: var(--sl-color-white) !important;
 }
 
+.node-labels {
+  fill: var(--sl-color-white) !important;
+}
+
 /* links in headers */
 .sl-markdown-content :is(h1, h2, h3, h4, h5, h6) {
   a {
