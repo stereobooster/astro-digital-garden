@@ -11,10 +11,6 @@ See [[braindb]]
 
 ### The rest
 
-```bash title="Instal dependencies…"
-pnpm add @stereobooster/remark-wiki-link
-```
-
 ```astro
 //src/components/RecentChanges.astro
 ---
