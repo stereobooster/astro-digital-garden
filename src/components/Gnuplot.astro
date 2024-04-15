@@ -21,7 +21,10 @@ const { src, ...rest } = Astro.props;
 
 let { svg } = render(src, rest);
 
-svg = svg.replace(`<?xml version="1.0" encoding="utf-8"  standalone="no"?>`, "");
+svg = svg.replace(
+  `<?xml version="1.0" encoding="utf-8"  standalone="no"?>`,
+  ""
+);
 
 const widthMatch = svg.match(/width="(\d+)([^"]+)"/);
 if (widthMatch) svg = svg.replace(widthMatch[0], "");
