@@ -35,6 +35,9 @@ dependencies:
   github-slugger:
     specifier: ^2.0.0
     version: 2.0.0
+  gnuplot-wasm:
+    specifier: ^0.0.1
+    version: 0.0.1
   graphology:
     specifier: ^0.25.4
     version: 0.25.4(graphology-types@0.24.7)
@@ -93,8 +96,8 @@ dependencies:
     specifier: ^0.18.5
     version: 0.18.5
   venn-isomorphic:
-    specifier: ^0.0.1
-    version: 0.0.1
+    specifier: ^0.0.2
+    version: 0.0.2
 
 packages:
 
@@ -4038,6 +4041,10 @@ packages:
       define-properties: 1.2.1
     dev: false
 
+  /gnuplot-wasm@0.0.1:
+    resolution: {integrity: sha512-hXxshGwNXaTuPk/rC6+xgrc/LbBwk7fagcra1i0YVRSXSv6qbHL05l9r70S5qTLkqi/VWZaNOW3s70VWP5qgxg==}
+    dev: false
+
   /gopd@1.0.1:
     resolution: {integrity: sha512-d65bNlIadxvpb/A2abVdlqKqV563juRnZ1Wtk6s1sIR8uNsXR70xqIzVqxVf1eTqDunwT2MkczEeaezCKTZhwA==}
     dependencies:
@@ -7614,8 +7621,8 @@ packages:
       sade: 1.8.1
     dev: false
 
-  /venn-isomorphic@0.0.1:
-    resolution: {integrity: sha512-FTEvck0nCILkM3xj3xd73MjOl9Y8n0XxZCC11iy5dzTPgeX/FIFfyCCEpL0vnEQfhIq21fSAbjbrJYsqvlp0qA==}
+  /venn-isomorphic@0.0.2:
+    resolution: {integrity: sha512-b55G4aCoP+rgwto4uQoYxVtPbMFPMVWClhZLcbZo2iscH3HjmnMLbIREoH3NMWL8HraIJm/Khar1juGhghNXMw==}
     dependencies:
       '@upsetjs/venn.js': 1.4.2
       d3: 6.7.0

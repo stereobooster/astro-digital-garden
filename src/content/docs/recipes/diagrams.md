@@ -14,6 +14,7 @@ There are two ways to work with diagrams:
    - [[euler-diagram]]
    - [[hasse-diagram]]
    - [[content-graph-visualization|Graph]]
+   - [[gnuplot-diagram]]
 
 ## Ideal solution
 
@@ -22,7 +23,7 @@ There are two ways to work with diagrams:
   - people can use <kbd>Cmd</kbd> + <kbd>F</kbd> to search text
 - style it with CSS-variables (or CSS-classes)
   - so it would be possible to implement dark mode without JS
-- optionally add [[svg-pan-zoom|small JS to implement pan/zoom/drag]] 
+- optionally add [[svg-pan-zoom|small JS to implement pan/zoom/drag]]
 
 ## Ideas
 

@@ -1,0 +1,143 @@
+---
+title: Gnuplot diagram
+tags: [component, diagram]
+---
+
+import Gnuplot from "../../../components/Gnuplot.astro";
+
+<Gnuplot src={`
+# Plotting filledcurves with different transparencies
+#
+# AUTHOR: Hagen Wierstorf
+
+set samples 1000, 500
+
+set border linewidth 1.5
+
+# Axes
+
+set style line 11 lc rgb '#808080' lt 1
+set border 3 back ls 11
+set tics nomirror out scale 0.75
+
+# Grid
+
+set style line 12 lc rgb'#808080' lt 0 lw 1
+set grid back ls 12
+
+set style fill noborder
+set style function filledcurves y1=0
+set clip two
+
+Gauss(x,mu,sigma) = 1./(sigma*sqrt(2*pi)) * exp( -(x-mu)\*\*2 / (2*sigma\*\*2) )
+d1(x) = Gauss(x, 0.5, 0.5)
+d2(x) = Gauss(x, 2., 1.)
+d3(x) = Gauss(x, -1., 2.)
+
+set xrange [-5:5]
+set yrange [0:1]
+
+unset colorbox
+
+set key title "Gaussian Distribution"
+set key top left Left reverse samplen 1
+
+set lmargin 6
+plot d1(x) fs transparent solid 0.75 lc rgb "forest-green" title 'µ= 0.5 σ=0.5', \
+ d2(x) fs transparent solid 0.50 lc rgb "gold" title 'µ= 2.0 σ=1.0', \
+ d3(x) fs transparent solid 0.25 lc rgb "red" title 'µ=-1.0 σ=2.0'
+`}/>
+
+## Instalation
+
+```bash title="Instal dependencies…"
+pnpm add gnuplot-wasm
+```
+
+```astro
+// src/components/Gnuplot.astro
+---
+// @ts-ignore
+import gnuplot from "gnuplot-wasm";
+
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+const wasmPath = require.resolve("gnuplot-wasm/src/gnuplot.wasm");
+const { render } = await gnuplot({
+  locateFile: () => wasmPath,
+});
+
+interface Props {
+  src: string;
+  width?: number;
+  height?: number;
+  background?: string;
+  data?: Record<string, string>;
+}
+
+const { src, ...rest } = Astro.props;
+
+let { svg } = render(src, rest);
+
+svg = svg.replace(`<?xml version="1.0" encoding="utf-8"  standalone="no"?>`, "");
+
+const widthMatch = svg.match(/width="(\d+)([^"]+)"/);
+if (widthMatch) svg = svg.replace(widthMatch[0], "");
+
+const heightMatch = svg.match(/height="(\d+)([^"]+)"/);
+if (heightMatch) svg = svg.replace(heightMatch[0], "");
+
+// TODO: remove html comments
+---
+
+<Fragment set:html={svg} />
+```
+
+## Example
+
+```mdx
+<Gnuplot src={`
+# Plotting filledcurves with different transparencies
+#
+# AUTHOR: Hagen Wierstorf
+
+set samples 1000, 500
+
+set border linewidth 1.5
+
+# Axes
+
+set style line 11 lc rgb '#808080' lt 1
+set border 3 back ls 11
+set tics nomirror out scale 0.75
+
+# Grid
+
+set style line 12 lc rgb'#808080' lt 0 lw 1
+set grid back ls 12
+
+set style fill noborder
+set style function filledcurves y1=0
+set clip two
+
+Gauss(x,mu,sigma) = 1./(sigma*sqrt(2*pi)) * exp( -(x-mu)\*\*2 / (2*sigma\*\*2) )
+d1(x) = Gauss(x, 0.5, 0.5)
+d2(x) = Gauss(x, 2., 1.)
+d3(x) = Gauss(x, -1., 2.)
+
+set xrange [-5:5]
+set yrange [0:1]
+
+unset colorbox
+
+set key title "Gaussian Distribution"
+set key top left Left reverse samplen 1
+
+set lmargin 6
+plot d1(x) fs transparent solid 0.75 lc rgb "forest-green" title 'µ= 0.5 σ=0.5', \
+ d2(x) fs transparent solid 0.50 lc rgb "gold" title 'µ= 2.0 σ=1.0', \
+ d3(x) fs transparent solid 0.25 lc rgb "red" title 'µ=-1.0 σ=2.0'
+`}/>
+```
+
+See picture above

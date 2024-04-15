@@ -20,6 +20,7 @@
     "@stereobooster/remark-wiki-link": "^2.1.0",
     "astro": "^4.5.16",
     "github-slugger": "^2.0.0",
+    "gnuplot-wasm": "^0.0.1",
     "graphology": "^0.25.4",
     "graphology-layout": "^0.6.1",
     "graphology-layout-forceatlas2": "^0.10.1",
@@ -39,6 +40,6 @@
     "svg-pan-zoom-gesture": "^0.0.2",
     "typescript": "^5.4.3",
     "unplugin-icons": "^0.18.5",
-    "venn-isomorphic": "^0.0.1"
+    "venn-isomorphic": "^0.0.2"
   }
 }

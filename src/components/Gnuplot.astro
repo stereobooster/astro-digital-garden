@@ -1,0 +1,35 @@
+---
+// @ts-ignore
+import gnuplot from "gnuplot-wasm";
+
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+const wasmPath = require.resolve("gnuplot-wasm/src/gnuplot.wasm");
+const { render } = await gnuplot({
+  locateFile: () => wasmPath,
+});
+
+interface Props {
+  src: string;
+  width?: number;
+  height?: number;
+  background?: string;
+  data?: Record<string, string>;
+}
+
+const { src, ...rest } = Astro.props;
+
+let { svg } = render(src, rest);
+
+svg = svg.replace(`<?xml version="1.0" encoding="utf-8"  standalone="no"?>`, "");
+
+const widthMatch = svg.match(/width="(\d+)([^"]+)"/);
+if (widthMatch) svg = svg.replace(widthMatch[0], "");
+
+const heightMatch = svg.match(/height="(\d+)([^"]+)"/);
+if (heightMatch) svg = svg.replace(heightMatch[0], "");
+
+// TODO: remove html comments
+---
+
+<Fragment set:html={svg} />
