@@ -68,5 +68,5 @@ export default defineConfig({
 
 ## Further improvements
 
-- style svg-pan-zoom buttons
-- provide container in HTML, instead of generating it on the fly
+- [ ] style svg-pan-zoom buttons
+- [ ] provide container in HTML, instead of generating it on the fly

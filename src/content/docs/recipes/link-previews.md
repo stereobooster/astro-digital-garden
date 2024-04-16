@@ -187,7 +187,7 @@ export default defineConfig({
 
 ## Further improvements
 
-- handle non-html links (images, pdfs)
+- [ ] handle non-html links (images, pdfs)
 
 ## Reference implementations
 

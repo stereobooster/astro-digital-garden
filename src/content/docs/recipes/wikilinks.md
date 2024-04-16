@@ -74,9 +74,9 @@ export default defineConfig({
 
 ## Further improvements
 
-- support anchors in wikilinks (`[[page#anchor]]`, `[[page#anchor|alias]]`)
+- [ ] support anchors in wikilinks (`[[page#anchor]]`, `[[page#anchor|alias]]`)
   - do we need to url-encode anchors?
   - do we need to slugify anchors?
-- check that anchors correspond to some header in target document
-- what about ambiguous links (`bdb.documentsSync({ slug: permalink }).length > 1`)?
-- image wikilinks (`![[some.jpg]]`)
+- [ ] check that anchors correspond to some header in target document
+- [ ] what about ambiguous links (`bdb.documentsSync({ slug: permalink }).length > 1`)?
+- [ ] image wikilinks (`![[some.jpg]]`)

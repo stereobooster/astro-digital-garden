@@ -13,7 +13,7 @@
     "@astrojs/check": "^0.5.10",
     "@astrojs/markdown-remark": "^5.0.0",
     "@astrojs/starlight": "^0.21.3",
-    "@braindb/core": "^0.0.9",
+    "@braindb/core": "0.0.11",
     "@floating-ui/dom": "^1.6.3",
     "@iconify/json": "^2.2.197",
     "@pagefind/default-ui": "^1.1.0",

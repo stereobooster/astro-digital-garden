@@ -15,8 +15,8 @@ dependencies:
     specifier: ^0.21.3
     version: 0.21.3(astro@4.5.16)
   '@braindb/core':
-    specifier: ^0.0.9
-    version: 0.0.9
+    specifier: 0.0.11
+    version: 0.0.11
   '@floating-ui/dom':
     specifier: ^1.6.3
     version: 1.6.3
@@ -528,25 +528,27 @@ packages:
       to-fast-properties: 2.0.0
     dev: false
 
-  /@braindb/core@0.0.9:
-    resolution: {integrity: sha512-XDVakjqHE8VzqTZ4ZFMlkuxxfvctJ/OLwmmBdawRzNuQ3MDyIBM/T1QqCe+y2naJ85gq/T6xilYkEtx0Ui7mWA==}
+  /@braindb/core@0.0.11:
+    resolution: {integrity: sha512-mU2KPKbbpaKHk8fiMXJTlDOAU5DMvm8HS1li3pA0qNzmZn01wTGEpq59D+TLw6hBRPa4lZ94Z/xLUXkJMETEXA==}
     dependencies:
       '@napi-rs/simple-git': 0.1.16
       '@node-rs/xxhash': 1.7.0
       '@stereobooster/remark-wiki-link': 2.1.0
-      '@types/serialize-javascript': 5.0.4
-      better-sqlite3: 9.4.5
+      '@types/mdast': 4.0.3
+      '@types/unist': 3.0.2
+      better-sqlite3: 9.5.0
       chokidar: 3.6.0
-      drizzle-orm: 0.30.7(better-sqlite3@9.4.5)
+      deterministic-object-hash: 2.0.2
+      drizzle-orm: 0.30.8(better-sqlite3@9.5.0)
       mitt: 3.0.1
-      mkdirp: 3.0.1
       remark-frontmatter: 5.0.0
+      remark-gfm: 4.0.0
       remark-parse: 11.0.0
       remark-stringify: 11.0.0
-      serialize-javascript: 6.0.2
       strip-markdown: 6.0.0
       unified: 11.0.4
       unist-util-map: 4.0.0
+      unist-util-visit: 5.0.0
       yaml: 2.4.1
     transitivePeerDependencies:
       - '@aws-sdk/client-rds-data'
@@ -1979,10 +1981,6 @@ packages:
       '@types/node': 17.0.45
     dev: false
 
-  /@types/serialize-javascript@5.0.4:
-    resolution: {integrity: sha512-Z2R7UKFuNWCP8eoa2o9e5rkD3hmWxx/1L0CYz0k2BZzGh0PhEVMp9kfGiqEml/0IglwNERXZ2hwNzIrSz/KHTA==}
-    dev: false
-
   /@types/unist@2.0.10:
     resolution: {integrity: sha512-IfYcSBWE3hLpBg8+X2SEa8LVkJdJEkT2Ese2aaLs3ptGdVtABxndrMaxuFlQ1qdFf9Q5rDvDpxI3WwgvKFAsQA==}
     dev: false
@@ -2386,8 +2384,8 @@ packages:
       is-decimal: 2.0.1
     dev: false
 
-  /better-sqlite3@9.4.5:
-    resolution: {integrity: sha512-uFVyoyZR9BNcjSca+cp3MWCv6upAv+tbMC4SWM51NIMhoQOm4tjIkyxFO/ZsYdGAF61WJBgdzyJcz4OokJi0gQ==}
+  /better-sqlite3@9.5.0:
+    resolution: {integrity: sha512-01qVcM4gPNwE+PX7ARNiHINwzVuD6nx0gdldaAAcu+MrzyIAukQ31ZDKEpzRO/CNA9sHpxoTZ8rdjoyAin4dyg==}
     requiresBuild: true
     dependencies:
       bindings: 1.5.0
@@ -3413,8 +3411,8 @@ packages:
       minimatch: 3.1.2
     dev: false
 
-  /drizzle-orm@0.30.7(better-sqlite3@9.4.5):
-    resolution: {integrity: sha512-9qefSZQlu2fO2qv24piHyWFWcxcOY15//0v4j8qomMqaxzipNoG+fUBrQ7Ftk7PY7APRbRdn/nkEXWxiI4a8mw==}
+  /drizzle-orm@0.30.8(better-sqlite3@9.5.0):
+    resolution: {integrity: sha512-9pBJA0IjnpPpzZ6s9jlS1CQAbKoBmbn2GJesPhXaVblAA/joOJ4AWWevYcqvLGj9SvThBAl7WscN8Zwgg5mnTw==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
       '@cloudflare/workers-types': '>=3'
@@ -3493,7 +3491,7 @@ packages:
       sqlite3:
         optional: true
     dependencies:
-      better-sqlite3: 9.4.5
+      better-sqlite3: 9.5.0
     dev: false
 
   /dset@3.1.3:
@@ -5913,12 +5911,6 @@ packages:
     requiresBuild: true
     dev: false
 
-  /mkdirp@3.0.1:
-    resolution: {integrity: sha512-+NsyUUAZDmo6YVHzL/stxSu3t9YS1iljliy3BSDrXJ/dkn1KYdmtZODGGjLcc9XLgVVpH4KshHB8XmZgMhaBXg==}
-    engines: {node: '>=10'}
-    hasBin: true
-    dev: false
-
   /mlly@1.6.1:
     resolution: {integrity: sha512-vLgaHvaeunuOXHSmEbZ9izxPx3USsk8KCQ8iC+aTlp5sKRSoZvwhHh5L9VbKSaVC6sJDqbyohIS76E2VmHIPAA==}
     dependencies:
@@ -5983,6 +5975,7 @@ packages:
   /node-abi@3.57.0:
     resolution: {integrity: sha512-Dp+A9JWxRaKuHP35H77I4kCKesDy5HUDEmScia2FyncMTOXASMyg251F5PhFoDA5uqBrDDffiLpbqnrZmNXW+g==}
     engines: {node: '>=10'}
+    requiresBuild: true
     dependencies:
       semver: 7.6.0
     dev: false
@@ -6408,12 +6401,6 @@ packages:
     dev: false
     optional: true
 
-  /randombytes@2.1.0:
-    resolution: {integrity: sha512-vYl3iOX+4CKUWuxGi9Ukhie6fsqXqS9FE2Zaic4tNFD2N2QQaXOMFbuKK4QmDHC0JO6B1Zp41J0LpT0oR68amQ==}
-    dependencies:
-      safe-buffer: 5.2.1
-    dev: false
-
   /rc@1.2.8:
     resolution: {integrity: sha512-y3bGgqKj3QBdxLbLkomlohkvsA8gdAiUQlSBJnBhfn+BPxg4bc62d8TcBW15wavDfgexCgccckhcZvywyQYPOw==}
     hasBin: true
@@ -6819,12 +6806,6 @@ packages:
     hasBin: true
     dependencies:
       lru-cache: 6.0.0
-    dev: false
-
-  /serialize-javascript@6.0.2:
-    resolution: {integrity: sha512-Saa1xPByTTq2gdeFZYLLo+RFE35NHZkAbqZeWNd3BpzppeVisAqpDjcp8dyf6uIvEqJRd46jemmyA4iFIeVk8g==}
-    dependencies:
-      randombytes: 2.1.0
     dev: false
 
   /set-function-length@1.2.2:
