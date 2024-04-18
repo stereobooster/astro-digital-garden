@@ -7,8 +7,9 @@ import { SvgPanZoomUi } from "svg-pan-zoom-gesture";
 document
   .querySelectorAll(
     ".sl-markdown-content > svg:not(.icon)," +
-    ".sl-markdown-content > p > svg:not(.icon)," +
-    ".sl-markdown-content img[src$='.svg' i]"
+      ".sl-markdown-content > p > svg:not(.icon)," +
+      ".sl-markdown-content img[src$='.svg' i]," +
+      ".sl-markdown-content img[src$='f=svg' i]"
   )
   .forEach((element) => {
     const container = document.createElement("div");

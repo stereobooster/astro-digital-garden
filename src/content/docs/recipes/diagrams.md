@@ -15,6 +15,7 @@ There are two ways to work with diagrams:
    - [[hasse-diagram]]
    - [[content-graph-visualization|Graph]]
    - [[gnuplot-diagram]]
+   - [[metro-map-diagram]]
 
 ## Ideal solution
 
