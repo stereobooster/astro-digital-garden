@@ -23,6 +23,7 @@ Example taken [here](https://github.com/juliuste/transit-map/)
 - [Automatic Drawing for Tokyo Metro Map](https://conference.imp.fu-berlin.de/eurocg18/download/paper_62.pdf), 2018
 - [Drawing k-linear Metro Maps](https://www.ac.tuwien.ac.at/files/pub/smw19-paper-6.pdf), 2019
 - [The State of the Art in Map‐Like Visualization](https://www.researchgate.net/publication/343051883_The_State_of_the_Art_in_Map-Like_Visualization), 2020
+- [Metro Maps on Octilinear Grid Graphs](https://www.researchgate.net/publication/343051484_Metro_Maps_on_Octilinear_Grid_Graphs)
 - [Shape-Guided Mixed Metro Map Layout](https://arxiv.org/pdf/2208.14261.pdf), 2022
 - [A Survey on Computing Schematic Network Maps: The Challenge to Interactivity](https://arxiv.org/pdf/2208.07301.pdf), 2022
 
