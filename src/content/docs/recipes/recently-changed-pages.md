@@ -14,7 +14,7 @@ See [[braindb]]
 ```astro
 //src/components/RecentChanges.astro
 ---
-import { bdb } from "../lib/braindb.mjs";
+import { bdb } from "@lib/braindb.mjs";
 import type { Document } from "@braindb/core";
 
 const docs = await bdb.documents({ sort: ["updated_at", "desc"] });

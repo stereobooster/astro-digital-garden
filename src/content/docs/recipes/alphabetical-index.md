@@ -50,7 +50,7 @@ tableOfContents: false
 prev: false
 next: false
 ---
-import Alphabetical from "../../components/Alphabetical.astro";
+import Alphabetical from "@components/Alphabetical.astro";
 
 <Alphabetical />
 ```

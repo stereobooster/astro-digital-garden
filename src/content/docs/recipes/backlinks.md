@@ -14,7 +14,7 @@ See [[braindb]]
 ```astro
 // src/components/Backlinks.astro
 ---
-import { bdb } from "../lib/braindb.mjs";
+import { bdb } from "@lib/braindb.mjs";
 import type { CollectionEntry } from "astro:content";
 interface Props {
   entry: CollectionEntry<"docs">;
