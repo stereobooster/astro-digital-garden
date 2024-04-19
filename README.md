@@ -7,5 +7,6 @@
 **Examples**:
 
 - https://astro-digital-garden.stereobooster.com/
-- https://fuzzy.stereobooster.com/
-- https://parsing.stereobooster.com/
+- [Digital garden about fuzzy string matching](https://fuzzy.stereobooster.com/)
+- [Digital garden about parsing](https://parsing.stereobooster.com/)
+- [Chronology of Exact Online String Matching Algorithms](https://exact.stereobooster.com/)

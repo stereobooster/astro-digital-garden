@@ -13,15 +13,16 @@ export async function toGraphologyJson(db: BrainDB) {
       attributes: {
         label: document.frontmatter().title as string,
         url: document.url(),
-        // size: 0.05,
-        // color: "#f00"
       },
     }))
     .filter((x) => x.attributes.url.startsWith("/recipes"));
 
   const edges = (await db.links())
     .filter(
-      (link) => link.to() !== null && link.to()?.url().startsWith("/recipes")
+      (link) =>
+        link.to() !== null &&
+        link.to()?.url().startsWith("/recipes") &&
+        link.from()?.url().startsWith("/recipes")
     )
     .map((link) => ({
       source: link.from().id(),
@@ -38,7 +39,7 @@ export async function toGraphologyJson(db: BrainDB) {
   const tagNodes = [...new Set(tagsAll)].map((tag) => ({
     key: tag,
     attributes: {
-      label: tag,
+      label: `#${tag}`,
       url: "",
       size: 0.4,
     },

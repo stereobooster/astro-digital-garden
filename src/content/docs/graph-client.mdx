@@ -1,0 +1,24 @@
+---
+title: Client-side content graph
+tableOfContents: false
+prev: false
+next: false
+---
+
+:::caution
+This page is work in progress
+:::
+
+This is an example of client side generation of content graph (in contras to [[graph|server side generated graph]]).
+
+**Todo**:
+
+- [ ] links for nodes
+- [ ] zoom behaviour is a bit anoying, is there a way to customize it?
+- [ ] tags probably should have constant size or damping factor, otherwise they always would be biggest nodes
+- [ ] on node hover - highlight neigbour nodes and connecting edges
+- [ ] if there would be meta data for tags or pages, like color or icon - it can be used for graph vizualization
+
+import GraphClient from "@components/GraphClient.astro";
+
+<GraphClient />

@@ -1,10 +1,24 @@
 ---
-title: Graph
+title: Server-side content graph
 tableOfContents: false
 prev: false
 next: false
 ---
 
+:::tip
+Pay attention that this graph is generated on the server side as SVG.
+
+- **Pros**: it doesn't require big JS library to run vizualization on the client
+- **Cons**: it looks not as fancy as grphs generated on the clien side and lacks interactivity
+
+:::
+
 import GraphPage from "@components/GraphPage.astro";
 
 <GraphPage />
+
+**Features**:
+
+- Nodes are HTML links
+- Labels are shown when nodes are hovered (requires JS to work)
+- Pan/Zoom works thanks to [[svg-pan-zoom]]

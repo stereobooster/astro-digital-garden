@@ -75,5 +75,5 @@ Idea was to show graph without the need for JS on the client-side. But it is har
 
 ## Further improvements
 
-- [ ] show tags on the graph (already showing, but without text)
+- [ ] show text for tags on the graph
 - [ ] create an example with client side graph

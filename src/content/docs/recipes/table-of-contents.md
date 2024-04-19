@@ -23,6 +23,10 @@ Checkout in the sourcecode how to implement:
 - [src/components/TOCHeading.astro](https://github.com/stereobooster/astro-digital-garden/tree/main/src/components/TOCHeading.astro)
 - [src/toc.js](https://github.com/stereobooster/astro-digital-garden/tree/main/src/components/toc.js)
 
+TODO:
+
+- [ ] fix bug: it crashes if there are missing header levels, like `h4` directly in `h2`
+
 ### Satrlight specific config
 
 ```astro

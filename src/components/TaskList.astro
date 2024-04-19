@@ -12,23 +12,27 @@ const grouped: Record<string, Task[]> = {};
 ---
 
 {
-  Object.values(grouped).map((tasks) => (
-    <p>
-      <a href={tasks[0].from().url()}>{tasks[0].from().title()}</a>
-      <ul>
-        {tasks.map((task) => (
-          <li>
-            <label>
-              <input
-                type="checkbox"
-                disabled="disabled"
-                checked={task.checked()}
-              />
-              &nbsp;{task.text()}
-            </label>
-          </li>
-        ))}
-      </ul>
-    </p>
-  ))
+  Object.values(grouped).map((tasks) =>
+    tasks[0].from().frontmatter().tags &&
+    // @ts-expect-error
+    tasks[0].from().frontmatter().tags?.length > 0 ? (
+      <p>
+        <a href={tasks[0].from().url()}>{tasks[0].from().title()}</a>
+        <ul>
+          {tasks.map((task) => (
+            <li>
+              <label>
+                <input
+                  type="checkbox"
+                  disabled="disabled"
+                  checked={task.checked()}
+                />
+                &nbsp;{task.text()}
+              </label>
+            </li>
+          ))}
+        </ul>
+      </p>
+    ) : null
+  )
 }
