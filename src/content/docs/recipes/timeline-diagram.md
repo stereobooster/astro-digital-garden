@@ -7,7 +7,7 @@ tags: [component, diagram]
 
 Example taken [here](https://exact.stereobooster.com/)
 
-**aka** chronology, genealogical tree, time tree, DAG (sorted by time)
+**aka** chronology, genealogical tree, layered digraph
 
 ## Instalation
 

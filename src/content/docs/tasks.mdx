@@ -12,22 +12,24 @@ import MaterialSymbolsLink from "~icons/material-symbols/link";
 - [ ] implement [[faceted-search]]
 - [ ] add [View Transitions](https://docs.astro.build/en/guides/view-transitions/)
   - see [starlight#694](https://github.com/withastro/starlight/pull/694#issuecomment-2021611520)
-- [ ] write an article about footnotes
-  - mention how footnotes can be shown on the side, like in [Tufte design](https://edwardtufte.github.io/tufte-css/)
 - [ ] implement [[social-images-autogenration]]
 - [ ] implement better user action tracking (beyond page navigations)
   - if search was used
   - if external links were clicked
   - if page preview was shown
 - [ ] write about dark mode for [[mermaid-diagrams-in-markdown]]
+- [ ] write an article about footnotes
+  - mention how footnotes can be shown on the side, like in [Tufte design](https://edwardtufte.github.io/tufte-css/)
+  - https://gwern.net/sidenote
 - Crazy idea: write transpiler from Mermaid to Graphviz. At least `flowchart` should be possible to convert
+  - There is [flow.jison](https://github.com/mermaid-js/mermaid/blob/3809732e48a0822fad596d0815a6dc0e166dda94/packages/mermaid/src/diagrams/flowchart/parser/flow.jison)
 - It should be possible to assign metdata for each page and/or tag. For example, it can be color or icon. Then this metadata can be reused:
   - color and icon for nodes in [[content-graph-visualization]]
   - icons can be shown for tags (like this: #link <MaterialSymbolsLink class="icon text" />)
   - icons can be shown for pages in sidebar and near link to them
   - page may have "stage" (idea, draft, in progress, or finished). Right now I use emojis:  🧠, 🚷, 🚧. Similar idea: [Taxonomy of note types](https://www.ssp.sh/brain/taxonomy-of-note-types/), 
 
-## From other notes
+## From other articles
 
 import TaskList from "@components/TaskList.astro";
 

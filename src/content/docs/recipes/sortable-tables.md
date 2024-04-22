@@ -5,6 +5,10 @@ sidebar:
   label: Sortable tables 🚷
 ---
 
+Ideas:
+
+- [sticky header](https://css-tricks.com/position-sticky-and-table-headers/)
+
 ## JS libraries
 
 - [LeeWannacott/table-sort-js](https://github.com/LeeWannacott/table-sort-js)
