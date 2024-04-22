@@ -147,8 +147,8 @@ svg .node .label {
 
 `rehype-mermaidjs` doesn't work with Astro out of the box. Because of [remark-shiki](https://github.com/withastro/astro/blob/main/packages/markdown/remark/src/remark-shiki.ts). There are several workarounds:
 
-- ~~use `rehype-raw`~~ (it used to work)
-- ~~disable `remark-shiki` at all ([`markdown.syntaxHighlight: false`](https://docs.astro.build/en/reference/configuration-reference/#markdownsyntaxhighlight)) and use [`rehype-shikiji`](https://shikiji.netlify.app/packages/rehype)~~
+- [use `rehype-raw`](https://github.com/withastro/starlight/discussions/1259#discussioncomment-8515492)
+- disable `remark-shiki` at all ([`markdown.syntaxHighlight: false`](https://docs.astro.build/en/reference/configuration-reference/#markdownsyntaxhighlight)) and use rehype plugin. See [comment](https://github.com/withastro/starlight/discussions/1259#discussioncomment-9186701)
 
 There is upcoming feature to support dark mode: [rehype-mermaid#6](https://github.com/remcohaszing/rehype-mermaid/issues/6).
 
