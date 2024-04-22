@@ -10,7 +10,8 @@ document
       ".sl-markdown-content > p > svg:not(.icon)," +
       ".sl-markdown-content img[src$='.svg' i]," +
       ".sl-markdown-content img[src$='f=svg' i]," + // for development environment
-      ".graphology svg"
+      ".graphology svg," +
+      ".graphviz svg"
   )
   .forEach((element) => {
     const container = document.createElement("div");

@@ -16,6 +16,7 @@ There are two ways to work with diagrams:
    - [[content-graph-visualization|Graph]]
    - [[gnuplot-diagram]]
    - [[metro-map-diagram]]
+   - [[graphviz-diagram]]
 
 ## Ideal solution
 

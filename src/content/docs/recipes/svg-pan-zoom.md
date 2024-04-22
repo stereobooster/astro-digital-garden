@@ -70,3 +70,4 @@ export default defineConfig({
 
 - [ ] style svg-pan-zoom buttons
 - [ ] provide container in HTML, instead of generating it on the fly
+- [ ] first double click should do zoom-in, like in iPhone. Second double click should do reset

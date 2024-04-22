@@ -5,6 +5,8 @@ prev: false
 next: false
 ---
 
+import MaterialSymbolsLink from "~icons/material-symbols/link";
+
 - [ ] write an article about task extraction
   - fix bug: `task.text()` doesn't work if it contains wikilink (`[[something]]`)
 - [ ] implement [[faceted-search]]
@@ -18,7 +20,12 @@ next: false
   - if external links were clicked
   - if page preview was shown
 - [ ] write about dark mode for [[mermaid-diagrams-in-markdown]]
-- [ ] separate page about Graphviz diagram
+- Crazy idea: write transpiler from Mermaid to Graphviz. At least `flowchart` should be possible to convert
+- It should be possible to assign metdata for each page and/or tag. For example, it can be color or icon. Then this metadata can be reused:
+  - color and icon for nodes in [[content-graph-visualization]]
+  - icons can be shown for tags (like this: #link <MaterialSymbolsLink class="icon text" />)
+  - icons can be shown for pages in sidebar and near link to them
+  - page may have "stage" (idea, draft, in progress, or finished). Right now I use emojis:  🧠, 🚷, 🚧. Similar idea: [Taxonomy of note types](https://www.ssp.sh/brain/taxonomy-of-note-types/), 
 
 ## From other notes
 

@@ -3,46 +3,15 @@ title: Timelime diagram
 tags: [component, diagram]
 ---
 
+<img width="756" height="428" src="https://exact.stereobooster.com/timeline.svg" style="background:#fff"/>
+
+Example taken [here](https://exact.stereobooster.com/)
+
 **aka** chronology, genealogical tree, time tree, DAG (sorted by time)
 
 ## Instalation
 
-```bash title="Instal dependencies…"
-pnpm add @hpcc-js/wasm
-```
-
-```astro
-// src/components/Graphviz.astro
----
-import { Graphviz as GraphvizWasm } from "@hpcc-js/wasm/graphviz";
-const graphviz = await GraphvizWasm.load();
-
-interface Props {
-  src: string;
-}
-
-const src = Astro.props.src; // await Astro.slots.render('default');
-
-let svg = graphviz
-  .dot(src)
-  .replace(`<?xml version="1.0" encoding="UTF-8" standalone="no"?>`, "")
-  .replace(
-    `<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
- "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">`,
-    ""
-  );
-
-const widthMatch = svg.match(/width="(\d+)([^"]+)"/);
-if (widthMatch) svg = svg.replace(widthMatch[0], "");
-
-const heightMatch = svg.match(/height="(\d+)([^"]+)"/);
-if (heightMatch) svg = svg.replace(heightMatch[0], "");
-
-// TODO: remove html comments
----
-
-<Fragment set:html={svg} />
-```
+First install [[graphviz-diagram|Graphviz]].
 
 ```astro
 // src/components/Timeline.astro

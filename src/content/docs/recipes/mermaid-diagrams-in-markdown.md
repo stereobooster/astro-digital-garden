@@ -129,17 +129,24 @@ You may need to fix some CSS for your diagrams, for example:
 
 ```css
 // src/styles/custom.css
-svg .node .label {
-  line-height: 1.2;
-}
+svg[id^="mermaid"] {
+  /* text in mermaid diagram partially hidden otherwise */
+  .node .label {
+    line-height: 1.2;
+  }
 
-.flowchart-link {
-  stroke: var(--sl-color-white) !important;
-}
+  .flowchart-link {
+    stroke: var(--sl-color-white) !important;
+  }
 
-.marker {
-  stroke: var(--sl-color-white) !important;
-  fill: var(--sl-color-white) !important;
+  .marker {
+    stroke: var(--sl-color-white);
+    fill: var(--sl-color-white) !important;
+  }
+
+  .node-labels {
+    fill: var(--sl-color-white);
+  }
 }
 ```
 

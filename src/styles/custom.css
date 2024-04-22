@@ -1,25 +1,50 @@
 @import url(katex/dist/katex.min.css);
 
+svg[id^="mermaid"] {
+  /* text in mermaid diagram partially hidden otherwise */
+  .node .label {
+    line-height: 1.2;
+  }
+
+  .flowchart-link {
+    stroke: var(--sl-color-white) !important;
+  }
+
+  .marker {
+    stroke: var(--sl-color-white);
+    fill: var(--sl-color-white) !important;
+  }
+
+  .node-labels {
+    fill: var(--sl-color-white);
+  }
+}
+
+/* I had to put this style in global scope, because otherwise it doesn't work in  link previews */
+.graphology {
+  text {
+    fill: var(--sl-color-white);
+  }
+  line {
+    stroke-width: 2px;
+  }
+}
+
+/* I had to put this style in global scope, because otherwise it doesn't work in  link previews */
+.graphviz {
+  text {
+    fill: var(--sl-color-white);
+  }
+  [fill="black"] {
+    fill: var(--sl-color-white);
+  }
+  [stroke="black"] {
+    stroke: var(--sl-color-white);
+  }
+}
+
 .no-select {
   user-select: none;
-}
-
-/* text in mermaid diagram partially hidden otherwise */
-svg .node .label {
-  line-height: 1.2;
-}
-
-.flowchart-link {
-  stroke: var(--sl-color-white) !important;
-}
-
-.marker {
-  stroke: var(--sl-color-white) !important;
-  fill: var(--sl-color-white) !important;
-}
-
-.node-labels {
-  fill: var(--sl-color-white) !important;
 }
 
 /* links in headers */
@@ -41,16 +66,6 @@ svg .node .label {
     /* content: "#"; */
     /* content: "⚓"; */
     content: "🔗";
-  }
-}
-
-.graphology {
-  text {
-    fill: var(--sl-color-white) !important;
-  }
-
-  line {
-    stroke-width: 2px;
   }
 }
 
