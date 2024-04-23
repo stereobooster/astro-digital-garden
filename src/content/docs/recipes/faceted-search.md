@@ -29,7 +29,12 @@ Other less-feasible options:
 
 ## TODO
 
-- [ ] start with simplest option: text search and tags as facets, InstantSearch as UI
+- [ ] start with simplest option: text search and `tags` as facets, InstantSearch as UI
+  - other potential facet `updated_at` field
+    - Maybe show it as `hierarchicalMenu` (year > month > day)?
+    - There is [date range fileter](https://github.com/algolia/instantsearch-widget-date-range-picker), but it is sad
+  - maybe `stage` field (make it a separate field instead of emojis in title 🧠, 🚷, 🚧)
+  - maybe tasks count (closed, open, total)
 - [ ] try to implement custom components for faceting UI
   - maybe implement UI in the same manner as [@pagefind/modular-ui](https://www.npmjs.com/package/@pagefind/modular-ui)
 
