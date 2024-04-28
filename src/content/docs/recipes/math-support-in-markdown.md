@@ -3,6 +3,8 @@ title: Math support in markdown
 tags: [markdown]
 ---
 
+**aka** LaTeX, KaTeX, MathJAX
+
 ## Instalation
 
 ```bash title="Instal dependencies…"
