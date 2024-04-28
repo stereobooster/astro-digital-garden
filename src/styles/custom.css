@@ -1,5 +1,10 @@
 @import url(katex/dist/katex.min.css);
 
+/* this si required for images inside pan-zoom to center */
+.svg-pan-zoom svg, .svg-pan-zoom img {
+  display: block;
+}
+
 svg[id^="mermaid"] {
   /* text in mermaid diagram partially hidden otherwise */
   .node .label {

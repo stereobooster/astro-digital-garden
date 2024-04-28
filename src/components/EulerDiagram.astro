@@ -14,4 +14,8 @@ let svg =
   result.status == "fulfilled" ? result.value.svg : String(result.reason);
 ---
 
-<Fragment set:html={svg} />
+<figure class="euler not-content svg-pan-zoom">
+  <Fragment set:html={svg} />
+</figure>
+
+
