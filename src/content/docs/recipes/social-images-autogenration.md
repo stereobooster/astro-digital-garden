@@ -5,6 +5,8 @@ sidebar:
   label: Social images autogenration 🚧
 ---
 
+**aka** [open graph](https://ogp.me/) images, [x/twitter card](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards) images
+
 ## Options
 
 Basic idea is to create HTML or SVG "image" for page based on metadata, like `title`, `description`, `tags` etc. And then convert it to raster image. There are several options:
