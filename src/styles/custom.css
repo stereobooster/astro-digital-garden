@@ -5,6 +5,10 @@
   display: block;
 }
 
+img[id^="mermaid"] {
+  background-color: #fff;
+}
+
 svg[id^="mermaid"] {
   /* text in mermaid diagram partially hidden otherwise */
   .node .label {

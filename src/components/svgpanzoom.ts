@@ -15,7 +15,8 @@ document
     ".sl-markdown-content > svg:not(.icon)," +
       ".sl-markdown-content > p > svg:not(.icon)," +
       ".sl-markdown-content img[src$='.svg' i]," +
-      ".sl-markdown-content img[src$='f=svg' i]" // for development environment
+      ".sl-markdown-content img[src$='f=svg' i]," + // for development environment
+      ".sl-markdown-content img[src^='data:image/svg+xml']"
   )
   .forEach((element) => {
     const container = document.createElement("figure");
