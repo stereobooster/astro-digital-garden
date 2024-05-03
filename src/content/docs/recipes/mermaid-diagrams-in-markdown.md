@@ -165,6 +165,8 @@ svg[id^="mermaid"] {
 }
 ```
 
+**Note**: be aware that some diagrams may be broken with inline SVG. See [this comment](https://github.com/withastro/starlight/discussions/1259#discussioncomment-9309061).
+
 ### Image
 
 Instead of inlining SVG you can use `<img src="data:image/svg+xml,...`. Which would solve all issues with styles, but text won't be searhcable, also there is a limit on maximal zoom.
