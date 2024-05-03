@@ -85,31 +85,21 @@ Example taken from [mermaid.js.org](https://mermaid.js.org/syntax/sankey.html)
 
 There are a lot of diagraming languages (see [text-to-diagram](https://stereobooster.com/posts/text-to-diagram/)). [Mermaid](https://mermaid.js.org/) seems to be popular (it is supported by GitHub).
 
-## Options
+## rehype plugin
 
-There is no ideal solution so far. But here is what we can do instead:
+### Starligh
 
-- Client-side rendering with Mermaid
-- Server-side rendering with Mermaid via headless browser
-- Server-side rendering with [Pintora](https://pintorajs.vercel.app/)
-
-See: [astro-diagrams](https://stereobooster.com/posts/astro-diagrams/)
-
-## Server-side rendering via headless browser
-
-- Mermaid doesn't support server-side rendering: [mermaid#3650](https://github.com/mermaid-js/mermaid/issues/3650)
-- Prerendering with healdess browser: [mermaid-isomorphic](https://github.com/remcohaszing/mermaid-isomorphic)
-- Related discussion in Starlight repo: [starlight#1259](https://github.com/withastro/starlight/discussions/1259)
-
-### remark plugin
+**Important**: you need to use Starlight v0.22+
 
 ```bash title="Instal dependencies…"
-pnpm add remark-mermaidjs
+pnpm add rehype-mermaid
 ```
 
 ```js
 // astro.config.mjs
-import remarkMermaidjs from "remark-mermaidjs";
+import { defineConfig } from "astro/config";
+import starlight from "@astrojs/starlight";
+import rehypeMermaid from "rehype-mermaid";
 
 export default defineConfig({
   integrations: [
@@ -118,14 +108,39 @@ export default defineConfig({
     }),
   ],
   markdown: {
-    remarkPlugins: [remarkMermaidjs],
+    rehypePlugins: [rehypeMermaid],
   },
 });
 ```
 
-[Author advices against using remark plugin and insists on using rehype plugin](https://github.com/remcohaszing/remark-mermaidjs/issues/23#issuecomment-1881313556).
+### Astro
 
-You may need to fix some CSS for your diagrams, for example:
+```bash title="Instal dependencies…"
+pnpm add rehype-mermaid
+```
+
+```js
+// astro.config.mjs
+import { defineConfig } from "astro/config";
+import { rehypeShiki, markdownConfigDefaults } from "@astrojs/markdown-remark";
+import rehypeMermaid from "rehype-mermaid";
+
+export default defineConfig({
+  markdown: {
+    syntaxHighlight: false,
+    rehypePlugins: [
+      rehypeMermaid,
+      [rehypeShiki, markdownConfigDefaults.shikiConfig],
+    ],
+  },
+});
+```
+
+## Styles
+
+### Inline SVG
+
+If you use inline strategy (which is default). You may need to fix some CSS for your diagrams, for example:
 
 ```css
 // src/styles/custom.css
@@ -150,14 +165,19 @@ svg[id^="mermaid"] {
 }
 ```
 
-### rehype plugin
+### Image
 
-`rehype-mermaidjs` doesn't work with Astro out of the box. Because of [remark-shiki](https://github.com/withastro/astro/blob/main/packages/markdown/remark/src/remark-shiki.ts). There are several workarounds:
+Instead of inlining SVG you can use `<img src="data:image/svg+xml,...`. Which would solve all issues with styles, but text won't be searhcable, also there is a limit on maximal zoom.
 
-- [use `rehype-raw`](https://github.com/withastro/starlight/discussions/1259#discussioncomment-8515492)
-- disable `remark-shiki` at all ([`markdown.syntaxHighlight: false`](https://docs.astro.build/en/reference/configuration-reference/#markdownsyntaxhighlight)) and use rehype plugin. See [comment](https://github.com/withastro/starlight/discussions/1259#discussioncomment-9186701)
+```js
+export default defineConfig({
+  markdown: {
+    rehypePlugins: [[rehypeMermaid, { strategy: "img-svg", dark: true }]],
+  },
+});
+```
 
-There is upcoming feature to support dark mode: [rehype-mermaid#6](https://github.com/remcohaszing/rehype-mermaid/issues/6).
+Dark mode doesn't work though. See [starlight#1829](https://github.com/withastro/starlight/discussions/1829).
 
 ## Example
 

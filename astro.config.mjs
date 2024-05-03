@@ -101,7 +101,7 @@ export default defineConfig({
       ],
     ],
     rehypePlugins: [
-      // [rehypeMermaid, { strategy: "img-svg" }],
+      // [rehypeMermaid, { strategy: "img-svg", dark: true }],
       rehypeHeadingIds,
       [rehypeAutolinkHeadings, { behavior: "append" }],
       [

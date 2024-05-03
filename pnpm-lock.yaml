@@ -252,7 +252,7 @@ packages:
     dependencies:
       sitemap: 7.1.1
       stream-replace-string: 2.0.0
-      zod: 3.23.5
+      zod: 3.23.6
     dev: false
 
   /@astrojs/starlight@0.22.1(astro@4.7.1):
@@ -2110,8 +2110,8 @@ packages:
       vitefu: 0.2.5(vite@5.2.11)
       which-pm: 2.1.1
       yargs-parser: 21.1.1
-      zod: 3.23.5
-      zod-to-json-schema: 3.23.0(zod@3.23.5)
+      zod: 3.23.6
+      zod-to-json-schema: 3.23.0(zod@3.23.6)
     optionalDependencies:
       sharp: 0.33.3
     transitivePeerDependencies:
@@ -2233,7 +2233,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001615
-      electron-to-chromium: 1.4.754
+      electron-to-chromium: 1.4.755
       node-releases: 2.0.14
       update-browserslist-db: 1.0.14(browserslist@4.23.0)
     dev: false
@@ -3271,8 +3271,8 @@ packages:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
     dev: false
 
-  /electron-to-chromium@1.4.754:
-    resolution: {integrity: sha512-7Kr5jUdns5rL/M9wFFmMZAgFDuL2YOnanFH4OI4iFzUqyh3XOL7nAGbSlSMZdzKMIyyTpNSbqZsWG9odwLeKvA==}
+  /electron-to-chromium@1.4.755:
+    resolution: {integrity: sha512-9nop+3jZxSHIxe1EzEUcjDXzK+3qOv3fY5w0sE88nIZUntbv1aXWmoxGWlklX5XSO4txCpLssWkUSh8RQPovBg==}
     dev: false
 
   /elkjs@0.9.3:
@@ -7594,16 +7594,16 @@ packages:
     engines: {node: '>=12.20'}
     dev: false
 
-  /zod-to-json-schema@3.23.0(zod@3.23.5):
+  /zod-to-json-schema@3.23.0(zod@3.23.6):
     resolution: {integrity: sha512-az0uJ243PxsRIa2x1WmNE/pnuA05gUq/JB8Lwe1EDCCL/Fz9MgjYQ0fPlyc2Tcv6aF2ZA7WM5TWaRZVEFaAIag==}
     peerDependencies:
       zod: ^3.23.3
     dependencies:
-      zod: 3.23.5
+      zod: 3.23.6
     dev: false
 
-  /zod@3.23.5:
-    resolution: {integrity: sha512-fkwiq0VIQTksNNA131rDOsVJcns0pfVUjHzLrNBiF/O/Xxb5lQyEXkhZWcJ7npWsYlvs+h0jFWXXy4X46Em1JA==}
+  /zod@3.23.6:
+    resolution: {integrity: sha512-RTHJlZhsRbuA8Hmp/iNL7jnfc4nZishjsanDAfEY1QpDQZCahUp3xDzl+zfweE9BklxMUcgBgS1b7Lvie/ZVwA==}
     dev: false
 
   /zwitch@1.0.5:

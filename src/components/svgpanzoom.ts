@@ -13,12 +13,27 @@ document.querySelectorAll(".svg-pan-zoom").forEach((container) => {
 document
   .querySelectorAll(
     ".sl-markdown-content > svg:not(.icon)," +
-      ".sl-markdown-content > p > svg:not(.icon)," +
-      ".sl-markdown-content img[src$='.svg' i]," +
+      ".sl-markdown-content > p > svg:not(.icon)"
+  )
+  .forEach((element) => {
+    const container = document.createElement("figure");
+    container.classList.add("svg-pan-zoom", "not-content");
+    element.replaceWith(container);
+    container.append(element);
+    // @ts-expect-error
+    new SvgPanZoomUi({ element, container }).on();
+  });
+
+document
+  .querySelectorAll(
+    ".sl-markdown-content img[src$='.svg' i]," +
       ".sl-markdown-content img[src$='f=svg' i]," + // for development environment
       ".sl-markdown-content img[src^='data:image/svg+xml']"
   )
   .forEach((element) => {
+    if (element.parentElement?.tagName === "PICTURE") {
+      element = element.parentElement;
+    }
     const container = document.createElement("figure");
     container.classList.add("svg-pan-zoom", "not-content");
     element.replaceWith(container);
