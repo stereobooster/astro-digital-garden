@@ -87,7 +87,7 @@ There are a lot of diagraming languages (see [text-to-diagram](https://stereoboo
 
 ## rehype-mermaid
 
-### Starligh
+### Starlight
 
 **Important**: you need to use Starlight v0.22+
 
@@ -145,6 +145,8 @@ export default defineConfig({
 | supports [`dark`](https://github.com/remcohaszing/rehype-mermaid?tab=readme-ov-file#dark) mode (1) | no           | ✔️ yes    |
 | issues with [`rehype-raw`](https://github.com/remcohaszing/rehype-mermaid/issues/17) (2)           | yes          | ✔️ no     |
 | other CSS on the page may conflict (3)                                                             | yes          | ✔️ no     |
+
+`inline-svg` is deafault strategy.
 
 ### (1) dark mode
 
