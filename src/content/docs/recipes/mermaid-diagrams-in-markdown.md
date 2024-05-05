@@ -141,7 +141,7 @@ export default defineConfig({
 |                                                                                                    | `inline-svg` | `img-svg` |
 | -------------------------------------------------------------------------------------------------- | ------------ | --------- |
 | supports [`css`](https://github.com/remcohaszing/rehype-mermaid?tab=readme-ov-file#css) option     | ✔️ yes       | no        |
-| text is searchabale (<kbd>Cmd</kbd> + <kbd>F</kbd>)                                                | ✔️ yes       | no        |
+| text is searchable (<kbd>Cmd</kbd> + <kbd>F</kbd>)                                                | ✔️ yes       | no        |
 | supports [`dark`](https://github.com/remcohaszing/rehype-mermaid?tab=readme-ov-file#dark) mode (1) | no           | ✔️ yes    |
 | issues with [`rehype-raw`](https://github.com/remcohaszing/rehype-mermaid/issues/17) (2)           | yes          | ✔️ no     |
 | other CSS on the page may conflict (3)                                                             | yes          | ✔️ no     |
