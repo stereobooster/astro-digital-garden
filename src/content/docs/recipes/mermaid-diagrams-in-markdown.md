@@ -85,7 +85,7 @@ Example taken from [mermaid.js.org](https://mermaid.js.org/syntax/sankey.html)
 
 There are a lot of diagraming languages (see [text-to-diagram](https://stereobooster.com/posts/text-to-diagram/)). [Mermaid](https://mermaid.js.org/) seems to be popular (it is supported by GitHub).
 
-## rehype plugin
+## rehype-mermaid
 
 ### Starligh
 
@@ -136,20 +136,47 @@ export default defineConfig({
 });
 ```
 
-## Styles
+### Strategies
 
-### Inline SVG
+|                                                                                                    | `inline-svg` | `img-svg` |
+| -------------------------------------------------------------------------------------------------- | ------------ | --------- |
+| supports [`css`](https://github.com/remcohaszing/rehype-mermaid?tab=readme-ov-file#css) option     | ✔️ yes       | no        |
+| text is searchabale (<kbd>Cmd</kbd> + <kbd>F</kbd>)                                                | ✔️ yes       | no        |
+| supports [`dark`](https://github.com/remcohaszing/rehype-mermaid?tab=readme-ov-file#dark) mode (1) | no           | ✔️ yes    |
+| issues with [`rehype-raw`](https://github.com/remcohaszing/rehype-mermaid/issues/17) (2)           | yes          | ✔️ no     |
+| other CSS on the page may conflict (3)                                                             | yes          | ✔️ no     |
 
-If you use inline strategy (which is default). You may need to fix some CSS for your diagrams, for example:
+### (1) dark mode
+
+In order to enable dark mode use:
+
+```js
+export default defineConfig({
+  markdown: {
+    rehypePlugins: [[rehypeMermaid, { strategy: "img-svg", dark: true }]],
+  },
+});
+```
+
+**But** it doesn't work with Starlight's slector based dark mode. See [starlight#1829](https://github.com/withastro/starlight/discussions/1829).
+
+### (2) issues with rehype-raw
+
+I noticed issues only with `sankey` diagram. So this is minor issue
+
+### (3) other CSS
+
+You may style inline SVG with CSS:
 
 ```css
 // src/styles/custom.css
 svg[id^="mermaid"] {
-  /* text in mermaid diagram partially hidden otherwise */
+  /* undo global styles */
   .node .label {
     line-height: 1.2;
   }
 
+  /* primitive dark mode */
   .flowchart-link {
     stroke: var(--sl-color-white) !important;
   }
@@ -164,22 +191,6 @@ svg[id^="mermaid"] {
   }
 }
 ```
-
-**Note**: be aware that some diagrams may be broken with inline SVG. See [this comment](https://github.com/withastro/starlight/discussions/1259#discussioncomment-9309061).
-
-### Image
-
-Instead of inlining SVG you can use `<img src="data:image/svg+xml,...`. Which would solve all issues with styles, but text won't be searhcable, also there is a limit on maximal zoom.
-
-```js
-export default defineConfig({
-  markdown: {
-    rehypePlugins: [[rehypeMermaid, { strategy: "img-svg", dark: true }]],
-  },
-});
-```
-
-Dark mode doesn't work though. See [starlight#1829](https://github.com/withastro/starlight/discussions/1829).
 
 ## Example
 
