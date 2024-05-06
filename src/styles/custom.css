@@ -1,32 +1,12 @@
 @import url(katex/dist/katex.min.css);
 
-/* this si required for images inside pan-zoom to center */
-.svg-pan-zoom svg, .svg-pan-zoom img {
-  display: block;
+/* needed if you use strategy: "img-class-dark-mode" */
+html[data-theme="light"] .beoe-dark {
+  display: none;
 }
 
-img[id^="mermaid"] {
-  background-color: #fff;
-}
-
-svg[id^="mermaid"] {
-  /* text in mermaid diagram partially hidden otherwise */
-  .node .label {
-    line-height: 1.2;
-  }
-
-  .flowchart-link {
-    stroke: var(--sl-color-white) !important;
-  }
-
-  .marker {
-    stroke: var(--sl-color-white);
-    fill: var(--sl-color-white) !important;
-  }
-
-  .node-labels {
-    fill: var(--sl-color-white);
-  }
+html[data-theme="dark"] .beoe-light {
+  display: none;
 }
 
 /* I had to put this style in global scope, because otherwise it doesn't work in  link previews */
@@ -44,10 +24,12 @@ svg[id^="mermaid"] {
   text {
     fill: var(--sl-color-white);
   }
-  [fill="black"] {
+  [fill="black"],
+  [fill="#000"] {
     fill: var(--sl-color-white);
   }
-  [stroke="black"] {
+  [stroke="black"],
+  [stroke="#000"] {
     stroke: var(--sl-color-white);
   }
 }

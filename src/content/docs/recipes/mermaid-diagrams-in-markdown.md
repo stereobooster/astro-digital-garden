@@ -85,6 +85,16 @@ Example taken from [mermaid.js.org](https://mermaid.js.org/syntax/sankey.html)
 
 There are a lot of diagraming languages (see [text-to-diagram](https://stereobooster.com/posts/text-to-diagram/)). [Mermaid](https://mermaid.js.org/) seems to be popular (it is supported by GitHub).
 
+## beoe/rehype-mermaid
+
+```bash title="Instal dependencies…"
+pnpm add @beoe/rehype-mermaid
+```
+
+**TODO**:
+
+- [ ] write instuction for `@beoe/rehype-mermaid`
+
 ## rehype-mermaid
 
 ### Starlight
@@ -141,7 +151,7 @@ export default defineConfig({
 |                                                                                                    | `inline-svg` | `img-svg` |
 | -------------------------------------------------------------------------------------------------- | ------------ | --------- |
 | supports [`css`](https://github.com/remcohaszing/rehype-mermaid?tab=readme-ov-file#css) option     | ✔️ yes       | no        |
-| text is searchable (<kbd>Cmd</kbd> + <kbd>F</kbd>)                                                | ✔️ yes       | no        |
+| text is searchable (<kbd>Cmd</kbd> + <kbd>F</kbd>)                                                 | ✔️ yes       | no        |
 | supports [`dark`](https://github.com/remcohaszing/rehype-mermaid?tab=readme-ov-file#dark) mode (1) | no           | ✔️ yes    |
 | issues with [`rehype-raw`](https://github.com/remcohaszing/rehype-mermaid/issues/17) (2)           | yes          | ✔️ no     |
 | other CSS on the page may conflict (3)                                                             | yes          | ✔️ no     |

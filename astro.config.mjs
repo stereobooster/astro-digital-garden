@@ -3,14 +3,19 @@ import starlight from "@astrojs/starlight";
 import rehypeExternalLinks from "rehype-external-links";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
-import remarkMermaid from "remark-mermaidjs";
-// import rehypeMermaid from "rehype-mermaid";
 import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import Icons from "unplugin-icons/vite";
 
 import { wikiLinkPlugin } from "@stereobooster/remark-wiki-link";
 import { bdb } from "./src/lib/braindb.mjs";
+
+import { getCache } from "@beoe/cache";
+import { rehypeMermaid } from "@beoe/rehype-mermaid";
+import { rehypeGraphviz } from "@beoe/rehype-graphviz";
+import { rehypeGnuplot } from "@beoe/rehype-gnuplot";
+
+const cache = await getCache();
 
 await bdb.ready();
 
@@ -65,7 +70,6 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [
       remarkMath,
-      remarkMermaid,
       [
         wikiLinkPlugin,
         {
@@ -101,7 +105,9 @@ export default defineConfig({
       ],
     ],
     rehypePlugins: [
-      // [rehypeMermaid, { strategy: "img-svg", dark: true }],
+      [rehypeMermaid, { cache, strategy: "img-class-dark-mode" }],
+      [rehypeGraphviz, { cache }],
+      [rehypeGnuplot, { cache }],
       rehypeHeadingIds,
       [rehypeAutolinkHeadings, { behavior: "append" }],
       [

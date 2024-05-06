@@ -1,14 +1,12 @@
 ---
 title: Hasse diagram
-tags: [component, diagram]
+tags: [diagram]
 sidebar:
   label: Hasse diagram 🚷
 ---
 
-import Graphviz from "@components/Graphviz.astro";
-
-<Graphviz
-  src={`digraph hasse {
+```dot
+digraph hasse {
   bgcolor="transparent";
   node [shape=plaintext]
   edge [arrowhead=vee minlen=1];
@@ -39,8 +37,8 @@ import Graphviz from "@components/Graphviz.astro";
   xy -> xz -> yz [style=invis minlen=5]
   { rank=same; y x z }
   { rank=same; xy yz xz }
-}`}
-/>
+}
+```
 
 **aka**: concept lattice, poset, partially ordered set
 
@@ -60,7 +58,7 @@ import Graphviz from "@components/Graphviz.astro";
 
 You may create Hasse diagram manually, for example, using [[graphviz-diagram]]. Diagram on top created with follwing code:
 
-```dot
+```
 digraph hasse {
   bgcolor="transparent";
   node [shape=plaintext]

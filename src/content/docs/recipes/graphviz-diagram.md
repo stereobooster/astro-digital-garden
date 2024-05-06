@@ -1,12 +1,10 @@
 ---
 title: Graphviz diagram
-tags: [component, diagram]
+tags: [markdown, code-fences, diagram]
 ---
 
-import Graphviz from "@components/Graphviz.astro";
-
-<Graphviz
-  src={`digraph finite_state_machine {
+```dot
+digraph finite_state_machine {
   bgcolor="transparent";
 	fontname="Helvetica,Arial,sans-serif";
 	node [fontname="Helvetica,Arial,sans-serif"]
@@ -28,8 +26,8 @@ import Graphviz from "@components/Graphviz.astro";
 	7 -> 5 [label = "S(a)"];
 	8 -> 6 [label = "S(b)"];
 	8 -> 5 [label = "S(a)"];
-}`}
-/>
+}
+```
 
 Example taken [here](https://graphviz.org/Gallery/directed/fsm.html)
 
@@ -40,43 +38,12 @@ Example taken [here](https://graphviz.org/Gallery/directed/fsm.html)
 ## Instalation
 
 ```bash title="Instal dependencies…"
-pnpm add @hpcc-js/wasm
+pnpm add @beoe/rehype-graphviz
 ```
 
-```astro
-// src/components/Graphviz.astro
----
-import { Graphviz as GraphvizWasm } from "@hpcc-js/wasm/graphviz";
-const graphviz = await GraphvizWasm.load();
+**TODO**: 
 
-interface Props {
-  src: string;
-}
-
-const src = Astro.props.src; // await Astro.slots.render('default');
-
-let svg = graphviz
-  .dot(src)
-  .replace(`<?xml version="1.0" encoding="UTF-8" standalone="no"?>`, "")
-  .replace(
-    `<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
- "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">`,
-    ""
-  );
-
-const widthMatch = svg.match(/width="(\d+)([^"]+)"/);
-if (widthMatch) svg = svg.replace(widthMatch[0], "");
-
-const heightMatch = svg.match(/height="(\d+)([^"]+)"/);
-if (heightMatch) svg = svg.replace(heightMatch[0], "");
-
-// TODO: remove html comments
----
-
-<div class="graphviz">
-  <Fragment set:html={svg} />
-</div>
-```
+- [ ] write instuction for `@beoe/rehype-graphviz`
 
 ### Dark mode
 
@@ -87,10 +54,12 @@ Basic dark mode can be implemented with:
   text {
     fill: var(--sl-color-white);
   }
-  [fill="black"] {
+  [fill="black"],
+  [fill="#000"] {
     fill: var(--sl-color-white);
   }
-  [stroke="black"] {
+  [stroke="black"],
+  [stroke="#000"] {
     stroke: var(--sl-color-white);
   }
 }
@@ -104,12 +73,16 @@ Plus you can pass [`class`](https://graphviz.org/docs/attrs/class/) to Edges and
 
 ## Example
 
-```mdx
-<Graphviz src={`digraph x {bgcolor="transparent";rankdir=LR;node [shape=box]
-  Start -> Stop}`} />
+````md
+```dot
+digraph x {bgcolor="transparent";rankdir=LR;node [shape=box]
+  Start -> Stop}
 ```
+````
 
-<Graphviz src={`digraph x {bgcolor="transparent";rankdir=LR;node [shape=box]
-  Start -> Stop}`} />
+```dot
+digraph x {bgcolor="transparent";rankdir=LR;node [shape=box]
+  Start -> Stop}
+```
 
 Compare it to [[mermaid-diagrams-in-markdown#example|similar example in Mermaid]]

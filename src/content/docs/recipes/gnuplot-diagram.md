@@ -1,11 +1,9 @@
 ---
 title: Gnuplot diagram
-tags: [component, diagram]
+tags: [markdown, code-fences, diagram]
 ---
 
-import Gnuplot from "@components/Gnuplot.astro";
-
-<Gnuplot src={`
+```gnuplot
 # Plotting filledcurves with different transparencies
 #
 # AUTHOR: Hagen Wierstorf
@@ -29,7 +27,7 @@ set style fill noborder
 set style function filledcurves y1=0
 set clip two
 
-Gauss(x,mu,sigma) = 1./(sigma*sqrt(2*pi)) * exp( -(x-mu)\*\*2 / (2*sigma\*\*2) )
+Gauss(x,mu,sigma) = 1./(sigma*sqrt(2*pi)) * exp( -(x-mu)**2 / (2*sigma**2) )
 d1(x) = Gauss(x, 0.5, 0.5)
 d2(x) = Gauss(x, 2., 1.)
 d3(x) = Gauss(x, -1., 2.)
@@ -46,7 +44,7 @@ set lmargin 6
 plot d1(x) fs transparent solid 0.75 lc rgb "forest-green" title 'µ= 0.5 σ=0.5', \
  d2(x) fs transparent solid 0.50 lc rgb "gold" title 'µ= 2.0 σ=1.0', \
  d3(x) fs transparent solid 0.25 lc rgb "red" title 'µ=-1.0 σ=2.0'
-`}/>
+```
 
 Example taken [here](http://gnuplotting.org/filledcurves-with-different-transparency/index.html)
 
@@ -57,62 +55,29 @@ Example taken [here](http://gnuplotting.org/filledcurves-with-different-transpar
 ## Instalation
 
 ```bash title="Instal dependencies…"
-pnpm add gnuplot-wasm
+pnpm add @beoe/rehype-gnuplot
 ```
 
-```astro
-// src/components/Gnuplot.astro
----
-// @ts-ignore
-import gnuplot from "gnuplot-wasm";
+**TODO**:
 
-import { createRequire } from "module";
-const require = createRequire(import.meta.url);
-const wasmPath = require.resolve("gnuplot-wasm/src/gnuplot.wasm");
-const { render } = await gnuplot({
-  locateFile: () => wasmPath,
-});
-
-interface Props {
-  src: string;
-  width?: number;
-  height?: number;
-  background?: string;
-  data?: Record<string, string>;
-}
-
-const { src, ...rest } = Astro.props;
-
-let { svg } = render(src, rest);
-
-svg = svg.replace(`<?xml version="1.0" encoding="utf-8"  standalone="no"?>`, "");
-
-const widthMatch = svg.match(/width="(\d+)([^"]+)"/);
-if (widthMatch) svg = svg.replace(widthMatch[0], "");
-
-const heightMatch = svg.match(/height="(\d+)([^"]+)"/);
-if (heightMatch) svg = svg.replace(heightMatch[0], "");
-
-// TODO: remove html comments
----
-
-<Fragment set:html={svg} />
-```
+- [ ] write instuction for `@beoe/rehype-gnuplot`
 
 ## Example
 
-```mdx
-<Gnuplot src={`#gnuplot code`}/>
+````md
+```gnuplot
+gnuplot code
 ```
+````
 
 See picture above
 
 ## Bonus: XKCD-style
 
-<Gnuplot src={`
+```gnuplot
 # Gnuplot file that plots a couple of functions in the xkcd style
 # Not a proper rendition, as the axis are still straight lines
-# Also, when plotting functions, the jiggling can only be done in 
+# Also, when plotting functions, the jiggling can only be done in
 # the y coordinate. For datapoints, one can do the jiggling on both
 # x and y.
 # The proper way to do this would be to write a xkcd terminal for
@@ -134,14 +99,14 @@ set style line 2 lt 1 lc rgbcolor "#0000ff" lw 2  #blue
 # No border with tics
 set border 0
 
-set noxtics 
+set noxtics
 set noytics
 
 # Show the axis
 set xzeroaxis ls 11
 set yzeroaxis ls 11
 
-#Arrow end to the axis 
+#Arrow end to the axis
 set arrow from graph 0.95, first 0 to graph 1, first 0 size 2,3 front
 set arrow from first 0, graph 0.95 to first 0, graph 1 size 2,3 front
 
@@ -169,7 +134,7 @@ plot  jiggle(dpsin(x)) ls 10 t '', \
       jiggle(dpcos(x)) ls 2 t 'Damped Cos',\
       jigglea((x/15)**2) ls 10 t '',\
       jigglea((x/15)**2) ls 11 t ''
-`} width={1000} height={800}/>
+```
 
 Example taken [here](https://rfonseca.github.io/xkcd-gnuplot/)
 
