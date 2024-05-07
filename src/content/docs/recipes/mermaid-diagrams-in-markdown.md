@@ -87,7 +87,7 @@ There are a lot of diagraming languages (see [text-to-diagram](https://stereoboo
 
 ## beoe/rehype-mermaid
 
-```bash title="Instal dependencies…"
+```bash title="Install dependencies…"
 pnpm add @beoe/rehype-mermaid
 ```
 
@@ -101,7 +101,7 @@ pnpm add @beoe/rehype-mermaid
 
 **Important**: you need to use Starlight v0.22+
 
-```bash title="Instal dependencies…"
+```bash title="Install dependencies…"
 pnpm add rehype-mermaid
 ```
 
@@ -125,7 +125,7 @@ export default defineConfig({
 
 ### Astro
 
-```bash title="Instal dependencies…"
+```bash title="Install dependencies…"
 pnpm add rehype-mermaid
 ```
 

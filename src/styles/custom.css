@@ -34,6 +34,15 @@ html[data-theme="dark"] .beoe-light {
   }
 }
 
+.gnuplot {
+  background: #fff;
+}
+
+.euler {
+  background: #fff;
+  border-radius: 0.5em;
+}
+
 .no-select {
   user-select: none;
 }

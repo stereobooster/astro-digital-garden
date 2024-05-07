@@ -54,7 +54,7 @@ Example taken [here](http://gnuplotting.org/filledcurves-with-different-transpar
 
 ## Instalation
 
-```bash title="Instal dependencies…"
+```bash title="Install dependencies…"
 pnpm add @beoe/rehype-gnuplot
 ```
 

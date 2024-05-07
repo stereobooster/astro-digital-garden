@@ -5,7 +5,7 @@ tags: [component]
 
 ## Instalation
 
-```bash title="Instal dependencies…"
+```bash title="Install dependencies…"
 pnpm add svg-pan-zoom-gesture
 ```
 

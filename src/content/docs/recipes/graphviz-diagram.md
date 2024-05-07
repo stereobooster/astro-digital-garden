@@ -37,7 +37,7 @@ Example taken [here](https://graphviz.org/Gallery/directed/fsm.html)
 
 ## Instalation
 
-```bash title="Instal dependencies…"
+```bash title="Install dependencies…"
 pnpm add @beoe/rehype-graphviz
 ```
 

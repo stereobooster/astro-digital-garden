@@ -1,0 +1,101 @@
+---
+title: Backlinks
+tags: [link]
+---
+
+## Installation
+
+import { Steps } from "@astrojs/starlight/components";
+
+<Steps>
+
+1. Install [[braindb]]
+
+2. Create `Backlinks` component
+
+   ```astro
+   // src/components/Backlinks.astro
+   ---
+   import { bdb } from "@lib/braindb.mjs";
+   import type { CollectionEntry } from "astro:content";
+   interface Props {
+     entry: CollectionEntry<"docs">;
+   }
+   const { entry } = Astro.props;
+
+   const doc = await bdb.findDocument(`/${entry.id}`);
+   ---
+   {
+     doc && doc.documentsFrom().length > 0 && (
+       <div class="backlinks">
+         <h2>Backlinks</h2>
+         <ul>
+           {doc.documentsFrom().map((x) => (
+             <li>
+               <a href={x.url()}>{x.title()}</a>
+             </li>
+           ))}
+         </ul>
+       </div>
+     )
+   }
+
+   <style>
+     .backlinks {
+       padding-top: 1rem;
+
+       ul {
+         padding: 0;
+         list-style: none;
+       }
+       a {
+         --pad-inline: 0.5rem;
+         display: block;
+         border-radius: 0.25rem;
+         padding-block: 0.25rem;
+         padding-inline: var(--pad-inline) var(--pad-inline);
+         line-height: 1.25;
+       }
+     }
+   </style>
+   ```
+
+3. **Use component**, for example, in the sidebar (in Starlight)
+
+   ```astro
+   // src/components/TableOfContents.astro
+   ---
+   import type { Props } from "@astrojs/starlight/props";
+   import Default from "@astrojs/starlight/components/TableOfContents.astro";
+   import Backlinks from "./Backlinks.astro";
+   ---
+
+   <Default {...Astro.props}>
+     <slot />
+   </Default>
+
+   {
+     Astro.props.entry.data.backlinks !== false && (
+       <Backlinks entry={Astro.props.entry as any} />
+     )
+   }
+   ```
+
+   ```js
+   // astro.config.mjs
+   export default defineConfig({
+     integrations: [
+       starlight({
+         components: {
+           TableOfContents: "./src/components/TableOfContents.astro",
+         },
+       }),
+     ],
+   });
+   ```
+
+</Steps>
+
+Related:
+
+- [starlight#1335](https://github.com/withastro/starlight/discussions/1335)

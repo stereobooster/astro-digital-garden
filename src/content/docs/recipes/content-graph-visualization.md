@@ -5,11 +5,7 @@ tags: [link, diagram, component]
 
 ## Installation
 
-### BrainDB
-
-See [[braindb]]
-
-### The rest
+First install [[braindb]].
 
 With BrainDB it is possible to convert content to graph, for example, in JSON format and then load it in any visualization library of your choice. Here is an example of how to load data in [Graphology](https://graphology.github.io/):
 

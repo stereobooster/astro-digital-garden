@@ -1,0 +1,41 @@
+---
+title: Detect broken links
+tags: [link]
+---
+
+## Installation
+
+import { Steps } from "@astrojs/starlight/components";
+
+<Steps>
+
+1. Install [[braindb]]
+
+2. Configure BrainDB
+
+   ```js
+   // src/lib/braindb.mjs
+   let unresolvedLinksCount = 0;
+   bdb.on("*", (action, opts) => {
+     if (opts) {
+       opts.document.unresolvedLinks().forEach((link) => {
+         unresolvedLinksCount++;
+         console.log(
+           `Unresolved link: ${link
+             .from()
+             .path()}:${link.line()}:${link.column()}`
+         );
+       });
+     }
+     // fail build if there are broken links
+     if (
+       import.meta.env.PROD &&
+       action === "ready" &&
+       unresolvedLinksCount > 0
+     ) {
+       process.exit(1);
+     }
+   });
+   ```
+
+</Steps>

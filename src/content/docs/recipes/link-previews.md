@@ -19,7 +19,7 @@ Then we need to decide how to fetch content for the page, for example:
 
 ## Implementation
 
-```bash title="Instal dependencies…"
+```bash title="Install dependencies…"
 pnpm add @floating-ui/dom
 ```
 

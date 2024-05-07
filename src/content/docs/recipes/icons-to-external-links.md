@@ -5,7 +5,7 @@ tags: [markdown]
 
 ## Instalation
 
-```bash title="Instal dependencies…"
+```bash title="Install dependencies…"
 pnpm add rehype-external-links
 ```
 

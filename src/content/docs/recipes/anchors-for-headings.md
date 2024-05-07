@@ -12,7 +12,7 @@ There are different opinions on what is the best approach for those links. See:
 
 ## Installation
 
-```bash title="Instal dependencies…"
+```bash title="Install dependencies…"
 pnpm add rehype-autolink-headings @astrojs/markdown-remark
 ```
 
