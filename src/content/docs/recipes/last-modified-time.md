@@ -74,7 +74,7 @@ const blog = defineCollection({
 
 ### Option 2
 
-Install [[braindb]], then you can do something like this:
+Install [[braindb#installation]], then you can do something like this:
 
 ```ts
 const doc = (await bdb.documents({ slug }))[0];
