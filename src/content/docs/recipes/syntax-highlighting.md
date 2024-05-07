@@ -5,7 +5,7 @@ tags: [markdown, code-fences]
 
 Astro comes with built-in support for Shiki and Prism. This provides syntax highlighting for code fences.
 
-Starlight additionally uses [Expressive Code](https://expressive-code.com/).
+Starlight uses [Expressive Code](https://expressive-code.com/).
 
 ## Alternatives
 

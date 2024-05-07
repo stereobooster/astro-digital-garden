@@ -37,13 +37,53 @@ Example taken [here](https://graphviz.org/Gallery/directed/fsm.html)
 
 ## Installation
 
-```bash title="Install dependencies…"
-pnpm add @beoe/rehype-graphviz
-```
+import { Steps } from "@astrojs/starlight/components";
 
-**TODO**: 
+<Steps>
+1. Install dependencies
 
-- [ ] write instuction for `@beoe/rehype-graphviz`
+    ```bash
+    pnpm add @beoe/rehype-graphviz
+    ```
+
+2. Configure Astro. See note about [[rehype-plugins-for-code]].
+
+   ```js
+   // astro.config.mjs
+   import { rehypeGraphviz } from "@beoe/rehype-graphviz";
+
+   export default defineConfig({
+     markdown: {
+       rehypePlugins: [rehypeGraphviz],
+     },
+   });
+   ```
+
+3. **Optional** install dependency for cache
+
+   ```bash
+   pnpm add @beoe/cache
+   ```
+
+4. **Optional** configure cache
+
+   ```js
+   // astro.config.mjs
+   import { rehypeGraphviz } from "@beoe/rehype-graphviz";
+   import { getCache } from "@beoe/cache";
+
+   const cache = await getCache();
+
+   export default defineConfig({
+     markdown: {
+       rehypePlugins: [rehypeGraphviz, { cache }],
+     },
+   });
+   ```
+
+</Steps>
+
+## Tips
 
 ### Dark mode
 
@@ -67,9 +107,9 @@ Basic dark mode can be implemented with:
 
 Plus you can pass [`class`](https://graphviz.org/docs/attrs/class/) to Edges and Nodes to implement **advanced dark mode**.
 
-### Tips
+### To remove background
 
-- To remove background use `bgcolor="transparent"`
+To remove background use `bgcolor="transparent"`
 
 ## Example
 

@@ -54,23 +54,63 @@ Example taken [here](http://gnuplotting.org/filledcurves-with-different-transpar
 
 ## Installation
 
-```bash title="Install dependencies…"
-pnpm add @beoe/rehype-gnuplot
-```
+import { Steps } from "@astrojs/starlight/components";
 
-**TODO**:
+<Steps>
+1. Install dependencies
 
-- [ ] write instuction for `@beoe/rehype-gnuplot`
+    ```bash
+    pnpm add @beoe/rehype-gnuplot
+    ```
+
+2. Configure Astro. See note about [[rehype-plugins-for-code]].
+
+   ```js
+   // astro.config.mjs
+   import { rehypeGnuplot } from "@beoe/rehype-gnuplot";
+
+   export default defineConfig({
+     markdown: {
+       rehypePlugins: [rehypeGnuplot],
+     },
+   });
+   ```
+
+3. **Optional** install dependency for cache
+
+   ```bash
+   pnpm add @beoe/cache
+   ```
+
+4. **Optional** configure cache
+
+   ```js
+   // astro.config.mjs
+   import { rehypeGnuplot } from "@beoe/rehype-gnuplot";
+   import { getCache } from "@beoe/cache";
+
+   const cache = await getCache();
+
+   export default defineConfig({
+     markdown: {
+       rehypePlugins: [rehypeGnuplot, { cache }],
+     },
+   });
+   ```
+
+</Steps>
 
 ## Example
 
 ````md
 ```gnuplot
-gnuplot code
+plot [-10:10] sin(x)
 ```
 ````
 
-See picture above
+```gnuplot
+plot [-10:10] sin(x)
+```
 
 ## Bonus: XKCD-style
 

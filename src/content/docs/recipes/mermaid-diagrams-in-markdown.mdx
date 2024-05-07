@@ -85,66 +85,103 @@ Example taken from [mermaid.js.org](https://mermaid.js.org/syntax/sankey.html)
 
 There are a lot of diagraming languages (see [text-to-diagram](https://stereobooster.com/posts/text-to-diagram/)). [Mermaid](https://mermaid.js.org/) seems to be popular (it is supported by GitHub).
 
-## beoe/rehype-mermaid
+## @beoe/rehype-mermaid
 
-```bash title="Install dependencies…"
-pnpm add @beoe/rehype-mermaid
-```
+### Installation
 
-**TODO**:
+import { Steps } from "@astrojs/starlight/components";
 
-- [ ] write instuction for `@beoe/rehype-mermaid`
+<Steps>
+1. Install dependencies
+
+    ```bash
+    pnpm add @beoe/rehype-mermaid
+    ```
+
+2. Configure Astro. See note about [[rehype-plugins-for-code]].
+
+   ```js
+   // astro.config.mjs
+   import { rehypeMermaid } from "@beoe/rehype-mermaid";
+
+   export default defineConfig({
+     integrations: [
+       starlight({
+         customCss: ["./src/styles/custom.css"],
+       }),
+     ],
+     markdown: {
+       rehypePlugins: [
+         [rehypeMermaid, { cache, strategy: "img-class-dark-mode" }],
+       ],
+     },
+   });
+   ```
+
+3. Add CSS for dark mode:
+
+   ```css
+   // src/styles/custom.css
+   html[data-theme="light"] .beoe-dark {
+     display: none;
+   }
+
+   html[data-theme="dark"] .beoe-light {
+     display: none;
+   }
+   ```
+
+4. **Optional** install dependency for cache
+
+   ```bash
+   pnpm add @beoe/cache
+   ```
+
+5. **Optional** configure cache
+
+   ```js
+   // astro.config.mjs
+   import { rehypeMermaid } from "@beoe/rehype-mermaid";
+   import { getCache } from "@beoe/cache";
+
+   const cache = await getCache();
+
+   export default defineConfig({
+     markdown: {
+       rehypePlugins: [
+         [rehypeMermaid, { cache, strategy: "img-class-dark-mode" }],
+       ],
+     },
+   });
+   ```
+
+</Steps>
 
 ## rehype-mermaid
 
-### Starlight
+### Installation
 
-**Important**: you need to use Starlight v0.22+
+<Steps>
+1. Install dependencies
 
-```bash title="Install dependencies…"
-pnpm add rehype-mermaid
-```
+    ```bash
+    pnpm add rehype-mermaid
+    ```
 
-```js
-// astro.config.mjs
-import { defineConfig } from "astro/config";
-import starlight from "@astrojs/starlight";
-import rehypeMermaid from "rehype-mermaid";
+2. Configure Astro. See note about [[rehype-plugins-for-code]].
 
-export default defineConfig({
-  integrations: [
-    starlight({
-      customCss: ["./src/styles/custom.css"],
-    }),
-  ],
-  markdown: {
-    rehypePlugins: [rehypeMermaid],
-  },
-});
-```
+   ```js
+   // astro.config.mjs
+   import { rehypeMermaid } from "rehype-mermaid";
 
-### Astro
+   export default defineConfig({
+     markdown: {
+       rehypePlugins: [rehypeMermaid],
+     },
+   });
+   ```
 
-```bash title="Install dependencies…"
-pnpm add rehype-mermaid
-```
-
-```js
-// astro.config.mjs
-import { defineConfig } from "astro/config";
-import { rehypeShiki, markdownConfigDefaults } from "@astrojs/markdown-remark";
-import rehypeMermaid from "rehype-mermaid";
-
-export default defineConfig({
-  markdown: {
-    syntaxHighlight: false,
-    rehypePlugins: [
-      rehypeMermaid,
-      [rehypeShiki, markdownConfigDefaults.shikiConfig],
-    ],
-  },
-});
-```
+</Steps>
 
 ### Strategies
 
