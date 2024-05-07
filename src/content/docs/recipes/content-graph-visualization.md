@@ -63,7 +63,7 @@ See [[graph]].
 
 This graph is generated on the server-side with the help of Graphology and some custom code. It is too long to post it here. Check out source code, if you want to know more.
 
-Idea was to show graph without the need for JS on the client-side. But it is hard to do. Because one need to take care of not overlaping - nodes, edges and labels. It is good enough to demonstate idea, but it needs to be reimplemented to be rendered on the client-side.
+Idea was to show graph without the need for JS on the client-side. But it is hard to do. Because one needs to take care of not overlaping nodes, edges and labels. It is good enough to demonstate the idea, but it needs to be reimplemented to be rendered on the client-side.
 
 ## See also
 
