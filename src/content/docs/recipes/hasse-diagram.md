@@ -56,7 +56,7 @@ digraph hasse {
 
 ## Workaround
 
-You may create Hasse diagram manually, for example, using [[graphviz-diagram]]. Diagram on top created with follwing code:
+You may create Hasse diagram manually, for example, using [[graphviz-diagram]]. Diagram above created with follwing code:
 
 ```
 digraph hasse {
