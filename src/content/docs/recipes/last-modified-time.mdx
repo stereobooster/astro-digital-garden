@@ -1,0 +1,96 @@
+---
+title: Last modified time
+tags: [markdown]
+---
+
+## With BrainDB
+
+import { Steps } from "@astrojs/starlight/components";
+
+<Steps>
+
+1. Install [[braindb#installation]]
+2. Then you can access modification date, like this
+   ```ts
+   const doc = (await bdb.documents({ slug }))[0];
+   doc.updatedAt();
+   ```
+
+</Steps>
+
+## With Starlight
+
+Starlight already has this feature, **but** value not exposed in content collection e.g. if you set
+
+```js
+// astro.config.mjs
+import { defineConfig } from "astro/config";
+
+export default defineConfig({
+  integrations: [
+    starlight({
+      lastUpdated: true,
+    }),
+  ],
+});
+```
+
+You would see `Last updated:` on the page, but at the same time `page.data.lastUpdated` would be `undefined`
+
+## With remark plugin
+
+<Steps>
+
+1. Create remark plugin
+
+   ```js
+   // remark-modified-time.mjs
+   import { execSync } from "child_process";
+
+   export function remarkModifiedTime() {
+     return function (tree, file) {
+       const filepath = file.history[0];
+       const result = execSync(
+         `git log -1 --pretty="format:%cI" "${filepath}"`
+       );
+       file.data.astro.frontmatter.lastUpdated = result.toString();
+     };
+   }
+   ```
+
+2. Configure Astro
+
+   ```js
+   // astro.config.mjs
+   import { defineConfig } from "astro/config";
+   import { remarkModifiedTime } from "./remark-modified-time.mjs";
+
+   export default defineConfig({
+     markdown: {
+       remarkPlugins: [remarkModifiedTime],
+     },
+   });
+   ```
+
+3. You may need to adjust content schema
+
+   ```ts
+   import { defineCollection, z } from "astro:content";
+
+   const blog = defineCollection({
+     schema: z.object({
+       lastUpdated: z.string().transform((str) => new Date(str)),
+     }),
+   });
+   ```
+
+</Steps>
+
+**But** the value is accessible only after `render` e.g.
+
+```ts
+const { remarkPluginFrontmatter } = await page.render();
+console.log(remarkPluginFrontmatter.lastUpdated);
+```
+
+Based on: [Astro recipes](https://docs.astro.build/en/recipes/modified-time/)
