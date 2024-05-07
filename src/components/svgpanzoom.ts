@@ -10,20 +10,6 @@ document.querySelectorAll(".beoe").forEach((container) => {
   new SvgPanZoomUi({ element, container }).on();
 });
 
-// document
-//   .querySelectorAll(
-//     ".sl-markdown-content > svg:not(.icon)," +
-//       ".sl-markdown-content > p > svg:not(.icon)"
-//   )
-//   .forEach((element) => {
-//     const container = document.createElement("figure");
-//     container.classList.add("beoe", "not-content");
-//     element.replaceWith(container);
-//     container.append(element);
-//     // @ts-expect-error
-//     new SvgPanZoomUi({ element, container }).on();
-//   });
-
 document
   .querySelectorAll(
     ".sl-markdown-content > img[src$='.svg' i]," +
@@ -44,3 +30,17 @@ document
     // @ts-expect-error
     new SvgPanZoomUi({ element, container }).on();
   });
+
+// document
+//   .querySelectorAll(
+//     ".sl-markdown-content > svg:not(.icon)," +
+//       ".sl-markdown-content > p > svg:not(.icon)"
+//   )
+//   .forEach((element) => {
+//     const container = document.createElement("figure");
+//     container.classList.add("beoe", "not-content");
+//     element.replaceWith(container);
+//     container.append(element);
+//     // @ts-expect-error
+//     new SvgPanZoomUi({ element, container }).on();
+//   });
