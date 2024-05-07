@@ -3,7 +3,7 @@ title: SVG pan and zoom
 tags: [component]
 ---
 
-## Instalation
+## Installation
 
 ```bash title="Install dependencies…"
 pnpm add svg-pan-zoom-gesture

@@ -35,7 +35,7 @@ Example taken [here](https://graphviz.org/Gallery/directed/fsm.html)
 
 [Graphviz](https://graphviz.org/) is open source graph visualization software. On the one hand it is general diagraming tool, so it doesn't have DSL to directly express specific diagrams (let's say Hasse diagram or ER diagram). On the other hand if you don't have better solution you can always bend Graphviz to desired diagram (though it can be tedious sometimes).
 
-## Instalation
+## Installation
 
 ```bash title="Install dependencies…"
 pnpm add @beoe/rehype-graphviz

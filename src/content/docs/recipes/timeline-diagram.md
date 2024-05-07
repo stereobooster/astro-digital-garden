@@ -9,7 +9,7 @@ Example taken [here](https://exact.stereobooster.com/)
 
 **aka** chronology, genealogical tree, layered digraph
 
-## Instalation
+## Installation
 
 First install [[graphviz-diagram|Graphviz]].
 

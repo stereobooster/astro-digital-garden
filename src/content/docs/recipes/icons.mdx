@@ -3,37 +3,49 @@ title: Icons
 tags: [component]
 ---
 
-## Implementation
+## Installation
 
-```bash title="Install dependencies…"
-pnpm add unplugin-icons @iconify/json
-```
+import { Steps } from "@astrojs/starlight/components";
 
-```js
-// astro.config.mjs
-import { defineConfig } from "astro/config";
-import Icons from "unplugin-icons/vite";
+<Steps>
 
-export default defineConfig({
-  vite: {
-    plugins: [
-      Icons({
-        compiler: "astro",
-      }),
-    ],
-  },
-});
-```
+1. Install dependencies
 
-```js
-// tsconfig.json
-{
-  "extends": "astro/tsconfigs/strict",
-  "compilerOptions": {
-    "types": ["unplugin-icons/types/astro"]
-  }
-}
-```
+   ```bash
+   pnpm add unplugin-icons @iconify/json
+   ```
+
+2. Configure Astro
+
+   ```js
+   // astro.config.mjs
+   import { defineConfig } from "astro/config";
+   import Icons from "unplugin-icons/vite";
+
+   export default defineConfig({
+     vite: {
+       plugins: [
+         Icons({
+           compiler: "astro",
+         }),
+       ],
+     },
+   });
+   ```
+
+3. Configure TypeScript (if you use TypeScript)
+
+   ```json
+   // tsconfig.json
+   {
+     "extends": "astro/tsconfigs/strict",
+     "compilerOptions": {
+       "types": ["unplugin-icons/types/astro"]
+     }
+   }
+   ```
+
+</Steps>
 
 ## Example
 

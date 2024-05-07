@@ -46,13 +46,11 @@ const tagsSorted = [...docsByTags.keys()].sort(comparator.compare);
 ```
 
 ```mdx
-## //src/content/docs/tags.mdx
-
+---
 title: Tags
 tableOfContents: false
 prev: false
 next: false
-
 ---
 
 import TagList from "@components/TagList.astro";
@@ -116,6 +114,6 @@ import BxBxsComponent from "~icons/bx/bxs-component";
 import MaterialSymbolsLink from "~icons/material-symbols/link";
 import IconoirEmptyPage from "~icons/iconoir/empty-page";
 import LogosAstroIcon from "~icons/logos/astro-icon";
-import LogosTypescriptIcon from '~icons/logos/typescript-icon'
+import LogosTypescriptIcon from "~icons/logos/typescript-icon";
 
 Each tag can have it's own color or [[icons|icon]], to help differentiate them visually, for example: #markdown <TeenyiconsMarkdownOutline class="icon text" />, #component <BxBxsComponent class="icon text" />, #link <MaterialSymbolsLink class="icon text" />, #page <IconoirEmptyPage class="icon text" />, #Astro <LogosAstroIcon class="icon text" />, #TypeScript <LogosTypescriptIcon class="icon text" />

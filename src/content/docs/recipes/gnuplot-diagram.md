@@ -52,7 +52,7 @@ Example taken [here](http://gnuplotting.org/filledcurves-with-different-transpar
 
 [Gnuplot](https://gnuplot.sourceforge.net/) is a graphing utility. The source code is copyrighted but freely distributed (i.e., you don't have to pay for it). It was originally created to allow scientists and students to visualize mathematical functions and data interactively. It is also used as a plotting engine by third-party applications like Octave. Gnuplot has been supported and under active development since **1986**.
 
-## Instalation
+## Installation
 
 ```bash title="Install dependencies…"
 pnpm add @beoe/rehype-gnuplot

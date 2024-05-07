@@ -5,7 +5,7 @@ tags: [markdown]
 
 **aka** LaTeX, KaTeX, MathJAX
 
-## Instalation
+## Installation
 
 ```bash title="Install dependencies…"
 pnpm add katex rehype-katex remark-math
