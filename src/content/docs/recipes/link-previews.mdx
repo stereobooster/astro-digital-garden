@@ -1,0 +1,218 @@
+---
+title: Link previews
+tags: [component]
+---
+
+## Options
+
+First of all we need popover library, for example:
+
+- [Floating UI](https://floating-ui.com/)
+- [Popper](https://popper.js.org/)
+- [Tippy.js](https://atomiks.github.io/tippyjs/)
+
+Then we need to decide how to fetch content for the page, for example:
+
+- fetch HTML and extract header (`h1`) and content (`.sl-markdown-content`) with `DOMParser`
+- fetch HTML and extract metadata, for example OpenGraph tags, like `title`, `description` and `image`
+- fetch special JSON file (which needs to be generated upfront)
+
+## Implementation
+
+import { Steps } from "@astrojs/starlight/components";
+
+<Steps>
+
+1. Install dependencies
+   ```bash
+   pnpm add @floating-ui/dom
+   ```
+2. Add `LinkPreview` component
+
+   ```astro
+   // src/components/LinkPreview.astro
+   <div id="linkpreview" role="tooltip"></div>
+   <style>
+     #linkpreview {
+       display: none;
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 400px;
+       max-height: 400px;
+       overflow: scroll;
+       z-index: var(--sl-z-index-skiplink);
+       border: 1px solid var(--sl-color-gray-5);
+       border-radius: 0.5rem;
+       padding: 1rem;
+       box-shadow: var(--sl-shadow-md);
+       color: var(--sl-color-text);
+       background-color: var(--sl-color-bg);
+     }
+   </style>
+   <script>
+     import "./preview.ts";
+   </script>
+   ```
+
+3. Add `preview.ts`
+
+   ```ts
+   //src/components/preview.ts
+   import { computePosition, autoPlacement, offset } from "@floating-ui/dom";
+
+   const tooltip = document.querySelector("#linkpreview") as HTMLElement;
+
+   const elements = document.querySelectorAll(
+     ".sl-markdown-content a"
+   ) as NodeListOf<HTMLAnchorElement>;
+
+   // response may arrive after cursor left the link
+   let currentHref: string;
+   // it is anoying that preview shows up before user ends mouse movement
+   // if cursor stays long enough above the link - consider it as intentional
+   let showPreviewTimer: NodeJS.Timeout | undefined;
+   // if cursor moves out for a short period of time and comes back we should not hide preview
+   // if cursor moves out from link to preview window we should we should not hide preview
+   let hidePreviewTimer: NodeJS.Timeout | undefined;
+
+   function hideLinkPreview() {
+     clearTimeout(showPreviewTimer);
+     if (hidePreviewTimer !== undefined) return;
+     hidePreviewTimer = setTimeout(() => {
+       currentHref = "";
+       tooltip.style.display = "";
+       hidePreviewTimer = undefined;
+     }, 200);
+   }
+
+   function clearTimers() {
+     clearTimeout(showPreviewTimer);
+     clearTimeout(hidePreviewTimer);
+     hidePreviewTimer = undefined;
+   }
+
+   tooltip.addEventListener("mouseenter", clearTimers);
+   tooltip.addEventListener("mouseleave", hideLinkPreview);
+
+   async function showLinkPreview(e: MouseEvent | FocusEvent) {
+     const start = `${window.location.protocol}//${window.location.host}`;
+     const target = e.target as HTMLElement;
+     const href = target?.closest("a")?.href || "";
+     const hash = new URL(href).hash;
+
+     const hrefWithoutAnchor = href.replace(hash, "");
+     const locationWithoutAnchor = window.location.href.replace(
+       window.location.hash,
+       ""
+     );
+
+     currentHref = href;
+     if (
+       hrefWithoutAnchor === locationWithoutAnchor ||
+       !href.startsWith(start)
+     ) {
+       hideLinkPreview();
+       return;
+     }
+     clearTimers();
+
+     const text = await fetch(href).then((x) => x.text());
+     if (currentHref !== href) return;
+
+     showPreviewTimer = setTimeout(() => {
+       if (currentHref !== href) return;
+       const doc = new DOMParser().parseFromString(text, "text/html");
+       const content = (
+         doc.querySelector(".sl-markdown-content") as HTMLElement
+       )?.outerHTML;
+       tooltip.innerHTML = content;
+       tooltip.style.display = "block";
+       let offsetTop = 0;
+       if (hash !== "") {
+         const heading = tooltip.querySelector(hash) as HTMLElement | null;
+         if (heading) offsetTop = heading.offsetTop;
+       }
+       tooltip.scroll({ top: offsetTop, behavior: "instant" });
+
+       computePosition(target, tooltip, {
+         middleware: [offset(10), autoPlacement()],
+       }).then(({ x, y }) => {
+         Object.assign(tooltip.style, {
+           left: `${x}px`,
+           top: `${y}px`,
+         });
+       });
+     }, 400);
+   }
+
+   const events = [
+     ["mouseenter", showLinkPreview],
+     ["mouseleave", hideLinkPreview],
+     ["focus", showLinkPreview],
+     ["blur", hideLinkPreview],
+   ] as const;
+
+   Array.from(elements).forEach((element) => {
+     events.forEach(([event, listener]) => {
+       element.addEventListener(event, listener);
+     });
+   });
+   ```
+
+4. Use `LinkPreview` component in the base layout
+
+</Steps>
+
+### Starlight specific code
+
+<Steps>
+
+1. Use `LinkPreview` component in the `PageFrame`
+
+   ```astro
+   //src/components/PageFrame.astro
+   ---
+   import type { Props } from "@astrojs/starlight/props";
+   import Default from "@astrojs/starlight/components/PageFrame.astro";
+   import LinkPreview from "./LinkPreview.astro";
+   ---
+
+   <Default {...Astro.props}>
+     <slot name="header" slot="header" />
+     <slot name="sidebar" slot="sidebar" />
+     <slot />
+   </Default>
+
+   <LinkPreview />
+   ```
+
+2. Override `PageFrame` in Astro config
+
+   ```js
+   // astro.config.mjs
+   import { defineConfig } from "astro/config";
+   import starlight from "@astrojs/starlight";
+
+   export default defineConfig({
+     integrations: [
+       starlight({
+         components: {
+           PageFrame: "./src/components/PageFrame.astro",
+         },
+       }),
+     ],
+   });
+   ```
+
+</Steps>
+
+## Further improvements
+
+- [ ] handle non-html links (images, pdfs)
+
+## Reference implementations
+
+- [mediawiki-extensions-Popups](https://github.com/wikimedia/mediawiki-extensions-Popups)
+- [wikipedia-preview](https://github.com/wikimedia/wikipedia-preview)
+- [quartz popover](https://github.com/jackyzha0/quartz/blob/v4/quartz/components/scripts/popover.inline.ts)

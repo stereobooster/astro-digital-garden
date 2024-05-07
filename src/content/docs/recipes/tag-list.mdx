@@ -7,73 +7,85 @@ sidebar:
 
 ## Implementation in Starlight
 
-```astro
-//src/components/TagList.astro
----
-import { getCollection } from "astro:content";
+import { Steps } from "@astrojs/starlight/components";
 
-const docs = await getCollection("docs");
-type Docs = typeof docs;
-const docsByTags = new Map<string, Docs>();
-docs.forEach((doc) => {
-  if (doc.data.tags) {
-    doc.data.tags.forEach((tag: string) => {
-      docsByTags.set(tag, docsByTags.get(tag) || []);
-      docsByTags.get(tag)?.push(doc);
-    });
-  }
-});
-const comparator = new Intl.Collator("en");
-const tagsSorted = [...docsByTags.keys()].sort(comparator.compare);
----
+<Steps>
 
-<ul>
-  {
-    tagsSorted.map((tag) => (
-      <li>
-        {tag} ({docsByTags.get(tag)?.length})
-        <ul>
-          {docsByTags.get(tag)?.map((doc) => (
-            <li>
-              <a href={`/${doc.slug}`}>{doc.data.title}</a>
-            </li>
-          ))}
-        </ul>
-      </li>
-    ))
-  }
-</ul>
-```
+1. Create `TagList` component
 
-```mdx
----
-title: Tags
-tableOfContents: false
-prev: false
-next: false
----
+   ```astro
+   //src/components/TagList.astro
+   ---
+   import { getCollection } from "astro:content";
 
-import TagList from "@components/TagList.astro";
+   const docs = await getCollection("docs");
+   type Docs = typeof docs;
+   const docsByTags = new Map<string, Docs>();
+   docs.forEach((doc) => {
+     if (doc.data.tags) {
+       doc.data.tags.forEach((tag: string) => {
+         docsByTags.set(tag, docsByTags.get(tag) || []);
+         docsByTags.get(tag)?.push(doc);
+       });
+     }
+   });
+   const comparator = new Intl.Collator("en");
+   const tagsSorted = [...docsByTags.keys()].sort(comparator.compare);
+   ---
 
-<TagList />
-```
+   <ul>
+     {
+       tagsSorted.map((tag) => (
+         <li>
+           {tag} ({docsByTags.get(tag)?.length})
+           <ul>
+             {docsByTags.get(tag)?.map((doc) => (
+               <li>
+                 <a href={`/${doc.slug}`}>{doc.data.title}</a>
+               </li>
+             ))}
+           </ul>
+         </li>
+       ))
+     }
+   </ul>
+   ```
 
-```ts
-//src/content/config.ts
-import { z, defineCollection } from "astro:content";
-import { docsSchema, i18nSchema } from "@astrojs/starlight/schema";
+2. Adjust content schema
 
-export const collections = {
-  docs: defineCollection({
-    schema: docsSchema({
-      extend: z.object({
-        tags: z.array(z.string()).optional(),
-      }),
-    }),
-  }),
-  i18n: defineCollection({ type: "data", schema: i18nSchema() }),
-};
-```
+   ```ts
+   //src/content/config.ts
+   import { z, defineCollection } from "astro:content";
+   import { docsSchema, i18nSchema } from "@astrojs/starlight/schema";
+
+   export const collections = {
+     docs: defineCollection({
+       schema: docsSchema({
+         extend: z.object({
+           tags: z.array(z.string()).optional(),
+         }),
+       }),
+     }),
+     i18n: defineCollection({ type: "data", schema: i18nSchema() }),
+   };
+   ```
+
+3. **Use component**, wherever you like
+
+   ```mdx
+   ---
+   title: Tags
+   tableOfContents: false
+   prev: false
+   next: false
+   ---
+
+   import TagList from "@components/TagList.astro";
+
+   <TagList />
+   ```
+
+</Steps>
 
 ## Example
 
@@ -91,21 +103,20 @@ From [starlight-blog](https://github.com/HiDeoo/starlight-blog):
 - [Tag page](https://github.com/HiDeoo/starlight-blog/blob/main/packages/starlight-blog/routes/Tags.astro)
 - [Tag related functions](https://github.com/HiDeoo/starlight-blog/blob/main/packages/starlight-blog/libs/tags.ts)
 - [`injectRoute` example](https://github.com/HiDeoo/starlight-blog/blob/main/packages/starlight-blog/index.ts#L29-L33)
-
-```ts
-addIntegration({
-  name: "starlight-blog-integration",
-  hooks: {
-    "astro:config:setup": ({ injectRoute, updateConfig }) => {
-      injectRoute({
-        entrypoint: "starlight-blog/routes/Tags.astro",
-        pattern: "/blog/tags/[tag]",
-        prerender: true,
-      });
+  ```ts
+  addIntegration({
+    name: "starlight-blog-integration",
+    hooks: {
+      "astro:config:setup": ({ injectRoute, updateConfig }) => {
+        injectRoute({
+          entrypoint: "starlight-blog/routes/Tags.astro",
+          pattern: "/blog/tags/[tag]",
+          prerender: true,
+        });
+      },
     },
-  },
-});
-```
+  });
+  ```
 
 ### Icons for tags
 
