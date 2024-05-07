@@ -13,30 +13,43 @@ Above Euler diagram of tags on this website. It's not a static picture - it's ge
 
 ## Installation
 
-```bash title="Install dependencies…"
-pnpm add venn-isomorphic
-```
+import { Steps } from "@astrojs/starlight/components";
 
-```astro
-// src/components/EulerDiagram.astro
----
-import { createVennRenderer, type ISetOverlap } from "venn-isomorphic";
+<Steps>
+1. Install dependencies
 
-interface Props {
-  items: ISetOverlap[];
-}
+    ```bash
+    pnpm add venn-isomorphic
+    ```
 
-const items = Astro.props.items;
+2. Create `EulerDiagram` component
 
-const renderer = createVennRenderer();
-const results = await renderer([items]);
-const [result] = results;
-let svg =
-  result.status == "fulfilled" ? result.value.svg : String(result.reason);
----
+   ```astro
+   // src/components/EulerDiagram.astro
+   ---
+   import { createVennRenderer, type ISetOverlap } from "venn-isomorphic";
 
-<Fragment set:html={svg} />
-```
+   interface Props {
+     items: ISetOverlap[];
+   }
+
+   const items = Astro.props.items;
+
+   const renderer = createVennRenderer();
+   const results = await renderer([items]);
+   const [result] = results;
+   let svg =
+     result.status == "fulfilled" ? result.value.svg : String(result.reason);
+   ---
+
+   <figure class="euler not-content beoe">
+    <Fragment set:html={svg} />
+   </figure>
+   ```
+
+3. **Use component**, wherever you like
+
+</Steps>
 
 ## Theory
 

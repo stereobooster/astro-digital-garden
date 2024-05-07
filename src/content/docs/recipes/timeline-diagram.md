@@ -11,6 +11,10 @@ Example taken [here](https://exact.stereobooster.com/)
 
 ## Installation
 
+**TODO**:
+
+- [ ] removed `Graphviz` component from the repo need to use `@beoe/astro-graphviz` instead
+
 First install [[graphviz-diagram|Graphviz]].
 
 ```astro
