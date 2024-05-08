@@ -8,7 +8,7 @@ next: false
 import MaterialSymbolsLink from "~icons/material-symbols/link";
 
 - [ ] use `@beoe` for diagrams
-  - move `svg-pan-zoom-gesture` into monorepo
+  - move `svg-pan-zoom-gesture` into `beoe` monorepo
   - make repo public
 - [ ] implement [[faceted-search]]
 - [ ] write an article about task extraction
@@ -23,6 +23,18 @@ import MaterialSymbolsLink from "~icons/material-symbols/link";
   - if search was used
   - if external links were clicked
   - if page preview was shown
+- [ ] remove H1 on tags page
+- [ ] publish Astro components for
+  - [ ] `LinkPreview`
+  - [ ] "Snake" table of content
+  - [ ] Alphabetical index (BrainDB instance as param)
+  - [ ] Recently changed (BrainDB instance as param)
+- [ ] Move `remark-wiki-link` plugin into `BrainDB` monorepo
+- [ ] Refactor code for content pages detection
+  - `tasks[0].from().frontmatter().tags?.length`, `if (doc.data.tags) {`
+  - `url.startsWith("/recipes"))`
+- [ ] write about `playwright` for Mermaid and Euler diagrams
+- [ ] update section about "Ideal solution" in diagrams article
 
 ## Ideas
 
@@ -31,7 +43,7 @@ import MaterialSymbolsLink from "~icons/material-symbols/link";
   - icons can be shown for tags (like this: #link <MaterialSymbolsLink class="icon text" />)
   - icons can be shown for pages in sidebar and near link to them
   - page may have `stage` field (idea, draft, in progress, or finished). Right now I use emojis: 🧠, 🚷, 🚧. Similar idea: [Taxonomy of note types](https://www.ssp.sh/brain/taxonomy-of-note-types/)
-  - some pages has `aka` field
+  - some pages have `aka` field
   - related idea about `alias` field from [[permalinks]]
 - Crazy idea: write transpiler from Mermaid to Graphviz. At least `flowchart` should be possible to convert
   - There is [flow.jison](https://github.com/mermaid-js/mermaid/blob/3809732e48a0822fad596d0815a6dc0e166dda94/packages/mermaid/src/diagrams/flowchart/parser/flow.jison)
