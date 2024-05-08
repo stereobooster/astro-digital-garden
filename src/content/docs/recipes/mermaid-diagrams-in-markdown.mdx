@@ -198,7 +198,8 @@ import { Steps } from "@astrojs/starlight/components";
 
 In order to enable dark mode use:
 
-```js
+```js {4}
+// astro.config.mjs
 export default defineConfig({
   markdown: {
     rehypePlugins: [[rehypeMermaid, { strategy: "img-svg", dark: true }]],
