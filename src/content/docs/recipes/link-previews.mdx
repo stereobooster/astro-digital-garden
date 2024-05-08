@@ -189,10 +189,8 @@ import { Steps } from "@astrojs/starlight/components";
 
 2. Override `PageFrame` in Astro config
 
-   ```js
+   ```js {6}
    // astro.config.mjs
-   import starlight from "@astrojs/starlight";
-
    export default defineConfig({
      integrations: [
        starlight({

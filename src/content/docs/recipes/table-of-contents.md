@@ -26,6 +26,7 @@ Checkout in the sourcecode how to implement:
 TODO:
 
 - [ ] fix bug: it crashes if there are missing header levels, like `h4` directly in `h2`
+- [ ] fix "snake" styles
 
 ### Satrlight specific config
 
@@ -39,7 +40,7 @@ import TOC from "./TOC.astro";
 <TOC {...Astro.props} />
 ```
 
-```js
+```js {6}
 // astro.config.mjs
 export default defineConfig({
   integrations: [

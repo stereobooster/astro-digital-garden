@@ -22,7 +22,7 @@ import { Steps } from "@astrojs/starlight/components";
 
 Starlight already has this feature, **but** value not exposed in content collection e.g. if you set
 
-```js
+```js {5}
 // astro.config.mjs
 export default defineConfig({
   integrations: [
@@ -58,7 +58,7 @@ You would see `Last updated:` on the page, but at the same time `page.data.lastU
 
 2. Configure Astro
 
-   ```js
+   ```js {6}
    // astro.config.mjs
    import { remarkModifiedTime } from "./remark-modified-time.mjs";
 
@@ -71,8 +71,9 @@ You would see `Last updated:` on the page, but at the same time `page.data.lastU
 
 3. You may need to adjust content schema
 
-   ```ts
-   import { defineCollection, z } from "astro:content";
+   ```ts {6}
+   //src/content/config.ts
+   import { z, defineCollection } from "astro:content";
 
    const blog = defineCollection({
      schema: z.object({
