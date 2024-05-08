@@ -24,8 +24,6 @@ Starlight already has this feature, **but** value not exposed in content collect
 
 ```js
 // astro.config.mjs
-import { defineConfig } from "astro/config";
-
 export default defineConfig({
   integrations: [
     starlight({
@@ -62,7 +60,6 @@ You would see `Last updated:` on the page, but at the same time `page.data.lastU
 
    ```js
    // astro.config.mjs
-   import { defineConfig } from "astro/config";
    import { remarkModifiedTime } from "./remark-modified-time.mjs";
 
    export default defineConfig({

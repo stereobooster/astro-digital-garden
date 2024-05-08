@@ -65,7 +65,7 @@ import { Steps } from "@astrojs/starlight/components";
 
 2. Configure Astro. See note about [[rehype-plugins-for-code]].
 
-   ```js
+   ```js {2, 6}
    // astro.config.mjs
    import { rehypeGnuplot } from "@beoe/rehype-gnuplot";
 
@@ -84,9 +84,8 @@ import { Steps } from "@astrojs/starlight/components";
 
 4. **Optional** configure cache
 
-   ```js
+   ```js {2, 4, 8}
    // astro.config.mjs
-   import { rehypeGnuplot } from "@beoe/rehype-gnuplot";
    import { getCache } from "@beoe/cache";
 
    const cache = await getCache();

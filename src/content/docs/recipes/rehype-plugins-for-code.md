@@ -25,16 +25,16 @@ You may need to use special configuration, because Astro (and Starlight) comes w
 
 To use with Astro, you need to disable built-in syntax highlighting and put it after your plugin:
 
-```diff
+```js {2, 6, 8-9}
 // astro.config.mjs
-+ import { rehypeShiki, markdownConfigDefaults } from "@astrojs/markdown-remark";
+import { rehypeShiki, markdownConfigDefaults } from "@astrojs/markdown-remark";
 
 export default defineConfig({
   markdown: {
-+    syntaxHighlight: false,
+    syntaxHighlight: false,
     rehypePlugins: [
-+      yourPlugin,
-+      [rehypeShiki, markdownConfigDefaults.shikiConfig],
+      yourPlugin,
+      [rehypeShiki, markdownConfigDefaults.shikiConfig],
     ],
   },
 });
@@ -44,12 +44,12 @@ export default defineConfig({
 
 **Important** use Starlight [v0.22+](https://github.com/withastro/starlight/discussions/1259#discussioncomment-9300105)
 
-```diff
+```js {5}
 // astro.config.mjs
 export default defineConfig({
   integrations: [starlight({})],
   markdown: {
-+    rehypePlugins: [yourPlugin],
+    rehypePlugins: [yourPlugin],
   },
 });
 ```

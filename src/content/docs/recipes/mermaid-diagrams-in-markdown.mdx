@@ -100,7 +100,7 @@ import { Steps } from "@astrojs/starlight/components";
 
 2. Configure Astro. See note about [[rehype-plugins-for-code]].
 
-   ```js
+   ```js {2, 7, 12}
    // astro.config.mjs
    import { rehypeMermaid } from "@beoe/rehype-mermaid";
 
@@ -139,9 +139,8 @@ import { Steps } from "@astrojs/starlight/components";
 
 5. **Optional** configure cache
 
-   ```js
+   ```js {2,4,9}
    // astro.config.mjs
-   import { rehypeMermaid } from "@beoe/rehype-mermaid";
    import { getCache } from "@beoe/cache";
 
    const cache = await getCache();

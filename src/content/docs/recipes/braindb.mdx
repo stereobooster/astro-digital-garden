@@ -30,22 +30,12 @@ import { Steps } from "@astrojs/starlight/components";
 
 2. Configure Astro
 
-   ```js
+   ```js {5}
    // astro.config.mjs
-   import { defineConfig } from "astro/config";
-
    export default defineConfig({
      vite: {
        optimizeDeps: {
-         exclude: [
-           "fsevents",
-           "@node-rs",
-           "@napi-rs",
-           // or you can specify exact libraries instead of namespace, like
-           // "@node-rs/xxhash-wasm32-wasi",
-           // "@napi-rs/simple-git-darwin-x64",
-           // "@napi-rs/simple-git-darwin-arm64",
-         ],
+         exclude: ["fsevents", "@node-rs", "@napi-rs"],
        },
      },
    });
