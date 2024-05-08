@@ -1,0 +1,141 @@
+---
+title: Task extraction
+tags: [component, gfm]
+---
+
+**aka** Checklist, TODO
+
+## Introduction
+
+Imagine you are writing an article and you have some checklist of what else you want to cover in the article.
+
+```md
+- [ ] write about ...
+- [ ] check that this is correct assumption ...
+- [ ] add citation
+
+# My article
+```
+
+On one hand it is convinient to keep this checklist in the article itslef. On the other hand you may want to see all tasks at glance. With the help of BrainDB it is possible to extract all tasks from all pages and list them on one page.
+
+## Installation
+
+import { Steps } from "@astrojs/starlight/components";
+
+<Steps>
+
+1. Install [[braindb#installation]]
+
+2. Create `TaskList` component
+
+   ```astro
+   // src/components/TaskList.astro
+   ---
+   import type { Task } from "@braindb/core";
+   import { bdb } from "@lib/braindb.mjs";
+
+   // TODO: shall I sort pages by title (alphabetically) or by date (recent first)?
+   const grouped: Record<string, Task[]> = {};
+   (await bdb.tasks()).forEach((task) => {
+     const path = task.from().path();
+     grouped[path] = grouped[path] || [];
+     grouped[path].push(task);
+   });
+   ---
+
+   {
+     Object.values(grouped).map((tasks) =>
+       tasks[0].from().frontmatter().tags &&
+       // @ts-expect-error
+       tasks[0].from().frontmatter().tags?.length > 0 ? (
+         <p>
+           <a href={tasks[0].from().url()}>{tasks[0].from().title()}</a>
+           <ul>
+             {tasks.map((task) => (
+               <li>
+                 <label>
+                   <input
+                     type="checkbox"
+                     disabled="disabled"
+                     checked={task.checked()}
+                   />
+                   &nbsp;{task.text()}
+                 </label>
+               </li>
+             ))}
+           </ul>
+         </p>
+       ) : null
+     )
+   }
+   ```
+
+3. **Use component**, wherever you like
+
+   ```mdx
+   ---
+   title: Tasks
+   tableOfContents: false
+   prev: false
+   next: false
+   ---
+
+   import TaskList from "@components/TaskList.astro";
+
+   <TaskList />
+   ```
+
+</Steps>
+
+## Limitations
+
+For now I implemented bare minimum for task extraction in BrainDB. Those are limitation which I want to address in the future.
+
+### Limitation 1: flat list
+
+```md
+- [ ] task
+  - [x] sub-task
+```
+
+BrainDB will return this as a flat list instead of hierarchical structure:
+
+```md
+- [ ] task
+- [x] sub-task
+```
+
+### Limitation 2: text only
+
+```md
+- [ ] `code` **bold**
+```
+
+BrainDb can return markdown for the content of the task, but for now I didn't figure out good way to render it with Astro. I use text insted:
+
+```md
+- [ ] code bold
+```
+
+### Limitation 3: no subitems
+
+```md
+- [ ] task
+  - a
+  - b
+```
+
+For now BrainDb returns only content of the task, but not subitems:
+
+```md
+- [ ] task
+```
+
+## Example
+
+This is an **example** of `<TaskList />` output 👇
+
+import TaskList from "@components/TaskList.astro";
+
+<TaskList />

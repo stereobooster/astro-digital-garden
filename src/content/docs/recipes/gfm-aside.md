@@ -1,6 +1,6 @@
 ---
 title: GFM aside
-tags: [markdown]
+tags: [markdown, gfm]
 ---
 
 **aka**: admonitions, callouts
