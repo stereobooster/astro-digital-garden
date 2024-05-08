@@ -100,7 +100,7 @@ import { Steps } from "@astrojs/starlight/components";
 
 2. Configure Astro. See note about [[rehype-plugins-for-code]].
 
-   ```js {2, 7, 12}
+   ```js {2, 7, 12-15}
    // astro.config.mjs
    import { rehypeMermaid } from "@beoe/rehype-mermaid";
 
@@ -112,7 +112,10 @@ import { Steps } from "@astrojs/starlight/components";
      ],
      markdown: {
        rehypePlugins: [
-         [rehypeMermaid, { cache, strategy: "img-class-dark-mode" }],
+         [
+           rehypeMermaid,
+           { class: "not-content", strategy: "img-class-dark-mode" },
+         ],
        ],
      },
    });
@@ -139,7 +142,7 @@ import { Steps } from "@astrojs/starlight/components";
 
 5. **Optional** configure cache
 
-   ```js {2,4,9}
+   ```js {2,4,9-12}
    // astro.config.mjs
    import { getCache } from "@beoe/cache";
 
@@ -148,7 +151,10 @@ import { Steps } from "@astrojs/starlight/components";
    export default defineConfig({
      markdown: {
        rehypePlugins: [
-         [rehypeMermaid, { cache, strategy: "img-class-dark-mode" }],
+         [
+           rehypeMermaid,
+           { class: "not-content", strategy: "img-class-dark-mode", cache },
+         ],
        ],
      },
    });

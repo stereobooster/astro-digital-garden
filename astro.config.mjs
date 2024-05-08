@@ -105,9 +105,12 @@ export default defineConfig({
       ],
     ],
     rehypePlugins: [
-      [rehypeMermaid, { cache, strategy: "img-class-dark-mode" }],
-      [rehypeGraphviz, { cache }],
-      [rehypeGnuplot, { cache }],
+      [
+        rehypeMermaid,
+        { class: "not-content", cache, strategy: "img-class-dark-mode" },
+      ],
+      [rehypeGraphviz, { class: "not-content", cache }],
+      [rehypeGnuplot, { class: "not-content", cache }],
       rehypeHeadingIds,
       [rehypeAutolinkHeadings, { behavior: "append" }],
       [

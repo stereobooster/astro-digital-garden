@@ -17,6 +17,9 @@ dependencies:
   '@beoe/cache':
     specifier: ^0.0.1
     version: 0.0.1(typescript@5.4.5)
+  '@beoe/pan-zoom':
+    specifier: ^0.0.3
+    version: 0.0.3
   '@beoe/rehype-gnuplot':
     specifier: ^0.0.1
     version: 0.0.1
@@ -92,9 +95,6 @@ dependencies:
   sigma:
     specifier: 3.0.0-beta.18
     version: 3.0.0-beta.18(graphology-types@0.24.7)
-  svg-pan-zoom-gesture:
-    specifier: ^0.0.2
-    version: 0.0.2
   typescript:
     specifier: ^5.4.5
     version: 5.4.5
@@ -541,6 +541,10 @@ packages:
       cosmiconfig: 9.0.0(typescript@5.4.5)
     transitivePeerDependencies:
       - typescript
+    dev: false
+
+  /@beoe/pan-zoom@0.0.3:
+    resolution: {integrity: sha512-IWHMf0CzRwQawENVpnbkxLMicWdzgFMst8IPVe3qFgXyIn2PDDTzJE1avMhuwUPWchJuQFgXwzuc820gPJ/K+A==}
     dev: false
 
   /@beoe/rehype-code-hook@0.0.1:
@@ -6983,10 +6987,6 @@ packages:
   /supports-preserve-symlinks-flag@1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
-    dev: false
-
-  /svg-pan-zoom-gesture@0.0.2:
-    resolution: {integrity: sha512-HQ6YvK7LlyDDJwYvnGbqwtJ9jlUqG+8KzCY8baYtg3TO274LBL58wD1+9eHW+29Bv8opAhAQHwJtWWNVKi7iiA==}
     dev: false
 
   /svgo@3.2.0:

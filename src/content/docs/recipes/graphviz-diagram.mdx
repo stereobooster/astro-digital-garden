@@ -54,7 +54,7 @@ import { Steps } from "@astrojs/starlight/components";
 
    export default defineConfig({
      markdown: {
-       rehypePlugins: [rehypeGraphviz],
+       rehypePlugins: [[rehypeGraphviz, { class: "not-content" }]],
      },
    });
    ```
@@ -75,7 +75,7 @@ import { Steps } from "@astrojs/starlight/components";
 
    export default defineConfig({
      markdown: {
-       rehypePlugins: [[rehypeGraphviz, { cache }]],
+       rehypePlugins: [[rehypeGraphviz, { class: "not-content", cache }]],
      },
    });
    ```

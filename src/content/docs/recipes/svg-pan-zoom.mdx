@@ -12,33 +12,43 @@ import { Steps } from "@astrojs/starlight/components";
 1. Install dependencies
 
    ```bash
-   pnpm add svg-pan-zoom-gesture
+   pnpm add @beoe/pan-zoom
    ```
 
 2. Add `svgpanzoom.ts`
 
    ```ts
    // src/components/svgpanzoom.ts
-   import "svg-pan-zoom-gesture/css/SvgPanZoomUi.css";
-   import { SvgPanZoomUi } from "svg-pan-zoom-gesture";
+   import "@beoe/pan-zoom/css/PanZoomUi.css";
+   import { PanZoomUi } from "@beoe/pan-zoom";
 
+   // for BEOE diagrams
+   document.querySelectorAll(".beoe").forEach((container) => {
+     const element = container.firstElementChild;
+     if (!element) return;
+     // @ts-expect-error
+     new PanZoomUi({ element, container }).on();
+   });
+
+   // for content images
    document
      .querySelectorAll(
-       ".sl-markdown-content > svg:not(.icon)," +
-         ".sl-markdown-content > p > svg:not(.icon)," +
-         ".sl-markdown-content img[src$='.svg' i]," +
-         ".sl-markdown-content img[src$='f=svg' i]" // for development environment
+       ".sl-markdown-content > img[src$='.svg' i]," +
+         ".sl-markdown-content > p > img[src$='.svg' i]," +
+         // for development environment
+         ".sl-markdown-content > img[src$='f=svg' i]," +
+         ".sl-markdown-content > img[src$='f=svg' i]"
      )
      .forEach((element) => {
        if (element.parentElement?.tagName === "PICTURE") {
          element = element.parentElement;
        }
        const container = document.createElement("figure");
-       container.classList.add("svg-pan-zoom", "not-content");
+       container.classList.add("beoe", "not-content");
        element.replaceWith(container);
        container.append(element);
        // @ts-expect-error
-       new SvgPanZoomUi({ element, container }).on();
+       new PanZoomUi({ element, container }).on();
      });
    ```
 
@@ -89,6 +99,5 @@ import { Steps } from "@astrojs/starlight/components";
 
 ## Further improvements
 
-- [ ] style svg-pan-zoom buttons
+- [ ] style pan-zoom buttons
 - [ ] provide container in HTML, instead of generating it on the fly
-- [ ] first double click should do zoom-in, like in iPhone. Second double click should do reset

@@ -1,5 +1,5 @@
-import "./SvgPanZoomUi.css";
-import { SvgPanZoomUi } from "svg-pan-zoom-gesture";
+import "@beoe/pan-zoom/css/PanZoomUi.css";
+import { PanZoomUi } from "@beoe/pan-zoom";
 
 // TODO: astro:page-load
 // TODO: style beoe buttons https://starlight.astro.build/guides/css-and-tailwind/
@@ -7,7 +7,7 @@ document.querySelectorAll(".beoe").forEach((container) => {
   const element = container.firstElementChild;
   if (!element) return;
   // @ts-expect-error
-  new SvgPanZoomUi({ element, container }).on();
+  new PanZoomUi({ element, container }).on();
 });
 
 document
@@ -25,5 +25,5 @@ document
     element.replaceWith(container);
     container.append(element);
     // @ts-expect-error
-    new SvgPanZoomUi({ element, container }).on();
+    new PanZoomUi({ element, container }).on();
   });

@@ -14,6 +14,7 @@
     "@astrojs/markdown-remark": "^5.1.0",
     "@astrojs/starlight": "^0.22.1",
     "@beoe/cache": "^0.0.1",
+    "@beoe/pan-zoom": "^0.0.3",
     "@beoe/rehype-gnuplot": "^0.0.1",
     "@beoe/rehype-graphviz": "^0.0.1",
     "@beoe/rehype-mermaid": "^0.0.1",
@@ -39,7 +40,6 @@
     "remark-math": "^6.0.0",
     "sharp": "^0.33.3",
     "sigma": "3.0.0-beta.18",
-    "svg-pan-zoom-gesture": "^0.0.2",
     "typescript": "^5.4.5",
     "unplugin-icons": "^0.19.0",
     "venn-isomorphic": "^0.0.2"

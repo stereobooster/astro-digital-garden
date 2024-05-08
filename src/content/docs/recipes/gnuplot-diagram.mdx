@@ -71,7 +71,7 @@ import { Steps } from "@astrojs/starlight/components";
 
    export default defineConfig({
      markdown: {
-       rehypePlugins: [rehypeGnuplot],
+       rehypePlugins: [[rehypeGnuplot, { class: "not-content" }]],
      },
    });
    ```
@@ -92,7 +92,7 @@ import { Steps } from "@astrojs/starlight/components";
 
    export default defineConfig({
      markdown: {
-       rehypePlugins: [[rehypeGnuplot, { cache }]],
+       rehypePlugins: [[rehypeGnuplot, { class: "not-content", cache }]],
      },
    });
    ```
