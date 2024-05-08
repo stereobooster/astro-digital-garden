@@ -72,4 +72,4 @@ Idea was to show graph without the need for JS on the client-side. But it is har
 ## Further improvements
 
 - [ ] show labels for tags on the graph
-- [ ] create an example with client side graph
+- [ ] create an example with [[graph-client|client-side graph]]

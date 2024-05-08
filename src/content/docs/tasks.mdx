@@ -8,8 +8,8 @@ next: false
 import MaterialSymbolsLink from "~icons/material-symbols/link";
 
 - [ ] implement [[faceted-search]]
+- [ ] Move `remark-wiki-link` plugin into `BrainDB` monorepo
 - [ ] write an article about task extraction
-  - fix bug: `task.text()` doesn't work if it contains wikilink (`[[something]]`)
   - mention [Obsidian Dataview](https://blacksmithgu.github.io/obsidian-dataview/queries/query-types/#task)
   - support nested tasks, like Obsidian Dataview does
   - implement prototype with `rehype-code-hook` or `remark-code-hook`
@@ -26,7 +26,6 @@ import MaterialSymbolsLink from "~icons/material-symbols/link";
   - [ ] "Snake" table of content
   - [ ] Alphabetical index (BrainDB instance as param)
   - [ ] Recently changed (BrainDB instance as param)
-- [ ] Move `remark-wiki-link` plugin into `BrainDB` monorepo
 - [ ] Refactor code for content pages detection
   - `tasks[0].from().frontmatter().tags?.length`, `if (doc.data.tags) {`
   - `url.startsWith("/recipes"))`
