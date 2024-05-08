@@ -27,35 +27,7 @@ import { Steps } from "@astrojs/starlight/components";
    ```bash
    pnpm add @floating-ui/dom
    ```
-2. Add `LinkPreview` component
-
-   ```astro
-   // src/components/LinkPreview.astro
-   <div id="linkpreview" role="tooltip"></div>
-   <style>
-     #linkpreview {
-       display: none;
-       position: absolute;
-       top: 0;
-       left: 0;
-       width: 400px;
-       max-height: 400px;
-       overflow: scroll;
-       z-index: var(--sl-z-index-skiplink);
-       border: 1px solid var(--sl-color-gray-5);
-       border-radius: 0.5rem;
-       padding: 1rem;
-       box-shadow: var(--sl-shadow-md);
-       color: var(--sl-color-text);
-       background-color: var(--sl-color-bg);
-     }
-   </style>
-   <script>
-     import "./preview.ts";
-   </script>
-   ```
-
-3. Add `preview.ts`
+2. Add `preview.ts`
 
    ```ts
    //src/components/preview.ts
@@ -160,6 +132,34 @@ import { Steps } from "@astrojs/starlight/components";
    });
    ```
 
+3. Add `LinkPreview` component
+
+   ```astro
+   // src/components/LinkPreview.astro
+   <div id="linkpreview" role="tooltip"></div>
+   <style>
+     #linkpreview {
+       display: none;
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 400px;
+       max-height: 400px;
+       overflow: scroll;
+       z-index: var(--sl-z-index-skiplink);
+       border: 1px solid var(--sl-color-gray-5);
+       border-radius: 0.5rem;
+       padding: 1rem;
+       box-shadow: var(--sl-shadow-md);
+       color: var(--sl-color-text);
+       background-color: var(--sl-color-bg);
+     }
+   </style>
+   <script>
+     import "./preview.ts";
+   </script>
+   ```
+
 4. Use `LinkPreview` component in the base layout
 
 </Steps>
@@ -170,7 +170,7 @@ import { Steps } from "@astrojs/starlight/components";
 
 1. Use `LinkPreview` component in the `PageFrame`
 
-   ```astro
+   ```astro {5, 14}
    // src/components/PageFrame.astro
    ---
    import type { Props } from "@astrojs/starlight/props";

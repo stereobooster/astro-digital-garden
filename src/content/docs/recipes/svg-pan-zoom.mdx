@@ -1,5 +1,5 @@
 ---
-title: SVG pan and zoom
+title: Pan and zoom for images
 tags: [component]
 ---
 
@@ -62,7 +62,7 @@ import { Steps } from "@astrojs/starlight/components";
 
 1.  Use `svgpanzoom.ts` in the `PageFrame`
 
-    ```astro
+    ```astro {13-15}
     // src/components/PageFrame.astro
     ---
     import type { Props } from "@astrojs/starlight/props";
@@ -100,4 +100,4 @@ import { Steps } from "@astrojs/starlight/components";
 ## Further improvements
 
 - [ ] style pan-zoom buttons
-- [ ] provide container in HTML, instead of generating it on the fly
+- [ ] create rehype plugin to wrap images into container (`<figure class="beoe"></figure>`), to avoid creating it on the client side
