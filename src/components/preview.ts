@@ -47,7 +47,7 @@ async function showLinkPreview(e: MouseEvent | FocusEvent) {
     hash = new URL(href).hash;
     local = href.startsWith(start);
   } else {
-    // disabled for now
+    // disabled for now - it is bugy
     // href = hrefRaw.baseVal;
     // hash = new URL(href, window.location.origin).hash;
     // local = href.startsWith("/");
