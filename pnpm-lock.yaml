@@ -29,6 +29,9 @@ dependencies:
   '@beoe/rehype-mermaid':
     specifier: ^0.0.1
     version: 0.0.1
+  '@beoe/remark-code-hook':
+    specifier: ^0.0.1
+    version: 0.0.1
   '@braindb/core':
     specifier: 0.0.12
     version: 0.0.12
@@ -583,6 +586,14 @@ packages:
       svgo: 3.3.0
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /@beoe/remark-code-hook@0.0.1:
+    resolution: {integrity: sha512-A+Qvn2gcma473tXLvfO8hHtmD1JFfQ/p8g+EUWfvbWoccYRlqq6WE2j/J5+odtKQGlFno3NoBqhHCjT5ZaVDHA==}
+    dependencies:
+      '@types/mdast': 4.0.3
+      unified: 11.0.4
+      unist-util-visit: 5.0.0
     dev: false
 
   /@beoe/sqlitecache@0.0.1:

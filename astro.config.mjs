@@ -15,6 +15,8 @@ import { rehypeMermaid } from "@beoe/rehype-mermaid";
 import { rehypeGraphviz } from "@beoe/rehype-graphviz";
 import { rehypeGnuplot } from "@beoe/rehype-gnuplot";
 
+import { remarkDataview } from "./src/plugins/remarkDataview.mjs";
+
 const cache = await getCache();
 
 await bdb.ready();
@@ -69,6 +71,7 @@ export default defineConfig({
   ],
   markdown: {
     remarkPlugins: [
+      [remarkDataview, { bdb }],
       remarkMath,
       [
         wikiLinkPlugin,
