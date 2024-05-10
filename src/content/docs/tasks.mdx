@@ -8,6 +8,13 @@ next: false
 import MaterialSymbolsLink from "~icons/material-symbols/link";
 
 - [ ] implement [[faceted-search]]
+- [ ] Refactor code for content pages detection
+  - `tasks[0].from().frontmatter().tags?.length`, `if (doc.data.tags) {`
+  - `url.startsWith("/recipes"))`
+- [ ] Implement `remark-dataview` plugin in `BrainDB` monorepo
+  - support array of MDAST nodes in `remark-code-hook`?
+  - "Alphabetical index" and "Recently changed" can be first candidates
+  - For more complex things I need [DQL parser](https://github.com/blacksmithgu/obsidian-dataview/blob/master/src/query/parse.ts)
 - [ ] Move `remark-wiki-link` plugin into `BrainDB` monorepo
 - [ ] add [View Transitions](https://docs.astro.build/en/guides/view-transitions/)
   - see [starlight#694](https://github.com/withastro/starlight/pull/694#issuecomment-2021611520)
@@ -22,11 +29,8 @@ import MaterialSymbolsLink from "~icons/material-symbols/link";
   - [ ] "Snake" table of content
   - [ ] Alphabetical index (BrainDB instance as param)
   - [ ] Recently changed (BrainDB instance as param)
-- [ ] Refactor code for content pages detection
-  - `tasks[0].from().frontmatter().tags?.length`, `if (doc.data.tags) {`
-  - `url.startsWith("/recipes"))`
-- [ ] write about `playwright` for Mermaid and Euler diagrams
 - [ ] update section about "Ideal solution" in diagrams article
+- [ ] write about `playwright` for Mermaid and Euler diagrams
 - [ ] write about `not-content`
 
 ## Ideas
@@ -37,9 +41,23 @@ import MaterialSymbolsLink from "~icons/material-symbols/link";
   - icons can be shown for pages in sidebar and near link to them
   - page may have `stage` field (idea, draft, in progress, or finished). Right now I use emojis: 🧠, 🚷, 🚧. Similar idea: [Taxonomy of note types](https://www.ssp.sh/brain/taxonomy-of-note-types/)
   - some pages have `aka` field
-  - related idea about `alias` field from [[permalinks]]
-- Crazy idea: write transpiler from Mermaid to Graphviz. At least `flowchart` should be possible to convert
-  - There is [flow.jison](https://github.com/mermaid-js/mermaid/blob/3809732e48a0822fad596d0815a6dc0e166dda94/packages/mermaid/src/diagrams/flowchart/parser/flow.jison)
+  - for tags `color` can be generated automaticially: ["scale"](https://d3js.org/d3-scale-chromatic/categorical) or [color-hash](https://github.com/zenozeng/color-hash)
+- Functional metdata:
+  - I can implement `alias` with "catch all" `[...path].astro` ([[permalinks]])
+    - but also need to exclude it from sitemap
+    ```astro
+    ---
+    export function getStaticPaths() {
+      return [{ params: { path: "test-redirect" } }];
+    }
+    ---
+    ```
+  - `description`
+    - Can I generate it automatically? Let's say take `hast-util-to-string`, `trim()` and slcie first 150 chars
+    - https://github.com/topics/text-summarization?l=javascript
+  - exclude from `sitemap`
+  - see other [frontmatter fields](https://starlight.astro.build/reference/frontmatter/)
+- sidebar: show "new" (of "fresh") badge based on git update time?
 - Footnotes
   - mention how footnotes can be shown on the side, like in [Tufte design](https://edwardtufte.github.io/tufte-css/)
   - https://gwern.net/sidenote

@@ -13,7 +13,7 @@ sidebar:
 
 Every time page moved - add previous version to [redirects](https://docs.astro.build/en/guides/routing/#redirects) section.
 
-Would be even better if those [redircets could be specified in frontmatter](https://github.com/withastro/roadmap/issues/466#issuecomment-1638583673), like in [Hugo](https://gohugo.io/content-management/urls/#aliases).
+Would be even better if those [redircets could be specified in frontmatter](https://github.com/withastro/starlight/discussions/1847), like in [Hugo](https://gohugo.io/content-management/urls/#aliases).
 
 ### Bare slugs
 
@@ -46,4 +46,3 @@ Except content pages, there will be some special pages, like:
   - `/tags/[name]`
 - `/search`
 - etc.
-
