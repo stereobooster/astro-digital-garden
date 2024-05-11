@@ -1,5 +1,5 @@
 import { BrainDB } from "@braindb/core";
-import { bdb } from "./braindb.mjs";
+import { bdb, isContent } from "./braindb.mjs";
 import graphology from "graphology";
 import circular from "graphology-layout/circular";
 import forceAtlas2 from "graphology-layout-forceatlas2";
@@ -7,22 +7,18 @@ import forceAtlas2 from "graphology-layout-forceatlas2";
 const { MultiGraph } = graphology;
 
 export async function toGraphologyJson(db: BrainDB) {
-  const nodes = (await db.documents())
-    .map((document) => ({
-      key: document.id(),
-      attributes: {
-        label: document.frontmatter().title as string,
-        url: document.url(),
-      },
-    }))
-    .filter((x) => x.attributes.url.startsWith("/recipes"));
+  const nodes = (await db.documents()).filter(isContent).map((document) => ({
+    key: document.id(),
+    attributes: {
+      label: document.frontmatter().title as string,
+      url: document.url(),
+    },
+  }));
 
   const edges = (await db.links())
     .filter(
       (link) =>
-        link.to() !== null &&
-        link.to()?.url().startsWith("/recipes") &&
-        link.from()?.url().startsWith("/recipes")
+        link.to() !== null && isContent(link.to()!) && isContent(link.from())
     )
     .map((link) => ({
       source: link.from().id(),

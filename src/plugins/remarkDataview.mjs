@@ -1,4 +1,5 @@
 import remarkCodeHook from "@beoe/remark-code-hook";
+import { isContent } from "../lib/braindb.mjs";
 
 const list = (children) => ({
   type: "list",
@@ -25,10 +26,6 @@ const link = (children, url) => ({
 });
 
 const text = (value) => ({ type: "text", value });
-
-function isContent(doc) {
-  return doc.frontmatter().tags?.length > 0;
-}
 
 export function remarkDataview(options) {
   const { bdb, ...rest } = options;

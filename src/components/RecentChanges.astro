@@ -1,17 +1,16 @@
 ---
-import { bdb } from "@lib/braindb.mjs";
+import { bdb, isContent } from "@lib/braindb.mjs";
 import type { Document } from "@braindb/core";
 
-const docs = await bdb.documents({ sort: ["updated_at", "desc"] });
-
 const docsByDate = new Map<string, Document[]>();
-docs.forEach((doc) => {
-  if (doc.frontmatter().tags) {
+(await bdb.documents({ sort: ["updated_at", "desc"] })).forEach((doc) => {
+  if (isContent(doc)) {
     const date = doc.updatedAt().toISOString().split("T")[0];
     docsByDate.set(date, docsByDate.get(date) || []);
     docsByDate.get(date)?.push(doc);
   }
 });
+
 const dates = Array.from(docsByDate.keys()).map((d) => [
   d,
   d.split("-").reverse().join("."),

@@ -22,11 +22,9 @@ import { Steps } from "@astrojs/starlight/components";
    type Docs = typeof docs;
    const docsByChar = new Map<string, Docs>();
    docs.forEach((doc) => {
-     if (doc.data.tags) {
-       const char = firstChar(doc.data.title).toUpperCase();
-       docsByChar.set(char, docsByChar.get(char) || []);
-       docsByChar.get(char)?.push(doc);
-     }
+     const char = firstChar(doc.data.title).toUpperCase();
+     docsByChar.set(char, docsByChar.get(char) || []);
+     docsByChar.get(char)?.push(doc);
    });
    const comparator = new Intl.Collator("en");
    const charsSorted = [...docsByChar.keys()].sort(comparator.compare);

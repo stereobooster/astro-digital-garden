@@ -1,17 +1,18 @@
 ---
-import { getCollection } from "astro:content";
+import { bdb, isContent } from "@lib/braindb.mjs";
+import type { Document } from "@braindb/core";
 
-const docs = await getCollection("docs");
-type Docs = typeof docs;
-const docsByTags = new Map<string, Docs>();
-docs.forEach((doc) => {
-  if (doc.data.tags) {
-    doc.data.tags.forEach((tag: string) => {
+const docsByTags = new Map<string, Document[]>();
+(await bdb.documents()).forEach((doc) => {
+  if (isContent(doc)) {
+    // @ts-expect-error
+    doc.frontmatter().tags.forEach((tag: string) => {
       docsByTags.set(tag, docsByTags.get(tag) || []);
       docsByTags.get(tag)?.push(doc);
     });
   }
 });
+
 const comparator = new Intl.Collator("en");
 const tagsSorted = [...docsByTags.keys()].sort(comparator.compare);
 ---
@@ -25,7 +26,7 @@ const tagsSorted = [...docsByTags.keys()].sort(comparator.compare);
           <ul>
             {docsByTags.get(tag)?.map((doc) => (
               <li>
-                <a href={`/${doc.slug}`}>{doc.data.title}</a>
+                <a href={doc.url()}>{doc.title()}</a>
               </li>
             ))}
           </ul>

@@ -1,38 +1,36 @@
 ---
 import type { Task } from "@braindb/core";
-import { bdb } from "@lib/braindb.mjs";
+import { bdb, isContent } from "@lib/braindb.mjs";
 
 // TODO: shall I sort pages by title (alphabetically) or by date (recent first)?
 const grouped: Record<string, Task[]> = {};
 (await bdb.tasks()).forEach((task) => {
-  const path = task.from().path();
-  grouped[path] = grouped[path] || [];
-  grouped[path].push(task);
+  if (isContent(task.from())) {
+    const path = task.from().path();
+    grouped[path] = grouped[path] || [];
+    grouped[path].push(task);
+  }
 });
 ---
 
 {
-  Object.values(grouped).map((tasks) =>
-    tasks[0].from().frontmatter().tags &&
-    // @ts-expect-error
-    tasks[0].from().frontmatter().tags?.length > 0 ? (
-      <p>
-        <a href={tasks[0].from().url()}>{tasks[0].from().title()}</a>
-        <ul>
-          {tasks.map((task) => (
-            <li>
-              <label>
-                <input
-                  type="checkbox"
-                  disabled="disabled"
-                  checked={task.checked()}
-                />
-                &nbsp;{task.text()}
-              </label>
-            </li>
-          ))}
-        </ul>
-      </p>
-    ) : null
-  )
+  Object.values(grouped).map((tasks) => (
+    <p>
+      <a href={tasks[0].from().url()}>{tasks[0].from().title()}</a>
+      <ul>
+        {tasks.map((task) => (
+          <li>
+            <label>
+              <input
+                type="checkbox"
+                disabled="disabled"
+                checked={task.checked()}
+              />
+              &nbsp;{task.text()}
+            </label>
+          </li>
+        ))}
+      </ul>
+    </p>
+  ))
 }
