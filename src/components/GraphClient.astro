@@ -39,12 +39,14 @@
     maxSize = 15;
   graph.forEachNode((node) => {
     const degree = graph.degree(node);
-    graph.setNodeAttribute(
-      node,
-      "size",
-      minSize +
-        ((degree - minDegree) / (maxDegree - minDegree)) * (maxSize - minSize)
-    );
+    if (!graph.getNodeAttribute(node, "label").startsWith("#")) {
+      graph.setNodeAttribute(
+        node,
+        "size",
+        minSize +
+          ((degree - minDegree) / (maxDegree - minDegree)) * (maxSize - minSize)
+      );
+    }
   });
 
   random.assign(graph);

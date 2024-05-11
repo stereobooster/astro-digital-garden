@@ -115,16 +115,17 @@ import { Steps } from "@astrojs/starlight/components";
            grouped[path].push(task);
          });
 
-         return list(
-           Object.values(grouped).map((group) => {
-             const doc = group[0].from();
-             return listItem([
-               paragraph([link([text(doc.title())], doc.url())]),
-               list(
-                 group.map((task) => listItem([task.ast()], task.checked()))
-               ),
-             ]);
-           })
+         return paragraph(
+           Object.values(grouped)
+             .flatMap((group) => {
+               const doc = group[0].from();
+               return [
+                 paragraph([link([text(doc.title())], doc.url())]),
+                 list(
+                   group.map((task) => listItem([task.ast()], task.checked()))
+                 ),
+               ];
+             })
          );
        },
      });

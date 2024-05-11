@@ -8,23 +8,19 @@ const list = (children) => ({
   spread: false,
   children,
 });
-
 const listItem = (children, checked = null) => ({
   type: "listItem",
   spread: false,
   checked,
   children,
 });
-
 const paragraph = (children) => ({ type: "paragraph", children });
-
 const link = (children, url) => ({
   type: "link",
   title: null,
   url: url,
   children,
 });
-
 const text = (value) => ({ type: "text", value });
 
 export function remarkDataview(options) {
@@ -33,7 +29,6 @@ export function remarkDataview(options) {
     ...rest,
     language: "dataview",
     code: ({ code }) => {
-      console.log("here");
       if (code !== "TASK")
         throw new Error("PoC of Daview - only TASK supported");
 
@@ -44,15 +39,15 @@ export function remarkDataview(options) {
         grouped[path].push(task);
       });
 
-      return list(
+      return paragraph(
         Object.values(grouped)
           .filter((group) => isContent(group[0].from()))
-          .map((group) => {
+          .flatMap((group) => {
             const doc = group[0].from();
-            return listItem([
+            return [
               paragraph([link([text(doc.title())], doc.url())]),
               list(group.map((task) => listItem([task.ast()], task.checked()))),
-            ]);
+            ];
           })
       );
     },
