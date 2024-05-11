@@ -12,7 +12,7 @@ import type { UiState } from "instantsearch.js";
 type RouteState = {
   query?: string;
   page?: string;
-  brands?: string[];
+  tags?: string[];
   category?: string;
   sortBy?: string;
   hitsPerPage?: string;
@@ -21,28 +21,28 @@ type RouteState = {
 const routeStateDefaultValues: RouteState = {
   query: "",
   page: "1",
-  brands: undefined,
+  tags: undefined,
   category: "",
   sortBy: "instant_search",
   hitsPerPage: "20",
 };
 
-const encodedCategories = {
+const encodedUpdatedAt = {
   Cameras: "Cameras & Camcorders",
   Cars: "Car Electronics & GPS",
   Phones: "Cell Phones",
   TV: "TV & Home Theater",
 } as const;
 
-type EncodedCategories = typeof encodedCategories;
-type DecodedCategories = {
-  [K in keyof EncodedCategories as EncodedCategories[K]]: K;
+type EncodedUpdatedAt = typeof encodedUpdatedAt;
+type DecodedUpdatedAt = {
+  [K in keyof EncodedUpdatedAt as EncodedUpdatedAt[K]]: K;
 };
 
-const decodedCategories = Object.keys(
-  encodedCategories,
-).reduce<DecodedCategories>((acc, key) => {
-  const newKey = encodedCategories[key as keyof EncodedCategories];
+const decodedUpdatedAt = Object.keys(
+  encodedUpdatedAt,
+).reduce<DecodedUpdatedAt>((acc, key) => {
+  const newKey = encodedUpdatedAt[key as keyof EncodedUpdatedAt];
   const newValue = key;
 
   return {
@@ -57,7 +57,7 @@ const decodedCategories = Object.keys(
 // characters are encoded.
 function getCategorySlug(name: string): string {
   const encodedName =
-    decodedCategories[name as keyof DecodedCategories] || name;
+    decodedUpdatedAt[name as keyof DecodedUpdatedAt] || name;
 
   return encodedName.split(" ").map(encodeURIComponent).join("+");
 }
@@ -67,7 +67,7 @@ function getCategorySlug(name: string): string {
 // characters are decoded.
 function getCategoryName(slug: string): string {
   const decodedSlug =
-    encodedCategories[slug as keyof EncodedCategories] || slug;
+    encodedUpdatedAt[slug as keyof EncodedUpdatedAt] || slug;
 
   return decodedSlug.split("+").map(decodeURIComponent).join(" ");
 }
@@ -106,10 +106,10 @@ const router = historyRouter<RouteState>({
       queryParameters.page = routeState.page;
     }
     if (
-      routeState.brands &&
-      routeState.brands !== routeStateDefaultValues.brands
+      routeState.tags &&
+      routeState.tags !== routeStateDefaultValues.tags
     ) {
-      queryParameters.brands = routeState.brands.map(encodeURIComponent);
+      queryParameters.tags = routeState.tags.map(encodeURIComponent);
     }
     if (
       routeState.sortBy &&
@@ -141,10 +141,10 @@ const router = historyRouter<RouteState>({
     const {
       query = "",
       page = 1,
-      brands = [],
+      tags = [],
     } = queryParameters;
     // `qs` does not return an array when there's a single value.
-    const allBrands = Array.isArray(brands) ? brands : [brands].filter(Boolean);
+    const allTags = Array.isArray(tags) ? tags : [tags].filter(Boolean);
     const hitsPerPage = getFallbackHitsPerPageRoutingValue(
       queryParameters.hitsPerPage as string,
     );
@@ -155,7 +155,7 @@ const router = historyRouter<RouteState>({
     return {
       query: decodeURIComponent(query as string),
       page: page as string,
-      brands: allBrands.map((brand) => decodeURIComponent(brand as string)),
+      tags: allTags.map((tag) => decodeURIComponent(tag as string)),
       category,
       sortBy,
       hitsPerPage,
@@ -169,11 +169,11 @@ const getStateMapping = ({ indexName }: { indexName: string }) => ({
     return {
       query: indexUiState.query,
       page: indexUiState.page! > 0 ? String(indexUiState.page) : undefined,
-      brands: indexUiState.refinementList && indexUiState.refinementList.brand,
+      tags: indexUiState.refinementList && indexUiState.refinementList.tag,
       category:
         indexUiState.hierarchicalMenu &&
-        indexUiState.hierarchicalMenu["hierarchicalCategories.lvl0"] &&
-        indexUiState.hierarchicalMenu["hierarchicalCategories.lvl0"].join("/"),
+        indexUiState.hierarchicalMenu["hierarchicalUpdatedAt.lvl0"] &&
+        indexUiState.hierarchicalMenu["hierarchicalUpdatedAt.lvl0"].join("/"),
       sortBy: indexUiState.sortBy,
       hitsPerPage:
         (indexUiState.hitsPerPage && String(indexUiState.hitsPerPage)) ||
@@ -184,13 +184,13 @@ const getStateMapping = ({ indexName }: { indexName: string }) => ({
   routeToState(routeState: RouteState): UiState {
     const hierarchicalMenu: { [key: string]: string[] } = {};
     if (routeState.category) {
-      hierarchicalMenu["hierarchicalCategories.lvl0"] =
+      hierarchicalMenu["hierarchicalUpdatedAt.lvl0"] =
         routeState.category.split("/");
     }
 
     const refinementList: { [key: string]: string[] } = {};
-    if (routeState.brands) {
-      refinementList.brand = routeState.brands;
+    if (routeState.tags) {
+      refinementList.tag = routeState.tags;
     }
 
     return {

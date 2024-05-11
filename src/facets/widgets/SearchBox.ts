@@ -2,7 +2,7 @@ import { searchBox as searchBoxWidget } from "instantsearch.js/es/widgets";
 
 export const searchBox = searchBoxWidget({
   container: '[data-widget="searchbox"]',
-  placeholder: "Product, brand, color, …",
+  placeholder: "Name, description, tag, …",
   templates: {
     submit: () => `
       <svg

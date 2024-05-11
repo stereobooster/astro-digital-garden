@@ -6,23 +6,24 @@ export const products = hits({
     item: (hit, { html, components }) => html`
       <article class="hit">
         <div class="hit-info-container">
-          <p class="hit-category">
-            ${hit.categories[0]}-${hit.categories[1]}-${hit.categories[2]}
-          </p>
           <h1>
-            ${hit._highlightResult?.name
-              ? components.Highlight({ hit, attribute: "name" })
-              : hit.name}
+            <a href="${hit.url}">
+              ${hit._highlightResult?.name
+                ? components.Highlight({ hit, attribute: "name" })
+                : hit.name}
+            </a>
           </h1>
+          <p class="hit-category">
+            ${hit.updatedAt[0]}-${hit.updatedAt[1]}-${hit.updatedAt[2]}
+          </p>
+          ${hit.tag.length > 0
+            ? html`<p>${hit.tag.map((x: string) => `#${x}`).join(", ")}</p>`
+            : ""}
           <p class="hit-description">
             ${hit._highlightResult?.description
               ? components.Highlight({ hit, attribute: "description" })
-              : hit.description}
+              : hit.description.slice(0, 150).trim()}…
           </p>
-
-          <footer>
-            <p>${hit.brand.map((x: string) => `#${x}`).join(", ")}</p>
-          </footer>
         </div>
       </article>
     `,

@@ -2,8 +2,8 @@ import instantsearch from "instantsearch.js";
 
 import getRouting from "./routing";
 import {
-  brands,
-  categories,
+  tags,
+  updatedAt,
   clearFilters,
   clearFiltersEmptyResults,
   clearFiltersMobile,
@@ -29,37 +29,33 @@ const schema = {
     type: "string",
     text: true,
   },
-  brand: {
+  tag: {
     type: "string",
     facet: true,
     isArray: true,
   },
-  categories: {
+  updatedAt: {
     type: "string",
     isArray: true,
     facet: true,
   },
-  "hierarchicalCategories.lvl0": {
+  "hierarchicalUpdatedAt.lvl0": {
     type: "string",
     facet: true,
     isObject: true,
   },
-  "hierarchicalCategories.lvl1": {
+  "hierarchicalUpdatedAt.lvl1": {
     type: "string",
     facet: true,
     isObject: true,
   },
-  "hierarchicalCategories.lvl2": {
+  "hierarchicalUpdatedAt.lvl2": {
     type: "string",
     facet: true,
     isObject: true,
   },
   url: {
     type: "string",
-  },
-  // TODO: sort by popularity by default?
-  popularity: {
-    type: "number",
   },
 } satisfies Schema;
 
@@ -81,8 +77,8 @@ const search = instantsearch({
 });
 
 search.addWidgets([
-  brands,
-  categories,
+  tags,
+  updatedAt,
   clearFilters,
   clearFiltersEmptyResults,
   clearFiltersMobile,

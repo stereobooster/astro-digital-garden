@@ -2,19 +2,19 @@ import { panel, refinementList } from "instantsearch.js/es/widgets";
 
 import { collapseButtonText } from "../templates/panel";
 
-const brandRefinementList = panel({
+const tagRefinementList = panel({
   templates: {
-    header: (_, { html }) => html`Brands`,
+    header: (_, { html }) => html`Tags`,
     collapseButtonText,
   },
   collapsed: () => false,
 })(refinementList);
 
-export const brands = brandRefinementList({
-  container: '[data-widget="brands"]',
-  attribute: "brand",
+export const tags = tagRefinementList({
+  container: '[data-widget="tags"]',
+  attribute: "tag",
   searchable: true,
-  searchablePlaceholder: "Search for brands…",
+  searchablePlaceholder: "Search for tags…",
   searchableShowReset: false,
   templates: {
     searchableSubmit: () => `

@@ -6,12 +6,12 @@ const items = [
     value: "instant_search",
   },
   {
-    label: "Price ascending",
-    value: "instant_search_price_asc",
+    label: "Date ascending",
+    value: "instant_search_date_asc",
   },
   {
-    label: "Price descending",
-    value: "instant_search_price_desc",
+    label: "Date descending",
+    value: "instant_search_date_desc",
   },
 ];
 
