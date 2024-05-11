@@ -23,20 +23,25 @@ Other less-feasible options:
 
 ### UI
 
-- [InstantSearch](https://github.com/algolia/instantsearch)
-  - [pagefind-instantsearch](https://github.com/stereobooster/pagefind-instantsearch)
+- ~~[InstantSearch](https://github.com/algolia/instantsearch)~~
+  - ~~[pagefind-instantsearch](https://github.com/stereobooster/pagefind-instantsearch)~~
 - write own simple components
 
 ## TODO
 
-- [ ] start with simplest option: text search and `tags` as facets, InstantSearch as UI
-  - other potential facet `updated_at` field
-    - Maybe show it as `hierarchicalMenu` (year > month > day)?
-    - There is [date range fileter](https://github.com/algolia/instantsearch-widget-date-range-picker), but it is sad
+- [x] I created [basic proof of convept using facets and InstantSearch](https://github.com/stereobooster/astro-digital-garden/tree/faceted-search-experiment). I don't like it, though. It supports facets for:
+  - tags
+  - date
+- [ ] I still can use `facets` or `pagefind`, but I need different UI.
+  - Use something slim, like Preact or Solid. But I can't find good components library. Or give up and use React. Then I can use `shadcn/ui` and many others
+  - Maybe implement custom pagefind UI ([@pagefind/modular-ui](https://www.npmjs.com/package/@pagefind/modular-ui))
+- [ ] Other potential fields for facets
   - maybe `stage` field (make it a separate field instead of emojis in title 🧠, 🚷, 🚧)
   - maybe tasks count (closed, open, total)
-- [ ] try to implement custom components for faceting UI
-  - maybe implement UI in the same manner as [@pagefind/modular-ui](https://www.npmjs.com/package/@pagefind/modular-ui)
+- [ ] Sort by
+  - date
+  - title
+  - task count
 
 ## Related
 
