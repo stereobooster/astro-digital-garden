@@ -1,18 +1,14 @@
 import { hits } from "instantsearch.js/es/widgets";
 
-// <p class="hit-description">{{#helpers.snippet}}{ "attribute": "description" }{{/helpers.snippet}}</p>
-
 export const products = hits({
   container: '[data-widget="hits"]',
   templates: {
     item: (hit, { html, components }) => html`
       <article class="hit">
-        <header class="hit-image-container">
-          <img src="${hit.image}" alt="${hit.name}" class="hit-image" loading="lazy" />
-        </header>
-
         <div class="hit-info-container">
-          <p class="hit-category">${hit.categories[0]}</p>
+          <p class="hit-category">
+            ${hit.categories[0]}-${hit.categories[1]}-${hit.categories[2]}
+          </p>
           <h1>
             ${hit._highlightResult?.name
               ? components.Highlight({ hit, attribute: "name" })
@@ -25,25 +21,7 @@ export const products = hits({
           </p>
 
           <footer>
-            <p>
-              <span class="hit-em">$</span>
-              <strong>${hit.price.toFixed(2)}</strong>
-              <span class="hit-em hit-rating">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="8"
-                  height="8"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fill="#e2a400"
-                    fill-rule="evenodd"
-                    d="M10.472 5.008L16 5.816l-4 3.896.944 5.504L8 12.616l-4.944 2.6L4 9.712 0 5.816l5.528-.808L8 0z"
-                  />
-                </svg>
-                ${hit.rating}
-              </span>
-            </p>
+            <p>${hit.brand.map((x: string) => `#${x}`).join(", ")}</p>
           </footer>
         </div>
       </article>

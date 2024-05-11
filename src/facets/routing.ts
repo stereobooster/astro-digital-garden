@@ -5,7 +5,6 @@ import { history as historyRouter } from "instantsearch.js/es/lib/routers";
 import {
   getFallbackHitsPerPageRoutingValue,
   getFallbackSortByRoutingValue,
-  getFallbackRatingsRoutingValue,
 } from "./widgets";
 
 import type { UiState } from "instantsearch.js";
@@ -15,9 +14,6 @@ type RouteState = {
   page?: string;
   brands?: string[];
   category?: string;
-  rating?: string;
-  price?: string;
-  free_shipping?: string;
   sortBy?: string;
   hitsPerPage?: string;
 };
@@ -27,9 +23,6 @@ const routeStateDefaultValues: RouteState = {
   page: "1",
   brands: undefined,
   category: "",
-  rating: "",
-  price: "",
-  free_shipping: "false",
   sortBy: "instant_search",
   hitsPerPage: "20",
 };
@@ -119,24 +112,6 @@ const router = historyRouter<RouteState>({
       queryParameters.brands = routeState.brands.map(encodeURIComponent);
     }
     if (
-      routeState.rating &&
-      routeState.rating !== routeStateDefaultValues.rating
-    ) {
-      queryParameters.rating = routeState.rating;
-    }
-    if (
-      routeState.price &&
-      routeState.price !== routeStateDefaultValues.price
-    ) {
-      queryParameters.price = routeState.price;
-    }
-    if (
-      routeState.free_shipping &&
-      routeState.free_shipping !== routeStateDefaultValues.free_shipping
-    ) {
-      queryParameters.free_shipping = routeState.free_shipping;
-    }
-    if (
       routeState.sortBy &&
       routeState.sortBy !== routeStateDefaultValues.sortBy
     ) {
@@ -167,8 +142,6 @@ const router = historyRouter<RouteState>({
       query = "",
       page = 1,
       brands = [],
-      price,
-      free_shipping,
     } = queryParameters;
     // `qs` does not return an array when there's a single value.
     const allBrands = Array.isArray(brands) ? brands : [brands].filter(Boolean);
@@ -178,18 +151,12 @@ const router = historyRouter<RouteState>({
     const sortBy = getFallbackSortByRoutingValue(
       queryParameters.sortBy as string,
     );
-    const rating = getFallbackRatingsRoutingValue(
-      queryParameters.rating as string,
-    );
 
     return {
       query: decodeURIComponent(query as string),
       page: page as string,
       brands: allBrands.map((brand) => decodeURIComponent(brand as string)),
       category,
-      rating,
-      price: price as string,
-      free_shipping: free_shipping as string,
       sortBy,
       hitsPerPage,
     };
@@ -207,11 +174,6 @@ const getStateMapping = ({ indexName }: { indexName: string }) => ({
         indexUiState.hierarchicalMenu &&
         indexUiState.hierarchicalMenu["hierarchicalCategories.lvl0"] &&
         indexUiState.hierarchicalMenu["hierarchicalCategories.lvl0"].join("/"),
-      rating: indexUiState.ratingMenu && String(indexUiState.ratingMenu.rating),
-      price: indexUiState.range && indexUiState.range.price,
-      free_shipping:
-        (indexUiState.toggle && String(indexUiState.toggle.free_shipping)) ||
-        undefined,
       sortBy: indexUiState.sortBy,
       hitsPerPage:
         (indexUiState.hitsPerPage && String(indexUiState.hitsPerPage)) ||
@@ -231,24 +193,12 @@ const getStateMapping = ({ indexName }: { indexName: string }) => ({
       refinementList.brand = routeState.brands;
     }
 
-    const range: { [key: string]: string } = {};
-    if (routeState.price) {
-      range.price = routeState.price;
-    }
-
     return {
       [indexName]: {
         query: routeState.query,
         page: Number(routeState.page),
         hierarchicalMenu,
         refinementList,
-        ratingMenu: {
-          rating: Number(routeState.rating),
-        },
-        range,
-        toggle: {
-          free_shipping: Boolean(routeState.free_shipping),
-        },
         sortBy: routeState.sortBy,
         hitsPerPage: Number(routeState.hitsPerPage),
       },

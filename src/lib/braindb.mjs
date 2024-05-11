@@ -27,7 +27,7 @@ export const bdb = new BrainDB({
   root: path.resolve(process.cwd(), "src/content/docs"),
   url: (filePath, _frontmatter) => `${generateSlug(filePath)}/`,
   git: process.cwd(),
-  storeMarkdown: false,
+  // storeMarkdown: false,
   // need to configure caching in Netlify in order to use this
   // - https://github.com/siakaramalegos/netlify-plugin-cache-folder
   // - https://github.com/netlify/build/tree/main/packages/cache-utils
