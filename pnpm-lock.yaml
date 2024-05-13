@@ -33,8 +33,11 @@ dependencies:
     specifier: ^0.0.1
     version: 0.0.1
   '@braindb/core':
-    specifier: 0.0.12
-    version: 0.0.12
+    specifier: 0.0.13
+    version: 0.0.13
+  '@braindb/remark-wiki-link':
+    specifier: ^2.1.0
+    version: 2.1.0
   '@floating-ui/dom':
     specifier: ^1.6.5
     version: 1.6.5
@@ -44,9 +47,6 @@ dependencies:
   '@pagefind/default-ui':
     specifier: ^1.1.0
     version: 1.1.0
-  '@stereobooster/remark-wiki-link':
-    specifier: ^2.1.0
-    version: 2.1.0
   astro:
     specifier: ^4.7.1
     version: 4.7.1(typescript@5.4.5)
@@ -494,13 +494,6 @@ packages:
       '@babel/types': 7.24.5
     dev: false
 
-  /@babel/runtime@7.24.5:
-    resolution: {integrity: sha512-Nms86NXrsaeU9vbBJKni6gXiEXZ4CVpYVzEjDH9Sb8vmZ3UljyA1GSOJl/6LGPO8EHLuSF9H+IxNXHPX8QHJ4g==}
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      regenerator-runtime: 0.14.1
-    dev: false
-
   /@babel/template@7.24.0:
     resolution: {integrity: sha512-Bkf2q8lMB0AFpX0NFEqSbx1OkTHf0f+0j82mkw+ZpzBnkk7e9Ql0891vlfgi+kHwOk8tQjiQHpqh4LaSa0fKEA==}
     engines: {node: '>=6.9.0'}
@@ -602,12 +595,12 @@ packages:
       better-sqlite3: 8.7.0
     dev: false
 
-  /@braindb/core@0.0.12:
-    resolution: {integrity: sha512-JuTU7xS2p/e1eL+9kYnHK5hIVbynSCgDQYymRUHD8R/Qqc+2OUAbfzHzCWE4p6mOioyJbtm12LLBLKlf5vuS0g==}
+  /@braindb/core@0.0.13:
+    resolution: {integrity: sha512-xXm4aSYWzfefV4czqDZTvfcgrtagMx/7pjXKZ1zGLZRqQUnZX+29by/TE5e11Q1HbnbeBARZqrR0KyFxDeb3JA==}
     dependencies:
+      '@braindb/remark-wiki-link': 2.1.0
       '@napi-rs/simple-git': 0.1.16
       '@node-rs/xxhash': 1.7.3
-      '@stereobooster/remark-wiki-link': 2.1.0
       better-sqlite3: 9.6.0
       chokidar: 3.6.0
       deterministic-object-hash: 2.0.2
@@ -648,6 +641,31 @@ packages:
       - react
       - sql.js
       - sqlite3
+      - supports-color
+    dev: false
+
+  /@braindb/mdast-util-wiki-link@0.2.0:
+    resolution: {integrity: sha512-R5DRorx8dHFNCXjUDmp9T8uEN2WOBEn0EqL25GPgxZvfqTq99ZnhcHJYzOyQVIfP7qov4lau/gDYk617e8p2JA==}
+    dependencies:
+      '@types/unist': 3.0.2
+      mdast-util-from-markdown: 2.0.0
+      mdast-util-to-markdown: 2.1.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
+  /@braindb/micromark-extension-wiki-link@0.1.0:
+    resolution: {integrity: sha512-bYGjvy/Yciisqty7zkC16dkg8gE9aWFpHGgYVRF/5H6N744V/fzjWTT/TtVCWgOk+/x+8rQCHRM8lOtobRE4Ow==}
+    dependencies:
+      micromark-util-types: 2.0.0
+    dev: false
+
+  /@braindb/remark-wiki-link@2.1.0:
+    resolution: {integrity: sha512-+1ft071hNQR1lE62amhZ8cmFmVTuKJGBrwXIlZ1bM8yw0tVDpywEPlBbJZzt3ExtGDq0I+GaHjXFSe83YZLgGA==}
+    dependencies:
+      '@braindb/mdast-util-wiki-link': 0.2.0
+      '@braindb/micromark-extension-wiki-link': 0.1.0
+    transitivePeerDependencies:
       - supports-color
     dev: false
 
@@ -1738,21 +1756,6 @@ packages:
     resolution: {integrity: sha512-CxpKLntAi64h3j+TwWqVIQObPTED0FyXLHTTh3MKXtqiQNn2JGcMQQ362LftDbc9kYbDtrksNMNoVmVXzKFYUQ==}
     dev: false
 
-  /@stereobooster/mdast-util-wiki-link@0.2.0:
-    resolution: {integrity: sha512-z0SGDUFA5yZxxuuPeUsMH9v6McPzXNjqQu8OhvIXkTIbji6utnoASX1qEVnLh3rVD9y08PS/Xv7Ox9tidOyNxg==}
-    dependencies:
-      '@babel/runtime': 7.24.5
-      mdast-util-to-markdown: 0.6.5
-    dev: false
-
-  /@stereobooster/remark-wiki-link@2.1.0:
-    resolution: {integrity: sha512-RBeuCQ0/Unm/deVMmeTjATr7THv33BBQNwXPLYBOIKbNUz3efOcXzYOwoUfEKDUlbvMBLjvdlW7BmuPeqdf5Lg==}
-    dependencies:
-      '@babel/runtime': 7.24.5
-      '@stereobooster/mdast-util-wiki-link': 0.2.0
-      micromark-extension-wiki-link: 0.0.4
-    dev: false
-
   /@trysound/sax@0.2.0:
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
     engines: {node: '>=10.13.0'}
@@ -2410,24 +2413,12 @@ packages:
     resolution: {integrity: sha512-1v7fgQRj6hnSwFpq1Eu0ynr/CDEw0rXo2B61qXrLNdHZmPKgb7fqS1a2JwF0rISo9q77jDI8VMEHoApn8qDoZA==}
     dev: false
 
-  /character-entities-legacy@1.1.4:
-    resolution: {integrity: sha512-3Xnr+7ZFS1uxeiUDvV02wQ+QDbc55o97tIV5zHScSPJpcLm/r0DFPcoY3tYRp+VZukxuMeKgXYmsXQHO05zQeA==}
-    dev: false
-
   /character-entities-legacy@3.0.0:
     resolution: {integrity: sha512-RpPp0asT/6ufRm//AJVwpViZbGM/MkjQFxJccQRHmISF/22NBtsHqAWmL+/pmkPWoIUJdWyeVleTl1wydHATVQ==}
     dev: false
 
-  /character-entities@1.2.4:
-    resolution: {integrity: sha512-iBMyeEHxfVnIakwOuDXpVkc54HijNgCyQB2w0VfGQThle6NXn50zU6V/u+LDhxHcDUPojn6Kpga3PTAD8W1bQw==}
-    dev: false
-
   /character-entities@2.0.2:
     resolution: {integrity: sha512-shx7oQ0Awen/BRIdkjkvz54PnEEI/EjwXDSIZp86/KKdbafHh1Df/RYGBhn4hbe2+uKC9FnT5UCEdyPz3ai9hQ==}
-    dev: false
-
-  /character-reference-invalid@1.1.4:
-    resolution: {integrity: sha512-mKKUkUbhPpQlCOfIuZkvSEgktjPFIsZKRRbC6KWVEMvlzblj3i3asQv5ODsrwt0N3pHAEvjP8KTQPHkp0+6jOg==}
     dev: false
 
   /character-reference-invalid@2.0.1:
@@ -4399,19 +4390,8 @@ packages:
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dev: false
 
-  /is-alphabetical@1.0.4:
-    resolution: {integrity: sha512-DwzsA04LQ10FHTZuL0/grVDk4rFoVH1pjAToYwBrHSxcrBIGQuXrQMtD5U1b0U2XVgKZCTLLP8u2Qxqhy3l2Vg==}
-    dev: false
-
   /is-alphabetical@2.0.1:
     resolution: {integrity: sha512-FWyyY60MeTNyeSRpkM2Iry0G9hpr7/9kD40mD/cGQEuilcZYS4okz8SN2Q6rLCJ8gbCt6fN+rC+6tMGS99LaxQ==}
-    dev: false
-
-  /is-alphanumerical@1.0.4:
-    resolution: {integrity: sha512-UzoZUr+XfVz3t3v4KyGEniVL9BDRoQtY7tOyrRybkVNjDFWyo1yhXNGrrBTQxp3ib9BLAWs7k2YKBQsFRkZG9A==}
-    dependencies:
-      is-alphabetical: 1.0.4
-      is-decimal: 1.0.4
     dev: false
 
   /is-alphanumerical@2.0.1:
@@ -4500,10 +4480,6 @@ packages:
       has-tostringtag: 1.0.2
     dev: false
 
-  /is-decimal@1.0.4:
-    resolution: {integrity: sha512-RGdriMmQQvZ2aqaQq3awNA6dCGtKpiDFcOzrTWrDAT2MiWrKQVPmxLGHl7Y2nNu6led0kEyoX0enY0qXYsv9zw==}
-    dev: false
-
   /is-decimal@2.0.1:
     resolution: {integrity: sha512-AAB9hiomQs5DXWcRB1rqsxGUstbRroFOPPVAomNk/3XHR5JyEZChOyTWe2oayKnsSsr/kcGqF+z6yuH6HHpN0A==}
     dev: false
@@ -4534,10 +4510,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       is-extglob: 2.1.1
-    dev: false
-
-  /is-hexadecimal@1.0.4:
-    resolution: {integrity: sha512-gyPJuv83bHMpocVYoqof5VDiZveEoGoFL8m3BXNb2VW8Xs+rz9kqO8LOQ5DH6EsuvilT1ApazU0pyl+ytbPtlw==}
     dev: false
 
   /is-hexadecimal@2.0.1:
@@ -4800,10 +4772,6 @@ packages:
     dependencies:
       chalk: 5.3.0
       is-unicode-supported: 1.3.0
-    dev: false
-
-  /longest-streak@2.0.4:
-    resolution: {integrity: sha512-vM6rUVCVUJJt33bnmHiZEvr7wPT78ztX7rojL+LW51bHtLh6HTjx84LA5W4+oa6aKEJA7jJu5LR6vQRBpA5DVg==}
     dev: false
 
   /longest-streak@3.1.0:
@@ -5081,17 +5049,6 @@ packages:
       vfile: 6.0.1
     dev: false
 
-  /mdast-util-to-markdown@0.6.5:
-    resolution: {integrity: sha512-XeV9sDE7ZlOQvs45C9UKMtfTcctcaj/pGwH8YLbMHoMOXNNCn2LsqVQOqrF1+/NU8lKDAqozme9SCXWyo9oAcQ==}
-    dependencies:
-      '@types/unist': 2.0.10
-      longest-streak: 2.0.4
-      mdast-util-to-string: 2.0.0
-      parse-entities: 2.0.0
-      repeat-string: 1.6.1
-      zwitch: 1.0.5
-    dev: false
-
   /mdast-util-to-markdown@2.1.0:
     resolution: {integrity: sha512-SR2VnIEdVNCJbP6y7kVTJgPLifdr8WEU440fQec7qHoHOUz/oJ2jmNRqdDQ3rbiStOXb2mCDGTuwsK5OPUgYlQ==}
     dependencies:
@@ -5103,10 +5060,6 @@ packages:
       micromark-util-decode-string: 2.0.0
       unist-util-visit: 5.0.0
       zwitch: 2.0.4
-    dev: false
-
-  /mdast-util-to-string@2.0.0:
-    resolution: {integrity: sha512-AW4DRS3QbBayY/jJmD8437V1Gombjf8RSOUCMFBuo5iHi58AGEgVCKQ+ezHkZZDpAQS75hcBMpLqjpJTjtUL7w==}
     dev: false
 
   /mdast-util-to-string@3.2.0:
@@ -5381,12 +5334,6 @@ packages:
       micromark-extension-mdxjs-esm: 3.0.0
       micromark-util-combine-extensions: 2.0.0
       micromark-util-types: 2.0.0
-    dev: false
-
-  /micromark-extension-wiki-link@0.0.4:
-    resolution: {integrity: sha512-dJc8AfnoU8BHkN+7fWZvIS20SMsMS1ZlxQUn6We67MqeKbOiEDZV5eEvCpwqGBijbJbxX3Kxz879L4K9HIiOvw==}
-    dependencies:
-      '@babel/runtime': 7.24.5
     dev: false
 
   /micromark-factory-destination@1.1.0:
@@ -6030,17 +5977,6 @@ packages:
       callsites: 3.1.0
     dev: false
 
-  /parse-entities@2.0.0:
-    resolution: {integrity: sha512-kkywGpCcRYhqQIchaWqZ875wzpS/bMKhz5HnN3p7wveJTkTtyAB/AlnS0f8DFSqYW1T82t6yEAkEcB+A1I3MbQ==}
-    dependencies:
-      character-entities: 1.2.4
-      character-entities-legacy: 1.1.4
-      character-reference-invalid: 1.1.4
-      is-alphanumerical: 1.0.4
-      is-decimal: 1.0.4
-      is-hexadecimal: 1.0.4
-    dev: false
-
   /parse-entities@4.0.1:
     resolution: {integrity: sha512-SWzvYcSJh4d/SGLIOQfZ/CoNv6BTlI6YEQ7Nj82oDVnRpwe/Z/F1EMx42x3JAOwGBlCjeCH0BRJQbQ/opHL17w==}
     dependencies:
@@ -6292,10 +6228,6 @@ packages:
     engines: {node: '>=8.10.0'}
     dependencies:
       picomatch: 2.3.1
-    dev: false
-
-  /regenerator-runtime@0.14.1:
-    resolution: {integrity: sha512-dYnhHh0nJoMfnkZs6GmmhFknAGRrLznOu5nc9ML+EJxGvrx6H7teuevqVqCuPcPK//3eDrrjQhehXVx9cnkGdw==}
     dev: false
 
   /regexp.prototype.flags@1.5.2:
@@ -7808,10 +7740,6 @@ packages:
 
   /zod@3.23.7:
     resolution: {integrity: sha512-NBeIoqbtOiUMomACV/y+V3Qfs9+Okr18vR5c/5pHClPpufWOrsx8TENboDPe265lFdfewX2yBtNTLPvnmCxwog==}
-    dev: false
-
-  /zwitch@1.0.5:
-    resolution: {integrity: sha512-V50KMwwzqJV0NpZIZFwfOD5/lyny3WlSzRiXgA0G7VUnRlqttta1L6UQIHzd6EuBY/cHGfwTIck7w1yH6Q5zUw==}
     dev: false
 
   /zwitch@2.0.4:

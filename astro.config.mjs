@@ -7,7 +7,7 @@ import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import Icons from "unplugin-icons/vite";
 
-import { wikiLinkPlugin } from "@stereobooster/remark-wiki-link";
+import remarkWikiLink from "@braindb/remark-wiki-link";
 import { bdb } from "./src/lib/braindb.mjs";
 
 import { getCache } from "@beoe/cache";
@@ -74,9 +74,8 @@ export default defineConfig({
       [remarkDataview, { bdb }],
       remarkMath,
       [
-        wikiLinkPlugin,
+        remarkWikiLink,
         {
-          aliasDivider: "|",
           linkTemplate: ({ slug, alias }) => {
             const [slugWithoutAnchor, anchor] = slug.split("#");
             const doc = bdb.documentsSync({ slug: slugWithoutAnchor })[0];

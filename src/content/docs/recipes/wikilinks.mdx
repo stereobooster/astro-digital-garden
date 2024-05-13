@@ -13,14 +13,14 @@ import { Steps } from "@astrojs/starlight/components";
 2. Install `remark-wiki-link`
 
    ```bash
-   pnpm add @stereobooster/remark-wiki-link
+   pnpm add @braindb/remark-wiki-link
    ```
 
 3. Configure Astro
 
    ```js
    // astro.config.mjs
-   import { wikiLinkPlugin } from "@stereobooster/remark-wiki-link";
+   import remarkWikiLink from "@braindb/remark-wiki-link";
    import { bdb } from "./src/lib/braindb.mjs";
 
    await bdb.ready();
@@ -29,9 +29,8 @@ import { Steps } from "@astrojs/starlight/components";
      markdown: {
        remarkPlugins: [
          [
-           wikiLinkPlugin,
+           remarkWikiLink,
            {
-             aliasDivider: "|",
              linkTemplate: ({ slug, alias }) => {
                const [slugWithoutAnchor, anchor] = slug.split("#");
                const doc = bdb.documentsSync({ slug: slugWithoutAnchor })[0];
