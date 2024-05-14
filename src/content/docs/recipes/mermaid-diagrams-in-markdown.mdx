@@ -85,6 +85,14 @@ Example taken from [mermaid.js.org](https://mermaid.js.org/syntax/sankey.html)
 
 There are a lot of diagraming languages (see [text-to-diagram](https://stereobooster.com/posts/text-to-diagram/)). [Mermaid](https://mermaid.js.org/) seems to be popular (it is supported by GitHub).
 
+There are **two options**:
+
+- `rehype-mermaid` - original plugin. Battle tested and well supported
+- `@beoe/rehype-mermaid` - my experiment. It is based on `mermaid-isomorphic` (the same one used by `rehype-mermaid`). But it also adds:
+  - [Selector based dark mode](https://github.com/remcohaszing/rehype-mermaid/issues/16). Used by Starlight and others
+  - cache - to prevent permanent launch of headless browser
+  - out of the box compatible with [[svg-pan-zoom|pan and zoom "plugin"]]
+
 ## @beoe/rehype-mermaid
 
 ### Installation
@@ -121,7 +129,7 @@ import { Steps } from "@astrojs/starlight/components";
    });
    ```
 
-3. Add CSS for dark mode:
+3. Add CSS for **dark mode**:
 
    ```css
    // src/styles/custom.css
@@ -134,7 +142,7 @@ import { Steps } from "@astrojs/starlight/components";
    }
    ```
 
-4. **Optional** install dependency for cache
+4. **Optional** install dependency for **cache**
 
    ```bash
    pnpm add @beoe/cache
@@ -159,6 +167,8 @@ import { Steps } from "@astrojs/starlight/components";
      },
    });
    ```
+
+6. **Optional** add [[svg-pan-zoom#installation|pan and zoom for diagrams]]
 
 </Steps>
 
