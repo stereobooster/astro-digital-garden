@@ -2,6 +2,7 @@
 import type { Props } from "@astrojs/starlight/props";
 import Default from "@astrojs/starlight/components/PageFrame.astro";
 import LinkPreview from "./LinkPreview.astro";
+import { Schema } from "astro-seo-schema";
 ---
 
 <Default {...Astro.props}>
@@ -15,3 +16,12 @@ import LinkPreview from "./LinkPreview.astro";
 <script>
   import "./svgpanzoom.ts";
 </script>
+
+<Schema
+  item={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    dateModified: Astro.props.lastUpdated?.toISOString(),
+    name: Astro.props.entry.data.title,
+  }}
+/>
