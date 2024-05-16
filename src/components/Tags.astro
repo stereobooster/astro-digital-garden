@@ -12,9 +12,9 @@ const { entry } = Astro.props;
       <>
         <h2>Tags</h2>
         <ul>
-          {entry.data.tags.map((x) => (
+          {entry.data.tags.map((tag) => (
             <li>
-              <span>#{x}</span>
+              <span>#{tag}</span>
             </li>
           ))}
         </ul>

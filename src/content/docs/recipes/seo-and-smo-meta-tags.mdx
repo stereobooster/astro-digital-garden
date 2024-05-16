@@ -31,27 +31,31 @@ import { Steps } from "@astrojs/starlight/components";
    pnpm add schema-dts astro-seo-schema
    ```
 
-2. Add `Schema` to `PageFrame`
+2. Add `Schema` to `Head`
 
-   ```astro {14-20}
-   // src/components/PageFrame.astro
+   ```astro {10-24}
+   // src/components/Head.astro
    ---
    import type { Props } from "@astrojs/starlight/props";
-   import Default from "@astrojs/starlight/components/PageFrame.astro";
+   import Default from "@astrojs/starlight/components/Head.astro";
    import { Schema } from "astro-seo-schema";
    ---
 
-   <Default {...Astro.props}>
-       <slot name="header" slot="header" />
-       <slot name="sidebar" slot="sidebar" />
-       <slot />
-   </Default>
+   <Default {...Astro.props}><slot /></Default>
 
-   <Schema item={{
+   <Schema
+     item={{
        "@context": "https://schema.org",
-       "@type": "WebPage",
+       "@type": "NewsArticle",
        dateModified: Astro.props.lastUpdated?.toISOString(),
-       name: Astro.props.entry.data.title,
+       headline: Astro.props.entry.data.title,
+       author: [
+         {
+           "@type": "Person",
+           name: "stereobooster",
+           url: "https://stereobooster.com",
+         },
+       ],
      }}
    />
    ```
@@ -64,7 +68,7 @@ import { Steps } from "@astrojs/starlight/components";
      integrations: [
        starlight({
          components: {
-           PageFrame: "./src/components/PageFrame.astro",
+           Head: "./src/components/Head.astro",
          },
          lastUpdated: true,
        }),
