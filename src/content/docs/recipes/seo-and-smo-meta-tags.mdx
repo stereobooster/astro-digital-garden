@@ -1,0 +1,74 @@
+---
+title: SEO and SMO meta tags
+tags: [component]
+---
+
+## Astro plugins
+
+Those are the most popular plugins for the task:
+
+- [astro-seo](https://github.com/jonasmerlin/astro-seo) This Astro component makes it easy to add tags that are relevant for search engine optimization (SEO) to your pages.
+- [@astrolib/seo](https://github.com/onwidget/astrolib/tree/main/packages/seo) Astro SEO is an integration that makes managing your SEO easier in Astro projects. It is fully based on the excellent Next SEO library
+- [astro-seo-meta](https://github.com/codiume/orbit/tree/main/packages/astro-seo-meta) Astro seo provides an Seo component to update meta tags.
+- [astro-seo-schema](https://github.com/codiume/orbit/tree/main/packages/astro-seo-schema) Easily insert valid Schema.org JSON-LD in your Astro apps.
+
+## Metadata
+
+:::caution
+This is an experiment. I need to investigate an impact
+:::
+
+### dateModified
+
+import { Steps } from "@astrojs/starlight/components";
+
+<Steps>
+
+1. Install dependencies
+
+   ```bash
+   pnpm add schema-dts astro-seo-schema
+   ```
+
+2. Add `Schema` to `PageFrame`
+
+   ```astro {14-20}
+   // src/components/PageFrame.astro
+   ---
+   import type { Props } from "@astrojs/starlight/props";
+   import Default from "@astrojs/starlight/components/PageFrame.astro";
+   import { Schema } from "astro-seo-schema";
+   ---
+
+   <Default {...Astro.props}>
+       <slot name="header" slot="header" />
+       <slot name="sidebar" slot="sidebar" />
+       <slot />
+   </Default>
+
+   <Schema item={{
+       "@context": "https://schema.org",
+       "@type": "WebPage",
+       dateModified: Astro.props.lastUpdated?.toISOString(),
+       name: Astro.props.entry.data.title,
+     }}
+   />
+   ```
+
+3. Change Astro config
+
+   ```js {6, 8}
+   // astro.config.mjs
+   export default defineConfig({
+     integrations: [
+       starlight({
+         components: {
+           PageFrame: "./src/components/PageFrame.astro",
+         },
+         lastUpdated: true,
+       }),
+     ],
+   });
+   ```
+
+</Steps>
