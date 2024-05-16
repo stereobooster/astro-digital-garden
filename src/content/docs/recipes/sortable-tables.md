@@ -3,6 +3,7 @@ title: Sortable tables
 tags: [component]
 sidebar:
   label: Sortable tables 🚷
+description: How to add sortable table to static website
 ---
 
 Ideas:

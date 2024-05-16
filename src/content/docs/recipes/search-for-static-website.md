@@ -1,6 +1,7 @@
 ---
 title: Search for static website
 tags: [component]
+description: Different options for full-text search for static websites without backend or third-party services
 ---
 
 ## Starlight

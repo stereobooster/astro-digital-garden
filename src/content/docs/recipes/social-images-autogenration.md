@@ -1,8 +1,7 @@
 ---
 title: Social images autogenration
 tags: [component]
-sidebar:
-  label: Social images autogenration 🚧
+description: Automatically generate social image aka open graph images, x/twitter cards
 ---
 
 **aka** [open graph](https://ogp.me/) images, [x/twitter card](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards) images
@@ -24,9 +23,21 @@ Basic idea is to create HTML or SVG "image" for page based on metadata, like `ti
 ### CanvasKit
 
 - [Astro OG Canvas](https://github.com/delucis/astro-og-canvas)
-  - [full instruction is here](https://hideoo.dev/notes/starlight-og-images)
+
+## Installation
+
+[Full instruction for Astro OG Canvas](https://hideoo.dev/notes/starlight-og-images)
 
 ## Related
 
 - [[seo-and-smo-meta-tags]]
 - https://metatags.io/
+
+## Further improvements
+
+Current implementation looks boring. Maybe I can:
+
+- add logo
+- generate gradient based on tags colors
+- some pages have "cover" image, can I use it in social image. Though in my case all of them are SVGs
+- It seems, `Astro OG Canvas` doesn't support emojis

@@ -50,9 +50,15 @@ dependencies:
   astro:
     specifier: ^4.7.1
     version: 4.7.1(typescript@5.4.5)
+  astro-og-canvas:
+    specifier: ^0.5.0
+    version: 0.5.0(astro@4.7.1)
   astro-seo-schema:
     specifier: ^4.0.2
     version: 4.0.2(astro@4.7.1)(schema-dts@1.1.2)
+  canvaskit-wasm:
+    specifier: ^0.39.1
+    version: 0.39.1
   github-slugger:
     specifier: ^2.0.0
     version: 2.0.0
@@ -1993,6 +1999,10 @@ packages:
     resolution: {integrity: sha512-KYSIHVmslkaCDyw013pphY+d7x1qV8IZupYfeIfzNA+nsaWHbn5uPuQRvdRFsa9zFzGeudPuoGoZ1Op4jrJXIQ==}
     dev: false
 
+  /@webgpu/types@0.1.21:
+    resolution: {integrity: sha512-pUrWq3V5PiSGFLeLxoGqReTZmiiXwY3jRkIG5sLLKjyqNxrwm/04b4nw7LSmGWJcKk59XOM/YRTUwOzo4MMlow==}
+    dev: false
+
   /acorn-jsx@5.3.2(acorn@8.11.3):
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
     peerDependencies:
@@ -2132,6 +2142,18 @@ packages:
     dependencies:
       astro: 4.7.1(typescript@5.4.5)
       rehype-expressive-code: 0.35.3
+    dev: false
+
+  /astro-og-canvas@0.5.0(astro@4.7.1):
+    resolution: {integrity: sha512-nrwZpFL9d6tVJRKV5OLZa3xSSh+Cbaaoay/R9jAgHCrJ79WNyN2rgRT/+wtP1O/bCQ+wVP3GC3mBQN7vogImvg==}
+    engines: {node: '>=18.14.1'}
+    peerDependencies:
+      astro: ^3.0.0 || ^4.0.0
+    dependencies:
+      astro: 4.7.1(typescript@5.4.5)
+      canvaskit-wasm: 0.39.1
+      deterministic-object-hash: 2.0.2
+      entities: 4.5.0
     dev: false
 
   /astro-seo-schema@4.0.2(astro@4.7.1)(schema-dts@1.1.2):
@@ -2386,6 +2408,12 @@ packages:
 
   /caniuse-lite@1.0.30001616:
     resolution: {integrity: sha512-RHVYKov7IcdNjVHJFNY/78RdG4oGVjbayxv8u5IO74Wv7Hlq4PnJE6mo/OjFijjVFNy5ijnCt6H3IIo4t+wfEw==}
+    dev: false
+
+  /canvaskit-wasm@0.39.1:
+    resolution: {integrity: sha512-Gy3lCmhUdKq+8bvDrs9t8+qf7RvcjuQn+we7vTVVyqgOVO1UVfHpsnBxkTZw+R4ApEJ3D5fKySl9TU11hmjl/A==}
+    dependencies:
+      '@webgpu/types': 0.1.21
     dev: false
 
   /ccount@2.0.1:

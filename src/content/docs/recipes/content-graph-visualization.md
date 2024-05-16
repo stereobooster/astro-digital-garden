@@ -1,6 +1,7 @@
 ---
 title: Content graph visualization
 tags: [link, diagram, component]
+description: Visualize the relationships between the notes as graph
 ---
 
 ## Installation

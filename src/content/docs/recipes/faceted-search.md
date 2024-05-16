@@ -3,7 +3,10 @@ title: Faceted search
 tags: [page]
 sidebar:
   label: Faceted search 🚷
+description: Faceted search is a method of searching through data by using "facets" (data attributes), to gradually narrow down a large data set. In case of markdown notes data attributes can come from front matter.
 ---
+
+Faceted search is a method of searching through data by using "facets" (data attributes), to gradually narrow down a large data set. In case of markdown notes data attributes can come from front matter.
 
 ## Options
 

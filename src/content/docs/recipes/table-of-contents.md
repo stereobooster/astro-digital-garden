@@ -1,6 +1,7 @@
 ---
 title: Table of contents
 tags: [component, markdown]
+description: How to create table of contents based on headings from markdown file
 ---
 
 ## Starlight

@@ -1,6 +1,7 @@
 ---
 title: Syntax highlighting
 tags: [markdown, code-fences]
+description: Different options for syntax highlighting (code fences in markdown) for Astro-based websites
 ---
 
 Astro comes with built-in support for Shiki and Prism. This provides syntax highlighting for code fences.

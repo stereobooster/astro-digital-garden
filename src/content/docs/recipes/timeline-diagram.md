@@ -1,6 +1,7 @@
 ---
 title: Timelime diagram
 tags: [component, diagram]
+description: Astro component to vizualize timelines or genealogical trees
 ---
 
 <img width="756" height="428" src="https://exact.stereobooster.com/timeline.svg" style="background:#fff"/>

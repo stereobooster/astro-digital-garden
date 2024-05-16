@@ -50,8 +50,8 @@ export default defineConfig({
       components: {
         PageFrame: "./src/components/PageFrame.astro",
         TableOfContents: "./src/components/TableOfContents.astro",
+        Head: "./src/components/Head.astro",
         // TODO: astro:page-load
-        // Head: './src/components/Head.astro',
         // Sidebar: "./src/components/Sidebar.astro",
       },
       lastUpdated: true,
@@ -118,6 +118,8 @@ export default defineConfig({
       [
         rehypeExternalLinks,
         {
+          target: "_blank",
+          rel: ["nofollow", "noopener"],
           content: { type: "text", value: " ↗" }, // ⤴
           contentProperties: { "aria-hidden": true, class: "no-select" },
         },

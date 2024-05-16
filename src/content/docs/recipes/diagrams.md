@@ -1,6 +1,7 @@
 ---
 title: Diagrams
 tags: [component, diagram]
+description: Overview of available options for diagrams in markdown and Astro (text-to-diagram approach)
 ---
 
 There are two ways to work with diagrams:

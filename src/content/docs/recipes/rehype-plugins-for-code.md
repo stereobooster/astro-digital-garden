@@ -1,6 +1,7 @@
 ---
 title: Rehype plugins for code
 tags: [markdown]
+description: How to use rehype code plugins with Astro or Starlight
 ---
 
 If you want to use rehype plugin with Astro for processing code blocks (**aka** code fences), like this in Markodwn:

@@ -3,6 +3,7 @@ title: Metro map diagram
 tags: [component, diagram]
 sidebar:
   label: Metro map diagram 🚷
+description: aka transit map, subway map, bus stop map, schematic map, railroad map, network map
 ---
 
 ![Lisboa subway map](./metro-map-diagram/lisboa.output.svg)

@@ -3,6 +3,7 @@ title: Hasse diagram
 tags: [diagram]
 sidebar:
   label: Hasse diagram 🚷
+description: Convenient way to visualize concepts
 ---
 
 ```dot
