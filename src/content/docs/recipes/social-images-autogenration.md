@@ -37,7 +37,7 @@ Basic idea is to create HTML or SVG "image" for page based on metadata, like `ti
 
 Current implementation looks boring. Maybe I can:
 
-- add logo
-- generate gradient based on tags colors
-- some pages have "cover" image, can I use it in social image. Though in my case all of them are SVGs
+- [ ] generate gradient based on tag colors
+- Some pages have "cover" images. Can I use it in social images? Though in my case all of them are SVGs
 - It seems, `Astro OG Canvas` doesn't support emojis
+- add logo
