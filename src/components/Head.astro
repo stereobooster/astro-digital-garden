@@ -8,6 +8,8 @@ const ogImageUrl = new URL(
   `/og/${Astro.props.id.replace(/\.\w+$/, ".png")}`,
   Astro.site
 );
+
+import { Schema } from "astro-seo-schema";
 ---
 
 <!-- Render the default <Head/> component. -->
@@ -16,6 +18,23 @@ const ogImageUrl = new URL(
 <!-- Render the <meta/> tags for the Open Graph images. -->
 <meta property="og:image" content={ogImageUrl} />
 <meta name="twitter:image" content={ogImageUrl} />
+
+<Schema
+  item={{
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    dateModified: Astro.props.lastUpdated?.toISOString(),
+    headline: Astro.props.entry.data.title,
+    image: [ogImageUrl.toString()],
+    author: [
+      {
+        "@type": "Person",
+        name: "stereobooster",
+        url: "https://stereobooster.com",
+      },
+    ],
+  }}
+/>
 
 <!-- TODO: astro:page-load -->
 <!-- <ViewTransitions /> -->
