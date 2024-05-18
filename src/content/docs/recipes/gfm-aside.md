@@ -29,7 +29,8 @@ Highlights information that users should take into account, even when skimming.
 
 ## Related discussions
 
-- [How to customize markdown with Astro components?](https://github.com/withastro/roadmap/discussions/423)
-- [Markdown Enhancements](https://github.com/withastro/roadmap/discussions/424)
-- [Add admonitions/callout support to markdown/mdx](https://github.com/withastro/roadmap/discussions/860)
+- [Github markdown alerts support](https://github.com/withastro/starlight/discussions/1884)
+  - [remark-github-alerts](https://github.com/hyoban/remark-github-alerts/blob/main/src/index.ts)
+  - [Starlight asides](https://github.com/withastro/starlight/blob/main/packages/starlight/integrations/asides.ts)
 - [Improve the astro:content `<Content />` render props API](https://github.com/withastro/roadmap/discussions/769)
+- [How to customize markdown with Astro components?](https://github.com/withastro/roadmap/discussions/423)

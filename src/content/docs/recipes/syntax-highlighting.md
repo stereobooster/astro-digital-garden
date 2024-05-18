@@ -17,3 +17,4 @@ Starlight uses [Expressive Code](https://expressive-code.com/).
   - [starlight/discussions#1381](https://github.com/withastro/starlight/discussions/1381)
 - [Sandpack](https://sandpack.codesandbox.io/)
   - [A World-Class Code Playground with Sandpack](https://www.joshwcomeau.com/react/next-level-playground/)
+- [Shaku](https://shaku-web.vercel.app/)
