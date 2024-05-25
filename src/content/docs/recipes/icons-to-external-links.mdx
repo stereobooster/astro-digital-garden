@@ -4,7 +4,9 @@ tags: [markdown]
 description: Visually differentiate external and internal links
 ---
 
-## Installation
+## Arrows for external links
+
+### Installation
 
 import { Steps } from "@astrojs/starlight/components";
 
@@ -55,7 +57,7 @@ import { Steps } from "@astrojs/starlight/components";
 
 Based on: [Astro recipes](https://docs.astro.build/en/recipes/external-links/)
 
-## Example
+### Example
 
 ```md
 // example.md
@@ -64,14 +66,72 @@ https://example.com
 
 https://example.com
 
-## Further improvements
+## Favicons for external links
 
-- Possible to impelement with pure CSS, something like `a[rel=nofollow]:after {content: " ↗"}`
-- [ ] One more idea is to add `favicon` of the target instead of `↗`.
-  - 🤔 `https://external-content.duckduckgo.com/ip3/example.com.ico` <span class="not-content"><img
-    src="https://external-content.duckduckgo.com/ip3/duckduckgo.com.ico"
-    loading="lazy"
-    class="inline-block"
-    width="16"
-    heigth="16"
-    /></span>
+### Installation
+
+<Steps>
+
+1. Install dependencies
+
+   ```bash
+   pnpm add rehype-external-links
+   ```
+
+2. Configure Astro
+
+   ```js {2, 7, 12-24}
+   // astro.config.mjs
+   import rehypeExternalLinks from "rehype-external-links";
+
+   export default defineConfig({
+     integrations: [
+       starlight({
+         customCss: ["./src/styles/custom.css"],
+       }),
+     ],
+     markdown: {
+       rehypePlugins: [
+         [
+           rehypeExternalLinks,
+           {
+             content: { type: "text", value: "" },
+             contentProperties: (x) => {
+               const hostname = new URL(x.properties.href).hostname;
+               return {
+                 class: "external-icon",
+                 style: `--icon: url(https://external-content.duckduckgo.com/ip3/${hostname}.ico)`,
+               };
+             },
+           },
+         ],
+       ],
+     },
+   });
+   ```
+
+3. Add CSS
+
+   ```css
+   // src/styles/custom.css
+   .external-icon {
+     background-image: var(--icon);
+     background-color: #fff;
+     background-size: cover;
+     color: transparent;
+     padding-left: 1.2rem;
+     border-radius: 0.2rem;
+     margin-left: 0.2rem;
+   }
+   ```
+
+</Steps>
+
+### Example
+
+```md
+// example.md
+https://stereobooster.com
+```
+
+`https://stereobooster.com` <span class="external-icon" style="--icon:url(https://external-content.duckduckgo.com/ip3/stereobooster.com.ico)"></span>

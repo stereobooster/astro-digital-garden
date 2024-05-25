@@ -17,6 +17,8 @@ import { rehypeGnuplot } from "@beoe/rehype-gnuplot";
 
 import { remarkDataview } from "./src/plugins/remarkDataview.mjs";
 
+import url from "node:url";
+
 const cache = await getCache();
 
 await bdb.ready();
@@ -122,6 +124,14 @@ export default defineConfig({
           rel: ["nofollow", "noopener"],
           content: { type: "text", value: " ↗" }, // ⤴
           contentProperties: { "aria-hidden": true, class: "no-select" },
+          // content: { type: "text", value: "" },
+          // contentProperties: (x) => {
+          //   const hostname = new URL(x.properties.href).hostname;
+          //   return {
+          //     class: "external-icon",
+          //     style: `--icon: url(https://external-content.duckduckgo.com/ip3/${hostname}.ico)`,
+          //   };
+          // },
         },
       ],
       rehypeKatex,
