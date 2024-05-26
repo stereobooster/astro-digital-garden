@@ -2,13 +2,16 @@
 import { getCollection } from "astro:content";
 import { getCombinations } from "./permutations";
 import EulerDiagram from "./EulerDiagram.astro";
+import { tagColor } from "@lib/tagColor";
 
 const separator = ",";
 const docs = await getCollection("docs");
 const docsByTags: Record<string, number> = {};
 
+const tagSet = new Set<string>();
 docs.forEach((doc) => {
   if (doc.data.tags && doc.data.tags.length > 0) {
+    doc.data.tags.forEach(tagSet.add.bind(tagSet));
     for (const combiination of getCombinations(doc.data.tags)) {
       const key = combiination.sort().join(separator);
       docsByTags[key] = (docsByTags[key] || 0) + 1;
@@ -20,6 +23,8 @@ const sets = Object.entries(docsByTags).map(([key, size]) => ({
   sets: key.split(separator).map((x) => "#" + x),
   size,
 }));
+
+const colorScheme = [...tagSet].map(tagColor);
 ---
 
-<EulerDiagram items={sets} />
+<EulerDiagram items={sets} options={{ colorScheme }} />

@@ -1,6 +1,7 @@
 ---
 import { bdb, isContent } from "@lib/braindb.mjs";
 import type { Document } from "@braindb/core";
+import { tagColor } from "@lib/tagColor";
 
 const docsByTags = new Map<string, Document[]>();
 (await bdb.documents()).forEach((doc) => {
@@ -21,8 +22,10 @@ const tagsSorted = [...docsByTags.keys()].sort(comparator.compare);
   <span>
     {
       tagsSorted.map((tag) => (
-        <p>
-          <b>#{tag}</b>
+        <p style={{ "--tag-color": tagColor(tag) }}>
+          <b>
+            <i class="color-chip" /> #{tag}
+          </b>
           <ul>
             {docsByTags.get(tag)?.map((doc) => (
               <li>
@@ -35,3 +38,16 @@ const tagsSorted = [...docsByTags.keys()].sort(comparator.compare);
     }
   </span>
 </div>
+
+<style>
+  .color-chip {
+    background: var(--tag-color);
+    border-radius: 0.25rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    display: inline-block;
+    /* color: #fff;
+    padding: 0 0.25rem;
+    font-style: normal; */
+  }
+</style>

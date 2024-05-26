@@ -3,6 +3,8 @@ import { bdb, isContent } from "./braindb.mjs";
 import graphology from "graphology";
 import circular from "graphology-layout/circular";
 import forceAtlas2 from "graphology-layout-forceatlas2";
+import { tagColor } from "./tagColor";
+
 // @ts-ignore
 const { MultiGraph } = graphology;
 
@@ -12,6 +14,12 @@ export async function toGraphologyJson(db: BrainDB) {
     attributes: {
       label: document.frontmatter().title as string,
       url: document.url(),
+      color:
+        // @ts-expect-error
+        document.frontmatter().tags && document.frontmatter().tags.length === 1
+          ? // @ts-expect-error
+            tagColor(document.frontmatter().tags[0])
+          : undefined,
     },
   }));
 
@@ -36,6 +44,7 @@ export async function toGraphologyJson(db: BrainDB) {
     key: tag,
     attributes: {
       label: `#${tag}`,
+      color: tagColor(tag as string),
       url: "",
       size: 0.4,
     },

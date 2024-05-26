@@ -1,20 +1,26 @@
 ---
-import { createVennRenderer, type ISetOverlap } from "venn-isomorphic";
+import {
+  createVennRenderer,
+  type ISetOverlap,
+  type RenderOptions,
+} from "venn-isomorphic";
 import { getCache } from "@beoe/cache";
 import { serialize } from "node:v8";
 
 interface Props {
   items: ISetOverlap[];
+  options?: RenderOptions["vennConfig"];
 }
 
 const cache = await getCache();
 const items = Astro.props.items;
-const cacheKey = serialize(items);
+const vennConfig = Astro.props.options;
+const cacheKey = serialize({ items, vennConfig });
 
 let svg = cache.get(cacheKey);
 if (!svg) {
   const renderer = createVennRenderer();
-  const results = await renderer([items]);
+  const results = await renderer([items], { vennConfig });
   const [result] = results;
   if (result.status == "fulfilled") {
     svg = result.value.svg;

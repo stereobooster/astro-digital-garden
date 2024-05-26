@@ -47,6 +47,9 @@ dependencies:
   '@pagefind/default-ui':
     specifier: ^1.1.0
     version: 1.1.0
+  '@types/color-hash':
+    specifier: ^1.0.5
+    version: 1.0.5
   astro:
     specifier: ^4.7.1
     version: 4.7.1(typescript@5.4.5)
@@ -59,6 +62,9 @@ dependencies:
   canvaskit-wasm:
     specifier: ^0.39.1
     version: 0.39.1
+  color-hash:
+    specifier: ^2.0.2
+    version: 2.0.2
   github-slugger:
     specifier: ^2.0.0
     version: 2.0.0
@@ -1816,6 +1822,10 @@ packages:
       '@babel/types': 7.24.5
     dev: false
 
+  /@types/color-hash@1.0.5:
+    resolution: {integrity: sha512-miV7Z8zvOnRn0ZjbP/D/qb1VWHrWkKOnfC764SJvnCeIziW4pZy3tPK/542seSgccGAXlPQd/seuNyVAS/p5Ug==}
+    dev: false
+
   /@types/cookie@0.6.0:
     resolution: {integrity: sha512-4Kh9a6B2bQciAhf7FSuMRRkUWecJgJu9nPnx3yzpsfXX/c50REIqpHY4C82bXP90qrLtXtkDxTZosYO3UpOwlA==}
     dev: false
@@ -2548,6 +2558,10 @@ packages:
     engines: {node: '>=7.0.0'}
     dependencies:
       color-name: 1.1.4
+    dev: false
+
+  /color-hash@2.0.2:
+    resolution: {integrity: sha512-6exeENAqBTuIR1wIo36mR8xVVBv6l1hSLd7Qmvf6158Ld1L15/dbahR9VUOiX7GmGJBCnQyS0EY+I8x+wa7egg==}
     dev: false
 
   /color-name@1.1.3:

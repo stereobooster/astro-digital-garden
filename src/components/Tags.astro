@@ -1,4 +1,5 @@
 ---
+import { tagColor } from "@lib/tagColor";
 import type { CollectionEntry } from "astro:content";
 interface Props {
   entry: CollectionEntry<"docs">;
@@ -13,8 +14,10 @@ const { entry } = Astro.props;
         <h2>Tags</h2>
         <ul>
           {entry.data.tags.map((tag) => (
-            <li>
-              <span>#{tag}</span>
+            <li style={{ "--tag-color": tagColor(tag) }}>
+              <span>
+                <i class="color-chip" /> #{tag}
+              </span>
             </li>
           ))}
         </ul>
@@ -41,6 +44,14 @@ const { entry } = Astro.props;
       padding-block: 0.25rem;
       padding-inline: var(--pad-inline) var(--pad-inline);
       line-height: 1.25;
+    }
+
+    .color-chip {
+      background: var(--tag-color);
+      border-radius: 0.25rem;
+      width: 0.8rem;
+      height: 0.8rem;
+      display: inline-block;
     }
   }
 </style>

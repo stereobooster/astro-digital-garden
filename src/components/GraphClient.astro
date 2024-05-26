@@ -7,7 +7,8 @@
 <style>
   #sigma-container {
     height: 500px;
-    width: 1000px;
+    width: 800px;
+    border: 1px solid #ccc;
   }
 </style>
 
@@ -39,14 +40,16 @@
     maxSize = 15;
   graph.forEachNode((node) => {
     const degree = graph.degree(node);
-    if (!graph.getNodeAttribute(node, "label").startsWith("#")) {
-      graph.setNodeAttribute(
-        node,
-        "size",
-        minSize +
-          ((degree - minDegree) / (maxDegree - minDegree)) * (maxSize - minSize)
-      );
-    }
+    // if (graph.getNodeAttribute(node, "label").startsWith("#")) {
+    //   graph.setNodeAttribute(node, "size", 4);
+    //   return;
+    // }
+    graph.setNodeAttribute(
+      node,
+      "size",
+      minSize +
+        ((degree - minDegree) / (maxDegree - minDegree)) * (maxSize - minSize)
+    );
   });
 
   random.assign(graph);
