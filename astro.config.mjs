@@ -39,8 +39,15 @@ export default defineConfig({
       sidebar: [
         { label: "Wunder", link: "/" },
         {
-          label: "Recipes",
+          label: "Celestial Entity",
           // collapsed: true,
+          autogenerate: {
+            directory: "Celestial-Entity",
+          },
+        },
+        {
+          label: "Recipes",
+          collapsed: true,
           autogenerate: {
             directory: "recipes",
           },
