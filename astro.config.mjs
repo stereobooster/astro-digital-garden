@@ -28,16 +28,16 @@ export default defineConfig({
   site: "https://astro-digital-garden.stereobooster.com",
   integrations: [
     starlight({
-      title: "Astro Digital Garden",
+      title: "Wunder",
       social: {
-        github: "https://github.com/stereobooster/astro-digital-garden",
+        github: "https://github.com/stardoom4/nebula",
       },
       editLink: {
         baseUrl:
-          "https://github.com/stereobooster/astro-digital-garden/edit/main/",
+          "https://github.com/stardoom4/nebula/edit/main/",
       },
       sidebar: [
-        { label: "Introduction", link: "/" },
+        { label: "Wunder", link: "/" },
         {
           label: "Recipes",
           // collapsed: true,
