@@ -52,13 +52,6 @@ export default defineConfig({
             directory: "science",
           },
         },
-        {
-          label: "Recipes",
-          collapsed: true,
-          autogenerate: {
-            directory: "recipes",
-          },
-        },
       ],
       // pagination doesn't make sense in the context of digital garden
       pagination: false,
