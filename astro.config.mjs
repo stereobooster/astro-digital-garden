@@ -46,6 +46,13 @@ export default defineConfig({
           },
         },
         {
+          label: "Notes",
+          // collapsed: true,
+          autogenerate: {
+            directory: "science",
+          },
+        },
+        {
           label: "Recipes",
           collapsed: true,
           autogenerate: {
