@@ -1,0 +1,27 @@
+---
+import { getCache } from "@beoe/cache";
+import { serialize } from "node:v8";
+import { edeapSvg, type ISetOverlap } from "edeap";
+
+interface Props {
+  items: ISetOverlap[];
+}
+
+const cache = await getCache();
+const items = Astro.props.items;
+const otherParams = { width: 700, height: 350 };
+const cacheKey = serialize({ edeap: items, ...otherParams });
+
+let svg = cache.get(cacheKey);
+if (!svg) {
+  svg = edeapSvg({
+    ...otherParams,
+    overlaps: items,
+  });
+  cache.set(cacheKey, svg);
+}
+---
+
+<figure class="euler not-content beoe">
+  <Fragment set:html={svg} />
+</figure>

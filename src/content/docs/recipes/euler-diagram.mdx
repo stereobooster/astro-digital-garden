@@ -4,9 +4,9 @@ tags: [component, diagram]
 description: Astro component to show area proportional Euler diagram, aka Venn diagram. Useful to visualize intersection of sets
 ---
 
-import TagsDiagram from "@components/TagsDiagram.astro";
+import EulerTagsDiagram from "@components/EulerTagsDiagram.astro";
 
-<TagsDiagram />
+<EulerTagsDiagram />
 
 **aka**: Venn diagram
 
@@ -15,6 +15,8 @@ Above Euler diagram of tags on this website. It's not a static picture - it's ge
 ## Installation
 
 import { Steps } from "@astrojs/starlight/components";
+
+### venn-isomorphic
 
 <Steps>
 1. Install dependencies
@@ -52,6 +54,53 @@ import { Steps } from "@astrojs/starlight/components";
 
 </Steps>
 
+### edeap
+
+import EdeapTagsDiagram from "@components/EdeapTagsDiagram.astro";
+
+<EdeapTagsDiagram />
+
+Edeap - Euler Diagrams Drawn with Ellipses Area-Proportionally.
+
+**Pros**:
+
+- it shows areas proportional to set size
+- it works without headless browser
+
+**Cons**:
+
+- `venn-isomorphic` diagram looks better
+
+<Steps>
+1. Install dependencies
+
+    ```bash
+    pnpm add edeap
+    ```
+
+2. Create `EdeapDiagram` component
+
+   ```astro
+   // src/components/EdeapDiagram.astro
+   ---
+   import { edeapSvg, type ISetOverlap } from "edeap";
+
+   interface Props {
+     items: ISetOverlap[];
+   }
+
+   let svg = edeapSvg({ overlaps: items });
+   ---
+
+   <figure class="euler not-content beoe">
+     <Fragment set:html={svg} />
+   </figure>
+   ```
+
+3. **Use component**, wherever you like
+
+</Steps>
+
 ## Theory
 
 - [A Better Algorithm for Area Proportional Venn and Euler Diagrams](https://www.benfrederickson.com/better-venn-diagrams/)
@@ -72,8 +121,3 @@ import { Steps } from "@astrojs/starlight/components";
 - [A Survey of Euler Diagrams](https://kar.kent.ac.uk/35163/1/JVLC_Euler_Survey.pdf)
 - [Realizability of Rectangular Euler Diagrams](https://arxiv.org/pdf/2403.03801.pdf)
 - [Generating and Navigating Large Euler Diagrams](https://ceur-ws.org/Vol-1244/ED-paper3.pdf)
-
-## Further improvements
-
-- [ ] Implement area-proportional diagram. Maybe [edeap](https://github.com/mjwybrow/edeap).
-- [ ] Try to implement it without headless browser

@@ -28,6 +28,7 @@
     "astro-og-canvas": "^0.5.0",
     "astro-seo-schema": "^4.0.2",
     "canvaskit-wasm": "^0.39.1",
+    "edeap": "0.0.3",
     "github-slugger": "^2.0.0",
     "graphology": "^0.25.4",
     "graphology-layout": "^0.6.1",

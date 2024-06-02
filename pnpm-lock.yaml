@@ -59,6 +59,9 @@ dependencies:
   canvaskit-wasm:
     specifier: ^0.39.1
     version: 0.39.1
+  edeap:
+    specifier: 0.0.3
+    version: 0.0.3(server-text-width@1.0.2)
   github-slugger:
     specifier: ^2.0.0
     version: 2.0.0
@@ -3481,6 +3484,14 @@ packages:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
     dev: false
 
+  /edeap@0.0.3(server-text-width@1.0.2):
+    resolution: {integrity: sha512-4oXboo1BF9G3hxit61lGS71jOgPNSeYQjQn64c21zQiCNAefznmGJEP3di1Y1i1hD+GN3vcpZPwYn0YZTgsElw==}
+    peerDependencies:
+      server-text-width: ^1.0.2
+    dependencies:
+      server-text-width: 1.0.2
+    dev: false
+
   /electron-to-chromium@1.4.759:
     resolution: {integrity: sha512-qZJc+zsuI+/5UjOSFnpkJBwwLMH1AZgyKqJ7LUNnRsB7v/cDjMu9DvXgp9kH6PTTZxjnPXGp2Uhurw+2Ll4Hjg==}
     dev: false
@@ -6645,6 +6656,10 @@ packages:
     resolution: {integrity: sha512-f/vbBsu+fOiYt+lmwZV0rVwJScl46HppnOA1ZvIuBWKOTlllpyJ3bfVax76/OrhCH38dyxoDIA8K7uB963IYgA==}
     engines: {node: '>=10'}
     hasBin: true
+    dev: false
+
+  /server-text-width@1.0.2:
+    resolution: {integrity: sha512-FRdhfYNUc0eFhelW60dHeD6PjJrBdzZcygki9j7K9TfbDn8tewkuiggHrxTSFDmrxqET991+XOUSovvjmyZCNQ==}
     dev: false
 
   /set-function-length@1.2.2:
