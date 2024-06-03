@@ -64,18 +64,6 @@ export default defineConfig({
         // Sidebar: "./src/components/Sidebar.astro",
       },
       lastUpdated: true,
-      head: import.meta.env.PROD
-        ? [
-            {
-              tag: "script",
-              attrs: {
-                src: "https://eu.umami.is/script.js",
-                "data-website-id": "2d34b0d4-893c-4348-a3e4-1f489300117c",
-                defer: true,
-              },
-            },
-          ]
-        : undefined,
     }),
   ],
   markdown: {
