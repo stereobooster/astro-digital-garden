@@ -57,6 +57,8 @@ export default defineConfig({
         // Sidebar: "./src/components/Sidebar.astro",
       },
       lastUpdated: true,
+      // If you want to fork this repository for personal use,
+      // please remove following lines for umami analytics
       head: import.meta.env.PROD
         ? [
             {
