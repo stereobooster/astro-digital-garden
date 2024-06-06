@@ -28,7 +28,7 @@ import { Steps } from "@astrojs/starlight/components";
    export default defineConfig({
      integrations: [
        starlight({
-         customCss: ["./src/styles/custom.css"],
+         customCss: ["katex/dist/katex.min.css"],
        }),
      ],
      markdown: {
@@ -41,12 +41,6 @@ import { Steps } from "@astrojs/starlight/components";
        },
      },
    });
-   ```
-
-3. Add CSS
-   ```css
-   // src/styles/custom.css
-   @import url(katex/dist/katex.min.css);
    ```
 
 </Steps>
