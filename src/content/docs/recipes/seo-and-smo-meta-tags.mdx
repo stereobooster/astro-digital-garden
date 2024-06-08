@@ -19,7 +19,7 @@ Those are the most popular plugins for the task:
 This is an experiment. I need to investigate an impact
 :::
 
-### dateModified
+### type: NewsArticle
 
 import { Steps } from "@astrojs/starlight/components";
 
@@ -77,3 +77,17 @@ import { Steps } from "@astrojs/starlight/components";
    ```
 
 </Steps>
+
+### type: Article
+
+Try `"@type":"Article"` plus:
+
+- `<article>`
+- `<span itemprop="dateModified" content="2020-Mar-13">`
+- `<h1 itemprop="name">...</h1>`
+- `<div itemprop="articleBody">...</div>`
+
+## Sites to test meta tags
+
+- [google](https://search.google.com/test/rich-results)
+- [schema.org](https://validator.schema.org/)
