@@ -1,8 +1,6 @@
 ---
 title: Sidebar
 tags: [component]
-sidebar:
-  label: Sidebar 🚧
 description: Starlight sidebar issues and ideas for improvements
 ---
 
@@ -81,56 +79,166 @@ import { Steps } from "@astrojs/starlight/components";
 
 </Steps>
 
-## Further improvements
+## Alternative sidebars for Starlight
 
 Starlight provides configurable sidebar, which is good enough for documentation. For digital garden we may want to use different approach, for example:
 
-- file system tree (possible with built-in sidebar)
-- [[tag-list|tag list or articles grouped by tags]]
-- [[recently-changed-pages|articles grouped by date]]
 - [[alphabetical-index|alphabetical list]]
-
-import { FileTree } from "@astrojs/starlight/components";
-
-### Articles grouped by tags
-
-<FileTree>
-
-- #code-fences
-  - Diagrams_support_in_markdown
-  - Syntax_Highlighting
-- #component
-  - Icons
-  - Lazy_embeded_video
-
-</FileTree>
-
-### Articles grouped by date
-
-<FileTree>
-
-- 2024
-  - 03
-    - 31
-      - **Sidebar**
-    - 30
-      - Anchors_for_headings
-      - GFM_aside
-    - …
-- 2023
-  - …
-
-</FileTree>
+- [[recently-changed-pages|articles grouped by date]]
+- [[tag-list|tag list or articles grouped by tags]]
 
 ### Alphabetical list
 
-<FileTree>
+```astro
+// src/components/Sidebar.astro
+---
+import type { Props } from "@astrojs/starlight/props";
+import Default from "@astrojs/starlight/components/Sidebar.astro";
 
-- A
-  - Alphabetical_index
-  - Anchors_for_headings
-- B
-  - Backlinks
-  - BrainDB
+import { bdb, isContent } from "@lib/braindb.mjs";
+import type { Document } from "@braindb/core";
 
-</FileTree>
+const firstChar = (str: string) => String.fromCodePoint(str.codePointAt(0)!);
+
+const docsByChar = new Map<string, Document[]>();
+(await bdb.documents()).forEach((doc) => {
+  if (isContent(doc)) {
+    const char = firstChar(doc.title()).toUpperCase();
+    docsByChar.set(char, docsByChar.get(char) || []);
+    docsByChar.get(char)?.push(doc);
+  }
+});
+
+const comparator = new Intl.Collator("en");
+const sidebarAlpha = [...docsByChar.keys()]
+  .sort(comparator.compare)
+  .map((char) => {
+    let collapsed = true;
+    return {
+      type: "group",
+      label: char,
+      entries: docsByChar.get(char)?.map((doc) => {
+        const isCurrent = doc.path() === `/${Astro.props.id}`;
+        if (isCurrent) collapsed = false;
+        return {
+          type: "link",
+          label: doc.title(),
+          href: doc.url(),
+          isCurrent,
+          badge: undefined,
+          attrs: {},
+        };
+      }),
+      collapsed,
+      badge: undefined,
+    };
+  }) as Props["sidebar"];
+
+sidebarAlpha.unshift(Astro.props.sidebar[0]);
+---
+
+<Default {...Astro.props} sidebar={sidebarAlpha}><slot /></Default>
+```
+
+### Articles grouped by date
+
+```astro
+// src/components/Sidebar.astro
+---
+import type { Props } from "@astrojs/starlight/props";
+import Default from "@astrojs/starlight/components/Sidebar.astro";
+
+import { bdb, isContent } from "@lib/braindb.mjs";
+import type { Document } from "@braindb/core";
+
+const docsByDate = new Map<string, Document[]>();
+(await bdb.documents({ sort: ["updated_at", "desc"] })).forEach((doc) => {
+  if (isContent(doc)) {
+    const date = doc.updatedAt().toISOString().split("T")[0];
+    docsByDate.set(date, docsByDate.get(date) || []);
+    docsByDate.get(date)?.push(doc);
+  }
+});
+
+const sidebarDates = Array.from(docsByDate.keys())
+  .map((d) => [d, d.split("-").reverse().join(".")])
+  .map(([date, label]) => {
+    let collapsed = true;
+    return {
+      type: "group",
+      label,
+      entries: docsByDate.get(date)?.map((doc) => {
+        const isCurrent = doc.path() === `/${Astro.props.id}`;
+        if (isCurrent) collapsed = false;
+        return {
+          type: "link",
+          label: doc.title(),
+          href: doc.url(),
+          isCurrent,
+          badge: undefined,
+          attrs: {},
+        };
+      }),
+      collapsed,
+      badge: undefined,
+    };
+  }) as Props["sidebar"];
+
+sidebarDates.unshift(Astro.props.sidebar[0]);
+---
+
+<Default {...Astro.props} sidebar={sidebarDates}><slot /></Default>
+```
+
+### Articles grouped by tags
+
+```astro
+// src/components/Sidebar.astro
+---
+import type { Props } from "@astrojs/starlight/props";
+import Default from "@astrojs/starlight/components/Sidebar.astro";
+
+import { bdb, isContent } from "@lib/braindb.mjs";
+import type { Document } from "@braindb/core";
+
+const docsByTags = new Map<string, Document[]>();
+(await bdb.documents()).forEach((doc) => {
+  if (isContent(doc)) {
+    // @ts-expect-error
+    doc.frontmatter().tags.forEach((tag: string) => {
+      docsByTags.set(tag, docsByTags.get(tag) || []);
+      docsByTags.get(tag)?.push(doc);
+    });
+  }
+});
+
+const comparator = new Intl.Collator("en");
+const sidebarTags = [...docsByTags.keys()]
+  .sort(comparator.compare)
+  .map((tag) => {
+    let collapsed = true;
+    return {
+      type: "group",
+      label: `#${tag}`,
+      entries: docsByTags.get(tag)?.map((doc) => {
+        const isCurrent = doc.path() === `/${Astro.props.id}`;
+        if (isCurrent) collapsed = false;
+        return {
+          type: "link",
+          label: doc.title(),
+          href: doc.url(),
+          isCurrent,
+          badge: undefined,
+          attrs: {},
+        };
+      }),
+      collapsed,
+      badge: undefined,
+    };
+  }) as Props["sidebar"];
+
+sidebarTags.unshift(Astro.props.sidebar[0]);
+---
+
+<Default {...Astro.props} sidebar={sidebarTags}><slot /></Default>
+```
