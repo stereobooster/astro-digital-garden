@@ -16,6 +16,71 @@ There are workarounds:
 - [starlight#971](https://github.com/withastro/starlight/discussions/971#discussioncomment-8396511)
 - [starlight#307](https://github.com/withastro/starlight/issues/307#issuecomment-1622619025)
 
+## Starlight - scroll current page into view
+
+import { Steps } from "@astrojs/starlight/components";
+
+<Steps>
+1.  Create `Sidebar` component
+
+    ```astro
+    //src/components/Sidebar.astro
+    ---
+    import type { Props } from "@astrojs/starlight/props";
+    import Default from "@astrojs/starlight/components/Sidebar.astro";
+    ---
+
+    <Default {...Astro.props}><slot /></Default>
+
+    <script>
+      function isElementVisibleInContainer(element: Element, container: Element) {
+        const elementRect = element.getBoundingClientRect();
+        const containerRect = container.getBoundingClientRect();
+
+        return (
+          elementRect.top >= containerRect.top &&
+          elementRect.left >= containerRect.left &&
+          elementRect.bottom <= containerRect.bottom &&
+          elementRect.right <= containerRect.right
+        );
+      }
+
+      // Function to persist scroll position on page change
+      function setScrollPosition() {
+        const sidebar = document.querySelector("#starlight__sidebar");
+        const selectedMenuItem = document.querySelector(
+          "#starlight__sidebar a[aria-current='page']"
+        );
+        if (
+          sidebar &&
+          selectedMenuItem &&
+          !isElementVisibleInContainer(selectedMenuItem, sidebar)
+        ) {
+          selectedMenuItem.scrollIntoView();
+        }
+      }
+
+      setScrollPosition();
+    </script>
+    ```
+
+2. Configure Astro
+
+   ```js {6}
+   // astro.config.mjs
+   export default defineConfig({
+     integrations: [
+       starlight({
+         components: {
+           Sidebar: "./src/components/Sidebar.astro",
+         },
+       }),
+     ],
+   });
+   ```
+
+</Steps>
+
 ## Further improvements
 
 Starlight provides configurable sidebar, which is good enough for documentation. For digital garden we may want to use different approach, for example:

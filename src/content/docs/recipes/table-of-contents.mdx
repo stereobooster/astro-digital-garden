@@ -31,25 +31,34 @@ TODO:
 
 ### Satrlight specific config
 
-```astro
-// src/components/TableOfContents.astro
----
-import type { Props } from "@astrojs/starlight/props";
-import TOC from "./TOC.astro";
----
+import { Steps } from "@astrojs/starlight/components";
 
-<TOC {...Astro.props} />
-```
+<Steps>
+1.  Create `TableOfContents` component
 
-```js {6}
-// astro.config.mjs
-export default defineConfig({
-  integrations: [
-    starlight({
-      components: {
-        TableOfContents: "./src/components/TableOfContents.astro",
-      },
-    }),
-  ],
-});
-```
+    ```astro
+    // src/components/TableOfContents.astro
+    ---
+    import type { Props } from "@astrojs/starlight/props";
+    import TOC from "./TOC.astro";
+    ---
+
+    <TOC {...Astro.props} />
+    ```
+
+2. Configure Astro
+
+   ```js {6}
+   // astro.config.mjs
+   export default defineConfig({
+     integrations: [
+       starlight({
+         components: {
+           TableOfContents: "./src/components/TableOfContents.astro",
+         },
+       }),
+     ],
+   });
+   ```
+
+</Steps>
