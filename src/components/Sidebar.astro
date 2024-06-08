@@ -1,9 +1,91 @@
 ---
 import type { Props } from "@astrojs/starlight/props";
 import Default from "@astrojs/starlight/components/Sidebar.astro";
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+
+import { bdb, isContent } from "@lib/braindb.mjs";
+import type { Document } from "@braindb/core";
+
+const firstChar = (str: string) => String.fromCodePoint(str.codePointAt(0)!);
+
+const docsByChar = new Map<string, Document[]>();
+const docsByDate = new Map<string, Document[]>();
+(await bdb.documents()).forEach((doc) => {
+  if (isContent(doc)) {
+    const char = firstChar(doc.title()).toUpperCase();
+    docsByChar.set(char, docsByChar.get(char) || []);
+    docsByChar.get(char)?.push(doc);
+
+    const date = doc.updatedAt().toISOString().split("T")[0];
+    docsByDate.set(date, docsByDate.get(date) || []);
+    docsByDate.get(date)?.push(doc);
+  }
+});
+
+const comparator = new Intl.Collator("en");
+const sidebarAlpha = [...docsByChar.keys()]
+  .sort(comparator.compare)
+  .map((char) => {
+    return {
+      type: "group",
+      label: char,
+      entries: docsByChar.get(char)?.map((doc) => {
+        const isCurrent = doc.path() === `/${Astro.props.id}`;
+        return {
+          type: "link",
+          href: doc.url(),
+          isCurrent,
+          // @ts-ignore
+          label: doc.frontmatter()?.["sidebar"]?.["label"] || doc.title(),
+          // @ts-ignore
+          badge: doc.frontmatter()?.["sidebar"]?.["badge"],
+          // @ts-ignore
+          attrs: doc.frontmatter()?.["sidebar"]?.["attrs"] || {},
+        };
+      }),
+      collapsed: false,
+      badge: undefined,
+    };
+  }) as Props["sidebar"];
+
+const sidebarDates = Array.from(docsByDate.keys())
+  .reverse()
+  .map((d) => [d, d.split("-").reverse().join(".")])
+  .map(([date, label]) => {
+    return {
+      type: "group",
+      label,
+      entries: docsByDate.get(date)?.map((doc) => {
+        const isCurrent = doc.path() === `/${Astro.props.id}`;
+        return {
+          type: "link",
+          href: doc.url(),
+          isCurrent,
+          // @ts-ignore
+          label: doc.frontmatter()?.["sidebar"]?.["label"] || doc.title(),
+          // @ts-ignore
+          badge: doc.frontmatter()?.["sidebar"]?.["badge"],
+          // @ts-ignore
+          attrs: doc.frontmatter()?.["sidebar"]?.["attrs"] || {},
+        };
+      }),
+      collapsed: false,
+      badge: undefined,
+    };
+  }) as Props["sidebar"];
 ---
 
-<Default {...Astro.props}><slot /></Default>
+<Tabs>
+  <TabItem label="Default">
+    <Default {...Astro.props}><slot /></Default>
+  </TabItem>
+  <TabItem label="A-Z">
+    <Default {...Astro.props} sidebar={sidebarAlpha}><slot /></Default>
+  </TabItem>
+  <TabItem label="Latest">
+    <Default {...Astro.props} sidebar={sidebarDates}><slot /></Default>
+  </TabItem>
+</Tabs>
 
 <script>
   function isElementVisibleInContainer(element: Element, container: Element) {

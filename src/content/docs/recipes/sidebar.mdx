@@ -122,11 +122,14 @@ const sidebarAlpha = [...docsByChar.keys()]
         if (isCurrent) collapsed = false;
         return {
           type: "link",
-          label: doc.title(),
           href: doc.url(),
           isCurrent,
-          badge: undefined,
-          attrs: {},
+          // @ts-ignore
+          label: doc.frontmatter()?.["sidebar"]?.["label"] || doc.title(),
+          // @ts-ignore
+          badge: doc.frontmatter()?.["sidebar"]?.["badge"],
+          // @ts-ignore
+          attrs: doc.frontmatter()?.["sidebar"]?.["attrs"] || {},
         };
       }),
       collapsed,
@@ -172,11 +175,14 @@ const sidebarDates = Array.from(docsByDate.keys())
         if (isCurrent) collapsed = false;
         return {
           type: "link",
-          label: doc.title(),
           href: doc.url(),
           isCurrent,
-          badge: undefined,
-          attrs: {},
+          // @ts-ignore
+          label: doc.frontmatter()?.["sidebar"]?.["label"] || doc.title(),
+          // @ts-ignore
+          badge: doc.frontmatter()?.["sidebar"]?.["badge"],
+          // @ts-ignore
+          attrs: doc.frontmatter()?.["sidebar"]?.["attrs"] || {},
         };
       }),
       collapsed,
@@ -225,11 +231,14 @@ const sidebarTags = [...docsByTags.keys()]
         if (isCurrent) collapsed = false;
         return {
           type: "link",
-          label: doc.title(),
           href: doc.url(),
           isCurrent,
-          badge: undefined,
-          attrs: {},
+          // @ts-ignore
+          label: doc.frontmatter()?.["sidebar"]?.["label"] || doc.title(),
+          // @ts-ignore
+          badge: doc.frontmatter()?.["sidebar"]?.["badge"],
+          // @ts-ignore
+          attrs: doc.frontmatter()?.["sidebar"]?.["attrs"] || {},
         };
       }),
       collapsed,
@@ -242,3 +251,30 @@ sidebarTags.unshift(Astro.props.sidebar[0]);
 
 <Default {...Astro.props} sidebar={sidebarTags}><slot /></Default>
 ```
+
+## Multiple sidebars experiment
+
+```astro
+// src/components/Sidebar.astro
+---
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+// ... other code see above
+---
+
+<Tabs>
+  <TabItem label="Default">
+    <Default {...Astro.props}><slot /></Default>
+  </TabItem>
+  <TabItem label="A-Z">
+    <Default {...Astro.props} sidebar={sidebarAlpha}><slot /></Default>
+  </TabItem>
+  <TabItem label="Latest">
+    <Default {...Astro.props} sidebar={sidebarDates}><slot /></Default>
+  </TabItem>
+</Tabs>
+```
+
+### TODO
+
+- [ ] Tabs suppose to save state accross navigations
+- [ ] Scroll area should be inside of `TabItem`
