@@ -68,6 +68,16 @@ export default defineConfig({
                 defer: true,
               },
             },
+            {
+              tag: "script",
+              attrs: {
+                src: "https://beampipe.io/js/tracker.js",
+                "data-beampipe-domain":
+                  "astro-digital-garden.stereobooster.com",
+                defer: true,
+                async: true,
+              },
+            },
           ]
         : undefined,
     }),
