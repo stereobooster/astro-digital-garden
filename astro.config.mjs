@@ -53,8 +53,7 @@ export default defineConfig({
         PageFrame: "./src/components/PageFrame.astro",
         TableOfContents: "./src/components/TableOfContents.astro",
         Head: "./src/components/Head.astro",
-        // TODO: astro:page-load
-        // Sidebar: "./src/components/Sidebar.astro",
+        Sidebar: "./src/components/Sidebar.astro",
       },
       lastUpdated: true,
       // If you want to fork this repository for personal use,
