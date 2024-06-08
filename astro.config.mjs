@@ -48,7 +48,7 @@ export default defineConfig({
       ],
       // pagination doesn't make sense in the context of digital garden
       pagination: false,
-      customCss: ["./src/styles/custom.css"],
+      customCss: ["./src/styles/custom.css", "katex/dist/katex.min.css"],
       components: {
         PageFrame: "./src/components/PageFrame.astro",
         TableOfContents: "./src/components/TableOfContents.astro",

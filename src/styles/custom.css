@@ -1,5 +1,3 @@
-@import url(katex/dist/katex.min.css);
-
 /* needed if you use strategy: "img-class-dark-mode" */
 html[data-theme="light"] .beoe-dark {
   display: none;
