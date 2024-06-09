@@ -17,8 +17,6 @@ import { rehypeGnuplot } from "@beoe/rehype-gnuplot";
 
 import { remarkDataview } from "./src/plugins/remarkDataview.mjs";
 
-import url from "node:url";
-
 const cache = await getCache();
 
 await bdb.ready();
