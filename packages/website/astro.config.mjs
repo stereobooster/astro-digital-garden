@@ -34,7 +34,7 @@ export default defineConfig({
       },
       editLink: {
         baseUrl:
-          "https://github.com/stereobooster/astro-digital-garden/edit/main/",
+          "https://github.com/stereobooster/astro-digital-garden/edit/main/packages/website/",
       },
       sidebar: [
         { label: "Introduction", link: "/" },
