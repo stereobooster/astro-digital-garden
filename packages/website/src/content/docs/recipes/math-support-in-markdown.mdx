@@ -15,31 +15,21 @@ import { Steps } from "@astrojs/starlight/components";
 1. Install dependencies
 
    ```bash
-   pnpm add katex rehype-katex remark-math
+   pnpm add katex starlight-katex
    ```
 
 2. Configure Astro
 
-   ```js {2-3, 8, 12-13, 17}
+   ```js {2, 7}
    // astro.config.mjs
-   import remarkMath from "remark-math";
-   import rehypeKatex from "rehype-katex";
+   import { starlightKatex } from "starlight-katex";
 
    export default defineConfig({
      integrations: [
        starlight({
-         customCss: ["katex/dist/katex.min.css"],
+         plugins: [starlightKatex()],
        }),
      ],
-     markdown: {
-       remarkPlugins: [remarkMath],
-       rehypePlugins: [rehypeKatex],
-     },
-     vite: {
-       ssr: {
-         noExternal: ["katex"],
-       },
-     },
    });
    ```
 
@@ -50,12 +40,14 @@ import { Steps } from "@astrojs/starlight/components";
 ```md
 // example.md
 When $a \ne 0$, there are two solutions to $(ax^2 + bx + c = 0)$ and they are
+
 $$
 x = {-b \pm \sqrt{b^2-4ac} \over 2a}
 $$
 ```
 
 When $a \ne 0$, there are two solutions to $(ax^2 + bx + c = 0)$ and they are
+
 $$
 x = {-b \pm \sqrt{b^2-4ac} \over 2a}
 $$

@@ -58,3 +58,34 @@ $$
 x = {-b \pm \sqrt{b^2-4ac} \over 2a}
 $$
 ```
+
+## PS
+
+This plugin is just shortcut for following configuration:
+
+```sh
+pnpm add katex rehype-katex remark-math
+```
+
+```js
+// astro.config.mjs
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+
+export default defineConfig({
+  integrations: [
+    starlight({
+      customCss: ["katex/dist/katex.min.css"],
+    }),
+  ],
+  markdown: {
+    remarkPlugins: [remarkMath],
+    rehypePlugins: [rehypeKatex],
+  },
+  vite: {
+    ssr: {
+      noExternal: ["katex"],
+    },
+  },
+});
+```
