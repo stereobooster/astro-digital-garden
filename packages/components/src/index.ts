@@ -1,0 +1,97 @@
+// import type {
+//   StarlightPlugin,
+//   StarlightUserConfig,
+// } from "@astrojs/starlight/types";
+
+// export default function starlightDigitalGarden(): StarlightPlugin {
+//   return {
+//     name: "starlight-digital-garden",
+//     hooks: {
+//       setup({  config, updateConfig }) {
+//         const updatedConfig: Partial<StarlightUserConfig> = {
+//           components: { ...config.components },
+//         };
+
+//         updateConfig(updatedConfig);
+//       },
+//     },
+//   };
+// }
+
+// import type { AstroConfig } from 'astro';
+import remarkWikiLink from "@braindb/remark-wiki-link";
+import { bdb } from "./braindb.js";
+import { remarkDataview } from "./remarkDataview.js";
+
+import { defineIntegration } from "astro-integration-kit";
+import { z } from "astro/zod";
+
+export default defineIntegration({
+  name: "astro-digital-garden",
+  optionsSchema: z.object({}).optional(),
+  setup() {
+    return {
+      hooks: {
+        "astro:config:setup": async (params) => {
+          await bdb.ready();
+          const { updateConfig } = params;
+
+          const newConfig = {
+            markdown: {
+              remarkPlugins: [
+                [remarkDataview, { bdb }],
+                [
+                  remarkWikiLink,
+                  {
+                    linkTemplate: ({
+                      slug,
+                      alias,
+                    }: {
+                      slug: string;
+                      alias: string;
+                    }) => {
+                      const [slugWithoutAnchor, anchor] = slug.split("#");
+                      const doc = bdb.documentsSync({
+                        slug: slugWithoutAnchor,
+                      })[0];
+                      if (doc) {
+                        return {
+                          hName: "a",
+                          hProperties: {
+                            href: anchor ? `${doc.url()}#${anchor}` : doc.url(),
+                          },
+                          hChildren: [
+                            {
+                              type: "text",
+                              value:
+                                alias == null ? doc.frontmatter().title : alias,
+                            },
+                          ],
+                        };
+                      } else {
+                        return {
+                          hName: "span",
+                          hProperties: {
+                            class: "broken-link",
+                            title: `Can't resolve link to ${slug}`,
+                          },
+                          hChildren: [{ type: "text", value: alias || slug }],
+                        };
+                      }
+                    },
+                  },
+                ],
+              ],
+            },
+            vite: {
+              optimizeDeps: {
+                exclude: ["fsevents", "@node-rs", "@napi-rs"],
+              },
+            },
+          };
+          updateConfig(newConfig);
+        },
+      },
+    };
+  },
+});

@@ -1,6 +1,7 @@
 ---
 import type { Task } from "@braindb/core";
-import { bdb, isContent } from "@lib/braindb.mjs";
+import { bdb } from "astro-digital-garden/braindb";
+import { isContent } from "@lib/braindb.mjs";
 
 // TODO: shall I sort pages by title (alphabetically) or by date (recent first)?
 const grouped: Record<string, Task[]> = {};

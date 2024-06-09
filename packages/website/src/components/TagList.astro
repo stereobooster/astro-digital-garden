@@ -1,5 +1,6 @@
 ---
-import { bdb, isContent } from "@lib/braindb.mjs";
+import { bdb } from "astro-digital-garden/braindb";
+import { isContent } from "@lib/braindb.mjs";
 import type { Document } from "@braindb/core";
 
 const docsByTags = new Map<string, Document[]>();

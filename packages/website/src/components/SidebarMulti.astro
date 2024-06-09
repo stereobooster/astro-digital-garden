@@ -3,7 +3,8 @@ import type { Props } from "@astrojs/starlight/props";
 import Default from "@astrojs/starlight/components/Sidebar.astro";
 import { Tabs, TabItem } from "@astrojs/starlight/components";
 
-import { bdb, isContent } from "@lib/braindb.mjs";
+import { bdb } from "astro-digital-garden/braindb";
+import { isContent } from "@lib/braindb.mjs";
 import type { Document } from "@braindb/core";
 
 const firstChar = (str: string) => String.fromCodePoint(str.codePointAt(0)!);

@@ -9,10 +9,20 @@
     "plugin"
   ],
   "type": "module",
+  "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./index.ts"
+    ".": "./dist/index.js",
+    "./braindb": {
+      "import": "./dist/braindb.js",
+      "types": "./dist/braindb.d.ts"
+    }
   },
-  "scripts": {},
+  "scripts": {
+    "prepublishOnly": "npm run build",
+    "build": "rm -rf dist && tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist"
+  },
   "devDependencies": {
     "@astrojs/starlight": "^0.23.1",
     "astro": "^4.8.7"
@@ -28,5 +38,12 @@
     "type": "git",
     "url": "https://github.com/stereobooster/astro-digital-garden.git",
     "directory": "packages/components"
+  },
+  "dependencies": {
+    "@beoe/remark-code-hook": "^0.0.1",
+    "@braindb/core": "0.0.13",
+    "@braindb/remark-wiki-link": "^2.1.0",
+    "astro-integration-kit": "^0.13.3",
+    "github-slugger": "^2.0.0"
   }
 }
