@@ -32,6 +32,15 @@ importers:
       github-slugger:
         specifier: ^2.0.0
         version: 2.0.0
+      katex:
+        specifier: ^0.16.10
+        version: 0.16.10
+      rehype-katex:
+        specifier: ^7.0.0
+        version: 7.0.0
+      remark-math:
+        specifier: ^6.0.0
+        version: 6.0.0
     devDependencies:
       '@astrojs/starlight':
         specifier: ^0.23.1

@@ -7,6 +7,7 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import Icons from "unplugin-icons/vite";
 
 import astroDigitalGarden from "astro-digital-garden";
+import { starlightKatex } from "astro-digital-garden/katex";
 
 import { getCache } from "@beoe/cache";
 import { rehypeMermaid } from "@beoe/rehype-mermaid";
@@ -14,6 +15,7 @@ import { rehypeGraphviz } from "@beoe/rehype-graphviz";
 import { rehypeGnuplot } from "@beoe/rehype-gnuplot";
 
 const cache = await getCache();
+
 
 // https://astro.build/config
 export default defineConfig({

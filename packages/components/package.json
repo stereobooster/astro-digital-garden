@@ -9,20 +9,12 @@
     "plugin"
   ],
   "type": "module",
-  "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./dist/index.js",
-    "./braindb": {
-      "import": "./dist/braindb.js",
-      "types": "./dist/braindb.d.ts"
-    }
+    ".": "./src/index.ts",
+    "./braindb": "./src/braindb.ts",
+    "./katex": "./src/katex.ts"
   },
-  "scripts": {
-    "prepublishOnly": "npm run build",
-    "build": "rm -rf dist && tsc",
-    "dev": "tsc --watch",
-    "clean": "rm -rf dist"
-  },
+  "scripts": {},
   "devDependencies": {
     "@astrojs/starlight": "^0.23.1",
     "astro": "^4.8.7"
@@ -44,6 +36,9 @@
     "@braindb/core": "0.0.13",
     "@braindb/remark-wiki-link": "^2.1.0",
     "astro-integration-kit": "^0.13.3",
-    "github-slugger": "^2.0.0"
+    "github-slugger": "^2.0.0",
+    "katex": "^0.16.10",
+    "rehype-katex": "^7.0.0",
+    "remark-math": "^6.0.0"
   }
 }

@@ -1,23 +1,3 @@
-// import type {
-//   StarlightPlugin,
-//   StarlightUserConfig,
-// } from "@astrojs/starlight/types";
-
-// export default function starlightDigitalGarden(): StarlightPlugin {
-//   return {
-//     name: "starlight-digital-garden",
-//     hooks: {
-//       setup({  config, updateConfig }) {
-//         const updatedConfig: Partial<StarlightUserConfig> = {
-//           components: { ...config.components },
-//         };
-
-//         updateConfig(updatedConfig);
-//       },
-//     },
-//   };
-// }
-
 // import type { AstroConfig } from 'astro';
 import remarkWikiLink from "@braindb/remark-wiki-link";
 import { bdb } from "./braindb.js";
@@ -32,9 +12,8 @@ export default defineIntegration({
   setup() {
     return {
       hooks: {
-        "astro:config:setup": async (params) => {
+        "astro:config:setup": async ({ updateConfig }) => {
           await bdb.ready();
-          const { updateConfig } = params;
 
           const newConfig = {
             markdown: {
