@@ -36,9 +36,6 @@
     "@braindb/core": "0.0.13",
     "@braindb/remark-wiki-link": "^2.1.0",
     "astro-integration-kit": "^0.13.3",
-    "github-slugger": "^2.0.0",
-    "katex": "^0.16.10",
-    "rehype-katex": "^7.0.0",
-    "remark-math": "^6.0.0"
+    "github-slugger": "^2.0.0"
   }
 }

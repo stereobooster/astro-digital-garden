@@ -7,7 +7,7 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import Icons from "unplugin-icons/vite";
 
 import astroDigitalGarden from "astro-digital-garden";
-import { starlightKatex } from "astro-digital-garden/katex";
+import { starlightKatex } from "starlight-katex";
 
 import { getCache } from "@beoe/cache";
 import { rehypeMermaid } from "@beoe/rehype-mermaid";

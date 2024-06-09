@@ -12,6 +12,7 @@
   "dependencies": {
     "starlight-katex": "workspace:*",
     "astro-digital-garden": "workspace:*",
+    "starlight-katex": "workspace:*",
     "@astrojs/check": "^0.7.0",
     "@astrojs/markdown-remark": "^5.1.0",
     "@astrojs/starlight": "^0.24.0",
