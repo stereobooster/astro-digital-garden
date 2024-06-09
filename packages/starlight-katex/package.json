@@ -1,0 +1,41 @@
+{
+  "name": "starlight-katex",
+  "author": "stereobooster",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "Starlight plugin for Katex",
+  "keywords": [
+    "starlight",
+    "plugin",
+    "katex",
+    "latex",
+    "math"
+  ],
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {},
+  "devDependencies": {
+    "@astrojs/starlight": "^0.23.1",
+    "astro": "^4.8.7"
+  },
+  "peerDependencies": {
+    "@astrojs/starlight": ">=0.16.0",
+    "astro": ">=4.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stereobooster/astro-digital-garden.git",
+    "directory": "packages/starlight-katex"
+  },
+  "dependencies": {
+    "astro-integration-kit": "^0.13.3",
+    "katex": "^0.16.10",
+    "rehype-katex": "^7.0.0",
+    "remark-math": "^6.0.0"
+  }
+}

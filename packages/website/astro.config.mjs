@@ -1,8 +1,7 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import rehypeExternalLinks from "rehype-external-links";
-import remarkMath from "remark-math";
-import rehypeKatex from "rehype-katex";
+import { starlightKatex } from "starlight-katex";
 import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import Icons from "unplugin-icons/vite";
@@ -46,7 +45,7 @@ export default defineConfig({
       ],
       // pagination doesn't make sense in the context of digital garden
       pagination: false,
-      customCss: ["./src/styles/custom.css", "katex/dist/katex.min.css"],
+      customCss: ["./src/styles/custom.css"],
       components: {
         PageFrame: "./src/components/PageFrame.astro",
         TableOfContents: "./src/components/TableOfContents.astro",
@@ -78,12 +77,12 @@ export default defineConfig({
             },
           ]
         : undefined,
+      plugins: [starlightKatex()],
     }),
   ],
   markdown: {
     remarkPlugins: [
       [remarkDataview, { bdb }],
-      remarkMath,
       [
         remarkWikiLink,
         {
@@ -143,13 +142,9 @@ export default defineConfig({
           // },
         },
       ],
-      rehypeKatex,
     ],
   },
   vite: {
-    ssr: {
-      noExternal: ["katex"],
-    },
     optimizeDeps: {
       exclude: ["fsevents", "@node-rs", "@napi-rs"],
     },
