@@ -15,6 +15,15 @@ importers:
         specifier: ^5.4.5
         version: 5.4.5
 
+  packages/components:
+    devDependencies:
+      '@astrojs/starlight':
+        specifier: ^0.23.1
+        version: 0.23.4(astro@4.10.1(typescript@5.4.5))
+      astro:
+        specifier: ^4.8.7
+        version: 4.10.1(typescript@5.4.5)
+
   packages/website:
     dependencies:
       '@astrojs/check':
@@ -25,7 +34,7 @@ importers:
         version: 5.1.0
       '@astrojs/starlight':
         specifier: ^0.24.0
-        version: 0.24.0(astro@4.10.1)
+        version: 0.24.0(astro@4.10.1(typescript@5.4.5))
       '@beoe/cache':
         specifier: ^0.0.1
         version: 0.0.1(typescript@5.4.5)
@@ -64,10 +73,10 @@ importers:
         version: 4.10.1(typescript@5.4.5)
       astro-og-canvas:
         specifier: ^0.5.0
-        version: 0.5.0(astro@4.10.1)
+        version: 0.5.0(astro@4.10.1(typescript@5.4.5))
       astro-seo-schema:
         specifier: ^4.0.2
-        version: 4.0.2(astro@4.10.1)(schema-dts@1.1.2)
+        version: 4.0.2(astro@4.10.1(typescript@5.4.5))(schema-dts@1.1.2(typescript@5.4.5))
       canvaskit-wasm:
         specifier: ^0.39.1
         version: 0.39.1
@@ -189,6 +198,11 @@ packages:
 
   '@astrojs/sitemap@3.1.5':
     resolution: {integrity: sha512-GLdzJ01387Uzb8RKYpsYLlg/GzoPnGbmDeQNkarSE11i2+l9Qp8Nj/WoTEy9nkTS25fxxy0kxDfJmreeVleCqg==}
+
+  '@astrojs/starlight@0.23.4':
+    resolution: {integrity: sha512-EHsjFfnvv+m2bHGJCwFoCLrbW1kfCPnHaPIbqCTMW+NWU8xO/bwtz6MgK6ant5wqjf0DqUkwHY6Esn72kmc9jQ==}
+    peerDependencies:
+      astro: ^4.8.6
 
   '@astrojs/starlight@0.24.0':
     resolution: {integrity: sha512-YUBf7TgDUMRcyoZ8S8hlnPuEvgqFuB5F7tQUwPK5GwkTC1E+gMW8zx9J/RgJAXNjQSi19s73nuF19zw/QSy5tw==}
@@ -4256,7 +4270,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@3.1.0(astro@4.10.1)':
+  '@astrojs/mdx@3.1.0(astro@4.10.1(typescript@5.4.5))':
     dependencies:
       '@astrojs/markdown-remark': 5.1.0
       '@mdx-js/mdx': 3.0.1
@@ -4287,15 +4301,41 @@ snapshots:
       stream-replace-string: 2.0.0
       zod: 3.23.8
 
-  '@astrojs/starlight@0.24.0(astro@4.10.1)':
+  '@astrojs/starlight@0.23.4(astro@4.10.1(typescript@5.4.5))':
     dependencies:
-      '@astrojs/mdx': 3.1.0(astro@4.10.1)
+      '@astrojs/mdx': 3.1.0(astro@4.10.1(typescript@5.4.5))
       '@astrojs/sitemap': 3.1.5
       '@pagefind/default-ui': 1.1.0
       '@types/hast': 3.0.4
       '@types/mdast': 4.0.4
       astro: 4.10.1(typescript@5.4.5)
-      astro-expressive-code: 0.35.3(astro@4.10.1)
+      astro-expressive-code: 0.35.3(astro@4.10.1(typescript@5.4.5))
+      bcp-47: 2.1.0
+      hast-util-from-html: 2.0.1
+      hast-util-select: 6.0.2
+      hast-util-to-string: 3.0.0
+      hastscript: 8.0.0
+      mdast-util-directive: 3.0.0
+      mdast-util-to-markdown: 2.1.0
+      pagefind: 1.1.0
+      rehype: 13.0.1
+      rehype-format: 5.0.0
+      remark-directive: 3.0.0
+      unified: 11.0.4
+      unist-util-visit: 5.0.0
+      vfile: 6.0.1
+    transitivePeerDependencies:
+      - supports-color
+
+  '@astrojs/starlight@0.24.0(astro@4.10.1(typescript@5.4.5))':
+    dependencies:
+      '@astrojs/mdx': 3.1.0(astro@4.10.1(typescript@5.4.5))
+      '@astrojs/sitemap': 3.1.5
+      '@pagefind/default-ui': 1.1.0
+      '@types/hast': 3.0.4
+      '@types/mdast': 4.0.4
+      astro: 4.10.1(typescript@5.4.5)
+      astro-expressive-code: 0.35.3(astro@4.10.1(typescript@5.4.5))
       bcp-47: 2.1.0
       hast-util-from-html: 2.0.1
       hast-util-select: 6.0.2
@@ -5405,19 +5445,19 @@ snapshots:
 
   astring@1.8.6: {}
 
-  astro-expressive-code@0.35.3(astro@4.10.1):
+  astro-expressive-code@0.35.3(astro@4.10.1(typescript@5.4.5)):
     dependencies:
       astro: 4.10.1(typescript@5.4.5)
       rehype-expressive-code: 0.35.3
 
-  astro-og-canvas@0.5.0(astro@4.10.1):
+  astro-og-canvas@0.5.0(astro@4.10.1(typescript@5.4.5)):
     dependencies:
       astro: 4.10.1(typescript@5.4.5)
       canvaskit-wasm: 0.39.1
       deterministic-object-hash: 2.0.2
       entities: 4.5.0
 
-  astro-seo-schema@4.0.2(astro@4.10.1)(schema-dts@1.1.2):
+  astro-seo-schema@4.0.2(astro@4.10.1(typescript@5.4.5))(schema-dts@1.1.2(typescript@5.4.5)):
     dependencies:
       astro: 4.10.1(typescript@5.4.5)
       schema-dts: 1.1.2(typescript@5.4.5)
@@ -5725,6 +5765,7 @@ snapshots:
       import-fresh: 3.3.0
       js-yaml: 4.1.0
       parse-json: 5.2.0
+    optionalDependencies:
       typescript: 5.4.5
 
   cross-spawn@7.0.3:
@@ -6198,7 +6239,7 @@ snapshots:
       minimatch: 3.1.2
 
   drizzle-orm@0.30.10(better-sqlite3@9.6.0):
-    dependencies:
+    optionalDependencies:
       better-sqlite3: 9.6.0
 
   dset@3.1.3: {}
@@ -8709,7 +8750,7 @@ snapshots:
   ts-dedent@2.2.0: {}
 
   tsconfck@3.1.0(typescript@5.4.5):
-    dependencies:
+    optionalDependencies:
       typescript: 5.4.5
 
   tslib@2.6.3:
@@ -8988,47 +9029,52 @@ snapshots:
       fsevents: 2.3.3
 
   vitefu@0.2.5(vite@5.2.13):
-    dependencies:
+    optionalDependencies:
       vite: 5.2.13
 
   volar-service-css@0.0.45(@volar/language-service@2.2.5):
     dependencies:
-      '@volar/language-service': 2.2.5
       vscode-css-languageservice: 6.2.14
       vscode-languageserver-textdocument: 1.0.11
       vscode-uri: 3.0.8
+    optionalDependencies:
+      '@volar/language-service': 2.2.5
 
   volar-service-emmet@0.0.45(@volar/language-service@2.2.5):
     dependencies:
       '@emmetio/css-parser': 0.4.0
       '@emmetio/html-matcher': 1.3.0
-      '@volar/language-service': 2.2.5
       '@vscode/emmet-helper': 2.9.3
+    optionalDependencies:
+      '@volar/language-service': 2.2.5
 
   volar-service-html@0.0.45(@volar/language-service@2.2.5):
     dependencies:
-      '@volar/language-service': 2.2.5
       vscode-html-languageservice: '@johnsoncodehk/vscode-html-languageservice@5.2.0-34a5462'
       vscode-languageserver-textdocument: 1.0.11
       vscode-uri: 3.0.8
+    optionalDependencies:
+      '@volar/language-service': 2.2.5
 
   volar-service-prettier@0.0.45(@volar/language-service@2.2.5):
     dependencies:
-      '@volar/language-service': 2.2.5
       vscode-uri: 3.0.8
+    optionalDependencies:
+      '@volar/language-service': 2.2.5
 
   volar-service-typescript-twoslash-queries@0.0.45(@volar/language-service@2.2.5):
-    dependencies:
+    optionalDependencies:
       '@volar/language-service': 2.2.5
 
   volar-service-typescript@0.0.45(@volar/language-service@2.2.5):
     dependencies:
-      '@volar/language-service': 2.2.5
       path-browserify: 1.0.1
       semver: 7.6.2
       typescript-auto-import-cache: 0.3.2
       vscode-languageserver-textdocument: 1.0.11
       vscode-nls: 5.2.0
+    optionalDependencies:
+      '@volar/language-service': 2.2.5
 
   vscode-css-languageservice@6.2.14:
     dependencies:
