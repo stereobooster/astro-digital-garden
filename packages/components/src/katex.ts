@@ -17,7 +17,7 @@ export const astroKatex = defineIntegration({
           const newConfig = {
             markdown: {
               remarkPlugins: [...config.markdown.remarkPlugins, remarkMath],
-              rehypePlugins: [...config.markdown.remarkPlugins, rehypeKatex],
+              rehypePlugins: [...config.markdown.rehypePlugins, rehypeKatex],
             },
             vite: {
               ssr: {
