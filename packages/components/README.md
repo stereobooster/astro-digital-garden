@@ -1,5 +1,16 @@
 # Components for astro-digital-garden
 
+TODO:
+
+- [ ] `astro-braindb`
+  - `src/lib/braindb.mjs` maybe virtual module?
+- [ ] `starlight-digital-garden`
+  - [ ] `LinkPreview`
+  - [ ] Pan and zoom for images
+  - [ ] "Snake" table of content
+  - [ ] Alphabetical index (BrainDB instance as param)
+  - [ ] Recently changed (BrainDB instance as param)
+
 I want to extract some components to make it easier to re-use.
 
 Examples of plugins:
@@ -9,7 +20,6 @@ Examples of plugins:
 - https://github.com/withastro/astro/blob/main/packages/integrations/sitemap/src/index.ts
 - https://astro-integration-kit.netlify.app/getting-started/installation/
 - https://starlight.astro.build/reference/plugins/
-
 
 To compile TS
 
