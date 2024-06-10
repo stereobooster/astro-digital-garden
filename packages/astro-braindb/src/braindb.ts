@@ -3,6 +3,8 @@ import path from "node:path";
 import process from "node:process";
 import { BrainDB } from "@braindb/core";
 
+// import config from "virtual:astro-braindb/config";
+
 // slug implementation according to Astro
 // see astro/packages/astro/src/content/utils.ts
 const generateSlug = (filePath: string) => {

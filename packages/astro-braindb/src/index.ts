@@ -1,7 +1,7 @@
 // import type { AstroConfig } from 'astro';
 import remarkWikiLink from "@braindb/remark-wiki-link";
-import { bdb } from "./braindb.js";
 import { remarkDataview } from "./remarkDataview.js";
+import { bdb } from "./braindb.js";
 
 import { defineIntegration } from "astro-integration-kit";
 import { z } from "astro/zod";
@@ -12,7 +12,8 @@ export default defineIntegration({
   setup() {
     return {
       hooks: {
-        "astro:config:setup": async ({ updateConfig }) => {
+        "astro:config:setup": async (params) => {
+          const { updateConfig } = params;
           await bdb.ready();
 
           const newConfig = {

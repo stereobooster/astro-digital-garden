@@ -4,12 +4,8 @@ TODO:
 
 - [ ] `astro-braindb`
   - `src/lib/braindb.mjs` maybe virtual module?
-- [ ] `starlight-digital-garden`
-  - [ ] `LinkPreview`
-  - [ ] Pan and zoom for images
-  - [ ] "Snake" table of content
-  - [ ] Alphabetical index (BrainDB instance as param)
-  - [ ] Recently changed (BrainDB instance as param)
+  - should be possible to pass configuation for `braindb`
+  - configuration for remark/rehype plugins
 
 I want to extract some components to make it easier to re-use.
 
@@ -42,4 +38,16 @@ To compile TS
   "dev": "tsc --watch",
   "clean": "rm -rf dist"
 },
+```
+
+```ts
+addVirtualImports(params, {
+  name,
+  imports: {
+    "virtual:astro-braindb/config": `export default ${JSON.stringify({
+      foo: "bar",
+      ...(options || {}),
+    })}`,
+  },
+});
 ```
