@@ -28,6 +28,8 @@ export default  function plugin(): StarlightPlugin {
         const componentOverrides: typeof config.components = {};
         componentOverrides.PageFrame =
           "starlight-digital-garden/components/PageFrame.astro";
+        componentOverrides.Sidebar =
+          "starlight-digital-garden/components/Sidebar.astro";
         
         updateConfig({
           components: {
