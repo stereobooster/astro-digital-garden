@@ -6,7 +6,6 @@ import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import Icons from "unplugin-icons/vite";
 
-import astroDBrainDB from "astro-braindb";
 import starlightDigitalGarden from "starlight-digital-garden";
 import { starlightKatex } from "starlight-katex";
 
@@ -44,7 +43,6 @@ export default defineConfig({
       pagination: false,
       customCss: ["./src/styles/custom.css"],
       components: {
-        TableOfContents: "./src/components/TableOfContents.astro",
         Head: "./src/components/Head.astro",
       },
       lastUpdated: true,
@@ -74,7 +72,6 @@ export default defineConfig({
         : undefined,
       plugins: [starlightKatex(), starlightDigitalGarden()],
     }),
-    astroDBrainDB(),
   ],
   markdown: {
     rehypePlugins: [

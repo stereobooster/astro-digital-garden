@@ -1,0 +1,46 @@
+---
+import type { CollectionEntry } from "astro:content";
+interface Props {
+  entry: CollectionEntry<"docs">;
+}
+const { entry } = Astro.props;
+---
+
+<div class="tags">
+  {
+    entry.data.tags && entry.data.tags.length > 0 && (
+      <>
+        <h2>Tags</h2>
+        <ul>
+          {entry.data.tags.map((tag) => (
+            <li>
+              <span>#{tag}</span>
+            </li>
+          ))}
+        </ul>
+      </>
+    )
+  }
+</div>
+
+<style>
+  .tags {
+    h2 {
+      padding-top: 1rem;
+    }
+
+    ul {
+      padding: 0;
+      list-style: none;
+    }
+
+    span {
+      --pad-inline: 0.5rem;
+      display: block;
+      border-radius: 0.25rem;
+      padding-block: 0.25rem;
+      padding-inline: var(--pad-inline) var(--pad-inline);
+      line-height: 1.25;
+    }
+  }
+</style>

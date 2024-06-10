@@ -48,6 +48,9 @@ importers:
       '@floating-ui/dom':
         specifier: ^1.6.5
         version: 1.6.5
+      astro-braindb:
+        specifier: workspace:*
+        version: link:../astro-braindb
       astro-integration-kit:
         specifier: ^0.13.3
         version: 0.13.3(astro@4.10.1(typescript@5.4.5))

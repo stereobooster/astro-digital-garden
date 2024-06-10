@@ -12,7 +12,8 @@
   "exports": {
     ".": "./index.ts",
     "./components/PageFrame.astro": "./components/PageFrame.astro",
-    "./components/Sidebar.astro": "./components/Sidebar.astro"
+    "./components/Sidebar.astro": "./components/Sidebar.astro",
+    "./components/TableOfContents.astro": "./components/TableOfContents.astro"
   },
   "scripts": {},
   "devDependencies": {
@@ -32,6 +33,7 @@
     "directory": "packages/astro-braindb"
   },
   "dependencies": {
+    "astro-braindb": "workspace:*",
     "astro-integration-kit": "^0.13.3",
     "@beoe/pan-zoom": "^0.0.3",
     "@floating-ui/dom": "^1.6.5"

@@ -8,7 +8,6 @@ const integration = defineIntegration({
     return {
       hooks: {
         "astro:config:setup": async (params) => {
-         
           // updateConfig(newConfig);
         },
       },
@@ -16,21 +15,23 @@ const integration = defineIntegration({
   },
 });
 
+import astroDBrainDB from "astro-braindb";
 import type { StarlightPlugin } from "@astrojs/starlight/types";
 
-export default  function plugin(): StarlightPlugin {
-  
+export default function plugin(): StarlightPlugin {
   return {
     name: "starlight-digital-garden",
     hooks: {
       setup({ addIntegration, config, updateConfig }) {
-        // addIntegration();
+        addIntegration(astroDBrainDB());
         const componentOverrides: typeof config.components = {};
         componentOverrides.PageFrame =
           "starlight-digital-garden/components/PageFrame.astro";
         componentOverrides.Sidebar =
           "starlight-digital-garden/components/Sidebar.astro";
-        
+        componentOverrides.TableOfContents =
+          "starlight-digital-garden/components/TableOfContents.astro";
+
         updateConfig({
           components: {
             ...componentOverrides,
