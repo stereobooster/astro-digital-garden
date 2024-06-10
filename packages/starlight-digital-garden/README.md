@@ -2,9 +2,9 @@
 
 TODO:
 
-- [ ] `starlight-digital-garden`
-  - [ ] `LinkPreview`
-  - [ ] Pan and zoom for images
-  - [ ] "Snake" table of content
-  - [ ] Alphabetical index (BrainDB instance as param)
-  - [ ] Recently changed (BrainDB instance as param)
+- [x] `LinkPreview`
+- [x] Pan and zoom for images
+- [ ] configuration
+- [ ] "Snake" table of content
+- [ ] Alphabetical index (BrainDB instance as param)
+- [ ] Recently changed (BrainDB instance as param)

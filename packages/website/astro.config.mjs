@@ -6,7 +6,8 @@ import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import Icons from "unplugin-icons/vite";
 
-import astroDigitalGarden from "astro-braindb";
+import astroDBrainDB from "astro-braindb";
+import starlightDigitalGarden from "starlight-digital-garden";
 import { starlightKatex } from "starlight-katex";
 
 import { getCache } from "@beoe/cache";
@@ -15,7 +16,6 @@ import { rehypeGraphviz } from "@beoe/rehype-graphviz";
 import { rehypeGnuplot } from "@beoe/rehype-gnuplot";
 
 const cache = await getCache();
-
 
 // https://astro.build/config
 export default defineConfig({
@@ -44,7 +44,7 @@ export default defineConfig({
       pagination: false,
       customCss: ["./src/styles/custom.css"],
       components: {
-        PageFrame: "./src/components/PageFrame.astro",
+        // PageFrame: "./src/components/PageFrame.astro",
         TableOfContents: "./src/components/TableOfContents.astro",
         Head: "./src/components/Head.astro",
         Sidebar: "./src/components/Sidebar.astro",
@@ -74,9 +74,9 @@ export default defineConfig({
             },
           ]
         : undefined,
-      plugins: [starlightKatex()],
+      plugins: [starlightKatex(), starlightDigitalGarden()],
     }),
-    astroDigitalGarden(),
+    astroDBrainDB(),
   ],
   markdown: {
     rehypePlugins: [

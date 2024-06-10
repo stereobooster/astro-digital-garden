@@ -1,0 +1,38 @@
+{
+  "name": "starlight-digital-garden",
+  "author": "stereobooster",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "Starlight plugin for Astro digital garden.",
+  "keywords": [
+    "starlight",
+    "plugin"
+  ],
+  "type": "module",
+  "exports": {
+    ".": "./index.ts",
+    "./components/PageFrame.astro": "./components/PageFrame.astro"
+  },
+  "scripts": {},
+  "devDependencies": {
+    "@astrojs/starlight": "^0.23.1",
+    "astro": "^4.8.7"
+  },
+  "peerDependencies": {
+    "@astrojs/starlight": ">=0.16.0",
+    "astro": ">=4.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stereobooster/astro-digital-garden.git",
+    "directory": "packages/astro-braindb"
+  },
+  "dependencies": {
+    "astro-integration-kit": "^0.13.3",
+    "@beoe/pan-zoom": "^0.0.3",
+    "@floating-ui/dom": "^1.6.5"
+  }
+}

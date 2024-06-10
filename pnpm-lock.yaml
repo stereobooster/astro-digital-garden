@@ -40,6 +40,25 @@ importers:
         specifier: ^4.8.7
         version: 4.10.1(typescript@5.4.5)
 
+  packages/starlight-digital-garden:
+    dependencies:
+      '@beoe/pan-zoom':
+        specifier: ^0.0.3
+        version: 0.0.3
+      '@floating-ui/dom':
+        specifier: ^1.6.5
+        version: 1.6.5
+      astro-integration-kit:
+        specifier: ^0.13.3
+        version: 0.13.3(astro@4.10.1(typescript@5.4.5))
+    devDependencies:
+      '@astrojs/starlight':
+        specifier: ^0.23.1
+        version: 0.23.4(astro@4.10.1(typescript@5.4.5))
+      astro:
+        specifier: ^4.8.7
+        version: 4.10.1(typescript@5.4.5)
+
   packages/starlight-katex:
     dependencies:
       astro-integration-kit:
@@ -76,9 +95,6 @@ importers:
       '@beoe/cache':
         specifier: ^0.0.1
         version: 0.0.1(typescript@5.4.5)
-      '@beoe/pan-zoom':
-        specifier: ^0.0.3
-        version: 0.0.3
       '@beoe/rehype-gnuplot':
         specifier: ^0.0.1
         version: 0.0.1
@@ -97,9 +113,6 @@ importers:
       '@braindb/remark-wiki-link':
         specifier: ^2.1.0
         version: 2.1.0
-      '@floating-ui/dom':
-        specifier: ^1.6.5
-        version: 1.6.5
       '@iconify/json':
         specifier: ^2.2.217
         version: 2.2.217
@@ -169,6 +182,9 @@ importers:
       sigma:
         specifier: 3.0.0-beta.19
         version: 3.0.0-beta.19(graphology-types@0.24.7)
+      starlight-digital-garden:
+        specifier: workspace:*
+        version: link:../starlight-digital-garden
       starlight-katex:
         specifier: workspace:*
         version: link:../starlight-katex
