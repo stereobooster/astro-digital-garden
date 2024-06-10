@@ -6,7 +6,7 @@ import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import Icons from "unplugin-icons/vite";
 
-import astroDigitalGarden from "astro-digital-garden";
+import astroDigitalGarden from "astro-braindb";
 import { starlightKatex } from "starlight-katex";
 
 import { getCache } from "@beoe/cache";

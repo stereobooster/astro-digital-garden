@@ -1,5 +1,5 @@
 {
-  "name": "astro-digital-garden",
+  "name": "astro-braindb",
   "author": "stereobooster",
   "version": "0.0.1",
   "license": "MIT",
@@ -11,8 +11,7 @@
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
-    "./braindb": "./src/braindb.ts",
-    "./katex": "./src/katex.ts"
+    "./braindb": "./src/braindb.ts"
   },
   "scripts": {},
   "devDependencies": {
@@ -29,7 +28,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/stereobooster/astro-digital-garden.git",
-    "directory": "packages/components"
+    "directory": "packages/astro-braindb"
   },
   "dependencies": {
     "@beoe/remark-code-hook": "^0.0.1",

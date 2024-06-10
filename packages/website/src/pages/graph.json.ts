@@ -1,4 +1,4 @@
-import { bdb } from "astro-digital-garden/braindb";
+import { bdb } from "astro-braindb/braindb";
 import { toGraphologyJson } from "@lib/graph";
 
 export async function GET() {

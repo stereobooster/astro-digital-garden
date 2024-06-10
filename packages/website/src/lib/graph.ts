@@ -1,6 +1,6 @@
 import { BrainDB } from "@braindb/core";
 import { isContent } from "./braindb.mjs";
-import { bdb } from "astro-digital-garden/braindb";
+import { bdb } from "astro-braindb/braindb";
 import graphology from "graphology";
 import circular from "graphology-layout/circular";
 import forceAtlas2 from "graphology-layout-forceatlas2";

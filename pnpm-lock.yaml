@@ -15,7 +15,7 @@ importers:
         specifier: ^5.4.5
         version: 5.4.5
 
-  packages/components:
+  packages/astro-braindb:
     dependencies:
       '@beoe/remark-code-hook':
         specifier: ^0.0.1
@@ -32,28 +32,6 @@ importers:
       github-slugger:
         specifier: ^2.0.0
         version: 2.0.0
-    devDependencies:
-      '@astrojs/starlight':
-        specifier: ^0.23.1
-        version: 0.23.4(astro@4.10.1(typescript@5.4.5))
-      astro:
-        specifier: ^4.8.7
-        version: 4.10.1(typescript@5.4.5)
-
-  packages/starlight-katex:
-    dependencies:
-      astro-integration-kit:
-        specifier: ^0.13.3
-        version: 0.13.3(astro@4.10.1(typescript@5.4.5))
-      katex:
-        specifier: ^0.16.10
-        version: 0.16.10
-      rehype-katex:
-        specifier: ^7.0.0
-        version: 7.0.0
-      remark-math:
-        specifier: ^6.0.0
-        version: 6.0.0
     devDependencies:
       '@astrojs/starlight':
         specifier: ^0.23.1
@@ -131,9 +109,9 @@ importers:
       astro:
         specifier: ^4.10.1
         version: 4.10.1(typescript@5.4.5)
-      astro-digital-garden:
+      astro-braindb:
         specifier: workspace:*
-        version: link:../components
+        version: link:../astro-braindb
       astro-og-canvas:
         specifier: ^0.5.0
         version: 0.5.0(astro@4.10.1(typescript@5.4.5))

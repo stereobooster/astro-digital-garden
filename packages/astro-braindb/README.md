@@ -26,21 +26,20 @@ To compile TS
 ```
 "types": "./dist/index.d.ts",
 "exports": {
-".": "./dist/index.js",
-"./braindb": {
-    "import": "./dist/braindb.js",
-    "types": "./dist/braindb.d.ts"
-},
-"./katex": {
-    "import": "./dist/katex.js",
-    "types": "./dist/katex.d.ts"
-}
-},
-  "scripts": {
-    "prepublishOnly": "npm run build",
-    "build": "rm -rf dist && tsc",
-    "dev": "tsc --watch",
-    "clean": "rm -rf dist"
+  ".": "./dist/index.js",
+  "./braindb": {
+      "import": "./dist/braindb.js",
+      "types": "./dist/braindb.d.ts"
   },
-
+  "./katex": {
+      "import": "./dist/katex.js",
+      "types": "./dist/katex.d.ts"
+  }
+},
+"scripts": {
+  "prepublishOnly": "npm run build",
+  "build": "rm -rf dist && tsc",
+  "dev": "tsc --watch",
+  "clean": "rm -rf dist"
+},
 ```
