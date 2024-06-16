@@ -6,6 +6,7 @@ TODO:
   - `src/lib/braindb.mjs` maybe virtual module?
   - should be possible to pass configuation for `braindb`
   - configuration for remark/rehype plugins
+- maybe better idea is to place it in `@braindb/astro`
 
 I want to extract some components to make it easier to re-use.
 

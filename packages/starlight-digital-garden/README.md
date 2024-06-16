@@ -9,6 +9,6 @@ TODO:
 - [ ] "Snake" table of content
 - [ ] Alphabetical index (BrainDB instance as param)
 - [ ] Recently changed (BrainDB instance as param)
-- [ ] rehypeHeadingIds
-- [ ] rehypeAutolinkHeadings
-- [ ] rehypeExternalLinks
+- [ ] `rehypeHeadingIds`
+- [ ] `rehypeAutolinkHeadings`
+- [ ] `rehypeExternalLinks`
