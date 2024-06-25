@@ -36,6 +36,8 @@ slug: alphabetical-index
 ---
 ```
 
+Related: [starlight#2052](https://github.com/withastro/starlight/discussions/2052)
+
 ### Permanent anchors
 
 Anchors also can brake, this is probably less of a problem compared to broken links.
