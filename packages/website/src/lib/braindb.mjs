@@ -5,7 +5,7 @@ import { BrainDB } from "@braindb/core";
 
 // slug implementation according to Astro
 // see astro/packages/astro/src/content/utils.ts
-const generateSlug = (filePath) => {
+function generateSlug(filePath) {
   const withoutFileExt = filePath.replace(
     new RegExp(path.extname(filePath) + "$"),
     ""
@@ -19,13 +19,22 @@ const generateSlug = (filePath) => {
     .replace(/\/index$/, "");
 
   return slug;
-};
+}
+
+function slugToUrl(slug) {
+  if (!slug.startsWith("/")) slug = "/" + slug;
+  if (!slug.endsWith("/")) slug = slug + "/";
+  return slug;
+}
 
 const start = new Date().getTime();
 
 export const bdb = new BrainDB({
   root: path.resolve(process.cwd(), "src/content/docs"),
-  url: (filePath, _frontmatter) => `${generateSlug(filePath)}/`,
+  url: (filePath, frontmatter) => {
+    if (frontmatter.slug !== undefined) return slugToUrl(frontmatter.slug);
+    return slugToUrl(generateSlug(filePath));
+  },
   git: process.cwd(),
   storeMarkdown: false,
   // need to configure caching in Netlify in order to use this

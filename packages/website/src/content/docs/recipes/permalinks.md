@@ -18,17 +18,23 @@ Would be even better if those [redircets could be specified in frontmatter](http
 
 ### Bare slugs
 
-For example, if path is `some/thing/a.md` generate URL like this `/a`, instead of `some/thing/a`. This allows to move file to `other/a.md` without changing URL. We can either:
-
-- use filename as slug (instead of path)
-  - it can be hard to keep names unique
-- or specify slug in frontmatter
-  - may feel like double work
+For example, if path is `some/thing/a.md` generate URL like this `/a`, instead of `some/thing/a`. This allows to move file to `other/a.md` without changing URL.
 
 Pathes can be used for:
 
 - [breadbreadcrumbs](https://quartz.jzhao.xyz/features/breadcrumbs)
 - [sidebar](https://starlight.astro.build/guides/sidebar/)
+
+#### Hack for Starlight
+
+This behaviour can be achieved with Starlight by putting `slug` in frontmatter:
+
+```md
+// src/content/docs/recipes/alphabetical-index.mdx
+---
+slug: alphabetical-index
+---
+```
 
 ### Permanent anchors
 
