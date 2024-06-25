@@ -25,6 +25,11 @@ For example, if path is `some/thing/a.md` generate URL like this `/a`, instead o
 - or specify slug in frontmatter
   - may feel like double work
 
+Pathes can be used for:
+
+- [breadbreadcrumbs](https://quartz.jzhao.xyz/features/breadcrumbs)
+- [sidebar](https://starlight.astro.build/guides/sidebar/)
+
 ### Permanent anchors
 
 Anchors also can brake, this is probably less of a problem compared to broken links.
@@ -47,3 +52,5 @@ Except content pages, there will be some special pages, like:
   - `/tags/[name]`
 - `/search`
 - etc.
+
+I think for this case built-in pages will have higher priority than content and one would need to rename content pages. With one exception `/tags/[name]` - this can show both content and built in page, the same wasy as it possible to do in Hugo.
