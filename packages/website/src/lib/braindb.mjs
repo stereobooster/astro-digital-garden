@@ -35,7 +35,8 @@ export const bdb = new BrainDB({
     if (frontmatter.slug !== undefined) return slugToUrl(frontmatter.slug);
     return slugToUrl(generateSlug(filePath));
   },
-  git: process.cwd(),
+  // when one uses turbo `process.cwd()` is  `/packages/website` instead of `/`
+  git: path.resolve(process.cwd(), "../.."),
   storeMarkdown: false,
   // need to configure caching in Netlify in order to use this
   // - https://github.com/siakaramalegos/netlify-plugin-cache-folder
