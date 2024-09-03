@@ -23,7 +23,7 @@
     "@braindb/remark-wiki-link": "^2.1.0",
     "@floating-ui/dom": "^1.6.5",
     "@iconify/json": "^2.2.217",
-    "@pagefind/default-ui": "^1.1.0",
+    "@pagefind/default-ui": "^1.1.1",
     "astro": "^4.10.1",
     "astro-og-canvas": "^0.5.0",
     "astro-robots-txt": "^1.0.0",
