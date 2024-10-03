@@ -4,6 +4,13 @@ import addClasses from "rehype-class-names";
 import { defineIntegration } from "astro-integration-kit";
 import { z } from "astro/zod";
 import type { StarlightPlugin } from "@astrojs/starlight/types";
+import * as importMetaResolve from "import-meta-resolve";
+
+const katexCss = importMetaResolve
+  .resolve("katex/dist/katex.min.css", import.meta.url)
+  .replace("file://", "");
+
+console.log(katexCss);
 
 // I can inject CSS (katex/dist/katex.min.css) only with Starlight
 export const astroKatex = defineIntegration({
@@ -50,9 +57,7 @@ export function starlightKatex(): StarlightPlugin {
     hooks: {
       setup({ config, updateConfig, addIntegration }) {
         updateConfig({
-          // this requires katex in user project
-          // how to resolve it?
-          customCss: [...config.customCss, "katex/dist/katex.min.css"],
+          customCss: [...config.customCss, katexCss],
         });
         addIntegration(astroKatex());
       },

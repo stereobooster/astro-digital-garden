@@ -1,16 +1,11 @@
 # Starlight plugin for Katex
 
-## TODO
-
-- [ ] resolve path to `katex/dist/katex.min.css`, so there will be no need to add `katex`
-  - maybe `import-meta-resolve`. See [here](https://github.com/stereobooster/tree-sitter-grammar-wasm/blob/main/packages/experiment/main.js)
-
 ## Starlight
 
 ### Installation
 
 ```sh
-pnpm add katex starlight-katex
+pnpm add starlight-katex
 ```
 
 Change configuration in `astro.config.mjs`:

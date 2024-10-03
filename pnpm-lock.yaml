@@ -29,6 +29,9 @@ importers:
       astro-integration-kit:
         specifier: ^0.13.3
         version: 0.13.3(astro@4.10.1(typescript@5.4.5))
+      import-meta-resolve:
+        specifier: ^4.1.0
+        version: 4.1.0
       katex:
         specifier: ^0.16.10
         version: 0.16.10
@@ -129,9 +132,6 @@ importers:
       graphology-utils:
         specifier: ^2.5.2
         version: 2.5.2(graphology-types@0.24.7)
-      katex:
-        specifier: ^0.16.10
-        version: 0.16.10
       netlify-plugin-playwright-cache:
         specifier: ^0.0.1
         version: 0.0.1
