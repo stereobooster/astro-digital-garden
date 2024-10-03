@@ -10,8 +10,6 @@ const katexCss = importMetaResolve
   .resolve("katex/dist/katex.min.css", import.meta.url)
   .replace("file://", "");
 
-console.log(katexCss);
-
 // I can inject CSS (katex/dist/katex.min.css) only with Starlight
 export const astroKatex = defineIntegration({
   name: "astro-katex",
