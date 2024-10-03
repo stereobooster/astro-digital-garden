@@ -2,8 +2,6 @@
 
 ## TODO
 
-- [ ] add `.not-content` to `.katex-display`
-  - maybe [rehype-class-names](https://www.npmjs.com/package/rehype-class-names)?
 - [ ] resolve path to `katex/dist/katex.min.css`, so there will be no need to add `katex`
   - maybe `import-meta-resolve`. See [here](https://github.com/stereobooster/tree-sitter-grammar-wasm/blob/main/packages/experiment/main.js)
 
@@ -78,6 +76,7 @@ pnpm add katex rehype-katex remark-math
 // astro.config.mjs
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
+import addClasses from "rehype-class-names";
 
 export default defineConfig({
   integrations: [
@@ -87,7 +86,7 @@ export default defineConfig({
   ],
   markdown: {
     remarkPlugins: [remarkMath],
-    rehypePlugins: [rehypeKatex],
+    rehypePlugins: [rehypeKatex, [addClasses, { ".katex": "not-content" }]],
   },
   vite: {
     ssr: {

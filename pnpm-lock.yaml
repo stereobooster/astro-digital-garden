@@ -32,6 +32,9 @@ importers:
       katex:
         specifier: ^0.16.10
         version: 0.16.10
+      rehype-class-names:
+        specifier: ^2.0.0
+        version: 2.0.0
       rehype-katex:
         specifier: ^7.0.0
         version: 7.0.0
@@ -2427,6 +2430,9 @@ packages:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
 
+  hast-util-classnames@3.0.0:
+    resolution: {integrity: sha512-tI3JjoGDEBVorMAWK4jNRsfLMYmih1BUOG3VV36pH36njs1IEl7xkNrVTD2mD2yYHmQCa5R/fj61a8IAF4bRaQ==}
+
   hast-util-embedded@3.0.0:
     resolution: {integrity: sha512-naH8sld4Pe2ep03qqULEtvYr7EjrLK2QHY8KJR6RJkTUjPGObe1vnx585uzem2hGra+s1q08DZZpfgDVYRbaXA==}
 
@@ -3417,6 +3423,9 @@ packages:
 
   rehype-autolink-headings@7.1.0:
     resolution: {integrity: sha512-rItO/pSdvnvsP4QRB1pmPiNHUskikqtPojZKJPPPAVx9Hj8i8TwMBhofrrAYRhYOOBZH9tgmG5lPqDLuIWPWmw==}
+
+  rehype-class-names@2.0.0:
+    resolution: {integrity: sha512-jldCIiAEvXKdq8hqr5f5PzNdIDkvHC6zfKhwta9oRoMu7bn0W7qLES/JrrjBvr9rKz3nJ8x4vY1EWI+dhjHVZQ==}
 
   rehype-expressive-code@0.35.3:
     resolution: {integrity: sha512-kj43Rg+WzYUs8RRr6XyBr60pnrIZEgbmn9yJoV6qka1UDpcx7r8icn6Q2uSAgaLtlEUy+HCPgQJraOZrA53LOQ==}
@@ -6752,6 +6761,11 @@ snapshots:
     dependencies:
       function-bind: 1.1.2
 
+  hast-util-classnames@3.0.0:
+    dependencies:
+      '@types/hast': 3.0.4
+      space-separated-tokens: 2.0.2
+
   hast-util-embedded@3.0.0:
     dependencies:
       '@types/hast': 3.0.4
@@ -8275,6 +8289,13 @@ snapshots:
       hast-util-is-element: 3.0.0
       unified: 11.0.4
       unist-util-visit: 5.0.0
+
+  rehype-class-names@2.0.0:
+    dependencies:
+      '@types/hast': 3.0.4
+      hast-util-classnames: 3.0.0
+      hast-util-select: 6.0.2
+      unified: 11.0.4
 
   rehype-expressive-code@0.35.3:
     dependencies:

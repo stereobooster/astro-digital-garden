@@ -1,5 +1,6 @@
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
+import addClasses from "rehype-class-names";
 import { defineIntegration } from "astro-integration-kit";
 import { z } from "astro/zod";
 import type { StarlightPlugin } from "@astrojs/starlight/types";
@@ -17,7 +18,11 @@ export const astroKatex = defineIntegration({
           const newConfig = {
             markdown: {
               remarkPlugins: [...config.markdown.remarkPlugins, remarkMath],
-              rehypePlugins: [...config.markdown.rehypePlugins, rehypeKatex],
+              rehypePlugins: [
+                ...config.markdown.rehypePlugins,
+                rehypeKatex,
+                [addClasses, { ".katex": "not-content" }],
+              ],
             },
             vite: {
               ssr: {
