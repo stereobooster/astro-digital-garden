@@ -32,7 +32,7 @@ Other less-feasible options:
 
 ## TODO
 
-- [x] I created [basic proof of convept using facets and InstantSearch](https://github.com/stereobooster/astro-digital-garden/tree/faceted-search-experiment). I don't like it, though. It supports facets for:
+- [x] I created [basic proof of concept using facets and InstantSearch](https://github.com/stereobooster/astro-digital-garden/tree/faceted-search-experiment). I don't like it, though. It supports facets for:
   - tags
   - date
 - [ ] I still can use `facets` or `pagefind`, but I need different UI.
