@@ -37,6 +37,7 @@ Other less-feasible options:
   - date
 - [ ] I still can use `facets` or `pagefind`, but I need different UI.
   - Use something slim, like Preact or Solid. But I can't find good components library. Or give up and use React. Then I can use `shadcn/ui` and many others
+    - Maybe there are options in [Components for Web](https://stereobooster.com/posts/components-for-web/)
   - Maybe implement custom pagefind UI ([@pagefind/modular-ui](https://www.npmjs.com/package/@pagefind/modular-ui))
 - [ ] Other potential fields for facets
   - maybe `stage` field (make it a separate field instead of emojis in title 🧠, 🚷, 🚧)
