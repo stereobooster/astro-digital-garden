@@ -11,14 +11,16 @@ description: My todo list
   - https://starlight.astro.build/resources/plugins/
   - [ ] `LinkPreview`
   - [ ] Pan and zoom for images
-  - [ ] "Snake" table of content  
-  - [ ] Alphabetical index (BrainDB instance as param)
-  - [ ] Recently changed (BrainDB instance as param)
+  - [ ] [remark-dataview](https://github.com/stereobooster/braindb/tree/main/packages/remark-dataview) will be able to provide
+    - Alphabetical index, Recently changed, Tasks, Tags page
+    - shall it include wikilink as well?
+  - [ ] "Snake" table of content
+  - [ ] [Astro integration](https://github.com/stereobooster/braindb/tree/main/packages/braindb-astro)
+    - unfortunately it is blocked by [vitejs/vite#14289](https://github.com/vitejs/vite/issues/14289)
 - [ ] update section about "Ideal solution" in diagrams article
 - [ ] write about `playwright` for Mermaid and Euler diagrams
 - [ ] write about `not-content`
 - [ ] implement [[faceted-search]]
-- [ ] Implement `remark-dataview` plugin in `BrainDB` monorepo
 - [ ] add [View Transitions](https://docs.astro.build/en/guides/view-transitions/)
   - see [starlight#694](https://github.com/withastro/starlight/pull/694#issuecomment-2021611520)
 - [ ] implement better user action tracking (beyond page navigations)
