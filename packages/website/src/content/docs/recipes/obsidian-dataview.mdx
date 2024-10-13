@@ -1,69 +1,42 @@
 ---
 title: Obsidian Dataview
 tags: [markdown, obsidian]
-description: An attempt to replicate the functionality of Obsidian Dataview in Astro
+description: Kind of "Obsidian Dataview" for BrainDB
 ---
 
 > Dataview is a live index and query engine over your personal knowledge base. You can add metadata to your notes and query them with the Dataview Query Language to list, filter, sort or group your data. Dataview keeps your queries always up to date and makes data aggregation a breeze.
 >
 > -- [Obsidian Dataview](https://blacksmithgu.github.io/obsidian-dataview/)
 
-Dataview is a plugin for [Obsidian](https://obsidian.md/). However, you can build your own "Dataview" for Astro. To do this, you'll need to:
+Dataview is a plugin for [Obsidian](https://obsidian.md/). However, we can build our own "Dataview" with [[braindb]]:
 
-- Use [remark-code-hook](https://github.com/stereobooster/beoe/tree/main/packages/remark-code-hook) to catch all code blocks with the `dataview` language.
-- Parse the code as DQL (a SQL-like language).
-- Translate (or compile) the DQL Abstract Syntax Tree (AST) to BrainDB calls.
-- Translate the result to MDAST (or HTML).
+- Use [remark-code-hook](https://github.com/stereobooster/beoe/tree/main/packages/remark-code-hook) to catch all code blocks with the `dataview` language
+- Treat the code as SQL and execute wiht BrainDB
+- Translate the result to MDAST (or HTML)
 
-## Proof of Concept
+## Installation
 
-It will take time to replicate the full functionality, so let's start with one simple case:
-
-````md
-```dataview
-TASK
-```
-````
-
-### Implementation
+:::caution
+This is experimental implementation. It can break
+:::
 
 import { Steps } from "@astrojs/starlight/components";
 
 <Steps>
+
 1. Install [[braindb#installation]]
 
-2. Install `remark-code-hook`
+2. Install dependencies
 
    ```bash
-   pnpm add @beoe/remark-code-hook
+   pnpm add @braindb/remark-dataview
    ```
 
-3. Create `remarkDataview`
-
-   ```js {2,8-14}
-   // src/plugins/remarkDataview.mjs
-   import remarkCodeHook from "@beoe/remark-code-hook";
-
-   export function remarkDataview(options) {
-     const { bdb, ...rest } = options;
-     return remarkCodeHook({
-       ...rest,
-       language: "dataview",
-       code: ({ code }) => {
-         if (code !== "TASK")
-           throw new Error("PoC of Dataview - only TASK supported");
-
-         return "Tasks will be here";
-       },
-     });
-   }
-   ```
-
-4. Configure Astro
+3. Configure Astro. See note about [[rehype-plugins-for-code]].
 
    ```js {2, 6}
    // astro.config.mjs
-   import { remarkDataview } from "./src/plugins/remarkDataview.mjs";
+   import remarkDataview from "@braindb/remark-dataview";
 
    export default defineConfig({
      markdown: {
@@ -72,87 +45,110 @@ import { Steps } from "@astrojs/starlight/components";
    });
    ```
 
-5. Use BrainDB to [[task-extraction|extract tsasks]]
-
-   ```js {35-53}
-   // src/plugins/remarkDataview.mjs
-   import remarkCodeHook from "@beoe/remark-code-hook";
-
-   const list = (children) => ({
-     type: "list",
-     ordered: false,
-     start: null,
-     spread: false,
-     children,
-   });
-   const listItem = (children, checked = null) => ({
-     type: "listItem",
-     spread: false,
-     checked,
-     children,
-   });
-   const paragraph = (children) => ({ type: "paragraph", children });
-   const link = (children, url) => ({
-     type: "link",
-     title: null,
-     url: url,
-     children,
-   });
-   const text = (value) => ({ type: "text", value });
-
-   export function remarkDataview(options) {
-     const { bdb, ...rest } = options;
-     return remarkCodeHook({
-       ...rest,
-       language: "dataview",
-       code: ({ code }) => {
-         if (code !== "TASK")
-           throw new Error("PoC of Daview - only TASK supported");
-
-         const grouped = {};
-         bdb.tasksSync().forEach((task) => {
-           const path = task.from().path();
-           grouped[path] = grouped[path] || [];
-           grouped[path].push(task);
-         });
-
-         return paragraph(
-           Object.values(grouped).flatMap((group) => {
-             const doc = group[0].from();
-             return [
-               paragraph([link([text(doc.title())], doc.url())]),
-               list(
-                 group.map((task) => listItem([task.ast()], task.checked()))
-               ),
-             ];
-           })
-         );
-       },
-     });
-   }
-   ```
-
 </Steps>
 
-## Beyond Proof of Concept
+## Examples
 
-Currently, this is just a Proof of Concept (PoC). For a full version, we need:
+### Alphabetical index
 
-- A [DQL](https://blacksmithgu.github.io/obsidian-dataview/queries/dql-js-inline/) parser, which could be based on:
-  - [Chevrotain](https://github.com/kristianmandrup/chevrotain-mini-sql-lang)
-  - [NanoSQL](https://nanosql.io/welcome.html)
-  - [JS SQL Parser](https://github.com/JavaScriptor/js-sql-parser)
-  - [SQL Parser](https://github.com/forward/sql-parser)
-  - [AlaSQL](https://alasql.org/)
-  - etc.
-- Improved filtering and sorting capabilities in [BrainDB](https://github.com/stereobooster/braindb).
+Query:
 
-I attempted to extract the original DQL parser [from here](https://github.com/stereobooster/braindb/blob/8a6d228b3119608409bbd98732ead21ed14e5f48/packages/remark-dataview/src/query/parse.ts#L225-L232), but I'm uncertain about the effectiveness of this approach.
+````md
+```dataview list root_class=column-list
+SELECT upper(substr(frontmatter ->> '$.title', 1, 1)), dv_link()
+FROM documents
+WHERE (frontmatter ->> '$.draft' IS NULL OR frontmatter ->> '$.draft' = false)
+  AND frontmatter ->> '$.tags' IS NOT NULL
+ORDER BY frontmatter ->> '$.title'
+LIMIT 4;
+```
+````
 
-## Example
+Output:
 
-Here is an example of the output 👇
+```dataview list root_class=column-list
+SELECT upper(substr(frontmatter ->> '$.title', 1, 1)), dv_link()
+FROM documents
+WHERE (frontmatter ->> '$.draft' IS NULL OR frontmatter ->> '$.draft' = false)
+  AND frontmatter ->> '$.tags' IS NOT NULL
+ORDER BY frontmatter ->> '$.title'
+LIMIT 4;
+```
 
-```dataview
-TASK
+### Recently changed
+
+Query:
+
+````md
+```dataview list root_class=column-list
+SELECT date(updated_at / 1000, 'unixepoch'), dv_link()
+FROM documents
+WHERE (frontmatter ->> '$.draft' IS NULL OR frontmatter ->> '$.draft' = false)
+  AND frontmatter ->> '$.tags' IS NOT NULL
+ORDER BY updated_at DESC
+LIMIT 3;
+```
+````
+
+Output:
+
+```dataview list root_class=column-list
+SELECT date(updated_at / 1000, 'unixepoch'), dv_link()
+FROM documents
+WHERE (frontmatter ->> '$.draft' IS NULL OR frontmatter ->> '$.draft' = false)
+  AND frontmatter ->> '$.tags' IS NOT NULL
+ORDER BY updated_at DESC
+LIMIT 3;
+```
+
+### Task list
+
+Query:
+
+````md
+```dataview list
+SELECT dv_link(), dv_task()
+FROM tasks JOIN documents ON documents.path = tasks.from
+WHERE (frontmatter ->> '$.draft' IS NULL OR frontmatter ->> '$.draft' = false)
+  AND frontmatter ->> '$.tags' IS NOT NULL
+ORDER BY updated_at DESC, path, tasks.start
+LIMIT 2;
+```
+````
+
+Output:
+
+```dataview list
+SELECT dv_link(), dv_task()
+FROM tasks JOIN documents ON documents.path = tasks.from
+WHERE (frontmatter ->> '$.draft' IS NULL OR frontmatter ->> '$.draft' = false)
+  AND frontmatter ->> '$.tags' IS NOT NULL
+ORDER BY updated_at DESC, path, tasks.start
+LIMIT 2;
+```
+
+### Tags list
+
+Query:
+
+````md
+```dataview list root_class=column-list
+SELECT '#' || tags.value as tag, dv_link()
+FROM documents, json_each(frontmatter, '$.tags') tags
+WHERE (frontmatter ->> '$.draft' IS NULL OR frontmatter ->> '$.draft' = false)
+  AND frontmatter ->> '$.tags' IS NOT NULL
+ORDER BY tag
+LIMIT 3;
+```
+````
+
+Output:
+
+```dataview list root_class=column-list
+SELECT '#' || tags.value as tag, dv_link()
+FROM documents, json_each(frontmatter, '$.tags') tags
+WHERE (frontmatter ->> '$.draft' IS NULL OR frontmatter ->> '$.draft' = false)
+  AND frontmatter ->> '$.tags' IS NOT NULL
+ORDER BY tag
+LIMIT 3;
 ```

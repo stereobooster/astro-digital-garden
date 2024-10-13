@@ -20,6 +20,7 @@
     "@beoe/rehype-mermaid": "^0.0.2",
     "@beoe/remark-code-hook": "^0.0.1",
     "@braindb/core": "0.0.15",
+    "@braindb/remark-dataview": "^0.0.1",
     "@braindb/remark-wiki-link": "^2.1.0",
     "@floating-ui/dom": "^1.6.11",
     "@iconify/json": "^2.2.259",
