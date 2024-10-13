@@ -59,7 +59,8 @@ I implemented a prototype in the branch [tag-color](https://github.com/stereoboo
 ```dataview list
 SELECT dv_link(), dv_task()
 FROM tasks JOIN documents ON documents.path = tasks.from
-WHERE frontmatter ->> '$.draft' IS NULL OR frontmatter ->> '$.draft' = false
-and url != '/tasks'
+WHERE (frontmatter ->> '$.draft' IS NULL OR frontmatter ->> '$.draft' = false)
+  AND url != '/tasks/' 
+  AND checked = false
 ORDER BY updated_at DESC, path, tasks.start;
 ```
