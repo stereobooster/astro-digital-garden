@@ -1,22 +1,22 @@
 ---
 title: SEO and SMO meta tags
 tags: [component]
-description: How to add SEO (search engine optimization) and SMO (social media optimization) tags to Astro-based website
+description:  How to add SEO (search engine optimization) and SMO (social media optimization) tags to an Astro-based website
 ---
 
-## Astro plugins
+## Astro Plugins
 
-Those are the most popular plugins for the task:
+These are the most popular plugins for the task:
 
-- [astro-seo](https://github.com/jonasmerlin/astro-seo) This Astro component makes it easy to add tags that are relevant for search engine optimization (SEO) to your pages.
-- [@astrolib/seo](https://github.com/onwidget/astrolib/tree/main/packages/seo) Astro SEO is an integration that makes managing your SEO easier in Astro projects. It is fully based on the excellent Next SEO library
-- [astro-seo-meta](https://github.com/codiume/orbit/tree/main/packages/astro-seo-meta) Astro seo provides an Seo component to update meta tags.
-- [astro-seo-schema](https://github.com/codiume/orbit/tree/main/packages/astro-seo-schema) Easily insert valid Schema.org JSON-LD in your Astro apps.
+- [astro-seo](https://github.com/jonasmerlin/astro-seo): This Astro component makes it easy to add tags relevant for search engine optimization (SEO) to your pages.
+- [@astrolib/seo](https://github.com/onwidget/astrolib/tree/main/packages/seo): Astro SEO is an integration that makes managing your SEO easier in Astro projects. It is fully based on the excellent Next SEO library.
+- [astro-seo-meta](https://github.com/codiume/orbit/tree/main/packages/astro-seo-meta): Astro SEO provides an SEO component to update meta tags.
+- [astro-seo-schema](https://github.com/codiume/orbit/tree/main/packages/astro-seo-schema): Easily insert valid Schema.org JSON-LD in your Astro apps.
 
 ## Metadata
 
 :::caution
-This is an experiment. I need to investigate an impact
+This is an experiment. I need to investigate its impact.
 :::
 
 ### type: NewsArticle
@@ -80,19 +80,19 @@ import { Steps } from "@astrojs/starlight/components";
 
 ### type: Article
 
-Try `"@type":"Article"` plus:
+Try `"@type":"Article"` with the following elements:
 
 - `<article>`
 - `<span itemprop="dateModified" content="2020-Mar-13">`
 - `<h1 itemprop="name">...</h1>`
 - `<div itemprop="articleBody">...</div>`
 
-## Sites to test meta tags
+## Sites to Test Meta Tags
 
-- [google](https://search.google.com/test/rich-results)
-- [schema.org](https://validator.schema.org/)
+- [Google Rich Results Test](https://search.google.com/test/rich-results)
+- [Schema.org Validator](https://validator.schema.org/)
 
 ## TODO
 
-- [ ] plugin that places sitempa URL in `robots.txt` (`astro-robots-txt`)
-- [ ] use updated at date in sitemap (so search engine would rescan those pages first)
+- [ ] Plugin that places sitemap URL in `robots.txt` (`astro-robots-txt`)
+- [ ] Use the "updated at" date in the sitemap (so search engines would rescan those pages first)

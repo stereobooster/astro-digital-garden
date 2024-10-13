@@ -1,19 +1,19 @@
 ---
-title: Social images autogenration
+title: Social images autogeneration
 tags: [component]
-description: Automatically generate social image aka open graph images, x/twitter cards
+description: Automatically generate social images, aka Open Graph images and X/Twitter cards
 ---
 
-**aka** [open graph](https://ogp.me/) images, [x/twitter card](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards) images
+**Aka** [Open Graph](https://ogp.me/) images and [X/Twitter Card](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards) images.
 
 ## Options
 
-Basic idea is to create HTML or SVG "image" for page based on metadata, like `title`, `description`, `tags` etc. And then convert it to raster image. There are several options:
+The basic idea is to create an HTML or SVG "image" for a page based on metadata, such as `title`, `description`, `tags`, etc. Then, convert it to a raster image. There are several options:
 
 - [Satori](https://github.com/vercel/satori)
 - [CanvasKit - Skia](https://skia.org/docs/user/modules/canvaskit/)
 - [resvg-js](https://github.com/yisibl/resvg-js)
-- headless browsers
+- Headless browsers
 
 ### Satori
 
@@ -26,18 +26,18 @@ Basic idea is to create HTML or SVG "image" for page based on metadata, like `ti
 
 ## Installation
 
-[Full instruction for Astro OG Canvas](https://hideoo.dev/notes/starlight-og-images)
+[Full instructions for Astro OG Canvas](https://hideoo.dev/notes/starlight-og-images)
 
 ## Related
 
 - [[seo-and-smo-meta-tags]]
-- https://metatags.io/
+- [MetaTags.io](https://metatags.io/)
 
-## Further improvements
+## Further Improvements
 
-Current implementation looks boring. Maybe I can:
+The current implementation looks boring. Maybe I can:
 
-- [ ] generate gradient based on tag colors
-- Some pages have "cover" images. Can I use it in social images? Though in my case all of them are SVGs
-- It seems, `Astro OG Canvas` doesn't support emojis
-- add logo
+- [ ] Generate a gradient based on tag colors
+- Use "cover" images from some pages in social images, although all of them are SVGs
+- It seems that `Astro OG Canvas` doesn't support emojis
+- Add a logo

@@ -12,16 +12,16 @@ description: Different options for full-text search for static websites without 
 
 ## Astro
 
-- for [pagefind](https://pagefind.app/) see [starlight](https://github.com/withastro/starlight/)
-  - [uses generated HTML](https://github.com/withastro/starlight/blob/d2822a1127c622e086ad8877a07adad70d8c3aab/packages/starlight/index.ts#L61-L72)
-- [minisearch](https://github.com/Barnabas/astro-minisearch/)
-  - [uses source files](https://github.com/Barnabas/astro-minisearch/blob/main/demo/src/pages/search.json.js#L11-L17)
-- [fuse](https://github.com/johnny-mh/blog2/tree/main/packages/astro-fuse)
-  - can use [source files](https://github.com/johnny-mh/blog2/blob/main/packages/astro-fuse/src/basedOnSource.ts)
-  - and [generated HTML](https://github.com/johnny-mh/blog2/blob/main/packages/astro-fuse/src/basedOnOutput.ts)
-- [lunr](https://github.com/jackcarey/astro-lunr)
-  - [uses generated HTML](https://github.com/jackcarey/astro-lunr/blob/master/src/index.ts)
-- [flexsearch](https://github.com/nextapps-de/flexsearch)
-  - **TODO** need to find example of integration with Astro
-- [orama](https://docs.oramasearch.com/open-source/plugins/plugin-astro)
-  - [uses generated HTML](https://github.com/oramasearch/orama/blob/main/packages/plugin-astro/src/index.ts)
+- For [Pagefind](https://pagefind.app/), see [Starlight](https://github.com/withastro/starlight/)
+  - [Uses generated HTML](https://github.com/withastro/starlight/blob/d2822a1127c622e086ad8877a07adad70d8c3aab/packages/starlight/index.ts#L61-L72)
+- [Minisearch](https://github.com/Barnabas/astro-minisearch/)
+  - [Uses source files](https://github.com/Barnabas/astro-minisearch/blob/main/demo/src/pages/search.json.js#L11-L17)
+- [Fuse](https://github.com/johnny-mh/blog2/tree/main/packages/astro-fuse)
+  - Can use [source files](https://github.com/johnny-mh/blog2/blob/main/packages/astro-fuse/src/basedOnSource.ts)
+  - And [generated HTML](https://github.com/johnny-mh/blog2/blob/main/packages/astro-fuse/src/basedOnOutput.ts)
+- [Lunr](https://github.com/jackcarey/astro-lunr)
+  - [Uses generated HTML](https://github.com/jackcarey/astro-lunr/blob/master/src/index.ts)
+- [Flexsearch](https://github.com/nextapps-de/flexsearch)
+  - **TODO** Need to find an example of integration with Astro.
+- [Orama](https://docs.oramasearch.com/open-source/plugins/plugin-astro)
+  - [Uses generated HTML](https://github.com/oramasearch/orama/blob/main/packages/plugin-astro/src/index.ts)

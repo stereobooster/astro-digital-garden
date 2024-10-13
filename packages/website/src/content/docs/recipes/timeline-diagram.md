@@ -1,22 +1,22 @@
 ---
 title: Timelime diagram
 tags: [component, diagram]
-description: Astro component to vizualize timelines or genealogical trees
+description: Astro component to visualize timelines or genealogical trees
 ---
 
 <img width="756" height="428" src="https://exact.stereobooster.com/timeline.svg" style="background:#fff"/>
 
-Example taken [here](https://exact.stereobooster.com/)
+Example taken [here](https://exact.stereobooster.com/).
 
-**aka** chronology, genealogical tree, layered digraph
+**aka** chronology, genealogical tree, layered digraph.
 
 ## Installation
 
 **TODO**:
 
-- [ ] removed `Graphviz` component from the repo need to use `@beoe/astro-graphviz` instead
+- [ ] Remove the `Graphviz` component from the repo; need to use `@beoe/astro-graphviz` instead.
 
-First install [[graphviz-diagram|Graphviz]].
+First, install [[graphviz-diagram|Graphviz]]:
 
 ```astro
 // src/components/Timeline.astro
@@ -107,6 +107,6 @@ Code: [Publications.astro](https://github.com/stereobooster/exact-online-string-
 
 ## References
 
-- [Timeline of web browsers](https://upload.wikimedia.org/wikipedia/commons/7/74/Timeline_of_web_browsers.svg)
+- [Timeline of Web Browsers](https://upload.wikimedia.org/wikipedia/commons/7/74/Timeline_of_web_browsers.svg)
 - [Timelines Chart](https://github.com/vasturiano/timelines-chart)
 - [Timelines and Visual Histories](http://euclid.psych.yorku.ca/SCS/Gallery/timelines.html)

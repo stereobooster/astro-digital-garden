@@ -1,10 +1,10 @@
 ---
-title: Rehype plugins for code
+title: Rehype Plugins for Code
 tags: [markdown]
-description: How to use rehype code plugins with Astro or Starlight
+description: How to use Rehype code plugins with Astro or Starlight
 ---
 
-If you want to use rehype plugin with Astro for processing code blocks (**aka** code fences), like this in Markodwn:
+If you want to use a Rehype plugin with Astro to process code blocks (**aka** code fences), like those in Markdown:
 
 ````md
 ```
@@ -20,11 +20,11 @@ Or like this in HTML:
 </pre>
 ```
 
-You may need to use special configuration, because Astro (and Starlight) comes with built-in [[syntax-highlighting|code highlighter]].
+You may need to use special configuration because Astro (and Starlight) comes with a built-in [[syntax-highlighting|code highlighter]].
 
 ## Astro
 
-To use with Astro, you need to disable built-in syntax highlighting and put it after your plugin:
+To use it with Astro, you need to disable the built-in syntax highlighting and apply your plugin afterward:
 
 ```js {2, 6, 8-9}
 // astro.config.mjs

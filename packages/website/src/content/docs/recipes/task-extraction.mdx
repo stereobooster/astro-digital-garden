@@ -1,14 +1,14 @@
 ---
 title: Tasks extraction
 tags: [component, gfm]
-description: How to extract tasks from markown files, like they do in Github issues
+description: How to extract tasks from Markdown files, like they do in GitHub issues
 ---
 
 **aka** Checklist, TODO
 
 ## Introduction
 
-Imagine you are writing an article and you have some checklist of what else you want to cover in the article.
+Imagine you are writing an article and have a checklist of what else you want to cover in the article.
 
 ```md
 - [ ] write about ...
@@ -20,7 +20,7 @@ Imagine you are writing an article and you have some checklist of what else you 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 ```
 
-On one hand it is convinient to keep this checklist in the article itslef. On the other hand you may want to see all tasks at glance. With the help of BrainDB it is possible to extract all tasks from all pages and list them on one page.
+On one hand, it is convenient to keep this checklist in the article itself. On the other hand, you may want to see all tasks at a glance. With the help of BrainDB, it is possible to extract all tasks from all pages and list them on one page.
 
 ## Installation
 
@@ -89,7 +89,7 @@ import { Steps } from "@astrojs/starlight/components";
 
 ## Limitations
 
-For now I implemented bare minimum for task extraction in BrainDB. Those are limitation which I want to address in the future.
+For now, I have implemented the bare minimum for task extraction in BrainDB. These are the limitations that I want to address in the future.
 
 ### Limitation 1: flat list
 
@@ -98,7 +98,7 @@ For now I implemented bare minimum for task extraction in BrainDB. Those are lim
   - [x] sub-task
 ```
 
-BrainDB will return this as a flat list instead of hierarchical structure:
+BrainDB will return this as a flat list instead of a hierarchical structure:
 
 ```md
 - [ ] task
@@ -111,7 +111,7 @@ BrainDB will return this as a flat list instead of hierarchical structure:
 - [ ] `code` **bold**
 ```
 
-BrainDb can return markdown for the content of the task, but for now I didn't figure out good way to render it with Astro. I use text insted:
+BrainDB can return Markdown for the content of the task, but for now, I haven't figured out a good way to render it with Astro. I use plain text instead:
 
 ```md
 - [ ] code bold
@@ -125,7 +125,7 @@ BrainDb can return markdown for the content of the task, but for now I didn't fi
   - b
 ```
 
-For now BrainDb returns only content of the task, but not subitems:
+For now, BrainDB returns only the content of the task, but not the subitems:
 
 ```md
 - [ ] task

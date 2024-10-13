@@ -94,16 +94,16 @@ See [[tags]].
 
 ## Further improvements
 
-- [ ] page for each tag
-- [ ] metadata for tags (color, icon)
+- [ ] Page for each tag
+- [ ] Metadata for tags (color, icon)
 
 ### Tag page
 
 From [starlight-blog](https://github.com/HiDeoo/starlight-blog):
 
-- [Tag page](https://github.com/HiDeoo/starlight-blog/blob/main/packages/starlight-blog/routes/Tags.astro)
-- [Tag related functions](https://github.com/HiDeoo/starlight-blog/blob/main/packages/starlight-blog/libs/tags.ts)
-- [`injectRoute` example](https://github.com/HiDeoo/starlight-blog/blob/main/packages/starlight-blog/index.ts#L29-L33)
+- [Tag Page](https://github.com/HiDeoo/starlight-blog/blob/main/packages/starlight-blog/routes/Tags.astro)
+- [Tag-Related Functions](https://github.com/HiDeoo/starlight-blog/blob/main/packages/starlight-blog/libs/tags.ts)
+- [`injectRoute` Example](https://github.com/HiDeoo/starlight-blog/blob/main/packages/starlight-blog/index.ts#L29-L33)
   ```ts
   addIntegration({
     name: "starlight-blog-integration",
@@ -128,4 +128,11 @@ import IconoirEmptyPage from "~icons/iconoir/empty-page";
 import LogosAstroIcon from "~icons/logos/astro-icon";
 import LogosTypescriptIcon from "~icons/logos/typescript-icon";
 
-Each tag can have it's own color or [[icons|icon]], to help differentiate them visually, for example: #markdown <TeenyiconsMarkdownOutline class="icon text" />, #component <BxBxsComponent class="icon text" />, #link <MaterialSymbolsLink class="icon text" />, #page <IconoirEmptyPage class="icon text" />, #Astro <LogosAstroIcon class="icon text" />, #TypeScript <LogosTypescriptIcon class="icon text" />
+Each tag can have its own color or [[icons|icon]] to help differentiate them visually. For example:
+
+- #markdown <TeenyiconsMarkdownOutline class="icon text" />
+- #component <BxBxsComponent class="icon text" />
+- #link <MaterialSymbolsLink class="icon text" />
+- #page <IconoirEmptyPage class="icon text" />
+- #Astro <LogosAstroIcon class="icon text" />
+- #TypeScript <LogosTypescriptIcon class="icon text" />

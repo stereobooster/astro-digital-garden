@@ -4,19 +4,19 @@ tags: [component]
 description: Starlight sidebar issues and ideas for improvements
 ---
 
-Starlight provides sidebar, but it has issues:
+Starlight provides a sidebar, but there are some issues:
 
-- ~~it doesn't preserve state (scroll, open/closed submenues) on page switch~~ (fixed in v0.26.0)
-- not possible to have root page for submenues
+- ~~It doesn't preserve state (scroll, open/closed submenus) on page switch~~ (fixed in v0.26.0)
+- It's not possible to have a root page for submenus
 
-There are workarounds:
+There are some workarounds:
 
 - [starlight#971](https://github.com/withastro/starlight/discussions/971#discussioncomment-8396511)
 - [starlight#307](https://github.com/withastro/starlight/issues/307#issuecomment-1622619025)
 
-## Starlight - scroll current page into view
+## Starlight - Scroll Current Page into View
 
-**Note**: use starlight +0.26.0 instead
+**Note**: Use Starlight v0.26.0 or later instead.
 
 import { Steps } from "@astrojs/starlight/components";
 
@@ -278,6 +278,6 @@ import { Tabs, TabItem } from "@astrojs/starlight/components";
 
 ### TODO
 
-- [ ] render as partials and fetch from the server instead of prerendering, because it is way to much DOM nodes
-- [ ] Tabs suppose to save state accross navigations
-- [ ] Scroll area should be inside of `TabItem`
+- [ ] Render as partials and fetch from the server instead of prerendering, because there are too many DOM nodes.
+- [ ] Tabs should preserve state across navigations.
+- [ ] The scroll area should be inside the `TabItem`.
