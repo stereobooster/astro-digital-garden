@@ -1345,9 +1345,6 @@ packages:
     cpu: [x64]
     os: [darwin]
 
-  '@pagefind/default-ui@1.1.0':
-    resolution: {integrity: sha512-+XiAJAK++C64nQcD7s3Prdmd5S92lT05fwjOxm0L1jj80jbL+tmvcqkkFnPpoqhnicIPgcAX/Y5W0HRZnBt35w==}
-
   '@pagefind/default-ui@1.1.1':
     resolution: {integrity: sha512-ZM0zDatWDnac/VGHhQCiM7UgA4ca8jpjA+VfuTJyHJBaxGqZMQnm4WoTz9E0KFcue1Bh9kxpu7uWFZfwpZZk0A==}
 
@@ -5233,7 +5230,7 @@ snapshots:
     dependencies:
       '@astrojs/mdx': 3.1.0(astro@4.10.1(typescript@5.6.3))
       '@astrojs/sitemap': 3.1.5
-      '@pagefind/default-ui': 1.1.0
+      '@pagefind/default-ui': 1.1.1
       '@types/hast': 3.0.4
       '@types/mdast': 4.0.4
       astro: 4.10.1(typescript@5.6.3)
@@ -6328,8 +6325,6 @@ snapshots:
 
   '@pagefind/darwin-x64@1.1.1':
     optional: true
-
-  '@pagefind/default-ui@1.1.0': {}
 
   '@pagefind/default-ui@1.1.1': {}
 
