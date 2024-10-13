@@ -1,10 +1,10 @@
 ---
-title: Syntax highlighting
+title: Syntax Highlighting
 tags: [markdown, code-fences]
-description: Different options for syntax highlighting (code fences in markdown) for Astro-based websites
+description: Different options for syntax highlighting (code fences in Markdown) for Astro-based websites.
 ---
 
-Astro comes with built-in support for Shiki and Prism. This provides syntax highlighting for code fences.
+Astro comes with built-in support for Shiki and Prism, providing syntax highlighting for code fences.
 
 Starlight uses [Expressive Code](https://expressive-code.com/).
 

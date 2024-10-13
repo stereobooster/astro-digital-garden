@@ -3,14 +3,14 @@ title: Sortable tables
 tags: [component]
 sidebar:
   label: Sortable tables 🚷
-description: How to add sortable table to static website
+description: How to add a sortable table to a static website
 ---
 
-Ideas:
+## Ideas
 
-- [sticky header](https://css-tricks.com/position-sticky-and-table-headers/)
+- [Sticky Header](https://css-tricks.com/position-sticky-and-table-headers/)
 
-## JS libraries
+## JS Libraries
 
 - [LeeWannacott/table-sort-js](https://github.com/LeeWannacott/table-sort-js)
 - [tofsjonas/sortable](https://github.com/tofsjonas/sortable)
@@ -18,11 +18,11 @@ Ideas:
 - [kryogenix/sorttable](https://www.kryogenix.org/code/browser/sorttable/)
 - [List.js](https://listjs.com/examples/table/)
 
-## Reference implementations
+## Reference Implementations
 
 - [Tablesorter](https://www.mediawiki.org/wiki/Tablesorter)
-  - [Help\:Sorting](https://meta.wikimedia.org/wiki/Help:Sorting)
-  - [jQuery tablesorter 2.0](https://mottie.github.io/tablesorter/docs/#Demo)
+  - [Help: Sorting](https://meta.wikimedia.org/wiki/Help:Sorting)
+  - [jQuery Tablesorter 2.0](https://mottie.github.io/tablesorter/docs/#Demo)
 
 ## Related
 

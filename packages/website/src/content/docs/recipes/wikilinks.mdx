@@ -1,7 +1,7 @@
 ---
 title: Wikilinks
 tags: [link]
-description: Support wiki-style links, like this [[link]], in Astro
+description: Support wiki-style links, such as [[link]], in Astro
 ---
 
 ## Installation
@@ -76,11 +76,11 @@ import { Steps } from "@astrojs/starlight/components";
 
 [[backlinks]] [[404|Example of broken link]]
 
-## Further improvements
+## Further Improvements
 
-- [ ] support anchors in wikilinks (`[[page#anchor]]`, `[[page#anchor|alias]]`)
-  - do we need to url-encode anchors?
-  - do we need to slugify anchors?
-- [ ] check that anchors correspond to some header in target document
-- [ ] what about ambiguous links (`bdb.documentsSync({ slug: permalink }).length > 1`)?
-- [ ] image wikilinks (`![[some.jpg]]`)
+- [ ] Support anchors in wikilinks (`[[page#anchor]]`, `[[page#anchor|alias]]`)
+  - Do we need to URL-encode anchors?
+  - Do we need to slugify anchors?
+- [ ] Check that anchors correspond to a header in the target document.
+- [ ] What about ambiguous links (`bdb.documentsSync({ slug: permalink }).length > 1`)?
+- [ ] Image wikilinks (`![[some.jpg]]`)

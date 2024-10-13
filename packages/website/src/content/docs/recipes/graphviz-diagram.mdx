@@ -34,7 +34,7 @@ Example taken [here](https://graphviz.org/Gallery/directed/fsm.html)
 
 ## About
 
-[Graphviz](https://graphviz.org/) is open source graph visualization software. On the one hand it is general diagraming tool, so it doesn't have DSL to directly express specific diagrams (let's say Hasse diagram or ER diagram). On the other hand if you don't have better solution you can always bend Graphviz to desired diagram (though it can be tedious sometimes).
+[Graphviz](https://graphviz.org/) is open-source graph visualization software. On one hand, it is a general diagramming tool, so it doesn't have a DSL to directly express specific diagrams (let's say a Hasse diagram or an ER diagram). On the other hand, if you don't have a better solution, you can always bend Graphviz to create the desired diagram (though it can be tedious sometimes).
 
 ## Installation
 
@@ -107,11 +107,11 @@ Basic dark mode can be implemented with:
 }
 ```
 
-Plus you can pass [`class`](https://graphviz.org/docs/attrs/class/) to Edges and Nodes to implement **advanced dark mode**.
+Plus, you can pass [`class`](https://graphviz.org/docs/attrs/class/) to edges and nodes to implement **advanced dark mode**.
 
 ### To remove background
 
-To remove background use `bgcolor="transparent"`
+To remove the background, use `bgcolor="transparent"`.
 
 ## Example
 
@@ -127,26 +127,28 @@ digraph x {bgcolor="transparent";rankdir=LR;node [shape=box]
   Start -> Stop}
 ```
 
-Compare it to [[mermaid-diagrams-in-markdown#example|similar example in Mermaid]]
+Compare it to [similar example in Mermaid](mermaid-diagrams-in-markdown#example).
 
 ## TODO
 
-- [ ] highlighting of nodes or edges
-- [ ] search/filter by labels
+- [ ] Highlighting of nodes or edges
+- [ ] Search/filter by labels
 
 See for inspiration:
 
 - [tintinweb.graphviz-interactive-preview](https://marketplace.visualstudio.com/items?itemName=tintinweb.graphviz-interactive-preview)
 - [SVG Zoom To Element](https://bettertyped.github.io/react-zoom-pan-pinch/?path=/story/examples-svg-zoom-to-element--svg-zoom-to-element)
 
-Alternatively I can parse dot languge and use alternative renders, for example:
+Alternatively, I can parse DOT language and use different renderers, for example:
 
-- parsers
+- **Parsers**
+
   - [ts-graphviz](https://github.com/ts-graphviz/ts-graphviz)
-  - [visjs](https://github.com/visjs/vis-network/blob/master/lib/network/dotparser.js)
+  - [vis.js](https://github.com/visjs/vis-network/blob/master/lib/network/dotparser.js)
   - [dotparser](https://www.npmjs.com/package/dotparser)
-- renders
-  - [graphviz JSON](https://graphviz.org/docs/outputs/json/) to render coordinates
+
+- **Renderers**
+  - [Graphviz JSON](https://graphviz.org/docs/outputs/json/) to render coordinates
   - [vizdom](https://github.com/vizdom-dev/vizdom)
-  - [Apache Echarts](https://echarts.apache.org/handbook/en/basics/release-note/5-5-0/#server-side-rendering-%EF%BC%8B-lightweight-client-runtime) supports "hydration" of SVGs
-  - [others](https://graph.stereobooster.com/notes/Visualisation)
+  - [Apache ECharts](https://echarts.apache.org/handbook/en/basics/release-note/5-5-0/#server-side-rendering-%EF%BC%8B-lightweight-client-runtime) supports "hydration" of SVGs
+  - [Others](https://graph.stereobooster.com/notes/Visualisation)

@@ -1,14 +1,14 @@
 ---
 title: Content graph visualization
 tags: [link, diagram, component]
-description: Visualize the relationships between the notes as graph
+description: Visualize the relationships between notes as a graph
 ---
 
 ## Installation
 
-First install [[braindb#installation]].
+First, [[braindb#installation|install BrainDB]].
 
-With BrainDB it is possible to convert content to graph, for example, in JSON format and then load it in any visualization library of your choice. Here is an example of how to load data in [Graphology](https://graphology.github.io/):
+With BrainDB, it is possible to convert content into a graph, for example, in JSON format, and then load it into any visualization library of your choice. Here is an example of how to load data in [Graphology](https://graphology.github.io/):
 
 ```ts
 // src/lib/graph.ts
@@ -62,9 +62,9 @@ export async function getGraph() {
 
 See [[graph]].
 
-This graph is generated on the server-side with the help of Graphology and some custom code. It is too long to post it here. Check out source code, if you want to know more.
+This graph is generated on the server side with the help of Graphology and some custom code. It is too long to post here, so check out the source code if you want to know more.
 
-Idea was to show graph without the need for JS on the client-side. But it is hard to do. Because one needs to take care of not overlaping nodes, edges and labels. It is good enough to demonstate the idea, but it needs to be reimplemented to be rendered on the client-side.
+The idea was to display the graph without the need for JavaScript on the client side. However, this is challenging because one needs to manage the overlapping of nodes, edges, and labels. It is good enough to demonstrate the idea, but it needs to be reimplemented for rendering on the client side.
 
 ## See also
 
@@ -72,5 +72,5 @@ Idea was to show graph without the need for JS on the client-side. But it is har
 
 ## Further improvements
 
-- [ ] show labels for tags on the graph
-- [ ] create an example with [[graph-client|client-side graph]]
+- [ ] Show labels for tags on the graph.
+- [ ] Create an example with [[graph-client|client-side graph]].

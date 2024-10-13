@@ -6,39 +6,39 @@ next: false
 description: My todo list
 ---
 
-- [ ] add grammar checker
-- [ ] publish components and co, because it is getting harder and harder to re-use
-  - https://starlight.astro.build/resources/plugins/
+- [ ] Add a grammar checker.
+- [ ] Publish components and related items because it is getting harder to reuse them.
+  - [Resources](https://starlight.astro.build/resources/plugins/)
   - [ ] `LinkPreview`
-  - [ ] Pan and zoom for images
-  - [ ] [remark-dataview](https://github.com/stereobooster/braindb/tree/main/packages/remark-dataview) will be able to provide
-    - Alphabetical index, Recently changed, Tasks, Tags page
-    - shall it include wikilink as well?
-  - [ ] "Snake" table of content
-  - [ ] [Astro integration](https://github.com/stereobooster/braindb/tree/main/packages/braindb-astro)
-    - unfortunately it is blocked by [vitejs/vite#14289](https://github.com/vitejs/vite/issues/14289)
-- [ ] update section about "Ideal solution" in diagrams article
-- [ ] write about `playwright` for Mermaid and Euler diagrams
-- [ ] write about `not-content`
-- [ ] implement [[faceted-search]]
-- [ ] add [View Transitions](https://docs.astro.build/en/guides/view-transitions/)
-  - see [starlight#694](https://github.com/withastro/starlight/pull/694#issuecomment-2021611520)
-- [ ] implement better user action tracking (beyond page navigations)
-  - if search was used
-  - if external links were clicked
-  - if page preview was shown
-- [ ] remove H1 on tags page
+  - [ ] Pan and zoom for images.
+  - [ ] [remark-dataview](https://github.com/stereobooster/braindb/tree/main/packages/remark-dataview) will be able to provide:
+    - Alphabetical index, Recently changed, Tasks, Tags page.
+    - Should it include wikilinks as well?
+  - [ ] "Snake" table of contents.
+  - [ ] [Astro integration](https://github.com/stereobooster/braindb/tree/main/packages/braindb-astro):
+    - Unfortunately, it is blocked by [vitejs/vite#14289](https://github.com/vitejs/vite/issues/14289).
+- [ ] Update the section about the "Ideal solution" in the diagrams article.
+- [ ] Write about `playwright` for Mermaid and Euler diagrams.
+- [ ] Write about `not-content`.
+- [ ] Implement [[faceted-search]].
+- [ ] Add [View Transitions](https://docs.astro.build/en/guides/view-transitions/).
+  - See [starlight#694](https://github.com/withastro/starlight/pull/694#issuecomment-2021611520).
+- [ ] Implement better user action tracking (beyond page navigations):
+  - If search was used.
+  - If external links were clicked.
+  - If page preview was shown.
+- [ ] Remove H1 on the tags page.
 
 ## Ideas
 
-- sidebar: show "new" (or "fresh") badge based on git update time?
-- Footnotes
-  - mention how footnotes can be shown on the side, like in [Tufte design](https://edwardtufte.github.io/tufte-css/)
-  - https://gwern.net/sidenote
+- Sidebar: Show a "new" (or "fresh") badge based on git update time?
+- Footnotes:
+  - Mention how footnotes can be shown on the side, like in [Tufte design](https://edwardtufte.github.io/tufte-css/).
+  - See https://gwern.net/sidenote.
 
-## Color for tag
+## Color for Tag
 
-I can easily generate color from tag:
+I can easily generate a color from the tag:
 
 ```js
 import ch from "color-hash";
@@ -48,14 +48,14 @@ colorHash.hex(tag);
 
 I can use it in:
 
-- [x] color-chip near the tag or maybe color underline?
-- [x] Euler diagram
-- [x] content graph
-- [ ] social images - to generate colorful "border"
+- [x] Color chip near the tag or maybe a color underline?
+- [x] Euler diagram.
+- [x] Content graph.
+- [ ] Social images - to generate a colorful "border."
 
-I implemented prototype in branch [tag-color](https://github.com/stereobooster/astro-digital-garden/tree/tag-color)
+I implemented a prototype in the branch [tag-color](https://github.com/stereobooster/astro-digital-garden/tree/tag-color).
 
-## From other articles
+## From Other Articles
 
 ```dataview
 TASK

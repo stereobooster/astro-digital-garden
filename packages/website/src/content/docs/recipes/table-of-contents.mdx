@@ -1,14 +1,14 @@
 ---
-title: Table of contents
+title: Table of Contents
 tags: [component, markdown]
-description: How to create table of contents based on headings from markdown file
+description: How to create a table of contents based on headings from a Markdown file.
 ---
 
 ## Starlight
 
-Starlight already has this feature, so no additional work required. But you can [override default one](https://starlight.astro.build/reference/overrides/#tableofcontents)
+Starlight already has this feature, so no additional work is required. However, you can [override the default one](https://starlight.astro.build/reference/overrides/#tableofcontents).
 
-## "Snake" table of contents
+## "Snake" Table of Contents
 
 See:
 
@@ -17,19 +17,19 @@ See:
 
 ### Implementation
 
-Checkout in the sourcecode how to implement:
+Check out the source code to see how to implement it:
 
 - [src/components/TOC.astro](https://github.com/stereobooster/astro-digital-garden/tree/main/src/components/TOC.astro)
 - [src/components/TOCHelper.ts](https://github.com/stereobooster/astro-digital-garden/tree/main/src/components/TOCHelper.ts)
 - [src/components/TOCHeading.astro](https://github.com/stereobooster/astro-digital-garden/tree/main/src/components/TOCHeading.astro)
 - [src/toc.js](https://github.com/stereobooster/astro-digital-garden/tree/main/src/components/toc.js)
 
-TODO:
+### TODO:
 
-- [ ] fix bug: it crashes if there are missing header levels, like `h4` directly in `h2`
-- [ ] fix "snake" styles
+- [ ] Fix bug: it crashes if there are missing header levels, like `h4` directly under `h2`.
+- [ ] Fix "snake" styles.
 
-### Satrlight specific config
+### Starlight-Specific Config
 
 import { Steps } from "@astrojs/starlight/components";
 

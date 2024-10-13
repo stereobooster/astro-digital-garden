@@ -1,7 +1,7 @@
 ---
 title: Last modified time
 tags: [markdown]
-description: Show last modification date of the page. Based on git on history
+description: Show the last modification date of the page based on Git history
 ---
 
 ## With BrainDB
@@ -21,7 +21,7 @@ import { Steps } from "@astrojs/starlight/components";
 
 ## With Starlight
 
-Starlight already has this feature, **but** value not exposed in content collection e.g. if you set
+Starlight already has this feature, **but** the value is not exposed in the content collection. For example, if you set:
 
 ```js {5}
 // astro.config.mjs
@@ -34,9 +34,9 @@ export default defineConfig({
 });
 ```
 
-You would see `Last updated:` on the page, but at the same time `page.data.lastUpdated` would be `undefined`
+You would see `Last updated:` on the page, but at the same time, `page.data.lastUpdated` would be `undefined`.
 
-## With remark plugin
+## With Remark plugin
 
 <Steps>
 
@@ -85,7 +85,7 @@ You would see `Last updated:` on the page, but at the same time `page.data.lastU
 
 </Steps>
 
-**But** the value is accessible only after `render` e.g.
+**But** the value is accessible only after `render`:
 
 ```ts
 const { remarkPluginFrontmatter } = await page.render();
@@ -96,7 +96,7 @@ Based on: [Astro recipes](https://docs.astro.build/en/recipes/modified-time/)
 
 ## Further improvements
 
-Use last modification date (for content pages) in:
+Use the last modification date (for content pages) in:
 
 - [x] [[seo-and-smo-meta-tags|schema.org microdata]]
 - [ ] [sitemap](https://docs.astro.build/en/guides/integrations-guide/sitemap/) (`lastmod`)

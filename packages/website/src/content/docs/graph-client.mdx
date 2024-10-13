@@ -7,25 +7,25 @@ description: Relationships between notes visualised as graph, aka network
 ---
 
 :::caution
-This page is work in progress
+This page is a work in progress.
 :::
 
-This is an example of client side generation of content graph (in contrast to [[graph|server side generated graph]]).
+This is an example of client-side generation of a content graph (in contrast to [[graph|server-side generated graph]]).
 
-For now it use Sigma.js alternatively can use:
+For now, it uses Sigma.js; alternatively, you can use:
 
-- [Apache Echarts](https://echarts.apache.org/examples/en/index.html#chart-type-graph)
-- [cytoscape](https://js.cytoscape.org/)
-- [d3-force](https://d3js.org/d3-force)
+- [Apache ECharts](https://echarts.apache.org/examples/en/index.html#chart-type-graph)
+- [Cytoscape](https://js.cytoscape.org/)
+- [D3-force](https://d3js.org/d3-force)
 - or [others](https://graph.stereobooster.com/notes/Visualisation/)
 
 **Todo**:
 
-- [ ] links for nodes
-- [ ] zoom behaviour is a bit anoying, is there a way to customize it?
-- [ ] tags probably should have constant size or damping factor, otherwise they always would be biggest nodes
-- [ ] on node hover - highlight neigbour nodes and connecting edges
-- [ ] if there would be meta data for tags or pages, like color or icon - it can be used for graph vizualization
+- [ ] Links for nodes
+- [ ] Zoom behavior is a bit annoying; is there a way to customize it?
+- [ ] Tags probably should have a constant size or damping factor; otherwise, they will always be the biggest nodes.
+- [ ] On node hover, highlight neighbor nodes and connecting edges.
+- [ ] If there were metadata for tags or pages, like color or icon, it could be used for graph visualization.
 
 import GraphClient from "@components/GraphClient.astro";
 

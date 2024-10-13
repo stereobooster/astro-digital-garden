@@ -1,7 +1,7 @@
 ---
-title: Mermaid diagrams in markdown
+title: Mermaid diagrams in Markdown
 tags: [markdown, code-fences, diagram]
-description: Embed Mermaid diagrams inside code fences in Markdown. No clien-side JavaScript. Dark mode support. SVG
+description: Embed Mermaid diagrams inside code fences in Markdown. No client-side JavaScript. Dark mode support. SVG
 ---
 
 ```mermaid
@@ -82,17 +82,17 @@ Wave,Electricity grid,19.013
 Wind,Electricity grid,289.366
 ```
 
-Example taken from [mermaid.js.org](https://mermaid.js.org/syntax/sankey.html)
+Example taken from [mermaid.js.org](https://mermaid.js.org/syntax/sankey.html).
 
-There are a lot of diagraming languages (see [text-to-diagram](https://stereobooster.com/posts/text-to-diagram/)). [Mermaid](https://mermaid.js.org/) seems to be popular (it is supported by GitHub).
+There are many diagramming languages (see [text-to-diagram](https://stereobooster.com/posts/text-to-diagram/)). [Mermaid](https://mermaid.js.org/) seems to be popular, as it is supported by GitHub.
 
 There are **two options**:
 
-- `rehype-mermaid` - original plugin. Battle tested and well supported
-- `@beoe/rehype-mermaid` - my experiment. It is based on `mermaid-isomorphic` (the same one used by `rehype-mermaid`). But it also adds:
-  - [Selector based dark mode](https://github.com/remcohaszing/rehype-mermaid/issues/16). Used by Starlight and others
-  - cache - to prevent permanent launch of headless browser
-  - out of the box compatible with [[svg-pan-zoom|pan and zoom "plugin"]]
+- `rehype-mermaid` - the original plugin. Battle-tested and well supported.
+- `@beoe/rehype-mermaid` - my experiment. It is based on `mermaid-isomorphic` (the same one used by `rehype-mermaid`). It also adds:
+  - [Selector-based dark mode](https://github.com/remcohaszing/rehype-mermaid/issues/16). Used by Starlight and others.
+  - Cache to prevent the permanent launch of a headless browser.
+  - Out-of-the-box compatibility with [[svg-pan-zoom|pan and zoom "plugin"]].
 
 ## @beoe/rehype-mermaid
 
@@ -204,17 +204,17 @@ import { Steps } from "@astrojs/starlight/components";
 
 |                                                                                                    | `inline-svg` | `img-svg` |
 | -------------------------------------------------------------------------------------------------- | ------------ | --------- |
-| supports [`css`](https://github.com/remcohaszing/rehype-mermaid?tab=readme-ov-file#css) option     | ✔️ yes       | no        |
-| text is searchable (<kbd>Cmd</kbd> + <kbd>F</kbd>)                                                 | ✔️ yes       | no        |
-| supports [`dark`](https://github.com/remcohaszing/rehype-mermaid?tab=readme-ov-file#dark) mode (1) | no           | ✔️ yes    |
-| issues with [`rehype-raw`](https://github.com/remcohaszing/rehype-mermaid/issues/17) (2)           | yes          | ✔️ no     |
-| other CSS on the page may conflict (3)                                                             | yes          | ✔️ no     |
+| Supports [`css`](https://github.com/remcohaszing/rehype-mermaid?tab=readme-ov-file#css) option     | ✔️ Yes       | No        |
+| Text is searchable (<kbd>Cmd</kbd> + <kbd>F</kbd>)                                                 | ✔️ Yes       | No        |
+| Supports [`dark`](https://github.com/remcohaszing/rehype-mermaid?tab=readme-ov-file#dark) mode (1) | No           | ✔️ Yes    |
+| Issues with [`rehype-raw`](https://github.com/remcohaszing/rehype-mermaid/issues/17) (2)           | Yes          | ✔️ No     |
+| Other CSS on the page may conflict (3)                                                             | Yes          | ✔️ No     |
 
-`inline-svg` is deafault strategy.
+`inline-svg` is the default strategy.
 
 ### (1) dark mode
 
-In order to enable dark mode use:
+To enable dark mode, use:
 
 ```js {4}
 // astro.config.mjs
@@ -225,15 +225,15 @@ export default defineConfig({
 });
 ```
 
-**But** it doesn't work with Starlight's slector based dark mode. See [starlight#1829](https://github.com/withastro/starlight/discussions/1829).
+**However**, it doesn't work with Starlight's selector-based dark mode. See [starlight#1829](https://github.com/withastro/starlight/discussions/1829).
 
 ### (2) issues with rehype-raw
 
-I noticed issues only with `sankey` diagram. So this is minor issue
+I only noticed issues with the `sankey` diagram, so this is a minor issue.
 
 ### (3) other CSS
 
-You may style inline SVG with CSS:
+You can style inline SVG with CSS:
 
 ```css
 // src/styles/custom.css

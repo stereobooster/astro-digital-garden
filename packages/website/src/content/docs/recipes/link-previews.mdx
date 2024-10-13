@@ -8,17 +8,17 @@ description: Lets you preview a page when you hover the cursor over an internal 
 
 ## Options
 
-First of all we need popover library, for example:
+First of all, we need a popover library, for example:
 
 - [Floating UI](https://floating-ui.com/)
 - [Popper](https://popper.js.org/)
 - [Tippy.js](https://atomiks.github.io/tippyjs/)
 
-Then we need to decide how to fetch content for the page, for example:
+Then, we need to decide how to fetch content for the page. For example:
 
-- fetch HTML and extract header (`h1`) and content (`.sl-markdown-content`) with `DOMParser`
-- fetch HTML and extract metadata, for example OpenGraph tags, like `title`, `description` and `image`
-- fetch special JSON file (which needs to be generated upfront)
+- Fetch HTML and extract the header (`h1`) and content (`.sl-markdown-content`) with `DOMParser`.
+- Fetch HTML and extract metadata, such as OpenGraph tags, like `title`, `description`, and `image`.
+- Fetch a special JSON file (which needs to be generated upfront).
 
 ## Implementation
 
@@ -209,7 +209,7 @@ import { Steps } from "@astrojs/starlight/components";
 
 ## Further improvements
 
-- [ ] handle non-html links (images, pdfs)
+- [ ] Handle non-HTML links (images, PDFs).
 
 ## Reference implementations
 

@@ -3,7 +3,7 @@ title: Hasse diagram
 tags: [diagram]
 sidebar:
   label: Hasse diagram 🚷
-description: Convenient way to visualize concepts
+description: A convenient way to visualize concepts
 ---
 
 ```dot
@@ -47,9 +47,9 @@ digraph hasse {
 
 - [Automated Lattice Drawing](https://math.hawaii.edu/~ralph/Preprints/latdrawing.pdf), 2004
 - [Yet a Faster Algorithm for Building the Hasse Diagram of a Concept Lattice](https://upcommons.upc.edu/bitstream/handle/2117/9034/icfca09.pdf), 2009
-- [Lattice Drawing. Survey of Approaches, Geometric Method and Existing Software](https://phoenix.inf.upol.cz/~outrata/download/texts/LatDrawing-slides.pdf), 2009
+- [Lattice Drawing: Survey of Approaches, Geometric Method, and Existing Software](https://phoenix.inf.upol.cz/~outrata/download/texts/LatDrawing-slides.pdf), 2009
 - [Border Algorithms for Computing Hasse Diagrams of Arbitrary Lattices](https://core.ac.uk/download/pdf/41766685.pdf), 2011
-- [Confluent Hasse diagrams](https://arxiv.org/pdf/1108.5361.pdf), 2018
+- [Confluent Hasse Diagrams](https://arxiv.org/pdf/1108.5361.pdf), 2018
 
 ## References
 
@@ -57,7 +57,7 @@ digraph hasse {
 
 ## Workaround
 
-You may create Hasse diagram manually, for example, using [[graphviz-diagram]]. Diagram above created with follwing code:
+You can create a Hasse diagram manually, for example, using [[graphviz-diagram]]. The diagram above was created with the following code:
 
 ```
 digraph hasse {

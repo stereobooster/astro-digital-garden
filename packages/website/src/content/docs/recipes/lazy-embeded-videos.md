@@ -1,7 +1,7 @@
 ---
 title: Lazy embeded video
 tags: [component]
-description: Lazily embed YouTube videos with a static placeholder, which looks like the YouTube embed, but doesn't actually embed until you click
+description: Lazily embed YouTube videos with a static placeholder that looks like the YouTube embed but doesn't actually embed until you click
 ---
 
 ## Astro plugins
