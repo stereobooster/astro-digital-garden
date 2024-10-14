@@ -72,5 +72,8 @@ bdb.on("*", (action, opts) => {
  */
 export function isContent(doc) {
   // I use tags, but it can be anything
-  return doc.frontmatter().tags?.length > 0;
+  return (
+    doc.frontmatter().tags?.length > 0 &&
+    (doc.frontmatter().draft !== true || import.meta.env.DEV)
+  );
 }

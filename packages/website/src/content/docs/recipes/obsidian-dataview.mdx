@@ -34,9 +34,13 @@ import { Steps } from "@astrojs/starlight/components";
 
 3. Configure Astro. See note about [[rehype-plugins-for-code]].
 
-   ```js {2, 6}
+   ```js {2, 10}
    // astro.config.mjs
    import remarkDataview from "@braindb/remark-dataview";
+   import { getBrainDb } from "@braindb/astro";
+
+   const bdb = getBrainDb();
+   await bdb.ready();
 
    export default defineConfig({
      markdown: {

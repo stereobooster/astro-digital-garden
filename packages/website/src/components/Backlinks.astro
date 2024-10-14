@@ -7,24 +7,27 @@ interface Props {
 const { entry } = Astro.props;
 
 const doc = await bdb.findDocument(`/${entry.id}`);
+const links =
+  doc
+    ?.documentsFrom()
+    .filter((doc) => doc.frontmatter().draft !== true || import.meta.env.DEV) ||
+  [];
 ---
 
-<div class="backlinks">
-  {
-    doc && doc.documentsFrom().length > 0 && (
-      <>
-        <h2>Backlinks</h2>
-        <ul>
-          {doc.documentsFrom().map((x) => (
-            <li>
-              <a href={x.url()}>{x.title()}</a>
-            </li>
-          ))}
-        </ul>
-      </>
-    )
-  }
-</div>
+{
+  links.length > 0 && (
+    <div class="backlinks">
+      <h2>Backlinks</h2>
+      <ul>
+        {links.map((x) => (
+          <li>
+            <a href={x.url()}>{x.title()}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
 
 <style>
   .backlinks {

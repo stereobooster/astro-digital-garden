@@ -13,7 +13,7 @@ With BrainDB, it is possible to convert content into a graph, for example, in JS
 ```ts
 // src/lib/graph.ts
 import { BrainDB } from "@braindb/core";
-import { bdb } from "./braindb.mjs";
+import { getBrainDb } from "@braindb/astro";
 import circular from "graphology-layout/circular";
 import graphology from "graphology";
 // @ts-ignore
@@ -51,7 +51,7 @@ export async function toGraphologyJson(db: BrainDB) {
 
 export async function getGraph() {
   const graph = new MultiGraph();
-  const data = await toGraphologyJson(bdb);
+  const data = await toGraphologyJson(getBrainDb());
   graph.import(data as any);
   circular.assign(graph);
   return graph;

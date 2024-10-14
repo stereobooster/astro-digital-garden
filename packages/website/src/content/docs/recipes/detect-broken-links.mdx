@@ -16,8 +16,10 @@ import { Steps } from "@astrojs/starlight/components";
 
    ```js
    // src/lib/braindb.mjs
+   import { getBrainDb } from "@braindb/astro";
+
    let unresolvedLinksCount = 0;
-   bdb.on("*", (action, opts) => {
+   getBrainDb().on("*", (action, opts) => {
      if (opts) {
        opts.document.unresolvedLinks().forEach((link) => {
          unresolvedLinksCount++;

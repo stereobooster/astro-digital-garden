@@ -4,14 +4,18 @@ tags: [link]
 description: Support wiki-style links, such as [[link]], in Astro
 ---
 
-## Installation
+:::tip
+If you use `@braindb/astro`, it comes pre-configured with `@braindb/remark-wiki-link`. No additional actions are required.
+:::
+
+## Manual installation
 
 import { Steps } from "@astrojs/starlight/components";
 
 <Steps>
 
 1. Install [[braindb#installation]]
-2. Install `remark-wiki-link`
+2. Install `@braindb/remark-wiki-link`
 
    ```bash
    pnpm add @braindb/remark-wiki-link
@@ -22,11 +26,13 @@ import { Steps } from "@astrojs/starlight/components";
    ```js
    // astro.config.mjs
    import remarkWikiLink from "@braindb/remark-wiki-link";
-   import { bdb } from "./src/lib/braindb.mjs";
+   import { brainDbAstro, getBrainDb } from "@braindb/astro";
 
+   const bdb = getBrainDb();
    await bdb.ready();
 
    export default defineConfig({
+     integartions: [brainDbAstro({ remarkWikiLink: false })],
      markdown: {
        remarkPlugins: [
          [
@@ -34,30 +40,36 @@ import { Steps } from "@astrojs/starlight/components";
            {
              linkTemplate: ({ slug, alias }) => {
                const [slugWithoutAnchor, anchor] = slug.split("#");
-               const doc = bdb.documentsSync({ slug: slugWithoutAnchor })[0];
-               if (doc) {
-                 return {
-                   hName: "a",
-                   hProperties: {
-                     href: anchor ? `${doc.url()}#${anchor}` : doc.url(),
-                   },
-                   hChildren: [
-                     {
-                       type: "text",
-                       value: alias == null ? doc.frontmatter().title : alias,
-                     },
-                   ],
-                 };
-               } else {
-                 return {
-                   hName: "span",
-                   hProperties: {
-                     class: "broken-link",
-                     title: `Can't resolve link to ${slug}`,
-                   },
-                   hChildren: [{ type: "text", value: alias || slug }],
-                 };
+               if (slugWithoutAnchor) {
+                 const doc = bdb.documentsSync({ slug: slugWithoutAnchor })[0];
+                 if (doc) {
+                   if (!doc.frontmatter().draft || import.meta.env.DEV) {
+                     return {
+                       hName: "a",
+                       hProperties: {
+                         href: anchor ? `${doc.url()}#${anchor}` : doc.url(),
+                         class: doc.frontmatter().draft ? "draft-link" : "",
+                       },
+                       hChildren: [
+                         {
+                           type: "text",
+                           value:
+                             alias == null ? doc.frontmatter().title : alias,
+                         },
+                       ],
+                     };
+                   }
+                 }
                }
+
+               return {
+                 hName: "span",
+                 hProperties: {
+                   class: "broken-link",
+                   title: `Can't resolve link to ${slug}`,
+                 },
+                 hChildren: [{ type: "text", value: alias || slug }],
+               };
              },
            },
          ],

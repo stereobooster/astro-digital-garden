@@ -16,13 +16,13 @@ import { Steps } from "@astrojs/starlight/components";
    ```astro
    //src/components/RecentChanges.astro
    ---
-   import { bdb } from "@lib/braindb.mjs";
+   import { getBrainDb } from "@braindb/astro";
    import type { Document } from "@braindb/core";
 
-   const docs = await bdb.documents({ sort: ["updated_at", "desc"] });
+   const docs = await getBrainDb().documents({ sort: ["updated_at", "desc"] });
 
    const docsByDate = new Map<string, Document[]>();
-   docs.forEach((doc) => {
+   docs.filter((doc) => doc.frontmatter().draft !== true || import.meta.env.DEV).forEach((doc) => {
      const date = doc.updatedAt().toISOString().split("T")[0];
      docsByDate.set(date, docsByDate.get(date) || []);
      docsByDate.get(date)?.push(doc);
