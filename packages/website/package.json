@@ -10,6 +10,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "starlight-digital-garden": "workspace:*",
     "@astrojs/check": "^0.9.4",
     "@astrojs/markdown-remark": "^5.3.0",
     "@astrojs/starlight": "^0.28.3",

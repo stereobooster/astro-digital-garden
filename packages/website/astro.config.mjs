@@ -17,6 +17,8 @@ import { rehypeGnuplot } from "@beoe/rehype-gnuplot";
 
 import remarkDataview from "@braindb/remark-dataview";
 
+import starlightDigitalGarden from 'starlight-digital-garden'
+
 const cache = await getCache();
 
 await bdb.ready();
@@ -78,7 +80,7 @@ export default defineConfig({
             },
           ]
         : undefined,
-      plugins: [starlightKatex()],
+      plugins: [starlightKatex(), starlightDigitalGarden()],
     }),
     robotsTxt()
   ],

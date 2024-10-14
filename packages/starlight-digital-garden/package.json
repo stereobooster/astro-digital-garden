@@ -1,0 +1,29 @@
+{
+  "name": "starlight-digital-garden",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "Digital garden components for starlight",
+  "author": "stereobooster",
+  "type": "module",
+  "exports": {
+    ".": "./index.ts"
+  },
+  "devDependencies": {
+    "@astrojs/starlight": "^0.28.3",
+    "astro": "^4.16.3"
+  },
+  "peerDependencies": {
+    "@astrojs/starlight": ">=0.28"
+  },
+  "engines": {
+    "node": "^18.17.1 || ^20.3.0 || >=21.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stereobooster/astro-digital-garden.git",
+    "directory": "packages/starlight-digital-garden"
+  }
+}

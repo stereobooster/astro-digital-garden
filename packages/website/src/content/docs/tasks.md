@@ -8,6 +8,7 @@ description: My todo list
 
 - [ ] Publish components and related items because it is getting harder to reuse them
   - [Starlight plugins](https://starlight.astro.build/resources/plugins/)
+    - [ ] BackLinks
     - [ ] `LinkPreview`
     - [ ] Pan and zoom for images
     - [ ] "Snake" table of contents
