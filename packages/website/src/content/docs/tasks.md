@@ -7,14 +7,10 @@ description: My todo list
 ---
 
 - [ ] Publish components and related items because it is getting harder to reuse them
-  - [Astro plugins](https://starlight.astro.build/resources/plugins/)
-  - [ ] [Astro integration](https://github.com/stereobooster/braindb/tree/main/packages/braindb-astro):
-    - Unfortunately, it is blocked by [vitejs/vite#14289](https://github.com/vitejs/vite/issues/14289).
-    - Should it include wikilinks?
-    - Should it include [remark-dataview](https://github.com/stereobooster/braindb/tree/main/packages/remark-dataview)
-  - [ ] `LinkPreview`
-  - [ ] Pan and zoom for images
-  - [ ] "Snake" table of contents
+  - [Starlight plugins](https://starlight.astro.build/resources/plugins/)
+    - [ ] `LinkPreview`
+    - [ ] Pan and zoom for images
+    - [ ] "Snake" table of contents
 - [ ] Add a grammar checker
 - [ ] Update the section about the "Ideal solution" in the diagrams article
 - [ ] Write about `playwright` for Mermaid and Euler diagrams
@@ -60,7 +56,7 @@ I implemented a prototype in the branch [tag-color](https://github.com/stereoboo
 SELECT dv_link(), dv_task()
 FROM tasks JOIN documents ON documents.path = tasks.from
 WHERE (frontmatter ->> '$.draft' IS NULL OR frontmatter ->> '$.draft' = false)
-  AND url != '/tasks/' 
+  AND url != '/tasks/'
   AND checked = false
 ORDER BY updated_at DESC, path, tasks.start;
 ```
