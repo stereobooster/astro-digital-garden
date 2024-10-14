@@ -25,7 +25,7 @@
     "@floating-ui/dom": "^1.6.11",
     "@iconify/json": "^2.2.259",
     "@pagefind/default-ui": "^1.1.1",
-    "astro": "^4.16.2",
+    "astro": "^4.16.1",
     "astro-og-canvas": "^0.5.4",
     "astro-robots-txt": "^1.0.0",
     "astro-seo-schema": "^4.0.2",
