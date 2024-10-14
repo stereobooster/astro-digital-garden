@@ -7,11 +7,10 @@ description: My todo list
 ---
 
 - [ ] Publish components and related items because it is getting harder to reuse them
-  - [Starlight plugins](https://starlight.astro.build/resources/plugins/)
+  - [Starlight plugin](https://starlight.astro.build/resources/plugins/) with components
     - [ ] BackLinks
     - [ ] `LinkPreview`
     - [ ] Pan and zoom for images
-    - [ ] "Snake" table of contents
 - [ ] Add a grammar checker
 - [ ] Update the section about the "Ideal solution" in the diagrams article
 - [ ] Write about `playwright` for Mermaid and Euler diagrams
@@ -52,6 +51,9 @@ I can use it in:
 I implemented a prototype in the branch [tag-color](https://github.com/stereobooster/astro-digital-garden/tree/tag-color).
 
 ## From Other Articles
+
+- [ ] `client-side graph` link is broken below
+  - try `@braindb/astro`
 
 ```dataview list
 SELECT dv_link(), dv_task()
