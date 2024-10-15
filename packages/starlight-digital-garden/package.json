@@ -25,5 +25,10 @@
     "type": "git",
     "url": "https://github.com/stereobooster/astro-digital-garden.git",
     "directory": "packages/starlight-digital-garden"
+  },
+  "dependencies": {
+    "@beoe/pan-zoom": "^0.0.3",
+    "@braindb/astro": "^0.0.2",
+    "@floating-ui/dom": "^1.6.11"
   }
 }

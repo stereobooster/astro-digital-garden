@@ -1,21 +1,59 @@
-import type { StarlightPlugin } from '@astrojs/starlight/types'
+import type {
+  StarlightPlugin,
+  StarlightUserConfig,
+} from "@astrojs/starlight/types";
+import type { AstroIntegrationLogger } from "astro";
+import { brainDbAstro } from "@braindb/astro";
 
 export default function starlightDigitalGarden(): StarlightPlugin {
   return {
-    name: 'starlight-digital-garden',
+    name: "starlight-digital-garden",
     hooks: {
-      setup({ logger }) {
-        /**
-         * This is the entry point of your Starlight plugin.
-         * The `setup` hook is called when Starlight is initialized (during the Astro `astro:config:setup` integration
-         * hook).
-         * To learn more about the Starlight plugin API and all available options in this hook, check the Starlight
-         * plugins reference.
-         *
-         * @see https://starlight.astro.build/reference/plugins/
-         */
-        logger.info('Hello from the starlight-digital-garden plugin!')
+      setup({
+        config: starlightConfig,
+        logger,
+        updateConfig: updateStarlightConfig,
+        addIntegration,
+      }) {
+        addIntegration(brainDbAstro());
+
+        updateStarlightConfig({
+          components: {
+            ...starlightConfig.components,
+            ...overrideStarlightComponent(
+              starlightConfig.components,
+              logger,
+              "TableOfContents"
+            ),
+            ...overrideStarlightComponent(
+              starlightConfig.components,
+              logger,
+              "PageFrame"
+            ),
+          },
+        });
       },
     },
+  };
+}
+
+function overrideStarlightComponent(
+  components: StarlightUserConfig["components"],
+  logger: AstroIntegrationLogger,
+  component: keyof NonNullable<StarlightUserConfig["components"]>
+) {
+  if (components?.[component]) {
+    logger.warn(
+      `It looks like you already have a \`${component}\` component override in your Starlight configuration.`
+    );
+    logger.warn(
+      `To use \`starlight-digital-garden\`, either remove your override or update it to render the content from \`starlight-digital-garden/overrides/${component}.astro\`.`
+    );
+
+    return {};
   }
+
+  return {
+    [component]: `starlight-digital-garden/overrides/${component}.astro`,
+  };
 }

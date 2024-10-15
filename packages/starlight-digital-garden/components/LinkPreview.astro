@@ -1,0 +1,24 @@
+<div id="linkpreview" role="tooltip"></div>
+
+<style>
+  #linkpreview {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400px;
+    max-height: 400px;
+    overflow: scroll;
+    z-index: var(--sl-z-index-skiplink);
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: var(--sl-shadow-md);
+    color: var(--sl-color-text);
+    background-color: var(--sl-color-bg);
+  }
+</style>
+
+<script>
+  import "./preview.ts";
+</script>

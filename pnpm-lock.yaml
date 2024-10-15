@@ -16,6 +16,16 @@ importers:
         version: 5.6.3
 
   packages/starlight-digital-garden:
+    dependencies:
+      '@beoe/pan-zoom':
+        specifier: ^0.0.3
+        version: 0.0.3
+      '@braindb/astro':
+        specifier: ^0.0.2
+        version: 0.0.2(astro@4.16.3(rollup@4.24.0)(typescript@5.6.3))
+      '@floating-ui/dom':
+        specifier: ^1.6.11
+        version: 1.6.11
     devDependencies:
       '@astrojs/starlight':
         specifier: ^0.28.3
@@ -374,6 +384,11 @@ packages:
 
   '@beoe/sqlitecache@0.0.1':
     resolution: {integrity: sha512-oVbPwl+yUZrNqct1Q513L8543qwlwDx98wf4XlbHX1Jr5B+5aSIaJIcBweMm0HcL9a6qd5Q0ff0upif1BL7aLg==}
+
+  '@braindb/astro@0.0.2':
+    resolution: {integrity: sha512-rv1KG7SkwmMSdgHWCy2WQ9CFjO2odYgWi095uif4Ig1i4xUpYQuKvfJGSdWBgouOIr4v7rjkTvDxSo9fJ4bZfw==}
+    peerDependencies:
+      astro: ^4.15.11
 
   '@braindb/core@0.0.15':
     resolution: {integrity: sha512-VhhSMgNSFASPHRhuaZCwha8oq8lvRR4x82UnRTZZIbOvHxzqlPxyGUyQLugy8+9G+9zVOCnb4yJdFPr8MA1Vjg==}
@@ -4546,6 +4561,43 @@ snapshots:
     dependencies:
       better-sqlite3: 8.7.0
 
+  '@braindb/astro@0.0.2(astro@4.16.3(rollup@4.24.0)(typescript@5.6.3))':
+    dependencies:
+      '@braindb/core': 0.0.15
+      '@braindb/remark-wiki-link': 2.1.0
+      astro: 4.16.3(rollup@4.24.0)(typescript@5.6.3)
+      astro-integration-kit: 0.16.1(astro@4.16.3(rollup@4.24.0)(typescript@5.6.3))
+      github-slugger: 2.0.0
+    transitivePeerDependencies:
+      - '@aws-sdk/client-rds-data'
+      - '@cloudflare/workers-types'
+      - '@electric-sql/pglite'
+      - '@libsql/client'
+      - '@neondatabase/serverless'
+      - '@op-engineering/op-sqlite'
+      - '@opentelemetry/api'
+      - '@planetscale/database'
+      - '@prisma/client'
+      - '@tidbcloud/serverless'
+      - '@types/better-sqlite3'
+      - '@types/pg'
+      - '@types/react'
+      - '@types/sql.js'
+      - '@vercel/postgres'
+      - '@xata.io/client'
+      - bun-types
+      - expo-sqlite
+      - knex
+      - kysely
+      - mysql2
+      - pg
+      - postgres
+      - prisma
+      - react
+      - sql.js
+      - sqlite3
+      - supports-color
+
   '@braindb/core@0.0.15':
     dependencies:
       '@braindb/remark-wiki-link': 2.1.0
@@ -5447,6 +5499,12 @@ snapshots:
   astro-integration-kit@0.16.1(astro@4.16.2(rollup@4.24.0)(typescript@5.6.3)):
     dependencies:
       astro: 4.16.2(rollup@4.24.0)(typescript@5.6.3)
+      pathe: 1.1.2
+      recast: 0.23.9
+
+  astro-integration-kit@0.16.1(astro@4.16.3(rollup@4.24.0)(typescript@5.6.3)):
+    dependencies:
+      astro: 4.16.3(rollup@4.24.0)(typescript@5.6.3)
       pathe: 1.1.2
       recast: 0.23.9
 

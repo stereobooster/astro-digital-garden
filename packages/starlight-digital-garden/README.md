@@ -2,13 +2,9 @@
 
 Digital garden components for starlight
 
-For inspiration see [here](https://github.com/HiDeoo/starlight-blog/blob/main/packages/starlight-blog/index.ts).
-
 ## Documentation
 
-Want to get started immediately?
-
-Check out the `starlight-digital-garden` getting started guide.
+TODO
 
 ## License
 
