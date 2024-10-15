@@ -97,13 +97,14 @@ Starlight provides configurable sidebar, which is good enough for documentation.
 import type { Props } from "@astrojs/starlight/props";
 import Default from "@astrojs/starlight/components/Sidebar.astro";
 
-import { bdb, isContent } from "@lib/braindb.mjs";
+import { getBrainDb } from "@braindb/astro";
+import { isContent } from "@lib/braindb.mjs";
 import type { Document } from "@braindb/core";
 
 const firstChar = (str: string) => String.fromCodePoint(str.codePointAt(0)!);
 
 const docsByChar = new Map<string, Document[]>();
-(await bdb.documents()).forEach((doc) => {
+(await getBrainDb().documents()).forEach((doc) => {
   if (isContent(doc)) {
     const char = firstChar(doc.title()).toUpperCase();
     docsByChar.set(char, docsByChar.get(char) || []);
@@ -153,11 +154,12 @@ sidebarAlpha.unshift(Astro.props.sidebar[0]);
 import type { Props } from "@astrojs/starlight/props";
 import Default from "@astrojs/starlight/components/Sidebar.astro";
 
-import { bdb, isContent } from "@lib/braindb.mjs";
+import { getBrainDb } from "@braindb/astro";
+import { isContent } from "@lib/braindb.mjs";
 import type { Document } from "@braindb/core";
 
 const docsByDate = new Map<string, Document[]>();
-(await bdb.documents({ sort: ["updated_at", "desc"] })).forEach((doc) => {
+(await getBrainDb().documents({ sort: ["updated_at", "desc"] })).forEach((doc) => {
   if (isContent(doc)) {
     const date = doc.updatedAt().toISOString().split("T")[0];
     docsByDate.set(date, docsByDate.get(date) || []);
@@ -206,11 +208,12 @@ sidebarDates.unshift(Astro.props.sidebar[0]);
 import type { Props } from "@astrojs/starlight/props";
 import Default from "@astrojs/starlight/components/Sidebar.astro";
 
-import { bdb, isContent } from "@lib/braindb.mjs";
+import { getBrainDb } from "@braindb/astro";
+import { isContent } from "@lib/braindb.mjs";
 import type { Document } from "@braindb/core";
 
 const docsByTags = new Map<string, Document[]>();
-(await bdb.documents()).forEach((doc) => {
+(await getBrainDb().documents()).forEach((doc) => {
   if (isContent(doc)) {
     // @ts-expect-error
     doc.frontmatter().tags.forEach((tag: string) => {
