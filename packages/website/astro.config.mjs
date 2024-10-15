@@ -45,8 +45,7 @@ export default defineConfig({
       pagination: false,
       customCss: ["./src/styles/custom.css"],
       components: {
-        // PageFrame: "./src/components/PageFrame.astro",
-        // TableOfContents: "./src/components/TableOfContents.astro",
+        TableOfContents: "./src/components/TableOfContents.astro",
         Head: "./src/components/Head.astro",
         // Sidebar: "./src/components/Sidebar.astro",
       },
@@ -110,9 +109,6 @@ export default defineConfig({
     ],
   },
   vite: {
-    optimizeDeps: {
-      exclude: ["fsevents", "@node-rs", "@napi-rs"],
-    },
     plugins: [
       Icons({
         compiler: "astro",
