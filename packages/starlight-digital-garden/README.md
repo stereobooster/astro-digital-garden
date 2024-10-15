@@ -12,6 +12,7 @@ TODO:
 - [ ] update readme
 - [ ] enable link previews in SVG
 - [ ] maybe add `robotsTxt`?
+- [ ] remarkwikilinks should go after remarkDataView
 
 ## License
 
