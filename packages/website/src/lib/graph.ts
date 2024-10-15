@@ -1,5 +1,6 @@
 import { BrainDB } from "@braindb/core";
-import { bdb, isContent } from "./braindb.mjs";
+import { isContent } from "./braindb.mjs";
+import { getBrainDb } from "starlight-digital-garden";
 import graphology from "graphology";
 import circular from "graphology-layout/circular";
 import forceAtlas2 from "graphology-layout-forceatlas2";
@@ -66,7 +67,7 @@ export async function toGraphologyJson(db: BrainDB) {
 
 export async function getGraph() {
   const graph = new MultiGraph();
-  const data = await toGraphologyJson(bdb);
+  const data = await toGraphologyJson(getBrainDb());
   graph.import(data as any);
   circular.assign(graph);
   forceAtlas2.assign(graph, 2000);

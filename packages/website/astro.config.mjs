@@ -5,10 +5,7 @@ import { starlightKatex } from "starlight-katex";
 import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import Icons from "unplugin-icons/vite";
-import robotsTxt from 'astro-robots-txt';
-
-import remarkWikiLink from "@braindb/remark-wiki-link";
-import { bdb } from "./src/lib/braindb.mjs";
+import robotsTxt from "astro-robots-txt";
 
 import { getCache } from "@beoe/cache";
 import { rehypeMermaid } from "@beoe/rehype-mermaid";
@@ -17,11 +14,9 @@ import { rehypeGnuplot } from "@beoe/rehype-gnuplot";
 
 import remarkDataview from "@braindb/remark-dataview";
 
-import starlightDigitalGarden from 'starlight-digital-garden'
+import starlightDigitalGarden, { getBrainDb } from "starlight-digital-garden";
 
 const cache = await getCache();
-
-await bdb.ready();
 
 // https://astro.build/config
 export default defineConfig({
@@ -50,8 +45,8 @@ export default defineConfig({
       pagination: false,
       customCss: ["./src/styles/custom.css"],
       components: {
-        PageFrame: "./src/components/PageFrame.astro",
-        TableOfContents: "./src/components/TableOfContents.astro",
+        // PageFrame: "./src/components/PageFrame.astro",
+        // TableOfContents: "./src/components/TableOfContents.astro",
         Head: "./src/components/Head.astro",
         // Sidebar: "./src/components/Sidebar.astro",
       },
@@ -82,44 +77,10 @@ export default defineConfig({
         : undefined,
       plugins: [starlightKatex(), starlightDigitalGarden()],
     }),
-    robotsTxt()
+    robotsTxt(),
   ],
   markdown: {
-    remarkPlugins: [
-      [remarkDataview, { bdb }],
-      [
-        remarkWikiLink,
-        {
-          linkTemplate: ({ slug, alias }) => {
-            const [slugWithoutAnchor, anchor] = slug.split("#");
-            const doc = bdb.documentsSync({ slug: slugWithoutAnchor })[0];
-            if (doc) {
-              return {
-                hName: "a",
-                hProperties: {
-                  href: anchor ? `${doc.url()}#${anchor}` : doc.url(),
-                },
-                hChildren: [
-                  {
-                    type: "text",
-                    value: alias == null ? doc.frontmatter().title : alias,
-                  },
-                ],
-              };
-            } else {
-              return {
-                hName: "span",
-                hProperties: {
-                  class: "broken-link",
-                  title: `Can't resolve link to ${slug}`,
-                },
-                hChildren: [{ type: "text", value: alias || slug }],
-              };
-            }
-          },
-        },
-      ],
-    ],
+    remarkPlugins: [[remarkDataview, { bdb: getBrainDb() }]],
     rehypePlugins: [
       [
         rehypeMermaid,

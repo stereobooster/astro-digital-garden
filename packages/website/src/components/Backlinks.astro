@@ -1,12 +1,12 @@
 ---
-import { bdb } from "@lib/braindb.mjs";
+import { getBrainDb } from "starlight-digital-garden";
 import type { CollectionEntry } from "astro:content";
 interface Props {
   entry: CollectionEntry<"docs">;
 }
 const { entry } = Astro.props;
 
-const doc = await bdb.findDocument(`/${entry.id}`);
+const doc = await getBrainDb().findDocument(`/${entry.id}`);
 const links =
   doc
     ?.documentsFrom()

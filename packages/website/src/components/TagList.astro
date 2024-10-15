@@ -1,9 +1,10 @@
 ---
-import { bdb, isContent } from "@lib/braindb.mjs";
+import { isContent } from "@lib/braindb.mjs";
+import { getBrainDb } from "starlight-digital-garden";
 import type { Document } from "@braindb/core";
 
 const docsByTags = new Map<string, Document[]>();
-(await bdb.documents()).forEach((doc) => {
+(await getBrainDb().documents()).forEach((doc) => {
   if (isContent(doc)) {
     // @ts-expect-error
     doc.frontmatter().tags.forEach((tag: string) => {

@@ -6,7 +6,11 @@
   "author": "stereobooster",
   "type": "module",
   "exports": {
-    ".": "./index.ts"
+    ".": "./index.ts",
+    "./components/Backlinks.astro": "./components/Backlinks.astro",
+    "./components/LinkPreview.astro": "./components/LinkPreview.astro",
+    "./overrides/PageFrame.astro": "./overrides/PageFrame.astro",
+    "./overrides/TableOfContents.astro": "./overrides/TableOfContents.astro"
   },
   "devDependencies": {
     "@astrojs/starlight": "^0.28.3",

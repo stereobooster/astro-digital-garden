@@ -1,11 +1,12 @@
 ---
-import { bdb, isContent } from "@lib/braindb.mjs";
+import { isContent } from "@lib/braindb.mjs";
+import { getBrainDb } from "starlight-digital-garden";
 import type { Document } from "@braindb/core";
 
 const firstChar = (str: string) => String.fromCodePoint(str.codePointAt(0)!);
 
 const docsByChar = new Map<string, Document[]>();
-(await bdb.documents()).forEach((doc) => {
+(await getBrainDb().documents()).forEach((doc) => {
   if (isContent(doc)) {
     const char = firstChar(doc.title()).toUpperCase();
     docsByChar.set(char, docsByChar.get(char) || []);

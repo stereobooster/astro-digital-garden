@@ -13,7 +13,7 @@ import { Steps } from "@astrojs/starlight/components";
 1. Install [[braindb#installation]]
 2. Then you can access modification date, like this
    ```ts
-   const doc = (await bdb.documents({ slug }))[0];
+   const doc = (await getBrainDb().documents({ slug }))[0];
    doc.updatedAt();
    ```
 

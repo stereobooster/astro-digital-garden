@@ -5,6 +5,8 @@ import type {
 import type { AstroIntegrationLogger } from "astro";
 import { brainDbAstro } from "@braindb/astro";
 
+export { getBrainDb } from "@braindb/astro";
+
 export default function starlightDigitalGarden(): StarlightPlugin {
   return {
     name: "starlight-digital-garden",
