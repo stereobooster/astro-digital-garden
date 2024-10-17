@@ -79,7 +79,7 @@ export default defineConfig({
     robotsTxt(),
   ],
   markdown: {
-    remarkPlugins: [[remarkDataview, { bdb: getBrainDb() }]],
+    remarkPlugins: [[remarkDataview, { getBrainDb }]],
     rehypePlugins: [
       [
         rehypeMermaid,

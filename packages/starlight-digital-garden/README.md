@@ -7,12 +7,9 @@ Digital garden components for starlight
 TODO:
 
 - [ ] maybe add `rehypeExternalLinks`?
-- [ ] pass `getBrainDb` to `remarkDataview` instead of instance
-  - plus stop previous instance
 - [ ] update readme
 - [ ] enable link previews in SVG
 - [ ] maybe add `robotsTxt`?
-- [ ] remarkwikilinks should go after remarkDataView
 
 ## License
 

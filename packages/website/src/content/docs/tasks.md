@@ -52,9 +52,6 @@ I implemented a prototype in the branch [tag-color](https://github.com/stereoboo
 
 ## From Other Articles
 
-- [ ] `client-side graph` link is broken below
-  - try `@braindb/astro`
-
 ```dataview list
 SELECT dv_link(), dv_task()
 FROM tasks JOIN documents ON documents.path = tasks.from

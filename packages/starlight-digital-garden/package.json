@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@astrojs/starlight": "^0.28.3",
-    "astro": "^4.16.3"
+    "astro": "^4.16.6"
   },
   "peerDependencies": {
     "@astrojs/starlight": ">=0.28"
@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@beoe/pan-zoom": "^0.0.3",
-    "@braindb/astro": "^0.0.2",
+    "@braindb/astro": "^0.0.3",
     "@floating-ui/dom": "^1.6.11"
   }
 }

@@ -73,5 +73,4 @@ The idea was to display the graph without the need for JavaScript on the client 
 ## Further improvements
 
 - [ ] Show labels for tags on the graph.
-- [ ] Create an example with client-side graph
-  - see [[graph-client]].
+- [ ] Create an example with [[graph-client]]
