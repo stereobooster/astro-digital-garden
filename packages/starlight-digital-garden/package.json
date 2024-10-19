@@ -2,9 +2,20 @@
   "name": "starlight-digital-garden",
   "version": "0.0.1",
   "license": "MIT",
-  "description": "Digital garden components for starlight",
+  "description": "Digital garden for starlight",
   "author": "stereobooster",
   "type": "module",
+  "keywords": [
+    "starlight",
+    "plugin",
+    "astro",
+    "obsidian",
+    "zettelkasten",
+    "digital-garden",
+    "second-brain",
+    "zettelkasten-methodology",
+    "digital-gardening"
+  ],
   "exports": {
     ".": "./index.ts",
     "./components/Backlinks.astro": "./components/Backlinks.astro",
