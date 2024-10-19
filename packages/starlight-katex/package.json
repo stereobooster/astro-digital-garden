@@ -9,7 +9,8 @@
     "plugin",
     "katex",
     "latex",
-    "math"
+    "math",
+    "astro"
   ],
   "type": "module",
   "exports": {
