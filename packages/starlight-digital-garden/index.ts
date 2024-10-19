@@ -3,11 +3,93 @@ import type {
   StarlightUserConfig,
 } from "@astrojs/starlight/types";
 import type { AstroIntegrationLogger } from "astro";
-import { brainDbAstro } from "@braindb/astro";
+import { defineIntegration } from "astro-integration-kit";
+import { z } from "astro/zod";
+import rehypeExternalLinks from "rehype-external-links";
+import robotsTxt from "astro-robots-txt";
+import remarkDataview from "@braindb/remark-dataview";
 
-export { getBrainDb } from "@braindb/astro";
+import { brainDbAstro, getBrainDb } from "@braindb/astro";
+export { getBrainDb };
 
-export default function starlightDigitalGarden(): StarlightPlugin {
+export const astroDigitalGarden = defineIntegration({
+  name: "astro-digital-garden",
+  optionsSchema: z
+    .object({
+      remarkDataview: z.boolean(),
+      rehypeExternalLinks: z.union([
+        z.literal("arrow"),
+        z.literal("icon"),
+        z.literal("off"),
+      ]),
+    })
+    .partial()
+    .optional(),
+  setup({ options }) {
+    return {
+      hooks: {
+        "astro:config:setup": async ({ config, updateConfig }) => {
+          const newConfig = {
+            markdown: {
+              remarkPlugins: [
+                ...(options?.remarkDataview === true
+                  ? [[remarkDataview, { getBrainDb }]]
+                  : []),
+                ...config.markdown.remarkPlugins,
+              ],
+              rehypePlugins: [
+                ...(options?.rehypeExternalLinks === "off"
+                  ? []
+                  : [
+                      [
+                        rehypeExternalLinks,
+                        {
+                          target: "_blank",
+                          rel: ["nofollow", "noopener"],
+                          ...(options?.rehypeExternalLinks === "icon"
+                            ? {
+                                content: { type: "text", value: "" },
+                                contentProperties: (x: any) => {
+                                  const hostname = new URL(x.properties.href)
+                                    .hostname;
+                                  return {
+                                    class: "external-icon",
+                                    style: `--icon: url(https://external-content.duckduckgo.com/ip3/${hostname}.ico)`,
+                                  };
+                                },
+                              }
+                            : {
+                                content: { type: "text", value: " ↗" }, // ⤴
+                                contentProperties: {
+                                  "aria-hidden": true,
+                                  class: "no-select",
+                                },
+                              }),
+                        },
+                      ],
+                    ]),
+                ...config.markdown.rehypePlugins,
+              ],
+            },
+          };
+          updateConfig(newConfig);
+        },
+      },
+    };
+  },
+});
+
+type SDGOptions = {
+  robotsTxt?: boolean;
+  rehypeExternalLinks?: "arrow" | "icon";
+  remarkDataview?: boolean;
+  // TODO: BrainDBOptions
+  // TODO: maybe options to disable previews, backlinks, wikilinks etc?
+};
+
+export default function starlightDigitalGarden(
+  options?: SDGOptions
+): StarlightPlugin {
   return {
     name: "starlight-digital-garden",
     hooks: {
@@ -18,6 +100,8 @@ export default function starlightDigitalGarden(): StarlightPlugin {
         addIntegration,
       }) {
         addIntegration(brainDbAstro());
+        addIntegration(astroDigitalGarden(options));
+        if (options?.robotsTxt !== false) addIntegration(robotsTxt());
 
         updateStarlightConfig({
           components: {

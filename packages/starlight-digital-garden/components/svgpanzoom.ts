@@ -1,4 +1,5 @@
 import "@beoe/pan-zoom/css/PanZoomUi.css";
+import "./svgpanzoom.css";
 import { PanZoomUi } from "@beoe/pan-zoom";
 
 // TODO: astro:page-load

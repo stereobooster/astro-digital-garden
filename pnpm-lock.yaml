@@ -23,9 +23,21 @@ importers:
       '@braindb/astro':
         specifier: ^0.0.3
         version: 0.0.3(astro@4.16.6(rollup@4.24.0)(typescript@5.6.3))
+      '@braindb/remark-dataview':
+        specifier: ^0.0.2
+        version: 0.0.2
       '@floating-ui/dom':
         specifier: ^1.6.11
         version: 1.6.11
+      astro-integration-kit:
+        specifier: ^0.16.1
+        version: 0.16.1(astro@4.16.6(rollup@4.24.0)(typescript@5.6.3))
+      astro-robots-txt:
+        specifier: ^1.0.0
+        version: 1.0.0
+      rehype-external-links:
+        specifier: ^3.0.0
+        version: 3.0.0
     devDependencies:
       '@astrojs/starlight':
         specifier: ^0.28.3
@@ -76,9 +88,6 @@ importers:
       '@beoe/cache':
         specifier: ^0.0.1
         version: 0.0.1(typescript@5.6.3)
-      '@beoe/pan-zoom':
-        specifier: ^0.0.3
-        version: 0.0.3
       '@beoe/rehype-gnuplot':
         specifier: ^0.0.2
         version: 0.0.2
@@ -88,21 +97,9 @@ importers:
       '@beoe/rehype-mermaid':
         specifier: ^0.0.2
         version: 0.0.2
-      '@beoe/remark-code-hook':
-        specifier: ^0.0.1
-        version: 0.0.1
       '@braindb/core':
         specifier: 0.0.15
         version: 0.0.15
-      '@braindb/remark-dataview':
-        specifier: ^0.0.2
-        version: 0.0.2
-      '@braindb/remark-wiki-link':
-        specifier: ^2.1.0
-        version: 2.1.0
-      '@floating-ui/dom':
-        specifier: ^1.6.11
-        version: 1.6.11
       '@iconify/json':
         specifier: ^2.2.261
         version: 2.2.261
@@ -115,9 +112,6 @@ importers:
       astro-og-canvas:
         specifier: ^0.5.4
         version: 0.5.4(astro@4.16.6(rollup@4.24.0)(typescript@5.6.3))
-      astro-robots-txt:
-        specifier: ^1.0.0
-        version: 1.0.0
       astro-seo-schema:
         specifier: ^4.0.2
         version: 4.0.2(astro@4.16.6(rollup@4.24.0)(typescript@5.6.3))(schema-dts@1.1.2(typescript@5.6.3))
@@ -127,9 +121,6 @@ importers:
       edeap:
         specifier: 0.0.3
         version: 0.0.3(server-text-width@1.0.2)
-      github-slugger:
-        specifier: ^2.0.0
-        version: 2.0.0
       graphology:
         specifier: ^0.25.4
         version: 0.25.4(graphology-types@0.24.7)
@@ -157,9 +148,6 @@ importers:
       rehype-autolink-headings:
         specifier: ^7.1.0
         version: 7.1.0
-      rehype-external-links:
-        specifier: ^3.0.0
-        version: 3.0.0
       schema-dts:
         specifier: ^1.1.2
         version: 1.1.2(typescript@5.6.3)

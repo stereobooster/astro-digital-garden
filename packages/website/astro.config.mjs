@@ -1,20 +1,16 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
-import rehypeExternalLinks from "rehype-external-links";
 import { starlightKatex } from "starlight-katex";
 import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import Icons from "unplugin-icons/vite";
-import robotsTxt from "astro-robots-txt";
 
 import { getCache } from "@beoe/cache";
 import { rehypeMermaid } from "@beoe/rehype-mermaid";
 import { rehypeGraphviz } from "@beoe/rehype-graphviz";
 import { rehypeGnuplot } from "@beoe/rehype-gnuplot";
 
-import remarkDataview from "@braindb/remark-dataview";
-
-import starlightDigitalGarden, { getBrainDb } from "starlight-digital-garden";
+import starlightDigitalGarden from "starlight-digital-garden";
 
 const cache = await getCache();
 
@@ -74,12 +70,14 @@ export default defineConfig({
             },
           ]
         : undefined,
-      plugins: [starlightKatex(), starlightDigitalGarden()],
+      plugins: [
+        starlightKatex(),
+        starlightDigitalGarden({ remarkDataview: true }),
+      ],
     }),
-    robotsTxt(),
   ],
   markdown: {
-    remarkPlugins: [[remarkDataview, { getBrainDb }]],
+    // remarkPlugins: [],
     rehypePlugins: [
       [
         rehypeMermaid,
@@ -89,23 +87,6 @@ export default defineConfig({
       [rehypeGnuplot, { class: "not-content", cache }],
       rehypeHeadingIds,
       [rehypeAutolinkHeadings, { behavior: "append" }],
-      [
-        rehypeExternalLinks,
-        {
-          target: "_blank",
-          rel: ["nofollow", "noopener"],
-          content: { type: "text", value: " ↗" }, // ⤴
-          contentProperties: { "aria-hidden": true, class: "no-select" },
-          // content: { type: "text", value: "" },
-          // contentProperties: (x) => {
-          //   const hostname = new URL(x.properties.href).hostname;
-          //   return {
-          //     class: "external-icon",
-          //     style: `--icon: url(https://external-content.duckduckgo.com/ip3/${hostname}.ico)`,
-          //   };
-          // },
-        },
-      ],
     ],
   },
   vite: {

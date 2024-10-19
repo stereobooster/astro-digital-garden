@@ -41,20 +41,6 @@ html[data-theme="dark"] .beoe-light {
   border-radius: 0.5em;
 }
 
-.no-select {
-  user-select: none;
-}
-
-.external-icon {
-  background-image: var(--icon);
-  background-color: #fff;
-  background-size: cover;
-  color: transparent;
-  padding-left: 1.2rem;
-  border-radius: 0.2rem;
-  margin-left: 0.2rem;
-}
-
 /* links in headers */
 .sl-markdown-content :is(h1, h2, h3, h4, h5, h6) {
   a {
@@ -77,11 +63,6 @@ html[data-theme="dark"] .beoe-light {
   }
 }
 
-.broken-link {
-  text-decoration: underline;
-  color: red;
-}
-
 .column-list {
   column-width: calc(var(--sl-content-width) / 2 - 1.5rem);
 
@@ -101,57 +82,4 @@ html[data-theme="dark"] .beoe-light {
 svg.icon.text {
   display: inline-block !important;
   margin: 0 0 -0.25rem 0 !important;
-}
-
-.pan-zoom-button {
-  outline: none;
-  margin: 0;
-  width: auto;
-  overflow: visible;
-
-  background: transparent;
-
-  /* inherit font & color from ancestor */
-  font: inherit;
-
-  /* Corrects font smoothing for webkit */
-  -webkit-font-smoothing: inherit;
-  -moz-osx-font-smoothing: inherit;
-
-  /* Corrects inability to style clickable input types in iOS */
-  -webkit-appearance: none;
-  appearance: none;
-
-  color: var(--sl-color-white);
-  background-color: var(--sl-color-bg);
-  margin-block: 1rem;
-  margin-inline-end: 1rem;
-  align-items: center;
-  border: 1px solid var(--sl-color-white);
-  border-radius: 999rem;
-  display: inline-flex;
-  font-size: var(--sl-text-sm);
-  gap: 0.5em;
-  line-height: 1.1875;
-  outline-offset: 0.25rem;
-  padding: 0.4375rem 1.125rem;
-  cursor: pointer;
-}
-.pan-zoom-button:active {
-  background-color: var(--sl-color-accent);
-  color: var(--sl-color-black);
-  border-color: transparent;
-}
-.pan-zoom-button::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-}
-.pan-zoom-button:focus {
-  outline: none;
-}
-.pan-zoom-button:focus:not(:focus-visible) {
-  outline: none;
-}
-.pan-zoom-button:focus:not(:-moz-focusring) {
-  outline: none;
 }
