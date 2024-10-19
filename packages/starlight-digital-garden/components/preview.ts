@@ -2,6 +2,8 @@ import { computePosition, autoPlacement, offset } from "@floating-ui/dom";
 
 const tooltip = document.querySelector("#linkpreview") as HTMLElement;
 
+const noPreviewClass = "no-preview";
+
 const elements = document.querySelectorAll(
   ".sl-markdown-content a"
 ) as NodeListOf<HTMLAnchorElement>;
@@ -34,9 +36,8 @@ function clearTimers() {
 async function showLinkPreview(e: MouseEvent | FocusEvent) {
   const start = `${window.location.protocol}//${window.location.host}`;
   const target = e.target as HTMLElement;
-  const hrefRaw = (target?.closest("a")?.href || "") as
-    | string
-    | SVGAnimatedString;
+  const link = target?.closest("a");
+  const hrefRaw = (link?.href || "") as string | SVGAnimatedString;
 
   let href = "";
   let local = false;
@@ -47,11 +48,10 @@ async function showLinkPreview(e: MouseEvent | FocusEvent) {
     hash = new URL(href).hash;
     local = href.startsWith(start);
   } else {
-    // disabled for now - it is bugy
-    // href = hrefRaw.baseVal;
-    // hash = new URL(href, window.location.origin).hash;
-    // local = href.startsWith("/");
-    // svg = true;
+    href = hrefRaw.baseVal;
+    hash = new URL(href, window.location.origin).hash;
+    local = href.startsWith("/");
+    svg = true;
   }
 
   const hrefWithoutAnchor = href.replace(hash, "");
@@ -62,6 +62,14 @@ async function showLinkPreview(e: MouseEvent | FocusEvent) {
 
   currentHref = href;
   if (hrefWithoutAnchor === locationWithoutAnchor || !local) {
+    hideLinkPreview();
+    return;
+  }
+  // maybe use https://developer.mozilla.org/en-US/docs/Web/API/Element/matches ?
+  const noPreview =
+    link?.classList.contains(noPreviewClass) ||
+    !!target.closest(`.${noPreviewClass}`);
+  if (noPreview) {
     hideLinkPreview();
     return;
   }

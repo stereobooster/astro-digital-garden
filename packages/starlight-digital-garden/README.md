@@ -6,8 +6,6 @@ Digital garden components for starlight
 
 TODO:
 
-- [ ] enable link previews in SVG
-  - special class to disable previews for SVG, like `not-content`
 - [ ] update readme
 - [ ] maybe add `rehypeExternalLinks`?
 - [ ] maybe add `robotsTxt`?

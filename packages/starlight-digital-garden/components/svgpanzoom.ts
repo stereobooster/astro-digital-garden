@@ -2,12 +2,23 @@ import "@beoe/pan-zoom/css/PanZoomUi.css";
 import { PanZoomUi } from "@beoe/pan-zoom";
 
 // TODO: astro:page-load
-// TODO: style beoe buttons https://starlight.astro.build/guides/css-and-tailwind/
 document.querySelectorAll(".beoe").forEach((container) => {
   const element = container.firstElementChild;
   if (!element) return;
-  // @ts-expect-error
-  new PanZoomUi({ element, container }).on();
+  new PanZoomUi({
+    // @ts-expect-error
+    element,
+    // @ts-expect-error
+    container,
+    classes: {
+      zoomIn: "pan-zoom-button",
+      reset: "pan-zoom-button",
+      zoomOut: "pan-zoom-button",
+      buttons: "buttons",
+      tsWarning: "touchscreen-warning",
+      tsWarningActive: "active",
+    },
+  }).on();
 });
 
 // document
