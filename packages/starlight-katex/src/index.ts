@@ -17,7 +17,7 @@ export const astroKatex = defineIntegration({
   setup() {
     return {
       hooks: {
-        "astro:config:setup": async ({ config, updateConfig }) => {
+        "astro:config:setup": ({ config, updateConfig }) => {
           const noExternal = config.vite.ssr?.noExternal;
 
           const newConfig = {

@@ -6,11 +6,8 @@ next: false
 description: My todo list
 ---
 
-- [ ] Publish components and related items because it is getting harder to reuse them
-  - [Starlight plugin](https://starlight.astro.build/resources/plugins/) with components
-    - [ ] BackLinks
-    - [ ] `LinkPreview`
-    - [ ] Pan and zoom for images
+- [ ] Write about `starlight-digital-garden`
+- [ ] Write about `@beoe/rehype-vizdom`
 - [ ] Add a grammar checker
 - [ ] Update the section about the "Ideal solution" in the diagrams article
 - [ ] Write about `playwright` for Mermaid and Euler diagrams

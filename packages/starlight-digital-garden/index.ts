@@ -28,7 +28,7 @@ export const astroDigitalGarden = defineIntegration({
   setup({ options }) {
     return {
       hooks: {
-        "astro:config:setup": async ({ config, updateConfig }) => {
+        "astro:config:setup": ({ config, updateConfig }) => {
           const newConfig = {
             markdown: {
               remarkPlugins: [
@@ -83,7 +83,7 @@ type SDGOptions = {
   robotsTxt?: boolean;
   rehypeExternalLinks?: "arrow" | "icon";
   remarkDataview?: boolean;
-  // TODO: BrainDBOptions
+  // TODO: BrainDbOptions
   // TODO: maybe options to disable previews, backlinks, wikilinks etc?
 };
 
@@ -99,8 +99,8 @@ export default function starlightDigitalGarden(
         updateConfig: updateStarlightConfig,
         addIntegration,
       }) {
-        addIntegration(brainDbAstro());
         addIntegration(astroDigitalGarden(options));
+        addIntegration(brainDbAstro());
         if (options?.robotsTxt !== false) addIntegration(robotsTxt());
 
         updateStarlightConfig({
