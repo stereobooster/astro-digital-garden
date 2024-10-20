@@ -14,7 +14,7 @@ Astro digital garden - set of plugins (Astro, Remark, Rehype) and Astro componen
 ## Installation
 
 ```sh
-pnpm add starlight-katex @braindb/core
+pnpm add starlight-digital-garden @braindb/core
 ```
 
 Change configuration in `astro.config.mjs`:
