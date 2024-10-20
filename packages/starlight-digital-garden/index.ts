@@ -104,6 +104,8 @@ export default function starlightDigitalGarden(
         if (options?.robotsTxt !== false) addIntegration(robotsTxt());
 
         updateStarlightConfig({
+          // pagination doesn't make sense in the context of digital garden
+          pagination: false,
           components: {
             ...starlightConfig.components,
             ...overrideStarlightComponent(

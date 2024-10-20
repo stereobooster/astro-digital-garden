@@ -27,6 +27,7 @@ export default defineConfig({
         baseUrl:
           "https://github.com/stereobooster/astro-digital-garden/edit/main/packages/website/",
       },
+      lastUpdated: true,
       sidebar: [
         { label: "Introduction", link: "/" },
         {
@@ -37,17 +38,14 @@ export default defineConfig({
           },
         },
       ],
-      // pagination doesn't make sense in the context of digital garden
-      pagination: false,
       customCss: ["./src/styles/custom.css"],
       components: {
         TableOfContents: "./src/components/TableOfContents.astro",
         Head: "./src/components/Head.astro",
         // Sidebar: "./src/components/Sidebar.astro",
       },
-      lastUpdated: true,
       // If you want to fork this repository for personal use,
-      // please remove following lines for umami analytics
+      // please remove following lines for analytics
       head: import.meta.env.PROD
         ? [
             {

@@ -6,8 +6,15 @@ next: false
 description: My todo list
 ---
 
+- [ ] Add more options for `starlight-digital-garden`
+  - option to check for broken links?
 - [ ] Write about `starlight-digital-garden`
 - [ ] Write about `@beoe/rehype-vizdom`
+- [ ] Starlight SEO/SMO plugin
+  - `astro-robots-txt`
+  - microdata
+  - social image
+  - date in sitemap
 - [ ] Add a grammar checker
 - [ ] Update the section about the "Ideal solution" in the diagrams article
 - [ ] Write about `playwright` for Mermaid and Euler diagrams
