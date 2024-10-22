@@ -16,13 +16,13 @@ plot [-20:10] sin(x)
 
 There are many similar scripts, but the main difference is that this one **supports gestures for all types of devices**:
 
-| Intention | Mouse                   | Trackpad/Touchpad | Touchscreen      |
-|-----------|-------------------------|-------------------|------------------|
-| Pan       | Click + move            | Click + move      | Two-finger drag   |
-| Zoom      | <kbd>Ctrl</kbd> + wheel | Pinch             | Pinch            |
-| Reset     | Double click            | Double click      | Double tap       |
-|           |                         |                   |                  |
-| Scroll    | Wheel                   | Two-finger drag   | One-finger drag  |
+| Intention | Mouse                   | Trackpad/Touchpad | Touchscreen     |
+| --------- | ----------------------- | ----------------- | --------------- |
+| Pan       | Click + move            | Click + move      | Two-finger drag |
+| Zoom      | <kbd>Ctrl</kbd> + wheel | Pinch             | Pinch           |
+| Reset     | Double click            | Double click      | Double tap      |
+|           |                         |                   |                 |
+| Scroll    | Wheel                   | Two-finger drag   | One-finger drag |
 
 Pay attention to the following:
 
@@ -127,5 +127,6 @@ import { Steps } from "@astrojs/starlight/components";
 
 ## Further Improvements
 
-- [ ] Style pan-zoom buttons.
 - [ ] Create a Rehype plugin to wrap images in a container (`<figure class="beoe"></figure>`) to avoid creating it on the client side.
+- [ ] Do not stretch images if they are smaller than viewport
+- [ ] Prevent clicks on drag or pan
