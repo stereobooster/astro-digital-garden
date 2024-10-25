@@ -55,7 +55,7 @@ export function starlightKatex(): StarlightPlugin {
     hooks: {
       setup({ config, updateConfig, addIntegration }) {
         updateConfig({
-          customCss: [...config.customCss, katexCss],
+          customCss: [...(Array.isArray(config.customCss) ? config.customCss : []), katexCss],
         });
         addIntegration(astroKatex());
       },
