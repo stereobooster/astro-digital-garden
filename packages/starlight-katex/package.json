@@ -1,7 +1,7 @@
 {
   "name": "starlight-katex",
   "author": "stereobooster",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "MIT",
   "description": "Starlight plugin for Katex",
   "keywords": [
