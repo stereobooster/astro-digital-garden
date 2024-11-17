@@ -30,7 +30,6 @@ description: My todo list
 
 ## Ideas
 
-- Sidebar: Show a "new" (or "fresh") badge based on git update time?
 - Footnotes:
   - Mention how footnotes can be shown on the side, like in [Tufte design](https://edwardtufte.github.io/tufte-css/)
   - See https://gwern.net/sidenote

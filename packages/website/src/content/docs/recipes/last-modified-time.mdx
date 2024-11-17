@@ -94,9 +94,22 @@ console.log(remarkPluginFrontmatter.lastUpdated);
 
 Based on: [Astro recipes](https://docs.astro.build/en/recipes/modified-time/)
 
+## Tips
+
+### Github actions
+
+If you build your site with Github Actions, you need to use `fetch-depth: 0`
+
+```yaml
+- uses: actions/checkout@v4
+  with:
+    fetch-depth: 0
+```
+
 ## Further improvements
 
 Use the last modification date (for content pages) in:
 
 - [x] [[seo-and-smo-meta-tags|schema.org microdata]]
 - [ ] [sitemap](https://docs.astro.build/en/guides/integrations-guide/sitemap/) (`lastmod`)
+- [ ] in the [[sidebar]] to show "new" badge
