@@ -6,10 +6,12 @@ next: false
 description: My todo list
 ---
 
+- [ ] Write about `@beoe/rehype-vizdom`
+  - Write about interactivity
+- [ ] Write about `@beoe/rehype-d2`
 - [ ] Add more options for `starlight-digital-garden`
   - option to check for broken links?
 - [ ] Write about `starlight-digital-garden`
-- [ ] Write about `@beoe/rehype-vizdom`
 - [ ] Starlight SEO/SMO plugin
   - `astro-robots-txt`
   - microdata
