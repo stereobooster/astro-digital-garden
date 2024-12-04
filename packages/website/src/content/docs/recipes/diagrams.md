@@ -20,4 +20,4 @@ There are two ways to work with diagrams:
 
 ## Ideal solution
 
-Read more about different options and trade-offs [here](https://beoe.stereobooster.com/start-here/getting-started/).
+Read more about different options and trade-offs [here](https://beoe.stereobooster.com/start-here/strategy/).
