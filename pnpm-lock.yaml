@@ -136,13 +136,7 @@ importers:
       graphology-utils:
         specifier: ^2.5.2
         version: 2.5.2(graphology-types@0.24.8)
-      netlify-plugin-playwright-cache:
-        specifier: ^0.0.1
-        version: 0.0.1
       playwright:
-        specifier: ^1.49.0
-        version: 1.49.0
-      playwright-chromium:
         specifier: ^1.49.0
         version: 1.49.0
       rehype-autolink-headings:
@@ -3472,9 +3466,6 @@ packages:
     resolution: {integrity: sha512-Z4SmBUweYa09+o6pG+eASabEpP6QkQ70yHj351pQoEXIs8uHbaU2DWVmzBANKgflPa47A50PtB2+NgRpQvr7vA==}
     engines: {node: '>= 10'}
 
-  netlify-plugin-playwright-cache@0.0.1:
-    resolution: {integrity: sha512-FECC4DtoYKpGGUNevxXVTE0GdD5LYSWwTPJpHv/WW4VlviTle8QlKBvF3Exfm48TDvZCUR3ofX1Zz+cJWOWBWA==}
-
   nlcst-to-string@4.0.0:
     resolution: {integrity: sha512-YKLBCcUYKAg0FNlOBT6aI91qFmSiFKiluk655WzPF+DDMA02qIyy8uiRqI8QXtcFpEvll12LpL5MXqEmAZ+dcA==}
 
@@ -3639,11 +3630,6 @@ packages:
 
   pkg-types@1.2.1:
     resolution: {integrity: sha512-sQoqa8alT3nHjGuTjuKgOnvjo4cljkufdtLMnO2LBP/wRwuDlo1tkaEdMxCRhyGRPacv/ztlZgDPm2b7FAmEvw==}
-
-  playwright-chromium@1.49.0:
-    resolution: {integrity: sha512-xU+nOHawNFKfJsHTTGyWqSJ5nRGGHQq1wTsc49H9rM+hDNnoKZi+3m12mGoLpqvJP7vRjZQ3uvU9/UJZbrJ1AA==}
-    engines: {node: '>=18'}
-    hasBin: true
 
   playwright-core@1.49.0:
     resolution: {integrity: sha512-R+3KKTQF3npy5GTiKH/T+kdhoJfJojjHESR1YEWhYuEKRVfVaxH3+4+GvXE5xyCngCxhxnykk0Vlah9v8fs3jA==}
@@ -8889,8 +8875,6 @@ snapshots:
 
   neotraverse@0.6.18: {}
 
-  netlify-plugin-playwright-cache@0.0.1: {}
-
   nlcst-to-string@4.0.0:
     dependencies:
       '@types/nlcst': 2.0.3
@@ -9083,10 +9067,6 @@ snapshots:
       confbox: 0.1.8
       mlly: 1.7.3
       pathe: 1.1.2
-
-  playwright-chromium@1.49.0:
-    dependencies:
-      playwright-core: 1.49.0
 
   playwright-core@1.49.0: {}
 
