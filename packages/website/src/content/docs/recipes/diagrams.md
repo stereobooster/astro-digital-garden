@@ -10,7 +10,7 @@ There are two ways to work with diagrams:
    - [[mermaid-diagrams-in-markdown|Mermaid]]
    - [[gnuplot-diagram]]
    - [[graphviz-diagram]]
-   - [Astro D2](https://astro-d2.vercel.app/)
+   - [Astro D2](https://beoe.stereobooster.com/diagrams/d2/)
 2. Use them as components inside MDX or Astro pages:
    - [[timeline-diagram]]
    - [[euler-diagram]]
@@ -20,13 +20,4 @@ There are two ways to work with diagrams:
 
 ## Ideal solution
 
-- It should be rendered as (inline) SVG on the server side:
-  - No JavaScript required on the client side.
-  - Users can use <kbd>Cmd</kbd> + <kbd>F</kbd> to search text.
-- Style it with CSS variables (or CSS classes):
-  - This would allow for implementing dark mode without JavaScript.
-- Optionally add [[svg-pan-zoom|small JS to implement pan/zoom/drag]].
-
-## Ideas
-
-- [Penrose](https://github.com/penrose/penrose)
+Read more about different options and trade-offs [here](https://beoe.stereobooster.com/start-here/getting-started/).

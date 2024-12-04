@@ -13,6 +13,13 @@ import { rehypeGnuplot } from "@beoe/rehype-gnuplot";
 import starlightDigitalGarden from "starlight-digital-garden";
 
 const cache = await getCache();
+const diagramConfigs = {
+  cache,
+  strategy: "file",
+  darkScheme: "class",
+  fsPath: "public/beoe",
+  webPath: "/beoe",
+};
 
 // https://astro.build/config
 export default defineConfig({
@@ -77,12 +84,9 @@ export default defineConfig({
   markdown: {
     // remarkPlugins: [],
     rehypePlugins: [
-      [
-        rehypeMermaid,
-        { class: "not-content", cache, strategy: "img-class-dark-mode" },
-      ],
+      [rehypeMermaid, diagramConfigs],
+      [rehypeGnuplot, diagramConfigs],
       [rehypeGraphviz, { class: "not-content", cache }],
-      [rehypeGnuplot, { class: "not-content", cache }],
       rehypeHeadingIds,
       [rehypeAutolinkHeadings, { behavior: "append" }],
     ],

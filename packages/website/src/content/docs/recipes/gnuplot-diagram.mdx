@@ -4,7 +4,7 @@ tags: [markdown, code-fences, diagram]
 description: Gnuplot inside "code fences" converted to diagrams - static SVGs, no client-side JavaScript
 ---
 
-```gnuplot
+```gnuplot alt="example of the Gnuplot diagram"
 # Plotting filledcurves with different transparencies
 #
 # AUTHOR: Hagen Wierstorf
@@ -66,13 +66,22 @@ import { Steps } from "@astrojs/starlight/components";
 
 2. Configure Astro. See note about [[rehype-plugins-for-code]].
 
-   ```js {2, 6}
+   ```js {2, 7-14}
    // astro.config.mjs
    import { rehypeGnuplot } from "@beoe/rehype-gnuplot";
 
    export default defineConfig({
      markdown: {
-       rehypePlugins: [[rehypeGnuplot, { class: "not-content" }]],
+       rehypePlugins: [
+         [
+           rehypeGnuplot,
+           {
+             strategy: "file",
+             fsPath: "public/beoe",
+             webPath: "/beoe",
+           },
+         ],
+       ],
      },
    });
    ```
@@ -85,7 +94,7 @@ import { Steps } from "@astrojs/starlight/components";
 
 4. **Optional** configure cache
 
-   ```js {2, 4, 8}
+   ```js {2, 4, 15}
    // astro.config.mjs
    import { getCache } from "@beoe/cache";
 
@@ -93,7 +102,17 @@ import { Steps } from "@astrojs/starlight/components";
 
    export default defineConfig({
      markdown: {
-       rehypePlugins: [[rehypeGnuplot, { class: "not-content", cache }]],
+       rehypePlugins: [
+         [
+           rehypeGnuplot,
+           {
+             strategy: "file",
+             fsPath: "public/beoe",
+             webPath: "/beoe",
+             cache,
+           },
+         ],
+       ],
      },
    });
    ```
@@ -105,18 +124,18 @@ import { Steps } from "@astrojs/starlight/components";
 ## Example
 
 ````md
-```gnuplot
+```gnuplot alt="Plot of sin(x)"
 plot [-10:10] sin(x)
 ```
 ````
 
-```gnuplot
+```gnuplot alt="Plot of sin(x)"
 plot [-10:10] sin(x)
 ```
 
 ## Bonus: XKCD-style
 
-```gnuplot
+```gnuplot alt="example of the Gnuplot diagram in XKCD style"
 # Gnuplot file that plots a couple of functions in the xkcd style
 # Not a proper rendition, as the axis are still straight lines
 # Also, when plotting functions, the jiggling can only be done in

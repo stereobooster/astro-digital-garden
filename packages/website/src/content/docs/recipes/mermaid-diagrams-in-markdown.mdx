@@ -4,7 +4,7 @@ tags: [markdown, code-fences, diagram]
 description: Embed Mermaid diagrams inside code fences in Markdown. No client-side JavaScript. Dark mode support. SVG
 ---
 
-```mermaid
+```mermaid alt="example of the Mermaid diagram"
 ---
 config:
   sankey:
@@ -89,7 +89,7 @@ There are many diagramming languages (see [text-to-diagram](https://stereobooste
 There are **two options**:
 
 - `rehype-mermaid` - the original plugin. Battle-tested and well supported.
-- `@beoe/rehype-mermaid` - my experiment. It is based on `mermaid-isomorphic` (the same one used by `rehype-mermaid`). It also adds:
+- [`@beoe/rehype-mermaid`](https://beoe.stereobooster.com/diagrams/mermaid/) - my experiment. It is based on `mermaid-isomorphic` (the same one used by `rehype-mermaid`). It also adds:
   - [Selector-based dark mode](https://github.com/remcohaszing/rehype-mermaid/issues/16). Used by Starlight and others.
   - Cache to prevent the permanent launch of a headless browser.
   - Out-of-the-box compatibility with [[svg-pan-zoom|pan and zoom "plugin"]].
@@ -104,34 +104,42 @@ import { Steps } from "@astrojs/starlight/components";
 1. Install dependencies
 
     ```bash
-    pnpm add @beoe/rehype-mermaid
-    pnpm dlx playwright-core install --with-deps chromium
+    pnpm add @beoe/rehype-mermaid playwright
     ```
 
-2. Configure Astro. See note about [[rehype-plugins-for-code]].
+2. Update `package.json`
 
-   ```js {2, 7, 12-15}
+   ```json {3}
+   // package.json
+   "scripts": {
+     "postinstall": "playwright install chromium"
+   }
+   ```
+
+3. Configure Astro. See note about [[rehype-plugins-for-code]].
+
+   ```js {2, 7-15}
    // astro.config.mjs
    import { rehypeMermaid } from "@beoe/rehype-mermaid";
 
    export default defineConfig({
-     integrations: [
-       starlight({
-         customCss: ["./src/styles/custom.css"],
-       }),
-     ],
      markdown: {
        rehypePlugins: [
          [
            rehypeMermaid,
-           { class: "not-content", strategy: "img-class-dark-mode" },
+           {
+             strategy: "file",
+             fsPath: "public/beoe",
+             webPath: "/beoe",
+             darkScheme: "class",
+           },
          ],
        ],
      },
    });
    ```
 
-3. Add CSS for **dark mode**:
+4. Add CSS for **dark mode**:
 
    ```css
    // src/styles/custom.css
@@ -144,15 +152,15 @@ import { Steps } from "@astrojs/starlight/components";
    }
    ```
 
-4. **Optional** install dependency for **cache**
+5. **Optional** install dependency for **cache**
 
    ```bash
    pnpm add @beoe/cache
    ```
 
-5. **Optional** configure cache
+6. **Optional** configure cache
 
-   ```js {2,4,9-12}
+   ```js {2,4,16}
    // astro.config.mjs
    import { getCache } from "@beoe/cache";
 
@@ -163,114 +171,35 @@ import { Steps } from "@astrojs/starlight/components";
        rehypePlugins: [
          [
            rehypeMermaid,
-           { class: "not-content", strategy: "img-class-dark-mode", cache },
+           {
+             strategy: "file",
+             fsPath: "public/beoe",
+             webPath: "/beoe",
+             darkScheme: "class",
+             cache,
+           },
          ],
        ],
      },
    });
    ```
 
-6. **Optional** add [[svg-pan-zoom#installation|pan and zoom for diagrams]]
+7. **Optional** add [[svg-pan-zoom#installation|pan and zoom for diagrams]]
 
 </Steps>
-
-## rehype-mermaid
-
-### Installation
-
-<Steps>
-1. Install dependencies
-
-    ```bash
-    pnpm add rehype-mermaid
-    ```
-
-2. Configure Astro. See note about [[rehype-plugins-for-code]].
-
-   ```js {2,6}
-   // astro.config.mjs
-   import { rehypeMermaid } from "rehype-mermaid";
-
-   export default defineConfig({
-     markdown: {
-       rehypePlugins: [rehypeMermaid],
-     },
-   });
-   ```
-
-</Steps>
-
-### Strategies
-
-|                                                                                                    | `inline-svg` | `img-svg` |
-| -------------------------------------------------------------------------------------------------- | ------------ | --------- |
-| Supports [`css`](https://github.com/remcohaszing/rehype-mermaid?tab=readme-ov-file#css) option     | ✔️ Yes       | No        |
-| Text is searchable (<kbd>Cmd</kbd> + <kbd>F</kbd>)                                                 | ✔️ Yes       | No        |
-| Supports [`dark`](https://github.com/remcohaszing/rehype-mermaid?tab=readme-ov-file#dark) mode (1) | No           | ✔️ Yes    |
-| Issues with [`rehype-raw`](https://github.com/remcohaszing/rehype-mermaid/issues/17) (2)           | Yes          | ✔️ No     |
-| Other CSS on the page may conflict (3)                                                             | Yes          | ✔️ No     |
-
-`inline-svg` is the default strategy.
-
-### (1) dark mode
-
-To enable dark mode, use:
-
-```js {4}
-// astro.config.mjs
-export default defineConfig({
-  markdown: {
-    rehypePlugins: [[rehypeMermaid, { strategy: "img-svg", dark: true }]],
-  },
-});
-```
-
-**However**, it doesn't work with Starlight's selector-based dark mode. See [starlight#1829](https://github.com/withastro/starlight/discussions/1829).
-
-### (2) issues with rehype-raw
-
-I only noticed issues with the `sankey` diagram, so this is a minor issue.
-
-### (3) other CSS
-
-You can style inline SVG with CSS:
-
-```css
-// src/styles/custom.css
-svg[id^="mermaid"] {
-  /* undo global styles */
-  .node .label {
-    line-height: 1.2;
-  }
-
-  /* primitive dark mode */
-  .flowchart-link {
-    stroke: var(--sl-color-white) !important;
-  }
-
-  .marker {
-    stroke: var(--sl-color-white);
-    fill: var(--sl-color-white) !important;
-  }
-
-  .node-labels {
-    fill: var(--sl-color-white);
-  }
-}
-```
 
 ## Example
 
 ````md
 // example.md
 
-```mermaid
+```mermaid alt="example of the Mermaid diagram"
 flowchart LR
     Start --> Stop
 ```
 ````
 
-```mermaid
+```mermaid alt="example of the Mermaid diagram"
 flowchart LR
     Start --> Stop
 ```

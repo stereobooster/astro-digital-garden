@@ -4,7 +4,7 @@ tags: [markdown, code-fences, diagram]
 description: Graphviz inside "code fences" converted to diagrams - static SVGs, no client-side JavaScript
 ---
 
-```dot
+```dot alt="example of the Graphviz diagram"
 digraph finite_state_machine {
   bgcolor="transparent";
 	fontname="Helvetica,Arial,sans-serif";
@@ -116,13 +116,13 @@ To remove the background, use `bgcolor="transparent"`.
 ## Example
 
 ````md
-```dot
+```dot alt="example of the Graphviz diagram"
 digraph x {bgcolor="transparent";rankdir=LR;node [shape=box]
   Start -> Stop}
 ```
 ````
 
-```dot
+```dot alt="example of the Graphviz diagram"
 digraph x {bgcolor="transparent";rankdir=LR;node [shape=box]
   Start -> Stop}
 ```
@@ -138,16 +138,3 @@ See for inspiration:
 
 - [tintinweb.graphviz-interactive-preview](https://marketplace.visualstudio.com/items?itemName=tintinweb.graphviz-interactive-preview)
 - [SVG Zoom To Element](https://bettertyped.github.io/react-zoom-pan-pinch/?path=/story/examples-svg-zoom-to-element--svg-zoom-to-element)
-
-Alternatively, I can parse DOT language and use different renderers, for example:
-
-- **Parsers**
-  - [ts-graphviz](https://github.com/ts-graphviz/ts-graphviz)
-  - [vis.js](https://github.com/visjs/vis-network/blob/master/lib/network/dotparser.js)
-  - [dotparser](https://www.npmjs.com/package/dotparser)
-  - [@dagrejs/graphlib-dot](https://www.npmjs.com/package/@dagrejs/graphlib-dot)
-- **Renderers**
-  - [Graphviz JSON](https://graphviz.org/docs/outputs/json/) to render coordinates
-  - [vizdom](https://github.com/vizdom-dev/vizdom)
-  - [Apache ECharts](https://echarts.apache.org/handbook/en/basics/release-note/5-5-0/#server-side-rendering-%EF%BC%8B-lightweight-client-runtime) supports "hydration" of SVGs
-  - [Others](https://graph.stereobooster.com/notes/Visualisation)
