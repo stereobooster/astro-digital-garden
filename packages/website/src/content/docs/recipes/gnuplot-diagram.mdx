@@ -76,14 +76,20 @@ import { Steps } from "@astrojs/starlight/components";
          [
            rehypeGnuplot,
            {
-             strategy: "file",
-             fsPath: "public/beoe",
+             strategy: "file",      // alternatively use "data-url"
+             fsPath: "public/beoe", // add this to gitignore
              webPath: "/beoe",
            },
          ],
        ],
      },
    });
+   ```
+
+4. Add line to `.gitignore`:
+
+   ```gitignore
+   public/beoe
    ```
 
 3. **Optional** install dependency for cache

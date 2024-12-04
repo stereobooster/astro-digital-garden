@@ -128,8 +128,8 @@ import { Steps } from "@astrojs/starlight/components";
          [
            rehypeMermaid,
            {
-             strategy: "file",
-             fsPath: "public/beoe",
+             strategy: "file",      // alternatively use "data-url"
+             fsPath: "public/beoe", // add this to gitignore
              webPath: "/beoe",
              darkScheme: "class",
            },
@@ -139,7 +139,13 @@ import { Steps } from "@astrojs/starlight/components";
    });
    ```
 
-4. Add CSS for **dark mode**:
+4. Add line to `.gitignore`:
+
+   ```gitignore
+   public/beoe
+   ```
+
+5. Add CSS for **dark mode**:
 
    ```css
    // src/styles/custom.css
@@ -152,13 +158,13 @@ import { Steps } from "@astrojs/starlight/components";
    }
    ```
 
-5. **Optional** install dependency for **cache**
+6. **Optional** install dependency for **cache**
 
    ```bash
    pnpm add @beoe/cache
    ```
 
-6. **Optional** configure cache
+7. **Optional** configure cache
 
    ```js {2,4,16}
    // astro.config.mjs
@@ -184,7 +190,7 @@ import { Steps } from "@astrojs/starlight/components";
    });
    ```
 
-7. **Optional** add [[svg-pan-zoom#installation|pan and zoom for diagrams]]
+8. **Optional** add [[svg-pan-zoom#installation|pan and zoom for diagrams]]
 
 </Steps>
 
