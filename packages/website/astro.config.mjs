@@ -82,6 +82,12 @@ export default defineConfig({
     }),
   ],
   markdown: {
+    remarkRehype: {
+      // https://github.com/remarkjs/remark-rehype?tab=readme-ov-file#options
+      footnoteBackContent: "⤴",
+      // footnoteLabel: "Footnotes",
+      // footnoteLabelTagName: "h2",
+    },
     // remarkPlugins: [],
     rehypePlugins: [
       [rehypeMermaid, diagramConfigs],

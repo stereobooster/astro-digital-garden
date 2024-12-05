@@ -18,9 +18,6 @@ description: My todo list
   - social image
   - date in sitemap
 - [ ] Add a grammar checker
-- [ ] Update the section about the "Ideal solution" in the diagrams article
-- [ ] Write about `playwright` for Mermaid and Euler diagrams
-- [ ] Write about `not-content`
 - [ ] Implement [[faceted-search]]
 - [ ] Add [View Transitions](https://docs.astro.build/en/guides/view-transitions/)
   - See [starlight#694](https://github.com/withastro/starlight/pull/694#issuecomment-2021611520)
