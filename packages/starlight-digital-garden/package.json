@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@astrojs/starlight": "^0.28.3",
-    "astro": "^4.16.6"
+    "astro": "^4.16.18"
   },
   "peerDependencies": {
     "@astrojs/starlight": ">=0.28"
