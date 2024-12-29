@@ -27,3 +27,9 @@ description: How to add a sortable table to a static website
 ## Related
 
 - [Responsive Table - Vertical Scroll and Pinned Top Row](https://github.com/withastro/starlight/discussions/961)
+
+## a11y
+
+- https://www.a11yiseverything.com/articles/sortable-data-tables/
+- https://adrianroselli.com/2021/04/sortable-table-columns.html
+- https://carbondesignsystem.com/components/data-table/accessibility/
