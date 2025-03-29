@@ -9,6 +9,6 @@ import TOC from "./TOC.astro";
 
 <TOC {...Astro.props} />
 
-<Backlinks entry={Astro.props.entry as any} />
+<Backlinks entry={Astro.locals.starlightRoute.entry as any} />
 
-<Tags entry={Astro.props.entry as any} />
+<Tags entry={Astro.locals.starlightRoute.entry as any} />

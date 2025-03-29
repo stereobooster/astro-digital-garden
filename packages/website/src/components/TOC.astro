@@ -3,7 +3,7 @@ import type { Props } from "@astrojs/starlight/props";
 import { buildToc } from "./TOCHelper";
 import TOCHeading from "./TOCHeading.astro";
 
-const { headings } = Astro.props;
+const headings = Astro.locals.starlightRoute.toc.items;
 const toc = buildToc(headings);
 ---
 

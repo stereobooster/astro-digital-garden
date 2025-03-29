@@ -78,8 +78,8 @@ import { Steps } from "@astrojs/starlight/components";
    </Default>
 
    {
-     Astro.props.entry.data.backlinks !== false && (
-       <Backlinks entry={Astro.props.entry as any} />
+     Astro.locals.starlightRoute.entry.data.backlinks !== false && (
+       <Backlinks entry={Astro.locals.starlightRoute.entry as any} />
      )
    }
    ```

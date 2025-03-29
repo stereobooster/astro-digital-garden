@@ -3,7 +3,7 @@ import type { Props } from "@astrojs/starlight/props";
 import Default from "@astrojs/starlight/components/Head.astro";
 
 const ogImageUrl = new URL(
-  `/og/${Astro.props.id.replace(/\.\w+$/, ".png")}`,
+  `/og/${Astro.locals.starlightRoute.entry.id.replace(/\.\w+$/, ".png")}`,
   Astro.site
 );
 
@@ -20,7 +20,7 @@ import { Schema } from "astro-seo-schema";
     "@context": "https://schema.org",
     "@type": "NewsArticle",
     dateModified: Astro.props.lastUpdated?.toISOString(),
-    headline: Astro.props.entry.data.title,
+    headline: Astro.locals.starlightRoute.entry.data.title,
     image: [ogImageUrl.toString()],
     author: [
       {

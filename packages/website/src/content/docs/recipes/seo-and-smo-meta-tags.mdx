@@ -47,8 +47,8 @@ import { Steps } from "@astrojs/starlight/components";
      item={{
        "@context": "https://schema.org",
        "@type": "NewsArticle",
-       dateModified: Astro.props.lastUpdated?.toISOString(),
-       headline: Astro.props.entry.data.title,
+       dateModified: Astro.locals.starlightRoute.lastUpdated?.toISOString(),
+       headline: Astro.locals.starlightRoute.entry.data.title,
        author: [
          {
            "@type": "Person",

@@ -6,7 +6,7 @@ interface Props {
 }
 const { entry } = Astro.props;
 
-const doc = await getBrainDb().findDocument(`/${entry.id}`);
+const doc = await getBrainDb().findDocument(entry.filePath.replace("src/content/docs", ""));
 const links =
   doc
     ?.documentsFrom()

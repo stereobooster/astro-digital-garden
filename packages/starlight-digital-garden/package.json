@@ -1,6 +1,6 @@
 {
   "name": "starlight-digital-garden",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "license": "MIT",
   "description": "Digital garden for starlight",
   "author": "stereobooster",
@@ -24,11 +24,11 @@
     "./overrides/TableOfContents.astro": "./overrides/TableOfContents.astro"
   },
   "devDependencies": {
-    "@astrojs/starlight": "^0.28.3",
-    "astro": "^4.16.18"
+    "@astrojs/starlight": "^0.32.5",
+    "astro": "^5.5.5"
   },
   "peerDependencies": {
-    "@astrojs/starlight": ">=0.28"
+    "@astrojs/starlight": ">=0.32.5"
   },
   "engines": {
     "node": "^18.17.1 || ^20.3.0 || >=21.0.0"
@@ -42,11 +42,11 @@
     "directory": "packages/starlight-digital-garden"
   },
   "dependencies": {
-    "@beoe/pan-zoom": "^0.0.3",
-    "@braindb/astro": "^0.0.3",
+    "@beoe/pan-zoom": "^0.0.4",
+    "@braindb/astro": "^0.1.1",
     "@braindb/remark-dataview": "^0.0.2",
-    "@floating-ui/dom": "^1.6.11",
-    "astro-integration-kit": "^0.16.1",
+    "@floating-ui/dom": "^1.6.13",
+    "astro-integration-kit": "^0.18.0",
     "astro-robots-txt": "^1.0.0",
     "rehype-external-links": "^3.0.0"
   }

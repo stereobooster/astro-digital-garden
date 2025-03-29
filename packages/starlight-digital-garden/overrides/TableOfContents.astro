@@ -6,4 +6,4 @@ import Backlinks from "../components/Backlinks.astro";
 ---
 
 <Default {...Astro.props} />
-<Backlinks entry={Astro.props.entry} />
+<Backlinks entry={Astro.locals.starlightRoute.entry} />
