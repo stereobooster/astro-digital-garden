@@ -26,7 +26,6 @@ import { Steps } from "@astrojs/starlight/components";
     ```astro
     //src/components/Sidebar.astro
     ---
-    import type { Props } from "@astrojs/starlight/props";
     import Default from "@astrojs/starlight/components/Sidebar.astro";
     ---
 
@@ -94,7 +93,6 @@ Starlight provides configurable sidebar, which is good enough for documentation.
 ```astro
 // src/components/Sidebar.astro
 ---
-import type { Props } from "@astrojs/starlight/props";
 import Default from "@astrojs/starlight/components/Sidebar.astro";
 
 import { getBrainDb } from "@braindb/astro";
@@ -151,7 +149,6 @@ sidebarAlpha.unshift(Astro.props.sidebar[0]);
 ```astro
 // src/components/Sidebar.astro
 ---
-import type { Props } from "@astrojs/starlight/props";
 import Default from "@astrojs/starlight/components/Sidebar.astro";
 
 import { getBrainDb } from "@braindb/astro";
@@ -205,7 +202,6 @@ sidebarDates.unshift(Astro.props.sidebar[0]);
 ```astro
 // src/components/Sidebar.astro
 ---
-import type { Props } from "@astrojs/starlight/props";
 import Default from "@astrojs/starlight/components/Sidebar.astro";
 
 import { getBrainDb } from "@braindb/astro";

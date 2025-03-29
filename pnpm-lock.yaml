@@ -98,8 +98,8 @@ importers:
         specifier: ^0.4.2
         version: 0.4.2(playwright@1.51.1)
       '@braindb/core':
-        specifier: 0.0.16
-        version: 0.0.16
+        specifier: 0.0.17
+        version: 0.0.17
       '@iconify/json':
         specifier: ^2.2.321
         version: 2.2.321
@@ -381,9 +381,6 @@ packages:
 
   '@braindb/core@0.0.15':
     resolution: {integrity: sha512-VhhSMgNSFASPHRhuaZCwha8oq8lvRR4x82UnRTZZIbOvHxzqlPxyGUyQLugy8+9G+9zVOCnb4yJdFPr8MA1Vjg==}
-
-  '@braindb/core@0.0.16':
-    resolution: {integrity: sha512-bZEhJaFE14OVvt9iZA1Nql7W24PdC4Tg790afOiGb2IAt3EOp4P9SrKheBpCJVGFbbeN5lZzHaR8DdkdvxB4KQ==}
 
   '@braindb/core@0.0.17':
     resolution: {integrity: sha512-t83FoHZ8873GcxMGIv9UAwVI0MTHNgqUqXW2rkYO1YrFcJg0qoifhN+dDO/wE67JQ53DUZQrqALJbSXtnun72w==}
@@ -5296,56 +5293,6 @@ snapshots:
       - postgres
       - prisma
       - react
-      - sql.js
-      - sqlite3
-      - supports-color
-
-  '@braindb/core@0.0.16':
-    dependencies:
-      '@braindb/remark-wiki-link': 2.1.0
-      '@napi-rs/simple-git': 0.1.19
-      '@node-rs/xxhash': 1.7.6
-      better-sqlite3: 11.9.1
-      chokidar: 4.0.3
-      deterministic-object-hash: 2.0.2
-      drizzle-orm: 0.41.0(better-sqlite3@11.9.1)
-      mdast-util-to-string: 4.0.0
-      mitt: 3.0.1
-      remark-frontmatter: 5.0.0
-      remark-gfm: 4.0.1
-      remark-parse: 11.0.0
-      remark-stringify: 11.0.0
-      strip-markdown: 6.0.0
-      unified: 11.0.5
-      unist-util-map: 4.0.0
-      unist-util-visit: 5.0.0
-      yaml: 2.7.0
-    transitivePeerDependencies:
-      - '@aws-sdk/client-rds-data'
-      - '@cloudflare/workers-types'
-      - '@electric-sql/pglite'
-      - '@libsql/client'
-      - '@libsql/client-wasm'
-      - '@neondatabase/serverless'
-      - '@op-engineering/op-sqlite'
-      - '@opentelemetry/api'
-      - '@planetscale/database'
-      - '@prisma/client'
-      - '@tidbcloud/serverless'
-      - '@types/better-sqlite3'
-      - '@types/pg'
-      - '@types/sql.js'
-      - '@vercel/postgres'
-      - '@xata.io/client'
-      - bun-types
-      - expo-sqlite
-      - gel
-      - knex
-      - kysely
-      - mysql2
-      - pg
-      - postgres
-      - prisma
       - sql.js
       - sqlite3
       - supports-color
