@@ -1,7 +1,9 @@
 ---
-import { type TOCItem } from "./TOCHelper";
+import type { MarkdownHeading } from "astro";
+type TOCItem = MarkdownHeading & {
+  children: TOCItem[];
+};
 export type Props = { headings: TOCItem[] };
-
 const { headings } = Astro.props;
 ---
 
@@ -11,7 +13,7 @@ const { headings } = Astro.props;
       {headings.map((heading) => (
         <li>
           <a href={"#" + heading.slug}><span>{heading.text}</span></a>
-          <Astro.self headings={heading.subheadings} />
+          <Astro.self headings={heading.children} />
         </li>
       ))}
     </ul>

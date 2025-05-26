@@ -9,13 +9,23 @@ addIntersectionObserver();
 addResizeObserver();
 
 const tags = ["h2", "h3", "h4", "h5"];
+const tagClasses = tags.map((x) => `sl-heading-wrapper level-${x}`);
 function findPreviousSibling(el) {
   let result = [];
   do {
     if (tags.includes(el.tagName.toLowerCase())) result.push(el);
+    if (tagClasses.includes(el.className)) result.push(el.firstChild);
+    tagClasses.includes(el.className);
     if (el.previousElementSibling == null) break;
     el = el.previousElementSibling;
-    if (result.length > 0 && !tags.includes(el.tagName.toLowerCase())) break;
+    if (
+      result.length > 0 &&
+      !(
+        tags.includes(el.tagName.toLowerCase()) ||
+        tagClasses.includes(el.className)
+      )
+    )
+      break;
   } while (el);
   return result;
 }

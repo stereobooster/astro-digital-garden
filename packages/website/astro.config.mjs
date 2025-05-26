@@ -27,9 +27,13 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "Astro Digital Garden",
-      social: {
-        github: "https://github.com/stereobooster/astro-digital-garden",
-      },
+      social: [
+        {
+          icon: "github",
+          label: "GitHub",
+          href: "https://github.com/stereobooster/astro-digital-garden",
+        },
+      ],
       editLink: {
         baseUrl:
           "https://github.com/stereobooster/astro-digital-garden/edit/main/packages/website/",
