@@ -41,28 +41,6 @@ html[data-theme="dark"] .beoe-light {
   border-radius: 0.5em;
 }
 
-/* links in headers */
-.sl-markdown-content :is(h1, h2, h3, h4, h5, h6) {
-  a {
-    text-decoration: none;
-    font-size: 1.3rem;
-    margin-left: 0.5rem;
-    /* emoji silhouette */
-    color: transparent !important;
-  }
-
-  &:hover a {
-    /* emoji silhouette */
-    text-shadow: 0 0 0 var(--sl-color-text-accent);
-  }
-
-  .icon.icon-link::after {
-    /* content: "#"; */
-    /* content: "⚓"; */
-    content: "🔗";
-  }
-}
-
 .column-list {
   column-width: calc(var(--sl-content-width) / 2 - 1.5rem);
 

@@ -1,8 +1,6 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import { starlightKatex } from "starlight-katex";
-import { rehypeHeadingIds } from "@astrojs/markdown-remark";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import Icons from "unplugin-icons/vite";
 
 import { getCache } from "@beoe/cache";
@@ -97,8 +95,6 @@ export default defineConfig({
       [rehypeMermaid, diagramConfigs],
       [rehypeGnuplot, diagramConfigs],
       [rehypeGraphviz, { class: "not-content", cache }],
-      rehypeHeadingIds,
-      [rehypeAutolinkHeadings, { behavior: "append" }],
     ],
   },
   vite: {
