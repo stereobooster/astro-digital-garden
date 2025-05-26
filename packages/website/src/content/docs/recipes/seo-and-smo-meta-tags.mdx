@@ -1,7 +1,7 @@
 ---
 title: SEO and SMO meta tags
 tags: [component]
-description:  How to add SEO (search engine optimization) and SMO (social media optimization) tags to an Astro-based website
+description: How to add SEO (search engine optimization) and SMO (social media optimization) tags to an Astro-based website
 ---
 
 ## Astro Plugins
@@ -96,3 +96,9 @@ Try `"@type":"Article"` with the following elements:
 - [ ] Plugin that places sitemap URL in `robots.txt` (`astro-robots-txt`)
 - [ ] Use the "updated at" date in the sitemap (so search engines would rescan those pages first)
   - Maybe I can use BrainDb to generate it?
+- [ ] Use LLM to generate descriptions
+  ```js
+  import { pipeline } from "@huggingface/transformers";
+  const summarizer = await pipeline("summarization");
+  const summary = await summarizer("Some text here");
+  ```
